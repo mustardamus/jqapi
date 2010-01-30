@@ -23,10 +23,10 @@ $(document).ready(function() {
     $('.sub:odd', static_el).addClass('odd');
     
     
-    $('.category', static_el).toggle(function() {
-      $(this).addClass('open').children('ul').show();
+    $('.category > span', static_el).toggle(function() {
+      $(this).parent().addClass('open').children('ul').show();
     }, function() {
-      $(this).removeClass('open').children('ul').hide();
+      $(this).parent().removeClass('open').children('ul').hide();
     });
   });
 });

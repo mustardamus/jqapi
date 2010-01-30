@@ -23,25 +23,20 @@ body {
   font-size: 1.3em;
   border-right: 1px solid #aaaaaa;
 }
-#navigation #static-list li.category {
-  background: #eeeeee;
-  border-bottom: 1px solid #dddddd;
-  cursor: pointer;
-  padding-top: 7px;
-}
+#navigation #static-list li.category { border-bottom: 1px solid #dddddd; }
 #navigation #static-list li.category span {
-  background: url(../images/arrow.png) no-repeat;
-  padding-left: 20px;
+  background: url(../images/arrow.png) 5px 5px no-repeat #eeeeee;
+  padding: 7px 0 7px 25px;
   display: block;
-  margin: 0 0 7px 10px;
+  cursor: pointer;
 }
 #navigation #static-list li.category ul { display: none; }
 #navigation #static-list li.category:hover span {
   color: #111111;
-  background-position: 0 -16px;
+  background-position: 5px -15px;
 }
-#navigation #static-list li.open span { background-position: 0 -32px; }
-#navigation #static-list li.open:hover span { background-position: 0 -32px; }
+#navigation #static-list li.open span { background-position: 5px -35px; }
+#navigation #static-list li.open:hover span { background-position: 5px -35px; }
 #navigation #static-list li.sub {
   background: white;
   padding: 5px 0 5px 0;
@@ -50,6 +45,7 @@ body {
 #navigation #static-list li.sub a span {
   background: none;
   margin: 0;
+  padding: 0 0 0 25px;
 }
 #navigation #static-list li.sub a span.searchable { color: #333333; }
 #navigation #static-list li.sub a span.desc {
