@@ -1,7 +1,6 @@
 $(document).ready(function() {
   $('#navigation').load('navigation.html', function() { //load the navigation (not static because it gets generated with the api scraping)
     
-    
     var search_el = $('#search');
     var search_field = $('#search-field', search_el);
     var content_el = $('#content');
