@@ -20,6 +20,13 @@ $(document).ready(function() {
     $(window).resize(function() { resizeLayout(); });
     
     
+    $('.sub:odd', static_el).addClass('odd');
     
+    
+    $('.category', static_el).toggle(function() {
+      $(this).addClass('open').children('ul').show();
+    }, function() {
+      $(this).removeClass('open').children('ul').hide();
+    });
   });
 });

@@ -5,14 +5,24 @@ body { font-size: 62.5%; font-family: "Helvetica Neue", Arial, sans-serif; color
 #navigation { float: left; width: 20%; overflow: hidden;
   #search { padding: 4px; background: #e8e8e8; border-bottom: 1px solid #ddd; border-right: 1px solid #aaa; }
   
-  #static-list { overflow: auto; font-size: 1.3em; border-right: 1px solid #aaa;
-    li.category { background: #eee; border-bottom: 1px solid #ddd; padding: 7px 0 7px 10px; cursor: pointer;
-      span { background: url(../images/arrow.png) no-repeat; padding-left: 20px; }
+  #static-list { overflow: auto; overflow-x: hidden; font-size: 1.3em; border-right: 1px solid #aaa;
+    li.category { background: #eee; border-bottom: 1px solid #ddd; cursor: pointer; padding-top: 7px;
+      span { background: url(../images/arrow.png) no-repeat; padding-left: 20px; display: block; margin: 0 0 7px 10px; }
+      ul { display: none; }
     }
     li.category:hover span { color: #111; background-position: 0 -16px; }
     li.open span { background-position: 0 -32px; }
+    li.open:hover span { background-position: 0 -32px; }
     
-    li.sub { display: none; }
+    li.sub { background: white; padding: 5px 0 5px 0;
+      a { text-decoration: none;
+        span { background: none; margin: 0; }
+        span.searchable { color: #333; }
+        span.desc { color: #aaa; font-size: 0.8em; width: 30000px; overflow: hidden; margin-top: 4px; min-height: 12px; }
+      }
+    }
+    li.sub:hover { background: #dfdfdf; }
+    li.odd { background: #edf3fe; }
   }
 }
 

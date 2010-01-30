@@ -19,25 +19,49 @@ body {
 }
 #navigation #static-list {
   overflow: auto;
+  overflow-x: hidden;
   font-size: 1.3em;
   border-right: 1px solid #aaaaaa;
 }
 #navigation #static-list li.category {
   background: #eeeeee;
   border-bottom: 1px solid #dddddd;
-  padding: 7px 0 7px 10px;
   cursor: pointer;
+  padding-top: 7px;
 }
 #navigation #static-list li.category span {
   background: url(../images/arrow.png) no-repeat;
   padding-left: 20px;
+  display: block;
+  margin: 0 0 7px 10px;
 }
+#navigation #static-list li.category ul { display: none; }
 #navigation #static-list li.category:hover span {
   color: #111111;
   background-position: 0 -16px;
 }
 #navigation #static-list li.open span { background-position: 0 -32px; }
-#navigation #static-list li.sub { display: none; }
+#navigation #static-list li.open:hover span { background-position: 0 -32px; }
+#navigation #static-list li.sub {
+  background: white;
+  padding: 5px 0 5px 0;
+}
+#navigation #static-list li.sub a { text-decoration: none; }
+#navigation #static-list li.sub a span {
+  background: none;
+  margin: 0;
+}
+#navigation #static-list li.sub a span.searchable { color: #333333; }
+#navigation #static-list li.sub a span.desc {
+  color: #aaaaaa;
+  font-size: 0.8em;
+  width: 30000px;
+  overflow: hidden;
+  margin-top: 4px;
+  min-height: 12px;
+}
+#navigation #static-list li.sub:hover { background: #dfdfdf; }
+#navigation #static-list li.odd { background: #edf3fe; }
 #content {
   float: left;
   width: 80%;
