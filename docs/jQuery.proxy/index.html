@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang='en'><head><meta http-equiv='content-type' content='text/html; charset=UTF-8' /></head><body>
+<div class="entry-content">
+        <div class="entry-title roundTop">
+				<h1 class="jq-clearfix">jQuery.proxy()</h1>
+  				<div class="entry-meta">Categories:
+  					<span class="category"><a href="http://api.jquery.com/category/events/" title="View all posts in Events">Events</a> &gt; <a href="http://api.jquery.com/category/events/event-handler-attachment/" title="View all posts in Event Handler Attachment">Event Handler Attachment</a></span> | <span class="category"><a href="http://api.jquery.com/category/utilities/" title="View all posts in Utilities">Utilities</a></span>  
+    
+  				</div>
+</div>
+<div class="entry method" id="jQuery.proxy1">
+<h2 class="jq-clearfix roundTop section-title">
+<span class="name">jQuery.proxy( function, scope )</span> <span class="returns">Returns: <a class="return" href="http://docs.jquery.com/Types#Function">Function</a></span>
+</h2>
+<div class="jq-box roundBottom entry-details">
+<p class="desc"><strong>Description: </strong>Takes a function and returns a new one that will always have a particular scope.</p>
+<ul class="signatures">
+<li class="signature" id="jQuery.proxy-function-scope">
+<h4 class="name">
+<span class="versionAdded">version added: <a href="/category/version/1.4/">1.4</a></span>jQuery.proxy( function, scope )</h4>
+<p class="arguement"><strong>function</strong>The function whose scope will be changed.</p>
+<p class="arguement"><strong>scope</strong>The object to which the scope of the function should be set.</p>
+</li>
+<li class="signature" id="jQuery.proxy-scope-name">
+<h4 class="name">
+<span class="versionAdded">version added: <a href="/category/version/1.4/">1.4</a></span>jQuery.proxy( scope, name )</h4>
+<p class="arguement"><strong>scope</strong>The object to which the scope of the function should be set.</p>
+<p class="arguement"><strong>name</strong>The name of the function whose scope will be changed (should be a property of the 'scope' object.</p>
+</li>
+</ul>
+<div class="longdesc"><p>This method is most useful for attaching event handlers to an element where the scope is pointing back to a different object. Additionally, jQuery makes sure that even if you bind the function returned from jQuery.proxy() it will still unbind the correct function, if passed the original.</p></div>
+<h3>Example:</h3>
+<div id="entry-examples" class="entry-examples"><div id="example-0">
+<h4><span class="desc">Enforce the scope of the function.</span></h4>
+<pre><code class="example">var obj = {
+  name: "John",
+  test: function() {
+    alert( this.name );
+    $("#test").unbind("click", obj.test);
+  }
+};
+
+$("#test").click( jQuery.proxy( obj, "test" ) );
+
+// This also works:
+// $("#test").click( jQuery.proxy( obj.test, obj ) );</code></pre>
+</div></div>
+</div>
+</div>
+
+				</div>
+
+</body></html>
