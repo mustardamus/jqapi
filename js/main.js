@@ -27,5 +27,20 @@ $(document).ready(function() {
     }, function() {
       $(this).parent().removeClass('open').children('ul').hide();
     });
+    
+    
+    function loadPage(link) {
+      $('.sub', static_el).removeClass('selected');
+      link.parent().addClass('selected');
+      
+      content_el.html('<div id="loader"></div>').load(link.attr('href'), function() {
+        
+      });
+    }
+    
+    $('.sub a', static_el).click(function() {
+      loadPage($(this));
+      return false;
+    });
   });
 });

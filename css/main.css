@@ -6,6 +6,11 @@ body {
   background: white;
   overflow: hidden;
 }
+#loader {
+  background: url(../images/loader.gif) no-repeat center center;
+  width: 100%;
+  height: 100%;
+}
 #navigation {
   float: left;
   width: 20%;
@@ -31,23 +36,23 @@ body {
   cursor: pointer;
 }
 #navigation #static-list li.category ul { display: none; }
-#navigation #static-list li.category:hover span {
-  color: #111111;
-  background-position: 0 -27px;
-}
+#navigation #static-list li.category:hover span { background-position: 0 -27px; }
 #navigation #static-list li.open span { background-position: 0 -54px; }
 #navigation #static-list li.open:hover span { background-position: 0 -54px; }
 #navigation #static-list li.sub {
   background: white;
   padding: 5px 0 5px 0;
+  cursor: pointer;
 }
-#navigation #static-list li.sub a { text-decoration: none; }
+#navigation #static-list li.sub a {
+  text-decoration: none;
+  color: #333333;
+}
 #navigation #static-list li.sub a span {
   background: none;
   margin: 0;
   padding: 0 0 0 25px;
 }
-#navigation #static-list li.sub a span.searchable { color: #333333; }
 #navigation #static-list li.sub a span.desc {
   color: #aaaaaa;
   font-size: 0.8em;
@@ -58,6 +63,9 @@ body {
 }
 #navigation #static-list li.sub:hover { background: #dfdfdf; }
 #navigation #static-list li.odd { background: #edf3fe; }
+#navigation #static-list li.selected { background: #3875d7; }
+#navigation #static-list li.selected span { color: white; }
+#navigation #static-list li.selected:hover { background: #0069c1; }
 #content {
   float: left;
   width: 80%;
