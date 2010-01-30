@@ -6,11 +6,13 @@ $(document).ready(function() {
     var content_el = $('#content');
     var static_el = $('#static-list');
     var searchHeight = search_el.innerHeight();
+    var results = jQuery('<ul>', { id: 'results' }).insertBefore(static_el);
 
     function resizeLayout() {
       var winh = $(window).height();
       
       static_el.height(winh - searchHeight);
+      results.height(winh - searchHeight);
       content_el.height(winh);
       search_field.width(search_el.width() - 8);
     }
@@ -19,7 +21,10 @@ $(document).ready(function() {
     $(window).resize(function() { resizeLayout(); });
     
     
-    $('.sub:odd', static_el).addClass('odd');
+    function zebraItems(parent) {
+      $('.sub:odd', parent).addClass('odd');
+    }
+    zebraItems(static_el);
     
     
     function keepKeys() {
@@ -53,13 +58,13 @@ $(document).ready(function() {
       if(isOverNavigation()) {
         search_field.focus();
         
-        if($('.selected').length) {
+        if($('.selected:visible').length) {
           var sel = 'selected';
           var selel =  $('.'+sel);
         
           if(key == 'up' && selel.prev().length) selel.removeClass(sel).prev().addClass(sel);
           if(key == 'down' && selel.next().length) selel.removeClass(sel).next().addClass(sel);
-          if(key == 'enter') selel.children('a').trigger('click');
+          if(key == 'enter') loadPage(selel.children('a'), false);
         } else { //no selected field
           var catsel = 'cat-selected';
           var cat = $('.category', static_el);
@@ -77,32 +82,81 @@ $(document).ready(function() {
       }
     }
     
-    $(window).keyup(function(event) {
-      //console.log(event.keyCode);
-      
-      switch(event.keyCode) {
-        case 27: search_field.val('').focus(); break;   //ESC
-        case 38: handleKey('up'); break;
-        case 40: handleKey('down'); break;
-        case 13: handleKey('enter'); break;
+    function checkKey(key, rval) {
+      switch(key) {
+        case 27: search_field.val('').focus(); results.hide(); static_el.show(); if(!rval) return false; break;   //ESC
+        case 38: handleKey('up'); if(!rval) return false; break;
+        case 40: handleKey('down'); if(!rval) return false; break;
+        case 13: handleKey('enter'); if(!rval) return false; break;
       }
+      
+      return true;
+    }
+    
+    $(window).keyup(function(event) {
+      checkKey(event.keyCode, true);
     }).mousemove(function(event) {
       mouse_x = event.pageX;
     });
     
     
-    function loadPage(link) {
-      $('.sub', static_el).removeClass('selected');
-      link.parent().addClass('selected');
+    function loadPage(link, clicked) {
+      if(clicked) {
+        $('.sub').removeClass('selected');
+        link.parent().addClass('selected');
+        search_field.focus();
+      }
       
       content_el.html('<div id="loader"></div>').load(link.attr('href'), function() {
-        
+        //load examples / format stuff
       });
     }
     
     $('.sub a', static_el).click(function() {
-      loadPage($(this));
+      loadPage($(this), true);
       return false;
     });
+    
+    
+    search_field.keyup(function(event) {
+      if(!checkKey(event.keyCode, false)) return false;
+
+      var term = search_field.val();
+
+      results.html('');
+      
+      if(term.length) {
+        results.show();
+        static_el.hide();
+        
+        var last_pos = 100;
+        var winner = $;
+        
+        $('.searchable', static_el).each(function() {
+          var el = $(this);
+          var daddy = el.parent().parent();
+          var name = el.text();
+          var pos = name.toLowerCase().indexOf(term.toLowerCase());
+          
+          if(pos != -1) {
+            if(results.text().indexOf(name) == -1) {
+              var lastli = jQuery('<li>', {
+                'class': 'sub',
+                html: daddy.html()
+              }).appendTo(results);
+              
+              if(pos < last_pos) last_pos = pos; winner = lastli;
+            }
+          }
+        });
+        
+        results.prepend(winner).children('li:first').addClass('selected');
+        zebraItems(results);
+        
+      } else { //empty search
+        results.hide();
+        static_el.show();
+      }
+    });    
   });
 });
