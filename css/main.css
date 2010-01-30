@@ -4,4 +4,17 @@ body {
   font-family: "Helvetica Neue", Arial, sans-serif;
   color: #333333;
   background: white;
+  overflow: hidden;
+}
+#navigation {
+  float: left;
+  width: 22%;
+  overflow: hidden;
+}
+#navigation #static-list { overflow: auto; }
+#content {
+  float: left;
+  width: 78%;
+  overflow: auto;
+  background: red;
 }
