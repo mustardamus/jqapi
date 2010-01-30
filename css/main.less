@@ -8,7 +8,7 @@ body { font-size: 62.5%; font-family: "Helvetica Neue", Arial, sans-serif; color
 #navigation { float: left; width: 20%; overflow: hidden;
   #search { padding: 4px; background: #e8e8e8; border-bottom: 1px solid #ddd; border-right: 1px solid #aaa; }
   
-  #static-list { overflow: auto; overflow-x: hidden; font-size: 1.3em; border-right: 1px solid #aaa;
+  #static-list, #results { overflow: auto; overflow-x: hidden; font-size: 1.3em; border-right: 1px solid #aaa;
     li.category { border-bottom: 1px solid #ddd;
       span { background: url(../images/arrow.png) 0 0 no-repeat #eee; padding: 7px 0 7px 25px; display: block; cursor: pointer; }
       ul { display: none; }
@@ -16,11 +16,12 @@ body { font-size: 62.5%; font-family: "Helvetica Neue", Arial, sans-serif; color
     li.category:hover span { background-position: 0 -27px; }
     li.open span { background-position: 0 -54px; }
     li.open:hover span { background-position: 0 -54px; }
+    li.cat-selected span { background-position: 0 -27px; }
     
-    li.sub { background: white; padding: 5px 0 5px 0; cursor: pointer;
-      a { text-decoration: none; color: #333; 
-        span { background: none; margin: 0; padding: 0 0 0 25px; }
-        span.desc { color: #aaa; font-size: 0.8em; width: 30000px; overflow: hidden; margin-top: 4px; min-height: 12px; }
+    li.sub { background: white; 
+      a { text-decoration: none; color: #333;
+        span { background: none; margin: 0; padding: 5px 0 0 25px; }
+        span.desc { color: #aaa; font-size: 0.8em; width: 30000px; overflow: hidden; padding: 4px 0 5px 25px; min-height: 12px; }
       }
     }
     li.sub:hover { background: #dfdfdf; }

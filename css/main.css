@@ -39,11 +39,8 @@ body {
 #navigation #static-list li.category:hover span { background-position: 0 -27px; }
 #navigation #static-list li.open span { background-position: 0 -54px; }
 #navigation #static-list li.open:hover span { background-position: 0 -54px; }
-#navigation #static-list li.sub {
-  background: white;
-  padding: 5px 0 5px 0;
-  cursor: pointer;
-}
+#navigation #static-list li.cat-selected span { background-position: 0 -27px; }
+#navigation #static-list li.sub { background: white; }
 #navigation #static-list li.sub a {
   text-decoration: none;
   color: #333333;
@@ -51,14 +48,14 @@ body {
 #navigation #static-list li.sub a span {
   background: none;
   margin: 0;
-  padding: 0 0 0 25px;
+  padding: 5px 0 0 25px;
 }
 #navigation #static-list li.sub a span.desc {
   color: #aaaaaa;
   font-size: 0.8em;
   width: 30000px;
   overflow: hidden;
-  margin-top: 4px;
+  padding: 4px 0 5px 25px;
   min-height: 12px;
 }
 #navigation #static-list li.sub:hover { background: #dfdfdf; }
@@ -66,6 +63,47 @@ body {
 #navigation #static-list li.selected { background: #3875d7; }
 #navigation #static-list li.selected span { color: white; }
 #navigation #static-list li.selected:hover { background: #0069c1; }
+#navigation #results {
+  overflow: auto;
+  overflow-x: hidden;
+  font-size: 1.3em;
+  border-right: 1px solid #aaaaaa;
+}
+#navigation #results li.category { border-bottom: 1px solid #dddddd; }
+#navigation #results li.category span {
+  background: url(../images/arrow.png) 0 0 no-repeat #eeeeee;
+  padding: 7px 0 7px 25px;
+  display: block;
+  cursor: pointer;
+}
+#navigation #results li.category ul { display: none; }
+#navigation #results li.category:hover span { background-position: 0 -27px; }
+#navigation #results li.open span { background-position: 0 -54px; }
+#navigation #results li.open:hover span { background-position: 0 -54px; }
+#navigation #results li.cat-selected span { background-position: 0 -27px; }
+#navigation #results li.sub { background: white; }
+#navigation #results li.sub a {
+  text-decoration: none;
+  color: #333333;
+}
+#navigation #results li.sub a span {
+  background: none;
+  margin: 0;
+  padding: 5px 0 0 25px;
+}
+#navigation #results li.sub a span.desc {
+  color: #aaaaaa;
+  font-size: 0.8em;
+  width: 30000px;
+  overflow: hidden;
+  padding: 4px 0 5px 25px;
+  min-height: 12px;
+}
+#navigation #results li.sub:hover { background: #dfdfdf; }
+#navigation #results li.odd { background: #edf3fe; }
+#navigation #results li.selected { background: #3875d7; }
+#navigation #results li.selected span { color: white; }
+#navigation #results li.selected:hover { background: #0069c1; }
 #content {
   float: left;
   width: 80%;
