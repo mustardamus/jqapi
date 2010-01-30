@@ -9,12 +9,11 @@ $(document).ready(function() {
     var searchHeight = search_el.height();
 
     function resizeLayout() {
-      var win = $(window);
-      var winh = win.height();
+      var winh = $(window).height();
       
       static_el.height(winh - searchHeight);
       content_el.height(winh);
-      search_field.width(win.width());
+      search_field.width(search_el.width() - 4);
     }
 
     resizeLayout();

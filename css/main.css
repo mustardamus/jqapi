@@ -11,6 +11,10 @@ body {
   width: 22%;
   overflow: hidden;
 }
+#navigation #search {
+  padding: 4px;
+  background: #e8e8e8;
+}
 #navigation #static-list { overflow: auto; }
 #content {
   float: left;
