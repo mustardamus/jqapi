@@ -2,22 +2,19 @@ html { font-size: 16px; }
 body { font-size: 62.5%; font-family: "Helvetica Neue", Arial, sans-serif; color: #333; background: white; overflow: hidden; }
 
 
-#navigation { float: left; width: 22%; overflow: hidden;
-  #search { padding: 4px; background: #e8e8e8;
-    #search-field {  }
-  }
+#navigation { float: left; width: 20%; overflow: hidden;
+  #search { padding: 4px; background: #e8e8e8; border-bottom: 1px solid #ddd; border-right: 1px solid #aaa; }
   
-  #static-list { overflow: auto; }
+  #static-list { overflow: auto; font-size: 1.3em; border-right: 1px solid #aaa;
+    li.category { background: #eee; border-bottom: 1px solid #ddd; padding: 7px 0 7px 10px; cursor: pointer;
+      span { background: url(../images/arrow.png) no-repeat; padding-left: 20px; }
+    }
+    li.category:hover span { color: #111; background-position: 0 -16px; }
+    li.open span { background-position: 0 -32px; }
+    
+    li.sub { display: none; }
+  }
 }
 
 
-#content { float: left; width: 78%; overflow: auto; background: red; }
-
-/*width: 100%;
-           box-sizing: border-box;
-           -moz-box-sizing: border-box;
-           -webkit-box-sizing: border-box;
-           
-           -webkit-appearance: searchfield;
-           height: 22px;
-           //height: auto;*/
+#content { float: left; width: 80%; overflow: auto; }

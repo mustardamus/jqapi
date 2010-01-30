@@ -8,17 +8,38 @@ body {
 }
 #navigation {
   float: left;
-  width: 22%;
+  width: 20%;
   overflow: hidden;
 }
 #navigation #search {
   padding: 4px;
   background: #e8e8e8;
+  border-bottom: 1px solid #dddddd;
+  border-right: 1px solid #aaaaaa;
 }
-#navigation #static-list { overflow: auto; }
+#navigation #static-list {
+  overflow: auto;
+  font-size: 1.3em;
+  border-right: 1px solid #aaaaaa;
+}
+#navigation #static-list li.category {
+  background: #eeeeee;
+  border-bottom: 1px solid #dddddd;
+  padding: 7px 0 7px 10px;
+  cursor: pointer;
+}
+#navigation #static-list li.category span {
+  background: url(../images/arrow.png) no-repeat;
+  padding-left: 20px;
+}
+#navigation #static-list li.category:hover span {
+  color: #111111;
+  background-position: 0 -16px;
+}
+#navigation #static-list li.open span { background-position: 0 -32px; }
+#navigation #static-list li.sub { display: none; }
 #content {
   float: left;
-  width: 78%;
+  width: 80%;
   overflow: auto;
-  background: red;
 }

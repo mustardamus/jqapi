@@ -6,14 +6,14 @@ $(document).ready(function() {
     var search_field = $('#search-field', search_el);
     var content_el = $('#content');
     var static_el = $('#static-list');
-    var searchHeight = search_el.height();
+    var searchHeight = search_el.innerHeight();
 
     function resizeLayout() {
       var winh = $(window).height();
       
       static_el.height(winh - searchHeight);
       content_el.height(winh);
-      search_field.width(search_el.width() - 4);
+      search_field.width(search_el.width() - 8);
     }
 
     resizeLayout();
