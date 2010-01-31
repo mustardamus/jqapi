@@ -5,14 +5,14 @@ $(document).ready(function() {
     var search_field = $('#search-field', search_el).focus();
     var content_el = $('#content');
     var static_el = $('#static-list');
-    var searchHeight = search_el.innerHeight();
+    var search_height = search_el.innerHeight();
     var results = jQuery('<ul>', { id: 'results' }).insertBefore(static_el);
 
     function resizeLayout() {
       var winh = $(window).height();
       
-      static_el.height(winh - searchHeight);
-      results.height(winh - searchHeight);
+      static_el.height(winh - search_height);
+      results.height(winh - search_height);
       content_el.height(winh);
       search_field.width(search_el.width() - 8);
     }
@@ -53,7 +53,6 @@ $(document).ready(function() {
       else return false;
     }
 
-    
     function handleKey(key) {
       if(isOverNavigation()) {
         search_field.focus();
