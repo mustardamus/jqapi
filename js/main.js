@@ -253,4 +253,9 @@ $(document).ready(function() {
     
     return false;
   });
+  
+  $('#feedback-trigger').click(function() {
+    $('#feedback').trigger('click');
+    return false;
+  });
 });
