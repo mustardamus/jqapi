@@ -107,7 +107,7 @@ $(document).ready(function() {
       }
       
       content_el.html('<div id="loader"></div>').load(link.attr('href'), function() {
-        //load examples / format stuff
+        $('.arguement:odd', content_el).addClass('arguement-odd');
       });
     }
     

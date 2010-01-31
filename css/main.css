@@ -169,3 +169,124 @@ body {
   width: 80%;
   overflow: auto;
 }
+#content h1 {
+  font-size: 1.8em;
+  font-weight: normal;
+}
+#content h3 {
+  font-size: 1.8em;
+  font-weight: normal;
+}
+#content a {
+  color: #0000ff;
+  text-decoration: none;
+}
+#content a:hover {
+  background: #ffec86;
+  color: #444444;
+}
+.entry-title {
+  background: #ecf3fe;
+  padding: 15px 30px 10px 20px;
+}
+.entry-title .entry-meta { display: none; }
+.toc {
+  background: #ecf3fe;
+  font-size: 1.1em;
+  padding: 0 30px 10px 30px;
+  line-height: 14px;
+}
+.toc legend { display: none; }
+.entry { padding: 20px 40px 20px 40px; }
+.entry h2 {
+  margin-bottom: 10px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #333333;
+}
+.entry h2 span.name { font-size: 2em; }
+.entry h2 span.returns {
+  color: #666666;
+  font-size: 1.1em;
+  padding-left: 12px;
+}
+.entry h3 { padding: 14px 0 14px 0; }
+.entry h4.name { display: none; }
+.entry pre {
+  background: #fffce8;
+  padding: 10px;
+  line-height: 16px;
+  margin: 0 10px 20px 10px;
+  font-family: 'Courier New', 'Terminal', monospace;
+  font-size: 12px;
+}
+.entry p.desc {
+  font-size: 1.3em;
+  background: #eeeeee;
+  border: 1px dotted #cccccc;
+  padding: 6px;
+  margin-bottom: 10px;
+}
+.entry p.desc strong { display: none; }
+.entry .signatures {
+  font-size: 1.3em;
+  background: #ebf3fe;
+  margin-bottom: 30px;
+}
+.entry .signatures li .arguement {
+  position: relative;
+  padding: 10px 0 10px 200px;
+  line-height: 16px;
+}
+.entry .signatures li .arguement strong {
+  display: block;
+  position: absolute;
+  left: 10px;
+  top: 10px;
+}
+.entry .signatures li .arguement-odd { background: #dfedff; }
+.entry .signatures li .options {
+  margin: 0 20px 0 20px;
+  border: 1px solid #bfdcff;
+  padding: 20px;
+}
+.entry .signatures li .options h5 {
+  color: #143e6f;
+  border-bottom: 1px dotted #bfdcff;
+  padding-bottom: 4px;
+  margin-bottom: 5px;
+}
+.entry .signatures li .options h5 span { padding-left: 20px; }
+.entry .signatures li .options .default-value { padding: 5px 20px 5px 20px; }
+.entry .signatures li .options p {
+  line-height: 16px;
+  padding: 0 20px 1em 20px;
+}
+.entry .signatures li .options ul {
+  list-style: disc;
+  padding: 0 20px 16px 80px;
+}
+.entry .signatures li .options ul li {
+  margin-bottom: 14px;
+  line-height: 16px;
+}
+.entry div.longdesc {
+  font-size: 1.3em;
+  line-height: 16px;
+}
+.entry div.longdesc p { margin-bottom: 1em; }
+.entry div.longdesc ol {
+  list-style: decimal;
+  margin: 0 50px 16px 50px;
+  padding: 10px 10px 10px 40px;
+  background: #fafafa;
+}
+.entry div.longdesc ol li { margin-bottom: 8px; }
+.entry div.longdesc h4 { padding: 1em 0 1em 0; }
+.entry .entry-examples { font-size: 1.3em; }
+.entry .entry-examples h4 { margin-bottom: 1em; }
+.entry .entry-examples pre { border: 1px dotted #ffe0bb; }
+.entry .entry-examples .code-demo {
+  border: 2px solid #ffe0bb;
+  padding: 10px;
+  margin: 0 10px 30px 10px;
+}

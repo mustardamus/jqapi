@@ -56,4 +56,65 @@ body { font-size: 62.5%; font-family: "Helvetica Neue", Arial, sans-serif; color
 
 
 /* --------------------------------------------------------------------------- content ---------------------------------------------------------------------------- */
-#content { float: left; width: 80%; overflow: auto; }
+#content { float: left; width: 80%; overflow: auto;
+  h1, h3 { font-size: 1.8em; font-weight: normal; }
+  a { color: #0000FF; text-decoration: none; }
+  a:hover { background: #FFEC86; color: #444; }
+}
+
+
+.entry-title { background: #ECF3FE; padding: 15px 30px 10px 20px;
+  .entry-meta { display: none; }
+}
+
+.toc { background: #ECF3FE; font-size: 1.1em; padding: 0 30px 10px 30px; line-height: 14px;
+  legend { display: none; }
+}
+
+.entry { padding: 20px 40px 20px 40px;
+  h2 { margin-bottom: 10px; padding-bottom: 8px; border-bottom: 1px solid #333;
+    span.name { font-size: 2em; }
+    span.returns { color: #666; font-size: 1.1em; padding-left: 12px; }
+  }
+  h3 { padding: 14px 0 14px 0; }
+  h4.name { display: none; }
+  pre { background: #FFFCE8; padding: 10px; line-height: 16px; margin: 0 10px 20px 10px; font-family: 'Courier New', 'Terminal', monospace; font-size: 12px; }
+  
+  p.desc { font-size: 1.3em; background: #eee; border: 1px dotted #ccc; padding: 6px; margin-bottom: 10px;
+    strong { display: none; }
+  }
+  
+  .signatures { font-size: 1.3em; background: #EBF3FE; margin-bottom: 30px;
+    li {
+      .arguement { position: relative; padding: 10px 0 10px 200px; line-height: 16px;
+        strong { display: block; position: absolute; left: 10px; top: 10px; }
+      }
+      .arguement-odd { background: #DFEDFF; }
+      
+      .options { margin: 0 20px 0 20px; border: 1px solid #BFDCFF; padding: 20px;
+        h5 { color: #143E6F; border-bottom: 1px dotted #BFDCFF; padding-bottom: 4px; margin-bottom: 5px;
+          span { padding-left: 20px; }
+        }
+        .default-value { padding: 5px 20px 5px 20px; }
+        p { line-height: 16px; padding: 0 20px 1em 20px; }
+        ul { list-style: disc; padding: 0 20px 16px 80px;
+          li { margin-bottom: 14px; line-height: 16px; }
+        }
+      }
+    }
+  }
+  
+  div.longdesc { font-size: 1.3em; line-height: 16px;
+    p { margin-bottom: 1em; }
+    ol { list-style: decimal; margin: 0 50px 16px 50px; padding: 10px 10px 10px 40px; background: #fafafa;
+      li { margin-bottom: 8px; }
+    }
+    h4 { padding: 1em 0 1em 0; }
+  }
+  
+  .entry-examples { font-size: 1.3em;
+    h4 { margin-bottom: 1em; }
+    pre { border: 1px dotted #FFE0BB; }
+    .code-demo { border: 2px solid #FFE0BB; padding: 10px; margin: 0 10px 30px 10px; }
+  }
+}
