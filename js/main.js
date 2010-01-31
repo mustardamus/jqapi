@@ -145,14 +145,16 @@ $(document).ready(function() {
                 html: daddy.html()
               }).appendTo(results);
               
-              if(pos < last_pos) last_pos = pos; winner = lastli;
+              if(pos < last_pos) {
+                last_pos = pos;
+                winner = lastli;
+              }
             }
           }
         });
         
-        results.prepend(winner).children('li:first').addClass('selected');
+        results.prepend(winner).highlight(term, true, 'highlight').children('li:first').addClass('selected');
         zebraItems(results);
-        
       } else { //empty search
         results.hide();
         static_el.show();
