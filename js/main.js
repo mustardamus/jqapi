@@ -160,4 +160,39 @@ $(document).ready(function() {
       }
     });    
   });
+  
+  
+  
+  $('#feedback').click(function() {
+    var link = $(this).attr('href');
+    var fwindow = $('#feedback-window');
+    var foverlay = $('#feedback-overlay');
+    
+    if(!fwindow.length) {
+      var bod = $('body');
+      var win = $(window);
+      var winw = win.width();
+      var winh = win.height();
+      
+      fwindow = jQuery('<div>', {
+        id: 'feedback-window',
+        css: { left: (winw - 920) / 2, height: winh - 100 },
+        html: jQuery('<iframe>', { src: link })
+      }).appendTo(bod);
+      
+      foverlay = jQuery('<div>', {
+        id: 'feedback-overlay',
+        css: { width: winw, height: winh },
+        click: function() {
+          $(this).fadeOut('fast');
+          fwindow.fadeOut('fast');
+        }
+      }).appendTo(bod);
+    }
+    
+    foverlay.fadeIn('fast');
+    fwindow.fadeIn('fast');
+    
+    return false;
+  });
 });
