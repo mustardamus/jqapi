@@ -108,6 +108,24 @@ $(document).ready(function() {
       
       content_el.html('<div id="loader"></div>').load(link.attr('href'), function() {
         $('.arguement:odd', content_el).addClass('arguement-odd');
+        
+        
+        if($('p.desc', content_el).text().length <= 13) $('p.desc', content_el).remove();
+        
+        $('.signatures', content_el).each(function() {
+          var winner = 0;
+          var arg = $(this).find('.arguement');
+
+          arg.children('strong').each(function() {
+            var width = $(this).width();
+            if(width > winner) winner = width;
+          });
+
+          arg.css('padding-left', winner + 50);
+        });
+        
+        
+        
       });
     }
     
