@@ -287,6 +287,6 @@ body {
 .entry .entry-examples pre { border: 1px dotted #ffe0bb; }
 .entry .entry-examples .code-demo {
   border: 2px solid #ffe0bb;
-  padding: 10px;
+  padding: 2px;
   margin: 0 10px 30px 10px;
 }

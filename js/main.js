@@ -99,6 +99,41 @@ $(document).ready(function() {
     });
     
     
+    function generateWorkingDemos() {
+      $('code.demo-code', content_el).each(function() {
+        var el = $(this);
+        var demo = el.parent().parent().find('.code-demo');
+        
+        var source = el.html()
+                        .replace(/<\/?a.*?>/ig, '')
+                        .replace(/<\/?strong.*?>/ig, '')
+                        .replace(/&lt;/g, '<').replace(/&gt;/g, '>')
+                        .replace(/&amp;/g, '&')
+                        .replace('/scripts/jquery-1.4.js', 'js/jquery.min.js')
+                        .replace(/<script>([^<])/g, '<script>window.onload = (function(){\ntry{$1')
+                        .replace(/([^>])<\/sc/g, '$1\n}catch(e){}});</sc')
+                        .replace('</head>', '<style>html,body{border:0; margin:0; padding:10px; background: #FFE0BB;}</style></head>');
+        
+        var iframe = jQuery('<iframe>', {
+          src: 'blank.html',
+          width: '100%',
+          css: {
+            height: demo.attr('rel') || 125,
+            border: 'none'
+          }
+        }).get(0);
+        
+        demo.html(iframe);
+        var doc = iframe.contentDocument || (iframe.contentWindow && iframe.contentWindow.document) || iframe.document || null;
+        
+        if(doc != null) {
+          doc.open();
+          doc.write(source);
+          doc.close();
+        }
+      });
+    }
+    
     function loadPage(link, clicked) {
       if(clicked) {
         $('.sub').removeClass('selected');
@@ -125,7 +160,7 @@ $(document).ready(function() {
         });
         
         
-        
+        generateWorkingDemos();
       });
     }
     
@@ -172,6 +207,11 @@ $(document).ready(function() {
         
         results.prepend(winner).highlight(term, true, 'highlight').children('li:first').addClass('selected');
         zebraItems(results);
+        
+        $('.sub a', results).click(function() {
+          loadPage($(this), true);
+          return false;
+        });
       } else { //empty search
         results.hide();
         static_el.show();
