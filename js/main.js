@@ -141,10 +141,14 @@ $(document).ready(function() {
         search_field.focus();
       }
       
-      content_el.html('<div id="loader"></div>').load(link.attr('href'), function() {
+      var href = link.attr('href');
+      var fold = href.substr(5, href.length - 16);
+      
+      content_el.html('<div id="loader"></div>').load(href, function() {
+        $.bbq.pushState({ p: fold });
+        
+        
         $('.arguement:odd', content_el).addClass('arguement-odd');
-        
-        
         if($('p.desc', content_el).text().length <= 13) $('p.desc', content_el).remove();
         
         $('.signatures', content_el).each(function() {
@@ -168,6 +172,10 @@ $(document).ready(function() {
       loadPage($(this), true);
       return false;
     });
+    
+    
+    var bookmark = $.bbq.getState().p;
+    if(bookmark) $('.sub a[href*="'+bookmark+'"]:first', static_el).trigger('click');
     
     
     search_field.keyup(function(event) {
