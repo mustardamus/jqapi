@@ -34,7 +34,7 @@ $(document).ready(function() {
     
     $('.category > span', static_el).toggle(function() {
       keepKeys();
-      $(this).parent().addClass('open').children('ul').show().children('li:first').addClass('selected');
+      $(this).parent().addClass('open').children('ul').show();
     }, function() {
       keepKeys();
       $(this).parent().removeClass('open').children('ul').hide();
