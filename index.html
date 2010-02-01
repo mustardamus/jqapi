@@ -10,11 +10,11 @@
     <link rel="stylesheet" type="text/css" media="screen" href="css/main.css" />-->
     <link rel="stylesheet" type="text/css" media="screen" href="css/main.min.css" />
     
-    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <!--<script type="text/javascript" src="js/jquery.min.js"></script>
     <script type="text/javascript" src="js/highlight.js"></script>
     <script type="text/javascript" src="js/jquery.ba-bbq.min.js"></script>
-    <script type="text/javascript" src="js/main.js"></script>
-    <!--<script type="text/javascript" src="js/main.min.js"></script>-->
+    <script type="text/javascript" src="js/main.js"></script>-->
+    <script type="text/javascript" src="js/main.min.js"></script>
   </head>
   
   <body>
@@ -36,7 +36,7 @@
           <p>
             The jQuery documentation is great, very complete, nicely written and with a lot of examples and demos. The only thing that bugs me is the
             way we have to find the right documentation for what we search for. Try to search for the <code>.is()</code> function for example. Over 100 matches
-            before the actual function I am looking for?! And it is a fixed layout which means even on my big screen I have to scroll all the way down and have
+            before the actual function I am looking for?!<i>*)</i> And it is a fixed layout which means even on my big screen I have to scroll all the way down and have
             to scan for it. There have to be a better way, obviously.
           </p>
           <p>
@@ -47,6 +47,9 @@
           <p>
             Just to make it clear, I only coded the navigation and re-styled the documentation. The content is the same as in the
             <a href="http://api.jquery.com/">official documentation</a> and all credits belong to the jQuery team. Keep up the great work!
+          </p>
+          <p>
+            <i>*) Edit: it is the first search result when you enter it with brackets.</i>
           </p>
         </div>
       </div>
@@ -79,9 +82,9 @@ ESC     - Clear search field and set focus</code></pre>
           <p>
             <a href="http://jquery.com">jQuery</a>, <a href="http://api.jquery.com/">jQuery documentation</a>,
             <a href="http://railsapi.com/">Rails API</a>,
-            <a href="http://devthought.com/blog/client-side/2009/04/javascript-regexp-based-highlighting-function-for-mootools-and-jquery/">Highlight Plugin used</a>,
-            <a href="http://search.twitter.com/search?q=jqapi">Tweople for spreding the word and the feedback</a>, Beer. To be continued (hopefully).
-            
+            <a href="http://devthought.com/blog/client-side/2009/04/javascript-regexp-based-highlighting-function-for-mootools-and-jquery/">Highlight Plugin</a>,
+            <a href="http://benalman.com/projects/jquery-bbq-plugin/">BBQ Plugin</a>,
+            <a href="http://search.twitter.com/search?q=jqapi">Tweople for spreding the word and their feedback</a>, Beer. To be continued (hopefully).
           </p>
         </div>
       </div>
@@ -109,7 +112,7 @@ ESC     - Clear search field and set focus</code></pre>
               <li>Fix links to other pages.</li>
               <li>Fix images.</li>
               <li>Make a page for the different return types and fix the links.</li>
-              <li>Make the back button work and the different pages bookmark-able.</li>
+              <li>Get history (back button) working.</li>
               <li>Auto scroll the navigation when keys are used.</li>
             </ol>
           </p>
@@ -120,7 +123,8 @@ ESC     - Clear search field and set focus</code></pre>
         <h2><span class="name">Changelog</span><span class="returns">jQAPI history.</span></h2>
         <div class="longdesc">
           <p>
-<pre><code>[01/31/10] Complete rewrite with Ajax magic, better keyboard support and faster search.
+<pre><code>[02/01/10] Pages are now bookmark-able. <a href="http://benalman.com/projects/jquery-bbq-plugin/">BBQ Plugin</a> doing 99% of the work.
+[01/31/10] Complete rewrite with Ajax magic, better keyboard support and faster search.
 [01/29/10] Released hacked together version with good ol' iframes. (<a href="http://github.com/mustardamus/jquery-api-self">repo</a>)</code></pre>
           </p>
         </div>
