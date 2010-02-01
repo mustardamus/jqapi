@@ -189,7 +189,7 @@ $(document).ready(function() {
     $(window).bind('hashchange', function(event) {
       var state = event.getState();
       
-      if(state.p) loadPage($('.sub a[href*="/' + state.p + '/"]'));
+      if(state.p) loadPage($('.sub a[href*="/' + state.p + '/"]:first'));
     }).trigger('hashchange');
     
     
