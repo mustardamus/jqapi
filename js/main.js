@@ -56,9 +56,9 @@ $(document).ready(function() {
     function handleKey(key) {
       if(isOverNavigation()) {
         search_field.focus();
+        var sel = 'selected';
         
         if($('.selected:visible').length) {
-          var sel = 'selected';
           var selel =  $('.'+sel);
         
           if(key == 'up' && selel.prev().length) selel.removeClass(sel).prev().addClass(sel);
@@ -72,10 +72,17 @@ $(document).ready(function() {
           if(cats.length) { //a category is already selected
             if(key == 'up') cats.removeClass(catsel).prev().addClass(catsel);
             if(key == 'down') cats.removeClass(catsel).next().addClass(catsel);
-            if(key == 'enter') cats.removeClass(catsel).children('span').trigger('click').parent().find('.sub:first').addClass('selected');
+            if(key == 'enter') cats.removeClass(catsel).children('span').trigger('click');
           } else { //no category selected
-            if(key == 'up') cat.last().addClass(catsel);
-            if(key == 'down') cat.first().addClass(catsel);
+            var subvis = $('.sub:visible', static_el);
+            
+            if(subvis.length) {
+              if(key == 'up') subvis.filter(':last').addClass(sel);
+              if(key == 'down') subvis.filter(':first').addClass(sel);
+            } else {
+              if(key == 'up') cat.last().addClass(catsel);
+              if(key == 'down') cat.first().addClass(catsel);
+            }
           }
         }
       }
