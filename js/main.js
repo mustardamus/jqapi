@@ -165,6 +165,7 @@ $(document).ready(function() {
         
         
         generateWorkingDemos();
+        pageTracker._trackPageview(fold);
       });
     }
     
