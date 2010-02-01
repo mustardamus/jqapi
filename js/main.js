@@ -175,7 +175,7 @@ $(document).ready(function() {
     
     
     var bookmark = $.bbq.getState().p;
-    if(bookmark) $('.sub a[href*="'+bookmark+'"]:first', static_el).trigger('click');
+    if(bookmark) $('.sub a[href*="/'+bookmark+'/"]:first', static_el).trigger('click');
     
     
     search_field.keyup(function(event) {
