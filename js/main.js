@@ -146,6 +146,7 @@ $(document).ready(function() {
       
       content_el.html('<div id="loader"></div>').load(href, function() {
         $.bbq.pushState({ p: fold });
+        document.title = 'jQAPI - Alternative jQuery Documentation - ' + link.children('span:first').text();
         
         
         $('.arguement:odd', content_el).addClass('arguement-odd');
