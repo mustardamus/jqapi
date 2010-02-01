@@ -63,7 +63,7 @@ $(document).ready(function() {
         
           if(key == 'up' && selel.prev().length) selel.removeClass(sel).prev().addClass(sel);
           if(key == 'down' && selel.next().length) selel.removeClass(sel).next().addClass(sel);
-          if(key == 'enter') loadPage(selel.children('a'), false);
+          if(key == 'enter') $.bbq.pushState({ p: getMethodName(selel.children('a')) });
         } else { //no selected field
           var catsel = 'cat-selected';
           var cat = $('.category', static_el);
@@ -134,18 +134,8 @@ $(document).ready(function() {
       });
     }
     
-    function loadPage(link, clicked) {
-      if(clicked) {
-        $('.sub').removeClass('selected');
-        link.parent().addClass('selected');
-        search_field.focus();
-      }
-      
-      var href = link.attr('href');
-      var fold = href.substr(5, href.length - 16);
-      
-      content_el.html('<div id="loader"></div>').load(href, function() {
-        $.bbq.pushState({ p: fold });
+    function loadPage(link) {
+      content_el.html('<div id="loader"></div>').load(link.attr('href'), function() {
         document.title = 'jQAPI - Alternative jQuery Documentation - ' + link.children('span:first').text();
         
         
@@ -167,18 +157,40 @@ $(document).ready(function() {
         
         
         generateWorkingDemos();
-        pageTracker._trackPageview(fold);
+        pageTracker._trackPageview(getMethodName(link));
       });
     }
     
-    $('.sub a', static_el).click(function() {
-      loadPage($(this), true);
-      return false;
-    });
     
+    function markLinkSelected(link) {
+      $('.sub').removeClass('selected');
+      link.parent().addClass('selected');
+      search_field.focus();
+    }
     
-    var bookmark = $.bbq.getState().p;
-    if(bookmark) $('.sub a[href*="/'+bookmark+'/"]:first', static_el).trigger('click');
+    function getMethodName(link) {
+      var href = link.attr('href');
+      return href.substr(5, href.length - 16);
+    }
+    
+    function bindItemClicks(list) {
+      $('.sub a', list).click(function() {
+        var el = $(this);
+
+        markLinkSelected(el);
+        $.bbq.pushState({ p: getMethodName(el) });
+
+        return false;
+      });
+    }
+    bindItemClicks(static_el);
+
+    
+    $(window).bind('hashchange', function(event) {
+      var state = event.getState();
+      
+      if(state.p) loadPage($('.sub a[href*="/' + state.p + '/"]'));
+    }).trigger('hashchange');
     
     
     search_field.keyup(function(event) {
@@ -218,11 +230,7 @@ $(document).ready(function() {
         
         results.prepend(winner).highlight(term, true, 'highlight').children('li:first').addClass('selected');
         zebraItems(results);
-        
-        $('.sub a', results).click(function() {
-          loadPage($(this), true);
-          return false;
-        });
+        bindItemClicks(results);
       } else { //empty search
         results.hide();
         static_el.show();
