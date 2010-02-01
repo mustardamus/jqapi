@@ -151,6 +151,7 @@ $(document).ready(function() {
         
         $('.arguement:odd', content_el).addClass('arguement-odd');
         if($('p.desc', content_el).text().length <= 13) $('p.desc', content_el).remove();
+        $('img', content.el).attr('src', function() { return $(this).attr('src').substr(1); });
         
         $('.signatures', content_el).each(function() {
           var winner = 0;

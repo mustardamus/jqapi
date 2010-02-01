@@ -282,6 +282,12 @@ body {
 }
 .entry div.longdesc ol li { margin-bottom: 8px; }
 .entry div.longdesc h4 { padding: 1em 0 1em 0; }
+.entry div.longdesc p.image {
+  text-align: center;
+  border: 2px solid #eeeeee;
+  padding: 5px;
+}
+.entry div.longdesc p.image img { vertical-align: top; }
 .entry .entry-examples { font-size: 1.3em; }
 .entry .entry-examples h4 { margin-bottom: 1em; }
 .entry .entry-examples pre { border: 1px dotted #ffe0bb; }
