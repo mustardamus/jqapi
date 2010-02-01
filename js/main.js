@@ -196,45 +196,47 @@ $(document).ready(function() {
     search_field.keyup(function(event) {
       if(!checkKey(event.keyCode, false)) return false;
 
-      var term = search_field.val();
+      search_field.doTimeout('text-type', 300, function() {
+        var term = search_field.val();
 
-      results.html('');
-      
-      if(term.length) {
-        results.show();
-        static_el.hide();
-        
-        var last_pos = 100;
-        var winner = $;
-        
-        $('.searchable', static_el).each(function() {
-          var el = $(this);
-          var daddy = el.parent().parent();
-          var name = el.text();
-          var pos = name.toLowerCase().indexOf(term.toLowerCase());
-          
-          if(pos != -1) {
-            if(results.text().indexOf(name) == -1) {
-              var lastli = jQuery('<li>', {
-                'class': 'sub',
-                html: daddy.html()
-              }).appendTo(results);
-              
-              if(pos < last_pos) {
-                last_pos = pos;
-                winner = lastli;
+        results.html('');
+
+        if(term.length) {
+          results.show();
+          static_el.hide();
+
+          var last_pos = 100;
+          var winner = $;
+
+          $('.searchable', static_el).each(function() {
+            var el = $(this);
+            var daddy = el.parent().parent();
+            var name = el.text();
+            var pos = name.toLowerCase().indexOf(term.toLowerCase());
+
+            if(pos != -1) {
+              if(results.text().indexOf(name) == -1) {
+                var lastli = jQuery('<li>', {
+                  'class': 'sub',
+                  html: daddy.html()
+                }).appendTo(results);
+
+                if(pos < last_pos) {
+                  last_pos = pos;
+                  winner = lastli;
+                }
               }
             }
-          }
-        });
-        
-        results.prepend(winner).highlight(term, true, 'highlight').children('li:first').addClass('selected');
-        zebraItems(results);
-        bindItemClicks(results);
-      } else { //empty search
-        results.hide();
-        static_el.show();
-      }
+          });
+
+          results.prepend(winner).highlight(term, true, 'highlight').children('li:first').addClass('selected');
+          zebraItems(results);
+          bindItemClicks(results);
+        } else { //empty search
+          results.hide();
+          static_el.show();
+        }
+      });
     });    
   });
   
