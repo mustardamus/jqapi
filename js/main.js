@@ -1,5 +1,54 @@
+jqapi = {
+  elements: {
+    search:         null,
+    searchWrapper:  null,
+    content:        null,
+    list:           null,
+    results:        null
+  }, //-elements
+  
+  values: {
+    searchHeight:   null
+  }, //-values
+
+  initialize: function() {
+    jqapi.elements = {
+      search:         $('#search-field'),
+      searchWrapper:  $('#search'),
+      content:        $('#content'),
+      list:           $('#static-list'),
+      results:        jQuery('<ul>', { id: 'results' }).insertBefore(jqapi.elements.list)
+    };
+    
+    jqapi.values = {
+      searchHeight:   jqapi.elements.searchWrapper.innerHeight()
+    };
+    
+    jqapi.handleResize(); //resize elements when window is resized
+    jqapi.zebraItems(jqapi.elements.list); //zebra the items in the static list
+  }, //-initialize
+
+  handleResize: function() {
+    $(window).resize(function() {
+      var winH =  $(window).height();
+      var listH = winH - jqapi.values.searchHeight;
+      
+      jqapi.elements.list.height(listH);
+      jqapi.elements.results.height(listH);
+      jqapi.elements.content.height(winH);
+      jqapi.elements.search.width(jqapi.elements.searchWrapper.width() - 8);
+    }).trigger('resize'); //trigger resize event to initially set sizes
+  }, //-handleResize
+  
+  zebraItems: function(list) {
+    $('.sub:odd', list).addClass('odd');
+  } //-zebraItems
+};
+
 $(document).ready(function() {
   var navigation_el = $('#navigation').load('navigation.html', function() { //load the navigation (not static because it gets generated with the api scraping)
+    
+    jqapi.initialize();
     
     var search_el = $('#search');
     var search_field = $('#search-field', search_el).focus();
@@ -8,7 +57,7 @@ $(document).ready(function() {
     var search_height = search_el.innerHeight();
     var results = jQuery('<ul>', { id: 'results' }).insertBefore(static_el);
 
-    function resizeLayout() {
+    /*function resizeLayout() {
       var winh = $(window).height();
       
       static_el.height(winh - search_height);
@@ -18,13 +67,13 @@ $(document).ready(function() {
     }
 
     resizeLayout();
-    $(window).resize(function() { resizeLayout(); });
+    $(window).resize(function() { resizeLayout(); });*/
     
     
     function zebraItems(parent) {
       $('.sub:odd', parent).addClass('odd');
     }
-    zebraItems(static_el);
+    //zebraItems(static_el);
     
     
     function keepKeys() {
