@@ -1,10 +1,24 @@
 jqapi = function() {
-  var elements = {}, values = {};
+  var elements = {};
+  
+  var values = {
+    searchHeight:   null,
+    selected:       'selected',
+    category:       'category',
+    open:           'open',
+    catSelected:    'cat-selected',
+    sub:            'sub',
+    hasFocus:       true,
+    loader:         '<div id="loader"></div>',
+    title:          'jQAPI - Alternative jQuery Documentation - '
+  };
+  
   var keys = {
     enter:  13,
     escape: 27,
     up:     38,
-    down:   40
+    down:   40,
+    array:  [12, 27, 38, 40]
   }
   
   
@@ -19,19 +33,10 @@ jqapi = function() {
       category:       null
     };
     
-    elements.results =  jQuery('<ul>', { id: 'results' }).insertBefore(elements.list);
-    elements.category = $('.category', elements.list);
-    
-    values = {
-      searchHeight:   elements.searchWrapper.innerHeight(),
-      selected:       'selected',
-      category:       'category',
-      open:           'open',
-      catSelected:    'cat-selected',
-      sub:            'sub',
-      hasFocus:       true
-    };
-    
+    elements.results    = jQuery('<ul>', { id: 'results' }).insertBefore(elements.list);
+    elements.category   = $('.category', elements.list);
+    values.searchHeight = elements.searchWrapper.innerHeight();
+
     elements.window.resize(function() {
       var winH =  elements.window.height();
       var listH = winH - values.searchHeight;
@@ -54,7 +59,10 @@ jqapi = function() {
     .trigger('resize'); //trigger resize event to initially set sizes
     
     elements.search.keyup(function(event) {
-      handleKey(event.keyCode);
+      if($.inArray(event.keyCode, keys.array)) {
+        handleKey(event.keyCode);
+        return false;
+      }
     })
     .focus(function() {
       values.hasFocus = true;
@@ -73,13 +81,30 @@ jqapi = function() {
       $(this).parent().removeClass(values.open).children('ul').hide();
     });
     
+    $('.sub a').live('click', function() {
+      var el = $(this);
+      
+      clearSelected();
+      searchFocus();
+      el.parent().addClass(values.selected);
+      $.bbq.pushState({ p: urlMethodName(el) });
+      
+      return false;
+    });
+    
+    $(window).bind('hashchange', function(event) {
+      var state = event.getState();
+      
+      if(state.p) loadPage($('.sub a[href*="/' + state.p + '/"]:first'));
+    }).trigger('hashchange');
+    
     zebraItems(elements.list); //zebra the items in the static list
   } //-initialize
   
   
   function searchFocus() {
     elements.search.focus();
-  }
+  } //-searchFocus
   
   
   function zebraItems(list) {
@@ -88,7 +113,7 @@ jqapi = function() {
   
   
   function clearSelected() {
-    $('.'+values.selected, elements.list).removeClass(values.selected);
+    $('.'+values.selected).removeClass(values.selected);
   } //-clearSelected
   
   
@@ -127,6 +152,16 @@ jqapi = function() {
     var href = link.attr('href');
     return href.substr(5, href.length - 16);
   } //-urlMethodName
+  
+  
+  function loadPage(link) {
+    elements.content.html(values.loader).load(link.attr('href'), function() {
+      document.title = values.title + link.children('span:first').text();
+      pageTracker._trackPageview(urlMethodName(link));
+      //format article
+      //generate demos
+    });
+  } //-loadPage
   
   
   return {
@@ -179,7 +214,7 @@ $(document).ready(function() {
     });*/
     
     
-    var mouse_x = 0;
+    /*var mouse_x = 0;
     var has_focus = true;
     
     search_field
@@ -241,7 +276,7 @@ $(document).ready(function() {
       //checkKey(event.keyCode, true);
     }).mousemove(function(event) {
       mouse_x = event.pageX;
-    });
+    });*/
     
     
     function generateWorkingDemos() {
@@ -279,7 +314,7 @@ $(document).ready(function() {
       });
     }
     
-    function loadPage(link) {
+    /*function loadPage(link) {
       content_el.html('<div id="loader"></div>').load(link.attr('href'), function() {
         document.title = 'jQAPI - Alternative jQuery Documentation - ' + link.children('span:first').text();
         
@@ -302,23 +337,23 @@ $(document).ready(function() {
         
         
         generateWorkingDemos();
-        pageTracker._trackPageview(getMethodName(link));
+        //pageTracker._trackPageview(getMethodName(link));
       });
-    }
+    }*/
     
     
-    function markLinkSelected(link) {
+    /*function markLinkSelected(link) {
       $('.sub').removeClass('selected');
       link.parent().addClass('selected');
       search_field.focus();
-    }
+    }*/
     
-    function getMethodName(link) {
+    /*function getMethodName(link) {
       var href = link.attr('href');
       return href.substr(5, href.length - 16);
-    }
+    }*/
     
-    function bindItemClicks(list) {
+    /*function bindItemClicks(list) {
       $('.sub a', list).click(function() {
         var el = $(this);
 
@@ -328,14 +363,14 @@ $(document).ready(function() {
         return false;
       });
     }
-    bindItemClicks(static_el);
+    bindItemClicks(static_el);*/
 
     
-    $(window).bind('hashchange', function(event) {
+    /*$(window).bind('hashchange', function(event) {
       var state = event.getState();
       
       if(state.p) loadPage($('.sub a[href*="/' + state.p + '/"]:first'));
-    }).trigger('hashchange');
+    }).trigger('hashchange');*/
     
     
     search_field.keyup(function(event) {
@@ -376,7 +411,7 @@ $(document).ready(function() {
 
           results.prepend(winner).highlight(term, true, 'highlight').children('li:first').addClass('selected');
           zebraItems(results);
-          bindItemClicks(results);
+          //bindItemClicks(results);
         } else { //empty search
           results.hide();
           static_el.show();
