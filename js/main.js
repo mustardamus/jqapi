@@ -1,6 +1,12 @@
 jqapi = function() {
-  var elements = {};
-  var values = {};
+  var elements = {}, values = {};
+  var keys = {
+    enter:  13,
+    escape: 27,
+    up:     38,
+    down:   40
+  }
+  
   
   function initialize() {
     elements = {
@@ -8,17 +14,21 @@ jqapi = function() {
       searchWrapper:  $('#search'),
       content:        $('#content'),
       list:           $('#static-list'),
+      window:         $(window),
       results:        null,
-      window:         $(window)
+      category:       null
     };
-    elements.results = jQuery('<ul>', { id: 'results' }).insertBefore(elements.list);
+    
+    elements.results =  jQuery('<ul>', { id: 'results' }).insertBefore(elements.list);
+    elements.category = $('.category', elements.list);
     
     values = {
       searchHeight:   elements.searchWrapper.innerHeight(),
       selected:       'selected',
       category:       'category',
       open:           'open',
-      mouseX:         0,
+      catSelected:    'cat-selected',
+      sub:            'sub',
       hasFocus:       true
     };
     
@@ -32,12 +42,19 @@ jqapi = function() {
       elements.search.width(elements.searchWrapper.width() - 8);
     })
     .mousemove(function(event) {
-      values.mouseX = event.pageX;
+      if(event.pageX < elements.list.width()) searchFocus();
+    })
+    .keydown(function(event) {
+      if(event.keyCode == keys.escape) {
+        elements.search.val('').focus();
+        elements.results.hide();
+        elements.list.show();
+      }
     })
     .trigger('resize'); //trigger resize event to initially set sizes
     
-    elements.search.keyup(function() {
-      
+    elements.search.keyup(function(event) {
+      handleKey(event.keyCode);
     })
     .focus(function() {
       values.hasFocus = true;
@@ -48,14 +65,21 @@ jqapi = function() {
     
     $('.'+values.category+' > span', elements.list).toggle(function() {
       clearSelected();
+      searchFocus();
       $(this).parent().addClass(values.open).children('ul').show();
     }, function() {
       clearSelected();
+      searchFocus();
       $(this).parent().removeClass(values.open).children('ul').hide();
     });
     
     zebraItems(elements.list); //zebra the items in the static list
   } //-initialize
+  
+  
+  function searchFocus() {
+    elements.search.focus();
+  }
   
   
   function zebraItems(list) {
@@ -66,6 +90,34 @@ jqapi = function() {
   function clearSelected() {
     $('.'+values.selected, elements.list).removeClass(values.selected);
   } //-clearSelected
+  
+  
+  function handleKey(key) {
+    if(values.hasFocus) {
+      var selectedVisible = $('.'+values.selected+':visible');
+      
+      if(selectedVisible.length) {
+        
+      } else { //no visible selected item
+        var catSel = $('.'+values.catSelected, elements.list);
+        
+        if(catSel.length) { //a category is selected
+          if(key == keys.up) catSel.removeClass(values.catSelected).prev().addClass(values.catSelected);
+          if(key == keys.down) catSel.removeClass(values.catSelected).next().addClass(values.catSelected);
+          if(key == keys.enter) catSel.removeClass(values.catSelected).children('span').trigger('click');
+        } else { //no category selected
+          var subVisible = $('.'+values.sub+':visible', elements.list);
+          
+          if(subVisible.length) { //there are visible subs in the static list
+            
+          } else { //only categories are shown
+            if(key == keys.up)    elements.category.last().addClass(values.catSelected);
+            if(key == keys.down)  elements.category.first().addClass(values.catSelected);
+          }
+        }
+      }
+    }
+  } //-handleKey
   
   
   return {
@@ -177,7 +229,7 @@ $(document).ready(function() {
     }
     
     $(window).keyup(function(event) {
-      checkKey(event.keyCode, true);
+      //checkKey(event.keyCode, true);
     }).mousemove(function(event) {
       mouse_x = event.pageX;
     });
@@ -278,7 +330,7 @@ $(document).ready(function() {
     
     
     search_field.keyup(function(event) {
-      if(!checkKey(event.keyCode, false)) return false;
+      //if(!checkKey(event.keyCode, false)) return false;
 
       search_field.doTimeout('text-type', 300, function() {
         var term = search_field.val();
