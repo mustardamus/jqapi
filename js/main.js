@@ -1,49 +1,77 @@
-jqapi = {
-  elements: {
-    search:         null,
-    searchWrapper:  null,
-    content:        null,
-    list:           null,
-    results:        null
-  }, //-elements
+jqapi = function() {
+  var elements = {};
+  var values = {};
   
-  values: {
-    searchHeight:   null
-  }, //-values
-
-  initialize: function() {
-    jqapi.elements = {
+  function initialize() {
+    elements = {
       search:         $('#search-field'),
       searchWrapper:  $('#search'),
       content:        $('#content'),
       list:           $('#static-list'),
-      results:        jQuery('<ul>', { id: 'results' }).insertBefore(jqapi.elements.list)
+      results:        null,
+      window:         $(window)
+    };
+    elements.results = jQuery('<ul>', { id: 'results' }).insertBefore(elements.list);
+    
+    values = {
+      searchHeight:   elements.searchWrapper.innerHeight(),
+      selected:       'selected',
+      category:       'category',
+      open:           'open',
+      mouseX:         0,
+      hasFocus:       true
     };
     
-    jqapi.values = {
-      searchHeight:   jqapi.elements.searchWrapper.innerHeight()
-    };
-    
-    jqapi.handleResize(); //resize elements when window is resized
-    jqapi.zebraItems(jqapi.elements.list); //zebra the items in the static list
-  }, //-initialize
-
-  handleResize: function() {
-    $(window).resize(function() {
-      var winH =  $(window).height();
-      var listH = winH - jqapi.values.searchHeight;
+    elements.window.resize(function() {
+      var winH =  elements.window.height();
+      var listH = winH - values.searchHeight;
       
-      jqapi.elements.list.height(listH);
-      jqapi.elements.results.height(listH);
-      jqapi.elements.content.height(winH);
-      jqapi.elements.search.width(jqapi.elements.searchWrapper.width() - 8);
-    }).trigger('resize'); //trigger resize event to initially set sizes
-  }, //-handleResize
+      elements.list.height(listH);
+      elements.results.height(listH);
+      elements.content.height(winH);
+      elements.search.width(elements.searchWrapper.width() - 8);
+    })
+    .mousemove(function(event) {
+      values.mouseX = event.pageX;
+    })
+    .trigger('resize'); //trigger resize event to initially set sizes
+    
+    elements.search.keyup(function() {
+      
+    })
+    .focus(function() {
+      values.hasFocus = true;
+    })
+    .blur(function() {
+      values.hasFocus = false;
+    });
+    
+    $('.'+values.category+' > span', elements.list).toggle(function() {
+      clearSelected();
+      $(this).parent().addClass(values.open).children('ul').show();
+    }, function() {
+      clearSelected();
+      $(this).parent().removeClass(values.open).children('ul').hide();
+    });
+    
+    zebraItems(elements.list); //zebra the items in the static list
+  } //-initialize
   
-  zebraItems: function(list) {
+  
+  function zebraItems(list) {
     $('.sub:odd', list).addClass('odd');
   } //-zebraItems
-};
+  
+  
+  function clearSelected() {
+    $('.'+values.selected, elements.list).removeClass(values.selected);
+  } //-clearSelected
+  
+  
+  return {
+    initialize: initialize
+  }
+}();
 
 $(document).ready(function() {
   var navigation_el = $('#navigation').load('navigation.html', function() { //load the navigation (not static because it gets generated with the api scraping)
@@ -76,7 +104,7 @@ $(document).ready(function() {
     //zebraItems(static_el);
     
     
-    function keepKeys() {
+    /*function keepKeys() {
       search_field.focus();
       $('.selected', static_el).removeClass('selected');
     }
@@ -87,7 +115,7 @@ $(document).ready(function() {
     }, function() {
       keepKeys();
       $(this).parent().removeClass('open').children('ul').hide();
-    });
+    });*/
     
     
     var mouse_x = 0;
