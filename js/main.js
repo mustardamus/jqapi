@@ -94,22 +94,25 @@ jqapi = function() {
   
   function handleKey(key) {
     if(values.hasFocus) {
-      var selectedVisible = $('.'+values.selected+':visible');
+      var selVis = $('.'+values.selected+':visible');
       
-      if(selectedVisible.length) {
-        
+      if(selVis.length) {
+        if(key == keys.up && selVis.prev().length)    selVis.removeClass(values.selected).prev().addClass(values.selected);
+        if(key == keys.down && selVis.next().length)  selVis.removeClass(values.selected).next().addClass(values.selected);
+        if(key == keys.enter)                         $.bbq.pushState({ p: urlMethodName(selVis.children('a')) });
       } else { //no visible selected item
         var catSel = $('.'+values.catSelected, elements.list);
         
         if(catSel.length) { //a category is selected
-          if(key == keys.up) catSel.removeClass(values.catSelected).prev().addClass(values.catSelected);
-          if(key == keys.down) catSel.removeClass(values.catSelected).next().addClass(values.catSelected);
+          if(key == keys.up)    catSel.removeClass(values.catSelected).prev().addClass(values.catSelected);
+          if(key == keys.down)  catSel.removeClass(values.catSelected).next().addClass(values.catSelected);
           if(key == keys.enter) catSel.removeClass(values.catSelected).children('span').trigger('click');
         } else { //no category selected
-          var subVisible = $('.'+values.sub+':visible', elements.list);
+          var subVis = $('.'+values.sub+':visible', elements.list);
           
-          if(subVisible.length) { //there are visible subs in the static list
-            
+          if(subVis.length) { //there are visible subs in the static list
+            if(key == keys.up)    subVis.filter(':last').addClass(values.selected);
+            if(key == keys.down)  subVis.filter(':first').addClass(values.selected);
           } else { //only categories are shown
             if(key == keys.up)    elements.category.last().addClass(values.catSelected);
             if(key == keys.down)  elements.category.first().addClass(values.catSelected);
@@ -118,6 +121,12 @@ jqapi = function() {
       }
     }
   } //-handleKey
+  
+  
+  function urlMethodName(link) {
+    var href = link.attr('href');
+    return href.substr(5, href.length - 16);
+  } //-urlMethodName
   
   
   return {
