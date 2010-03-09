@@ -20,7 +20,7 @@
 <a href="#jQuery.data2">jQuery.data( element, key ) </a><ul>
 <li>jQuery.data( element, key )
 	  					</li>
-<li>jQuery.data()
+<li>jQuery.data( element )
 	  					</li>
 </ul>
 </li>
@@ -55,7 +55,7 @@
   div { color:blue; }
   span { color:red; }
   &lt;/style&gt;
-  &lt;script src="/scripts/jquery-1.4.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
 	&lt;div&gt;
@@ -88,8 +88,11 @@
 <p class="arguement"><strong>element</strong>The DOM element to query for the data.</p>
 <p class="arguement"><strong>key</strong>Name of the data stored.</p>
 </li>
-<li class="signature" id="jQuery.data"><h4 class="name">
-<span class="versionAdded">version added: <a href="/category/version/1.4/">1.4</a></span>jQuery.data()</h4></li>
+<li class="signature" id="jQuery.data-element">
+<h4 class="name">
+<span class="versionAdded">version added: <a href="/category/version/1.4/">1.4</a></span>jQuery.data( element )</h4>
+<p class="arguement"><strong>element</strong>The DOM element to query for the data.</p>
+</li>
 </ul>
 <div class="longdesc">
 <p><strong>Note:</strong> This is a low-level method; you should probably use <code><a href="/data">.data()</a></code> instead.</p>
@@ -97,7 +100,7 @@
 <pre>alert(jQuery.data( document.body, 'foo' );
 alert(jQuery.data( document.body ));</pre>
 <p>The above lines alert the data values that were set on the <code>body</code> element. If nothing was set on that element, an empty string is returned.</p>
-<p>Calling <code>jQuery.data()</code> with no parameters retrieves all of the values as a JavaScript object.</p>
+<p>Calling <code>jQuery.data(element)</code> retrieves all of the element's associated values as a JavaScript object. Note that jQuery itself uses this method to store data for internal use, such as event handlers, so do not assume that it contains only data that your own code has stored.</p>
 </div>
 <h3>Example:</h3>
 <div id="entry-examples" class="entry-examples"><div id="example-0">
@@ -111,7 +114,7 @@ button { margin:5px; font-size:14px; }
 p { margin:5px; color:blue; }
 span { color:red; }
   &lt;/style&gt;
-  &lt;script src="/scripts/jquery-1.4.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
 	&lt;div&gt;A div&lt;/div&gt;

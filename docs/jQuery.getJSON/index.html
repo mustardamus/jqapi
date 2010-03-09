@@ -30,7 +30,7 @@
   success: <em>success</em>
 });
 </pre>
-<p>The callback is passed the returned data, which will be a JavaScript object or array as defined by the JSON structure and parsed using the <code>eval()</code> function.</p>
+<p>The callback is passed the returned data, which will be a JavaScript object or array as defined by the JSON structure and parsed using the <code><a href="/jQuery.parseJSON">$.parseJSON()</a></code> method.</p>
 <p><strong>Note:</strong> For details on the JSON format, see <a href="http://json.org/">http://json.org/</a>.</p>
 <p>Most implementations will specify a success handler:</p>
 <pre>$.getJSON('ajax/test.json', function(data) {
@@ -58,7 +58,7 @@
 &lt;html&gt;
 &lt;head&gt;
   &lt;style&gt;img{ height: 100px; float: left; }&lt;/style&gt;
-  &lt;script src="/scripts/jquery-1.4.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
 	&lt;div id="images"&gt;

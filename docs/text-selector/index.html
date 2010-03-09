@@ -15,7 +15,7 @@
 <h4 class="name">
 <span class="versionAdded">version added: <a href="/version/1.0/">1.0</a></span>jQuery(':text')</h4>
 <p class="desc"><strong>Description: </strong>Selects all elements of type text.</p>
-<div class="longdesc"><p><code>$(':text')</code> is equivalent to <code>$('[type=text]')</code>. As with other pseudo-class selectors (those that begin with a ":") it is recommended to precede it with a tag name or some other selector; otherwise, the universal selector ("*") is implied. In other words, the bare <code>$(':text')</code> is equivalent to <code>$('*:text')</code>, so <code>$('input:text')</code> should be used instead. </p></div>
+<div class="longdesc"><p><code>$(':text')</code> is equivalent to <code>$('[type=text]')</code> and thus selects all <code>&lt;input type="text"&gt;</code> elements. As with other pseudo-class selectors (those that begin with a ":") it is recommended to precede it with a tag name or some other selector; otherwise, the universal selector ("*") is implied. In other words, the bare <code>$(':text')</code> is equivalent to <code>$('*:text')</code>, so <code>$('input:text')</code> should be used instead. </p></div>
 <h3>Example:</h3>
 <div id="entry-examples" class="entry-examples"><div id="example-0">
 <h4><span class="desc">Finds all text inputs.</span></h4>
@@ -25,7 +25,7 @@
   &lt;style&gt;
   textarea { height:25px; }
   &lt;/style&gt;
-  &lt;script src="/scripts/jquery-1.4.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
 	&lt;form&gt;
@@ -42,7 +42,7 @@
 
     &lt;input type="submit" /&gt;
     &lt;input type="text" /&gt;
-    &lt;select&gt;&lt;option&gt;Option&lt;option/&gt;&lt;/select&gt;
+    &lt;select&gt;&lt;option&gt;Option&lt;/option&gt;&lt;/select&gt;
 
     &lt;textarea&gt;&lt;/textarea&gt;
     &lt;button&gt;Button&lt;/button&gt;

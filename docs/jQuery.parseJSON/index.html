@@ -27,7 +27,8 @@
 <li>
 <code>{'test': 1}</code> ('test' is using single quotes instead of double quotes).</li>
 </ul>
-<p>Additionally if you pass in nothing, an empty string, null, or undefined, 'null' will be returned from parseJSON.</p>
+<p>Additionally if you pass in nothing, an empty string, null, or undefined, 'null' will be returned from parseJSON. Where the browser provides a native implementation of <code>JSON.parse</code>, jQuery uses it to parse the string. For details on the JSON format, see <a href="http://json.org/">http://json.org/</a>.
+</p>
 </div>
 <h3>Example:</h3>
 <div id="entry-examples" class="entry-examples"><div id="example-0">

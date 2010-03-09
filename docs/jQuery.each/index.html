@@ -22,7 +22,7 @@
 <p class="arguement"><strong>callback(indexInArray, valueOfElement)</strong>The function that will be executed on every object.</p>
 </li></ul>
 <div class="longdesc">
-<p>The <code>$.each()</code> function is not the same as <a href="Core/each">.each()</a>, which is used to iterate, exclusively, over a jQuery object. The <code>$.each()</code> function can be used to iterate over any collection, whether it is a map (JavaScript object) or an array. In the case of an array, the callback is passed an array index and a corresponding array value each time.</p>
+<p>The <code>$.each()</code> function is not the same as <a href="/each/">.each()</a>, which is used to iterate, exclusively, over a jQuery object. The <code>$.each()</code> function can be used to iterate over any collection, whether it is a map (JavaScript object) or an array. In the case of an array, the callback is passed an array index and a corresponding array value each time. (The value can also be accessed through the <code>this</code> keyword.)</p>
 <pre>$.each([52, 97], function(index, value) { 
   alert(index + ': ' + value); 
 });
@@ -57,12 +57,12 @@ $.each(map, function(key, value) {
   div { color:blue; }
   div#five { color:red; }
   &lt;/style&gt;
-  &lt;script src="/scripts/jquery-1.4.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
-	&lt;div id="one"&gt;&lt;/div&gt;
+	
+  &lt;div id="one"&gt;&lt;/div&gt;
   &lt;div id="two"&gt;&lt;/div&gt;
-
   &lt;div id="three"&gt;&lt;/div&gt;
   &lt;div id="four"&gt;&lt;/div&gt;
   &lt;div id="five"&gt;&lt;/div&gt;
@@ -71,10 +71,9 @@ $.each(map, function(key, value) {
     var obj = { one:1, two:2, three:3, four:4, five:5 };
 
     jQuery.each(arr, function() {
-      $("#" + this).text("My id is " + this + ".");
-      return (this !== "four"); // will stop running to skip "five"
-
-    });
+      $("#" + this).text("Mine is " + this + ".");
+       return (this != "three"); // will stop running after "three"
+   });
 
     jQuery.each(obj, function(i, val) {
       $("#" + i).append(document.createTextNode(" - " + val));

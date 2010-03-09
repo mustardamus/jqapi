@@ -52,8 +52,8 @@
   ul { margin-left:20px; color:blue; }
   li { cursor:default; }
   span { color:red; }
-  &lt;/style&gt;
-  &lt;script src="/scripts/jquery-1.4.js"&gt;&lt;/script&gt;
+&lt;/style&gt;
+  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
 	&lt;ul&gt;
@@ -64,19 +64,19 @@
     &lt;li class='fade'&gt;Socks&lt;/li&gt;
   &lt;/ul&gt;
 &lt;script&gt;
-    $("li").hover(
-      function () {
-        $(this).append($("&lt;span&gt; ***&lt;/span&gt;"));
-      }, 
-      function () {
-        $(this).find("span:last").remove();
-      }
-    );
+$("li").hover(
+  function () {
+    $(this).append($("&lt;span&gt; ***&lt;/span&gt;"));
+  }, 
+  function () {
+    $(this).find("span:last").remove();
+  }
+);
 
 
-   
-  //li with fade class
-   $("li.fade").hover(function(){$(this).fadeOut(100);$(this).fadeIn(500);});
+
+//li with fade class
+$("li.fade").hover(function(){$(this).fadeOut(100);$(this).fadeIn(500);});
 
 &lt;/script&gt;
 &lt;/body&gt;
@@ -133,7 +133,7 @@
   li.active { background:black;color:white; }
   span { color:red; }
   &lt;/style&gt;
-  &lt;script src="/scripts/jquery-1.4.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
 	&lt;ul&gt;
@@ -145,16 +145,17 @@
     &lt;li&gt;Green&lt;/li&gt;
   &lt;/ul&gt;
 &lt;script&gt;
-    $("li")
-    .filter(":odd")
-    .hide()
-     .end()
-    .filter(":even")
-    .hover(
-      function () {
-        $(this).toggleClass("active").next().slideToggle();
-      }
-    );
+$("li")
+.filter(":odd")
+.hide()
+ .end()
+.filter(":even")
+.hover(
+  function () {
+    $(this).toggleClass("active")
+      .next().stop(true, true).slideToggle();
+  }
+);
 
 
 &lt;/script&gt;

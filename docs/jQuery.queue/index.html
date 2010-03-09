@@ -17,10 +17,10 @@
 	  					</li></ul>
 </li>
 <li>
-<a href="#jQuery.queue2">jQuery.queue( element, [ queueName ], newQueue ) </a><ul>
-<li>jQuery.queue( element, [ queueName ], newQueue )
+<a href="#jQuery.queue2">jQuery.queue( element, queueName, newQueue ) </a><ul>
+<li>jQuery.queue( element, queueName, newQueue )
 	  					</li>
-<li>jQuery.queue( element, [ queueName ], callback() )
+<li>jQuery.queue( element, queueName, callback() )
 	  					</li>
 </ul>
 </li>
@@ -50,7 +50,7 @@
         background:green; display:none; }
   div.newcolor { background:blue; }
   span { color:red; }  &lt;/style&gt;
-  &lt;script src="/scripts/jquery-1.4.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
 	&lt;button id="show"&gt;Show Length of Queue&lt;/button&gt;
@@ -80,21 +80,21 @@
 </div>
 <div class="entry method" id="jQuery.queue2">
 <h2 class="jq-clearfix roundTop section-title">
-<span class="name">jQuery.queue( element, [ queueName ], newQueue )</span> <span class="returns">Returns: <a class="return" href="http://docs.jquery.com/Types#jQuery">jQuery</a></span>
+<span class="name">jQuery.queue( element, queueName, newQueue )</span> <span class="returns">Returns: <a class="return" href="http://docs.jquery.com/Types#jQuery">jQuery</a></span>
 </h2>
 <div class="jq-box roundBottom entry-details">
 <p class="desc"><strong>Description: </strong>Manipulate the queue of functions to be executed on the matched element.</p>
 <ul class="signatures">
 <li class="signature" id="jQuery.queue-element-queueName-newQueue">
 <h4 class="name">
-<span class="versionAdded">version added: <a href="/category/version/1.3/">1.3</a></span>jQuery.queue( element, [ queueName ], newQueue )</h4>
+<span class="versionAdded">version added: <a href="/category/version/1.3/">1.3</a></span>jQuery.queue( element, queueName, newQueue )</h4>
 <p class="arguement"><strong>element</strong>A DOM element where the array of queued functions is attached.</p>
 <p class="arguement"><strong>queueName</strong>A string containing the name of the queue. Defaults to <code>fx</code>, the standard effects queue.</p>
 <p class="arguement"><strong>newQueue</strong>An array of functions to replace the current queue contents.</p>
 </li>
 <li class="signature" id="jQuery.queue-element-queueName-callback">
 <h4 class="name">
-<span class="versionAdded">version added: <a href="/category/version/1.3/">1.3</a></span>jQuery.queue( element, [ queueName ], callback() )</h4>
+<span class="versionAdded">version added: <a href="/category/version/1.3/">1.3</a></span>jQuery.queue( element, queueName, callback() )</h4>
 <p class="arguement"><strong>element</strong>A DOM element on which to add a queued function.</p>
 <p class="arguement"><strong>queueName</strong>A string containing the name of the queue. Defaults to <code>fx</code>, the standard effects queue.</p>
 <p class="arguement"><strong>callback()</strong>The new function to add to the queue.</p>
@@ -120,20 +120,21 @@
         background:green; display:none; }
   div.newcolor { background:blue; }
   &lt;/style&gt;
-  &lt;script src="/scripts/jquery-1.4.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
 	Click here...
   &lt;div&gt;&lt;/div&gt;
-&lt;script&gt;$(document.body).click(function () {
-			$("div").show("slow");
+&lt;script&gt;
+   $(document.body).click(function () {
+      $("div").show("slow");
       $("div").animate({left:'+=200'},2000);
-      jQuery.queue( $("div")[0], function () {
+      jQuery.queue( $("div")[0], "fx", function () {
         $(this).addClass("newcolor");
         jQuery.dequeue( this );
       });
       $("div").animate({left:'-=200'},500);
-      jQuery.queue( $("div")[0], function () {
+      jQuery.queue( $("div")[0], "fx", function () {
         $(this).removeClass("newcolor");
         jQuery.dequeue( this );
       });
@@ -156,21 +157,23 @@
         background:green; display:none; }
   div.newcolor { background:blue; }
   &lt;/style&gt;
-  &lt;script src="/scripts/jquery-1.4.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
-	&lt;button id="start"&gt;Start&lt;/button&gt;
+	
+  &lt;button id="start"&gt;Start&lt;/button&gt;
   &lt;button id="stop"&gt;Stop&lt;/button&gt;
   &lt;div&gt;&lt;/div&gt;
-&lt;script&gt;$("#start").click(function () {
+&lt;script&gt;
+   $("#start").click(function () {
       $("div").show("slow");
       $("div").animate({left:'+=200'},5000);
-      jQuery.queue( $("div")[0], function () {
+      jQuery.queue( $("div")[0], "fx", function () {
         $(this).addClass("newcolor");
         jQuery.dequeue( this );
       });
       $("div").animate({left:'-=200'},1500);
-      jQuery.queue( $("div")[0], function () {
+      jQuery.queue( $("div")[0], "fx", function () {
         $(this).removeClass("newcolor");
         jQuery.dequeue( this );
       });
@@ -179,7 +182,8 @@
     $("#stop").click(function () {
       jQuery.queue( $("div")[0], "fx", [] );
       $("div").stop();
-    });&lt;/script&gt;
+    });
+&lt;/script&gt;
 &lt;/body&gt;
 &lt;/html&gt;</code></pre>
 <h4>Demo:</h4>

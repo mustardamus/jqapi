@@ -35,7 +35,7 @@
     background-color: #EEEEEE;
   }
   &lt;/style&gt;
-  &lt;script src="/scripts/jquery-1.4.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
 	&lt;div&gt;DIV&lt;/div&gt;
@@ -65,15 +65,20 @@ $("body").prepend("&lt;h3&gt;" + elementCount + " elements found&lt;/h3&gt;");&l
     margin: 10px;
     background-color: #EEEEEE;
   }
+  #test {
+    width: auto; height: auto; background-color: transparent; 
+  }
   &lt;/style&gt;
-  &lt;script src="/scripts/jquery-1.4.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
-	&lt;div&gt;DIV&lt;/div&gt;
-
+	&lt;div id="test"&gt;
+  &lt;div&gt;DIV&lt;/div&gt;
   &lt;span&gt;SPAN&lt;/span&gt;
   &lt;p&gt;P &lt;button&gt;Button&lt;/button&gt;&lt;/p&gt;
-&lt;script&gt;var elementCount = $(document.body).find("*").css("border","3px solid red").length;
+&lt;/div&gt;
+&lt;script&gt;
+var elementCount = $("#test").find("*").css("border","3px solid red").length;
 $("body").prepend("&lt;h3&gt;" + elementCount + " elements found&lt;/h3&gt;");&lt;/script&gt;
 &lt;/body&gt;
 &lt;/html&gt;</code></pre>

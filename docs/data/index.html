@@ -4,7 +4,7 @@
         <div class="entry-title roundTop">
 				<h1 class="jq-clearfix">.data()</h1>
   				<div class="entry-meta">Categories:
-  					<span class="category"><a href="http://api.jquery.com/category/miscellaneous/" title="View all posts in Miscellaneous">Miscellaneous</a> &gt; <a href="http://api.jquery.com/category/miscellaneous/data-storage/" title="View all posts in Data Storage">Data Storage</a></span>  
+  					<span class="category"><a href="http://api.jquery.com/category/data/" title="View all posts in Data">Data</a></span> | <span class="category"><a href="http://api.jquery.com/category/miscellaneous/" title="View all posts in Miscellaneous">Miscellaneous</a> &gt; <a href="http://api.jquery.com/category/miscellaneous/data-storage/" title="View all posts in Data Storage">Data Storage</a></span>  
     
   				</div>
 </div>
@@ -41,7 +41,7 @@
 <h4 class="name">
 <span class="versionAdded">version added: <a href="/category/version/1.2.3/">1.2.3</a></span>.data( key, value )</h4>
 <p class="arguement"><strong>key</strong>A string naming the piece of data to set.</p>
-<p class="arguement"><strong>value</strong>The new data value.</p>
+<p class="arguement"><strong>value</strong>The new data value; it can be any Javascript type including Array or Object.</p>
 </li>
 <li class="signature" id="data-obj">
 <h4 class="name">
@@ -54,12 +54,12 @@
 <p> We can set several distinct values for a single element and retrieve them later:</p>
 <pre>
 $('body').data('foo', 52);
-$('body').data('bar', 'test');
+$('body').data('bar', { myType: 'test', count: 40 });
 
 $('body').data('foo'); // 52
-$('body').data(); // {foo: 52, bar: test}
+$('body').data(); // {foo: 52, bar: { myType: 'test', count: 40 }}
 </pre>
-<p>If we set an element's data using an object, all data previously stored with that element is overridden. Because this data includes events that have been bound to the element, we should use caution when setting <code>.data()</code> with an object.</p>
+<p>Setting an element's data object with <code>.data(obj)</code> replaces all data previously stored with that element. If you are using third-party plugins it may not be advisable to completely replace the element's data object, since plugins may have also set data. Until jQuery 1.4.2, jQuery itself used the <code>.data()</code> method to save information about events that have been bound to the element, using a data item named 'events'.</p>
 <pre>
 $('body').data('foo', 52);
 $('body').data({one: 1, two: 2});
@@ -67,6 +67,7 @@ $('body').data({one: 1, two: 2});
 $('body').data('foo'); // undefined
 $('body').data(); // {one: 1, two: 2}
 </pre>
+<p>Due to the way browsers interact with plugins and external code, the <code>.data()</code> method cannot be used on <code>&lt;object&gt;</code>, <code>&lt;applet&gt;</code> or <code>&lt;embed&gt;</code> elements.</p>
 </div>
 <h3>Example:</h3>
 <div id="entry-examples" class="entry-examples"><div id="example-0">
@@ -78,7 +79,7 @@ $('body').data(); // {one: 1, two: 2}
   div { color:blue; }
   span { color:red; }
   &lt;/style&gt;
-  &lt;script src="/scripts/jquery-1.4.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
 	&lt;div&gt;
@@ -115,13 +116,13 @@ $("span:last").text($("div").data("test").last);
 <span class="versionAdded">version added: <a href="/category/version/1.4/">1.4</a></span>.data()</h4></li>
 </ul>
 <div class="longdesc">
-<p>The <code>.data()</code> method allows us to attach data of any type to DOM elements in a way that is safe from circular references and therefore from memory leaks. We can  retrieve several distinct values for a single element one at a time, or as a set:</p>
+<p>The <code>.data()</code> method allows us to attach data of any type to DOM elements in a way that is safe from circular references and therefore from memory leaks. We can retrieve several distinct values for a single element one at a time, or as a set:</p>
 <pre>
 alert($('body').data('foo'));
 alert($('body').data());
 </pre>
 <p>The above lines alert the data values that were set on the <code>body</code> element. If nothing was set on that element, an empty string is returned:</p>
-<p>Calling <code>.data()</code> with no parameters retrieves all of the values as a JavaScript object.</p>
+<p>Calling <code>.data()</code> with no parameters retrieves all of the values as a JavaScript object. This object can be safely cached in a variable as long as a new object is not set with <code>.data(obj)</code>.</p>
 </div>
 <h3>Example:</h3>
 <div id="entry-examples" class="entry-examples"><div id="example-0">
@@ -135,7 +136,7 @@ alert($('body').data());
   p { margin:5px; color:blue; }
   span { color:red; }
   &lt;/style&gt;
-  &lt;script src="/scripts/jquery-1.4.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
 	&lt;div&gt;A div&lt;/div&gt;

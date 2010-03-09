@@ -35,7 +35,7 @@
 <ul class="signatures"><li class="signature" id="text"><h4 class="name">
 <span class="versionAdded">version added: <a href="/category/version/1.0/">1.0</a></span>.text()</h4></li></ul>
 <div class="longdesc">
-<p>Unlike the <code>.html()</code> method, <code>.text()</code> can be used in both XML and HTML documents. The result of the <code>.text()</code> method is a string containing the combined text of all matched elements. Consider the following HTML:</p>
+<p>Unlike the <code>.html()</code> method, <code>.text()</code> can be used in both XML and HTML documents. The result of the <code>.text()</code> method is a string containing the combined text of all matched elements. (Due to variations in the HTML parsers in different browsers, the text returned may vary in newlines and other white space.) Consider the following HTML:</p>
 <pre>&lt;div class="demo-container"&gt;
   &lt;div class="demo-box"&gt;Demonstration Box&lt;/div&gt;
   &lt;ul&gt;
@@ -61,7 +61,7 @@
   p { color:blue; margin:8px; }
   b { color:red; }
   &lt;/style&gt;
-  &lt;script src="/scripts/jquery-1.4.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
 	&lt;p&gt;&lt;b&gt;Test&lt;/b&gt; Paragraph.&lt;/p&gt;
@@ -136,7 +136,7 @@
 
   p { color:blue; margin:8px; }
   &lt;/style&gt;
-  &lt;script src="/scripts/jquery-1.4.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
 	&lt;p&gt;Test Paragraph.&lt;/p&gt;

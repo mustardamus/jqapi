@@ -26,23 +26,28 @@
 <pre><code class="example demo-code">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;
-  &lt;style&gt;div { margin:3px; width:50px; position:absolute;
-        height:50px; left:10px; top:30px; 
-        background-color:yellow; }
-  div.red { background-color:red; }  &lt;/style&gt;
-  &lt;script src="/scripts/jquery-1.4.js"&gt;&lt;/script&gt;
+  &lt;style&gt;
+  div { margin:3px; width:50px; position:absolute;
+  height:50px; left:10px; top:30px; 
+  background-color:yellow; }
+  div.red { background-color:red; }  
+&lt;/style&gt;
+  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
-	&lt;button&gt;Start&lt;/button&gt;  &lt;div&gt;&lt;/div&gt;
-&lt;script&gt;$("button").click(function () {
-      $("div").animate({left:'+=200px'}, 2000);
-      $("div").animate({top:'0px'}, 600);
-      $("div").queue(function () {
-        $(this).toggleClass("red");
-         $(this).dequeue();
-              });
-      $("div").animate({left:'10px', top:'30px'}, 700);
-    });&lt;/script&gt;
+	&lt;button&gt;Start&lt;/button&gt;  
+&lt;div&gt;&lt;/div&gt;
+&lt;script&gt;
+$("button").click(function () {
+  $("div").animate({left:'+=200px'}, 2000);
+  $("div").animate({top:'0px'}, 600);
+  $("div").queue(function () {
+    $(this).toggleClass("red");
+    $(this).dequeue();
+  });
+  $("div").animate({left:'10px', top:'30px'}, 700);
+});
+&lt;/script&gt;
 &lt;/body&gt;
 &lt;/html&gt;</code></pre>
 <h4>Demo:</h4>

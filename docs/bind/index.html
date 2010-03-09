@@ -68,6 +68,11 @@ $('#foo').bind({
 </pre>
 <p>After this code is executed, when the user clicks inside the element with an ID of <code>foo</code>, its text contents will be shown as an alert.
 </p>
+<p>As of jQuery 1.4.2 duplicate event handlers can be bound to an element instead of being discarded. For example:</p>
+<pre>function test(){ alert("Hello"); }
+$("button").click( test );
+$("button").click( test );</pre>
+<p>The above will generate two alerts when the button is clicked.</p>
 <h4 id="event-object"><a href="/category/events/event-object/">The Event object</a></h4>
 <p>The <code>handler</code> callback function can also take parameters. When the function is called, the JavaScript event object will be passed to the first parameter.</p>
 <p>The event object is often unnecessary and the parameter omitted, as sufficient context is usually available when the handler is bound to know exactly what needs to be done when the handler is triggered. However, at times it becomes necessary to gather more information about the user's environment at the time the event was initiated. <a href="/category/events/event-object/">View the full Event Object</a>.</p>
@@ -126,7 +131,7 @@ padding:5px; }
 p.over { background: #ccc; }
 span { color:red; }
 &lt;/style&gt;
-  &lt;script src="/scripts/jquery-1.4.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
 	&lt;p&gt;Click or double click here.&lt;/p&gt;
@@ -165,27 +170,26 @@ alert(event.data.foo);
 $("p").bind("click", {foo: "bar"}, handler)</code></pre>
 </div>
 <div id="example-3">
-<h4>Example: <span class="desc">To cancel a default action and prevent it from bubbling up, return false:</span>
+<h4>Example: <span class="desc">Cancel a default action and prevent it from bubbling up by returning false:</span>
 </h4>
 <pre><code class="example">$("form").bind("submit", function() { return false; })</code></pre>
 </div>
 <div id="example-4">
-<h4>Example: <span class="desc">To cancel only the default action by using the preventDefault method.</span>
+<h4>Example: <span class="desc">Cancel only the default action by using the .preventDefault() method.</span>
 </h4>
 <pre><code class="example">$("form").bind("submit", function(event) {
 event.preventDefault();
 });</code></pre>
 </div>
 <div id="example-5">
-<h4>Example: <span class="desc">Stop only an event from bubbling by using the stopPropagation method.</span>
+<h4>Example: <span class="desc">Stop an event from bubbling without preventing the default action by using the .stopPropagation() method.</span>
 </h4>
 <pre><code class="example">$("form").bind("submit", function(event) {
-if( event.stopPropagation ) { event.stopPropagation(); } //For 'Good' browsers
-else { event.cancelBubble = true; } //For IE
+  event.stopPropagation();
 });</code></pre>
 </div>
 <div id="example-6">
-<h4>Example: <span class="desc">Can bind custom events too.</span>
+<h4>Example: <span class="desc">Bind custom events.</span>
 </h4>
 <pre><code class="example demo-code">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
@@ -194,7 +198,7 @@ else { event.cancelBubble = true; } //For IE
 p { color:red; }
 span { color:blue; }
 &lt;/style&gt;
-  &lt;script src="/scripts/jquery-1.4.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
 	&lt;p&gt;Has an attached custom event.&lt;/p&gt;

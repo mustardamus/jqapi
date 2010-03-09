@@ -72,7 +72,7 @@
 <span class="versionAdded">version added: <a href="/category/version/1.4/">1.4</a></span>jQuery()</h4></li>
 </ul>
 <div class="longdesc">
-<p>In the first formulation listed above,  <code>$()</code> searches through the DOM for any elements that match the provided selector and creates a new jQuery object that references these elements:</p>
+<p>In the first formulation listed above,  <code>jQuery()</code> — which can also be written as <code>$()</code> — searches through the DOM for any elements that match the provided selector and creates a new jQuery object that references these elements:</p>
 <pre>$('div.foo');</pre>
 <h4 id="selector-context">Selector Context</h4>
 <p>By default, selectors perform their searches within the DOM starting at the document root. However, an alternate context can be given for the search by using the optional second parameter to the  <code>$()</code> function. For example, if within a callback function we wish to do a search for an element, we can restrict that search:</p>
@@ -105,7 +105,7 @@ $('div.foo').click(function() {
 <pre><code class="example demo-code">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;
-  &lt;script src="/scripts/jquery-1.4.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
 	&lt;p&gt;one&lt;/p&gt; &lt;div&gt;&lt;p&gt;two&lt;/p&gt;&lt;/div&gt; &lt;p&gt;three&lt;/p&gt;
@@ -185,7 +185,7 @@ $('&lt;input&gt;');
 <div id="example-1">
 <h4>Example: <span class="desc">Create some DOM elements.</span>
 </h4>
-<pre><code class="example">$("&lt;div&gt;", {
+<pre><code class="example">$("&lt;div/&gt;", {
   "class": "test",
   text: "Click me!",
   click: function(){

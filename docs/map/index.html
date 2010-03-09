@@ -13,7 +13,7 @@
 <span class="name">.map( callback(index, domElement) )</span> <span class="returns">Returns: <a class="return" href="http://docs.jquery.com/Types#jQuery">jQuery</a></span>
 </h2>
 <div class="jq-box roundBottom entry-details">
-<p class="desc"><strong>Description: </strong>Pass each element in the current matched set through a function, producing a new jQuery object containing the return values..</p>
+<p class="desc"><strong>Description: </strong>Pass each element in the current matched set through a function, producing a new jQuery object containing the return values.</p>
 <ul class="signatures"><li class="signature" id="map-callbackindex, domElement">
 <h4 class="name">
 <span class="versionAdded">version added: <a href="/category/version/1.2/">1.2</a></span>.map( callback(index, domElement) )</h4>
@@ -43,21 +43,12 @@
   &lt;/fieldset&gt;
 &lt;/form&gt;
 </pre>
-<p>We can check all of the checkboxes by setting their <code>checked</code> property to <code>true</code>:</p>
-<pre>
-$('input:checkbox').map(function() {
- return this.checked = true;
-});</pre>
-<p>We can get the sum of the values of the checked inputs:</p>
-<pre>var sum = 0;
-$('input:checked').map(function() {
- return sum += (this.value * 1);
-});</pre>
 <p>We can get a comma-separated list of checkbox <code>ID</code>s:</p>
 <pre>$(':checkbox').map(function() {
   return this.id;
 }).get().join(',');</pre>
 <p>The result of this call is the string, <code>"two,four,six,eight"</code>.</p>
+<p>Within the callback function, <code>this</code> refers to the current DOM element for each iteration.</p>
 </div>
 <h3>Examples:</h3>
 <div id="entry-examples" class="entry-examples">
@@ -70,7 +61,7 @@ $('input:checked').map(function() {
   &lt;style&gt;
   p { color:red; }
   &lt;/style&gt;
-  &lt;script src="/scripts/jquery-1.4.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
 	&lt;p&gt;&lt;b&gt;Values: &lt;/b&gt;&lt;/p&gt;
@@ -103,7 +94,7 @@ $('input:checked').map(function() {
   ul { float:left; margin:0 30px; color:blue; }
   #results { color:red; }
   &lt;/style&gt;
-  &lt;script src="/scripts/jquery-1.4.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
 	&lt;ul&gt;
@@ -138,6 +129,42 @@ $('input:checked').map(function() {
       return replacement;
     });
     $("#results").append(mappedItems);
+
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+<h4>Demo:</h4>
+<div class="demo code-demo"></div>
+</div>
+<div id="example-2">
+<h4>Example: <span class="desc">Equalize the heights of the divs.</span>
+</h4>
+<pre><code class="example demo-code">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;style&gt;
+div { width: 40px; float:left; }
+input { clear:left}
+  &lt;/style&gt;
+  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+	
+
+&lt;input type="button" value="equalize div heights"&gt;
+
+&lt;div style="background:red; height: 40px; "&gt;&lt;/div&gt;
+&lt;div style="background:green; height: 70px;"&gt;&lt;/div&gt;
+&lt;div style="background:blue; height: 50px; "&gt;&lt;/div&gt;
+
+
+&lt;script&gt;
+$.fn.equalizeHeights = function(){
+  return this.height( Math.max.apply(this, $(this).map(function(i,e){ return $(e).height() }).get() ) )
+}
+$('input').click(function(){
+  $('div').equalizeHeights();
+});
 
 &lt;/script&gt;
 &lt;/body&gt;

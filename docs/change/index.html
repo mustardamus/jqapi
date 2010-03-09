@@ -25,7 +25,7 @@
 </ul>
 <div class="longdesc">
 <p>This method is a shortcut for <code>.bind('change', handler)</code> in the first variation, and <code>.trigger('change')</code> in the second.</p>
-<p>The <code>change</code> event is sent to an element when its value changes. This event is limited to <code>&lt;input type="text"&gt;</code> fields, <code>&lt;textarea&gt;</code> boxes and <code>&lt;select&gt;</code> elements. For select boxes, the event is fired immediately when the user makes a selection with the mouse, but for the other element types the event is deferred until the element loses focus.</p>
+<p>The <code>change</code> event is sent to an element when its value changes. This event is limited to <code>&lt;input&gt;</code> elements, <code>&lt;textarea&gt;</code> boxes and <code>&lt;select&gt;</code> elements. For select boxes, checkboxes, and radio buttons, the event is fired immediately when the user makes a selection with the mouse, but for the other element types the event is deferred until the element loses focus.</p>
 <p>For example, consider the HTML:</p>
 <pre>&lt;form&gt;
   &lt;input class="target" type="text" value="Field 1" /&gt;
@@ -60,7 +60,7 @@
 
   div { color:red; }
   &lt;/style&gt;
-  &lt;script src="/scripts/jquery-1.4.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
 	&lt;select name="sweets" multiple="multiple"&gt;
