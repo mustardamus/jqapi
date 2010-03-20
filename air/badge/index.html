@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>jQAPI Installer Demo</title>
+	
+	<style  type="text/css">
+		body {
+
+			background-color: <airTag id="backgroundColor"/>;
+
+		}
+	</style>
+	
+	<!-- SWFObject embed by Geoff Stearns geoff@deconcept.com http://blog.deconcept.com/swfobject/ -->
+	<script type="text/javascript" src="swfobject.js"></script>
+	
+</head>
+<body>
+
+<!-- BEGIN EMBED CODE -->
+	
+	<!-- IMPORTANT: Make sure you also copy the swfobject script tag from the head above -->
+	
+	<div id="flashcontent" style="width:215px; height:180px;">
+		<strong>Please upgrade your Flash Player</strong>
+		This is the content that would be shown if the user does not have Flash Player 6.0.65 or higher installed.
+	</div>
+
+	<script type="text/javascript">
+		// <![CDATA[
+		// version 9.0.115 or greater is required for launching AIR apps.
+		
+			var so = new SWFObject("AIRInstallBadge.swf", "", "215", "180", "9.0.115", "#000000");
+
+		so.addVariable("airversion", "1.5");
+
+		so.addVariable("appname", "jQAPI");
+
+		so.addVariable("appurl", "http://github.com/downloads/erikzaadi/jqapi/jQAPI-1.4.2.air");
+
+		so.addVariable("image", "jQAPI.jpeg");
+
+		so.addVariable("appid", "com.erikzaadi.com.mustardamus.jQAPI");
+
+		so.addVariable("pubid", "3E5C46042CDA5A1F9AA301B445CE43A5D5223395.1");
+
+		so.addVariable("appversion", "1.4.2");
+
+		so.write("flashcontent");
+		
+		// ]]>
+	</script>
+
+	</body>
+</html>
