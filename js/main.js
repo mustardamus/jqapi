@@ -297,8 +297,18 @@ $(document).ready(function() {
         click: function() {
           $(this).fadeOut('fast');
           fwindow.fadeOut('fast');
-        }
+        },
       }).appendTo(bod);
+      
+      jQuery('<a>', {
+        html: '&otimes; Close',
+        href: '#close',
+        css: { left: (winw - 920) / 2 },
+        click: function() {
+          foverlay.click();
+          return false;
+        }
+      }).appendTo(foverlay);
     }
     
     foverlay.fadeIn('fast');

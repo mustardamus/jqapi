@@ -20,6 +20,14 @@ body {
   display: none;
   z-index: 13;
 }
+#feedback-overlay a {
+  color: white;
+  font-size: 1.4em;
+  text-decoration: none;
+  position: absolute;
+  top: 30px;
+}
+#feedback-overlay a:hover { text-decoration: underline; }
 #feedback-window {
   position: fixed;
   top: 50px;
