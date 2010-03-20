@@ -297,7 +297,7 @@ $(document).ready(function() {
         click: function() {
           $(this).fadeOut('fast');
           fwindow.fadeOut('fast');
-        },
+        }
       }).appendTo(bod);
       
       jQuery('<a>', {
