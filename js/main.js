@@ -274,7 +274,7 @@ $(document).ready(function() {
   });
   
 
-  $('#feedback').click(function() {
+  var feedback = $('#feedback').click(function() {
     var link = $(this).attr('href');
     var fwindow = $('#feedback-window');
     var foverlay = $('#feedback-overlay');
@@ -308,7 +308,18 @@ $(document).ready(function() {
   });
   
   $('#feedback-trigger').click(function() {
-    $('#feedback').trigger('click');
+    feedback.trigger('click');
     return false;
+  });
+  
+  
+  var topNav = $('#topnav');
+  
+  $('#content').scroll(function() {
+    if($(this).scrollTop() > 30) {
+      topNav.fadeOut('fast');
+    } else {
+      topNav.fadeIn('fast');
+    }
   });
 });
