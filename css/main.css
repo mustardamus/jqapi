@@ -299,7 +299,7 @@ body {
   font-size: 1.3em;
   line-height: 16px;
 }
-.entry div.longdesc p { margin-bottom: 1em; }
+.entry div.longdesc .section { margin-bottom: 1em; }
 .entry div.longdesc ol {
   list-style: decimal;
   margin: 0 50px 16px 50px;
