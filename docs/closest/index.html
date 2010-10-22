@@ -2,10 +2,11 @@
 <html lang='en'><head><meta http-equiv='content-type' content='text/html; charset=UTF-8' /></head><body>
 <div class="entry-content">
         <div class="entry-title roundTop">
-				<h1 class="jq-clearfix">.closest()</h1>
+                    
+				  <h1 class="jq-clearfix">.closest()</h1>
   				<div class="entry-meta">Categories:
-  					<span class="category"><a href="http://api.jquery.com/category/traversing/" title="View all posts in Traversing">Traversing</a> &gt; <a href="http://api.jquery.com/category/traversing/tree-traversal/" title="View all posts in Tree Traversal">Tree Traversal</a></span>  
-    
+  					<span class="category"><a href="http://api.jquery.com/category/traversing/" title="View all posts in Traversing">Traversing</a> &gt; <a href="http://api.jquery.com/category/traversing/tree-traversal/" title="View all posts in Tree Traversal">Tree Traversal</a></span>
+  
   				</div>
 </div>
 
@@ -15,23 +16,23 @@
 <li>
 <a href="#closest1">closest( selector ) </a><ul>
 <li>.closest( selector )
-	  					</li>
+              </li>
 <li>.closest( selector, [ context ] )
-	  					</li>
+              </li>
 </ul>
 </li>
 <li>
 <a href="#closest2">closest( selectors, [ context ] ) </a><ul><li>.closest( selectors, [ context ] )
-	  					</li></ul>
+              </li></ul>
 </li>
 </ul>
 </fieldset>
-<div class="entry method" id="closest1">
+<div id="closest1" class="entry method">
 <h2 class="jq-clearfix roundTop section-title">
 <span class="name">.closest( selector )</span> <span class="returns">Returns: <a class="return" href="http://docs.jquery.com/Types#jQuery">jQuery</a></span>
 </h2>
 <div class="jq-box roundBottom entry-details">
-<p class="desc"><strong>Description: </strong>Get the first element that matches the selector, beginning at the current element and progressing up through the DOM tree.</p>
+<p class="desc"><strong>Description: </strong>Get the first ancestor element that matches the selector, beginning at the current element and progressing up through the DOM tree.</p>
 <ul class="signatures">
 <li class="signature" id="closest-selector">
 <h4 class="name">
@@ -106,7 +107,7 @@ $('li.item-a').closest('#one', listItemII)
 <p>This will change the color of the level-2 <code>&lt;ul&gt;</code>, because it is both the first <code>&lt;ul&gt;</code> ancestor of list item A and a descendant of list item II. It will not change the color of the level-1 <code>&lt;ul&gt;</code>, however, because it is not a descendant of list item II.</p>
 </div>
 <h3>Example:</h3>
-<div id="entry-examples" class="entry-examples"><div id="example-0">
+<div class="entry-examples" id="entry-examples"><div id="example-0">
 <h4><span class="desc">Show how event delegation can be done with closest.</span></h4>
 <pre><code class="example demo-code">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
@@ -115,10 +116,10 @@ $('li.item-a').closest('#one', listItemII)
   li { margin: 3px; padding: 3px; background: #EEEEEE; }
   li.hilight { background: yellow; }
   &lt;/style&gt;
-  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-latest.min.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
-	&lt;ul&gt;
+  &lt;ul&gt;
 &lt;li&gt;&lt;b&gt;Click me!&lt;/b&gt;&lt;/li&gt;
 &lt;li&gt;You can also &lt;b&gt;Click me!&lt;/b&gt;&lt;/li&gt;
 &lt;/ul&gt;
@@ -128,6 +129,7 @@ $('li.item-a').closest('#one', listItemII)
       $(e.target).closest("li").toggleClass("hilight");
     });
 &lt;/script&gt;
+
 &lt;/body&gt;
 &lt;/html&gt;</code></pre>
 <h4>Demo:</h4>
@@ -135,7 +137,7 @@ $('li.item-a').closest('#one', listItemII)
 </div></div>
 </div>
 </div>
-<div class="entry method" id="closest2">
+<div id="closest2" class="entry method">
 <h2 class="jq-clearfix roundTop section-title">
 <span class="name">.closest( selectors, [ context ] )</span> <span class="returns">Returns: <a class="return" href="http://docs.jquery.com/Types#Array">Array</a></span>
 </h2>
@@ -144,25 +146,26 @@ $('li.item-a').closest('#one', listItemII)
 <ul class="signatures"><li class="signature" id="closest-selectors-context">
 <h4 class="name">
 <span class="versionAdded">version added: <a href="/category/version/1.4/">1.4</a></span>.closest( selectors, [ context ] )</h4>
-<p class="arguement"><strong>selectors</strong>An array of string containing a selector expression to match elements against (can also be a jQuery object).</p>
+<p class="arguement"><strong>selectors</strong>An array or string containing a selector expression to match elements against (can also be a jQuery object).</p>
 <p class="arguement"><strong>context</strong>A DOM element within which a matching element may be found. If no context is passed in then the context of the jQuery set will be used instead.</p>
 </li></ul>
 <div class="longdesc"><p>This method is primarily meant to be used internally or by plugin authors.</p></div>
 <h3>Example:</h3>
-<div id="entry-examples" class="entry-examples"><div id="example-0">
+<div class="entry-examples" id="entry-examples-1"><div id="example-1-0">
 <h4><span class="desc">Show how event delegation can be done with closest.</span></h4>
 <pre><code class="example demo-code">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;
   &lt;style&gt;&lt;/style&gt;
-  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-latest.min.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
-	&lt;ul&gt;&lt;li&gt;&lt;/li&gt;&lt;li&gt;&lt;/li&gt;&lt;/ul&gt;
+  &lt;ul&gt;&lt;li&gt;&lt;/li&gt;&lt;li&gt;&lt;/li&gt;&lt;/ul&gt;
 &lt;script&gt;var close = $("li:first").closest(["ul", "body"]);
-$.each(close, function(i){
+        $.each(close, function(i){
   $("li").eq(i).html( this.selector + ": " + this.elem.nodeName );
 });&lt;/script&gt;
+
 &lt;/body&gt;
 &lt;/html&gt;</code></pre>
 <h4>Demo:</h4>

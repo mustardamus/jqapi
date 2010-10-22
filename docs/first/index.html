@@ -2,13 +2,14 @@
 <html lang='en'><head><meta http-equiv='content-type' content='text/html; charset=UTF-8' /></head><body>
 <div class="entry-content">
         <div class="entry-title roundTop">
-				<h1 class="jq-clearfix">.first()</h1>
+                    
+				  <h1 class="jq-clearfix">.first()</h1>
   				<div class="entry-meta">Categories:
-  					<span class="category"><a href="http://api.jquery.com/category/traversing/" title="View all posts in Traversing">Traversing</a> &gt; <a href="http://api.jquery.com/category/traversing/filtering/" title="View all posts in Filtering">Filtering</a></span>  
-    
+  					<span class="category"><a href="http://api.jquery.com/category/traversing/" title="View all posts in Traversing">Traversing</a> &gt; <a href="http://api.jquery.com/category/traversing/filtering/" title="View all posts in Filtering">Filtering</a></span>
+  
   				</div>
 </div>
-<div class="entry method" id="first1">
+<div id="first1" class="entry method">
 <h2 class="jq-clearfix roundTop section-title">
 <span class="name">.first()</span> <span class="returns">Returns: <a class="return" href="http://docs.jquery.com/Types#jQuery">jQuery</a></span>
 </h2>
@@ -33,17 +34,18 @@
 <p>The result of this call is a red background for the first item.</p>
 </div>
 <h3>Example:</h3>
-<div id="entry-examples" class="entry-examples"><div id="example-0">
+<div class="entry-examples" id="entry-examples"><div id="example-0">
 <h4><span class="desc">Highlight the first span in a paragraph.</span></h4>
 <pre><code class="example demo-code">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;
   &lt;style&gt;.highlight{background-color: yellow}&lt;/style&gt;
-  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-latest.min.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
-	&lt;p&gt;&lt;span&gt;Look:&lt;/span&gt; &lt;span&gt;This is some text in a paragraph.&lt;/span&gt; &lt;span&gt;This is a note about it.&lt;/span&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;span&gt;Look:&lt;/span&gt; &lt;span&gt;This is some text in a paragraph.&lt;/span&gt; &lt;span&gt;This is a note about it.&lt;/span&gt;&lt;/p&gt;
 &lt;script&gt;$("p span").first().addClass('highlight');&lt;/script&gt;
+
 &lt;/body&gt;
 &lt;/html&gt;</code></pre>
 <h4>Demo:</h4>

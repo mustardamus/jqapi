@@ -2,10 +2,11 @@
 <html lang='en'><head><meta http-equiv='content-type' content='text/html; charset=UTF-8' /></head><body>
 <div class="entry-content">
         <div class="entry-title roundTop">
-				<h1 class="jq-clearfix">jQuery()</h1>
+                    
+				  <h1 class="jq-clearfix">jQuery()</h1>
   				<div class="entry-meta">Categories:
-  					<span class="category"><a href="http://api.jquery.com/category/core/" title="View all posts in Core">Core</a></span>  
-    
+  					<span class="category"><a href="http://api.jquery.com/category/core/" title="View all posts in Core">Core</a></span>
+  
   				</div>
 </div>
 
@@ -15,32 +16,32 @@
 <li>
 <a href="#jQuery1">jQuery( selector, [ context ] ) </a><ul>
 <li>jQuery( selector, [ context ] )
-	  					</li>
+              </li>
 <li>jQuery( element )
-	  					</li>
+              </li>
 <li>jQuery( elementArray )
-	  					</li>
+              </li>
 <li>jQuery( jQuery object )
-	  					</li>
+              </li>
 <li>jQuery()
-	  					</li>
+              </li>
 </ul>
 </li>
 <li>
 <a href="#jQuery2">jQuery( html, [ ownerDocument ] ) </a><ul>
 <li>jQuery( html, [ ownerDocument ] )
-	  					</li>
+              </li>
 <li>jQuery( html, props )
-	  					</li>
+              </li>
 </ul>
 </li>
 <li>
 <a href="#jQuery3">jQuery( callback ) </a><ul><li>jQuery( callback )
-	  					</li></ul>
+              </li></ul>
 </li>
 </ul>
 </fieldset>
-<div class="entry method" id="jQuery1">
+<div id="jQuery1" class="entry method">
 <h2 class="jq-clearfix roundTop section-title">
 <span class="name">jQuery( selector, [ context ] )</span> <span class="returns">Returns: <a class="return" href="http://docs.jquery.com/Types#jQuery">jQuery</a></span>
 </h2>
@@ -95,21 +96,22 @@ $('div.foo').click(function() {
 <h4 id="cloning-jquery-objects">Cloning jQuery Objects</h4>
 <p>When a jQuery object is passed as a parameter to the  <code>$()</code> function, a clone of the object is created. This new jQuery object references the same DOM elements as the initial one.</p>
 <h4 id="returning-empty-set">Returning an Empty Set</h4>
-<p>As of jQuery 1.4, if you pass no arguments in to the <code>jQuery()</code> method, an empty jQuery set will be returned. In previous versions of jQuery, a set containing the document node would be returned.</p>
+<p>As of jQuery 1.4,  calling the <code>jQuery()</code> method with <em>no arguments</em> returns an empty jQuery set. In previous versions of jQuery, this would return a set containing the document node.</p>
 </div>
 <h3>Examples:</h3>
-<div id="entry-examples" class="entry-examples">
+<div class="entry-examples" id="entry-examples">
 <div id="example-0">
 <h4>Example: <span class="desc">Finds all p elements that are children of a div element.</span>
 </h4>
 <pre><code class="example demo-code">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;
-  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-latest.min.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
-	&lt;p&gt;one&lt;/p&gt; &lt;div&gt;&lt;p&gt;two&lt;/p&gt;&lt;/div&gt; &lt;p&gt;three&lt;/p&gt;
+  &lt;p&gt;one&lt;/p&gt; &lt;div&gt;&lt;p&gt;two&lt;/p&gt;&lt;/div&gt; &lt;p&gt;three&lt;/p&gt;
 &lt;script&gt;$("div &gt; p").css("border", "1px solid gray");&lt;/script&gt;
+
 &lt;/body&gt;
 &lt;/html&gt;</code></pre>
 <h4>Demo:</h4>
@@ -140,7 +142,7 @@ $('div.foo').click(function() {
 </div>
 </div>
 </div>
-<div class="entry method" id="jQuery2">
+<div id="jQuery2" class="entry method">
 <h2 class="jq-clearfix roundTop section-title">
 <span class="name">jQuery( html, [ ownerDocument ] )</span> <span class="returns">Returns: <a class="return" href="http://docs.jquery.com/Types#jQuery">jQuery</a></span>
 </h2>
@@ -156,15 +158,16 @@ $('div.foo').click(function() {
 <li class="signature" id="jQuery-html-props">
 <h4 class="name">
 <span class="versionAdded">version added: <a href="/category/version/1.4/">1.4</a></span>jQuery( html, props )</h4>
-<p class="arguement"><strong>html</strong>A string defining a single, standalone, HTML element (e.g. &lt;div/&gt; or &lt;div&gt;).</p>
-<p class="arguement"><strong>props</strong>Attributes, events, and methods to call on the newly-created element.</p>
+<p class="arguement"><strong>html</strong>A string defining a single, standalone, HTML element (e.g. &lt;div/&gt; or &lt;div&gt;&lt;/div&gt;).</p>
+<p class="arguement"><strong>props</strong>An map of attributes, events, and methods to call on the newly-created element.</p>
 </li>
 </ul>
 <div class="longdesc">
 <h4 id="creating-new-elements">Creating New Elements</h4>
 <p>If a string is passed as the parameter to  <code>$()</code>, jQuery examines the string to see if it looks like HTML (i.e., it has <code>&lt;tag ... &gt;</code> somewhere within the string). If not, the string is interpreted as a selector expression, as explained above. But if the string appears to be an HTML snippet, jQuery attempts to create new DOM elements as described by the HTML. Then a jQuery object is created and returned that refers to these elements. We can perform any of the usual jQuery methods on this object:</p>
 <pre>$('&lt;p id="test"&gt;My &lt;em&gt;new&lt;/em&gt; text&lt;/p&gt;').appendTo('body');</pre>
-<p>When the HTML is more complex than a single tag without attributes, as it is in the above example, the actual creation of the elements is handled by the browser's <code>innerHTML</code> mechanism. Specifically, jQuery creates a new &lt;div&gt; element and sets the innerHTML property of the element to the HTML snippet that was passed in. When the parameter has a single tag, such as  <code>$('&lt;img /&gt;')</code> or  <code>$('&lt;a&gt;&lt;/a&gt;')</code>, jQuery creates the element using the native JavaScript <code>createElement()</code> function.</p>
+<p>When the HTML is more complex than a single tag without attributes, as it is in the above example, the actual creation of the elements is handled by the browser's <code>innerHTML</code> mechanism. Specifically, jQuery creates a new &lt;div&gt; element and sets the innerHTML property of the element to the HTML snippet that was passed in. When the parameter has a single tag, such as  <code>$('&lt;img /&gt;')</code> or  <code>$('&lt;a&gt;&lt;/a&gt;')</code>, jQuery creates the element using the native JavaScript <code>createElement()</code> function.</p>
+<p>When passing in complex HTML, some browsers may not generate a DOM that exactly replicates the HTML source provided. For example, Internet Explorer prior to version 8 will convert all <code>href</code> properties on links to absolute URLs, and Internet Explorer prior to version 9 will not correctly handle HTML5 elements without the addition of a separate <a href="http://code.google.com/p/html5shiv/">compatibility layer</a>.</p>
 <p>To ensure cross-platform compatibility, the snippet must be well-formed. Tags that can contain other elements should be paired with a closing tag:</p>
 <pre>$('&lt;a href="http://jquery.com"&gt;&lt;/a&gt;');</pre>
 <p>Alternatively, jQuery allows XML-like tag syntax (with or without a space before the slash):</p>
@@ -173,16 +176,16 @@ $('div.foo').click(function() {
 <pre>$('&lt;img /&gt;');
 $('&lt;input&gt;');
 </pre>
-<p>As of jQuery 1.4, we can pass a map of properties to the second argument. This argument accepts a superset of properties that can be passed to the <a href="/attr">.attr()</a> method. Furthermore, any <a href="/category/events/">event type</a> can be passed in, and the following jQuery methods can be called: <a href="/val">val</a>, <a href="/css">css</a>, <a href="/html">html</a>, <a href="/text">text</a>, <a href="/data">data</a>, <a href="/width">width</a>, <a href="/height">height</a>, or <a href="/offset">offset</a>.</p>
+<p>As of jQuery 1.4, we can pass a map of properties to the second argument. This argument accepts a superset of properties that can be passed to the <a href="/attr">.attr()</a> method. Furthermore, any <a href="/category/events/">event type</a> can be passed in, and the following jQuery methods can be called: <a href="/val">val</a>, <a href="/css">css</a>, <a href="/html">html</a>, <a href="/text">text</a>, <a href="/data">data</a>, <a href="/width">width</a>, <a href="/height">height</a>, or <a href="/offset">offset</a>. Note that Internet Explorer will not allow you to create an <code>input</code> element and change its type; you must specify the type using <code>'&lt;input type="checkbox" /&gt;'</code> for example.</p>
 </div>
 <h3>Examples:</h3>
-<div id="entry-examples" class="entry-examples">
-<div id="example-0">
+<div class="entry-examples" id="entry-examples-1">
+<div id="example-1-0">
 <h4>Example: <span class="desc">Creates a div element (and all of its contents) dynamically, and appends it to the body element. Internally, an element is created and its innerHTML property set to the given markup. It is therefore both quite flexible and limited.</span>
 </h4>
 <pre><code class="example">$("&lt;div&gt;&lt;p&gt;Hello&lt;/p&gt;&lt;/div&gt;").appendTo("body")</code></pre>
 </div>
-<div id="example-1">
+<div id="example-1-1">
 <h4>Example: <span class="desc">Create some DOM elements.</span>
 </h4>
 <pre><code class="example">$("&lt;div/&gt;", {
@@ -207,7 +210,7 @@ $("&lt;input&gt;", {
 </div>
 </div>
 </div>
-<div class="entry method" id="jQuery3">
+<div id="jQuery3" class="entry method">
 <h2 class="jq-clearfix roundTop section-title">
 <span class="name">jQuery( callback )</span> <span class="returns">Returns: <a class="return" href="http://docs.jquery.com/Types#jQuery">jQuery</a></span>
 </h2>
@@ -220,15 +223,15 @@ $("&lt;input&gt;", {
 </li></ul>
 <div class="longdesc"><p>This function behaves just like <code>$(document).ready()</code>, in that it should be used to wrap other <code>$()</code> operations on your page that depend on the DOM being ready. While this function is, technically, chainable, there really isn't much use for chaining against it.</p></div>
 <h3>Examples:</h3>
-<div id="entry-examples" class="entry-examples">
-<div id="example-0">
+<div class="entry-examples" id="entry-examples-2">
+<div id="example-2-0">
 <h4>Example: <span class="desc">Executes the function when the DOM is ready to be used.</span>
 </h4>
 <pre><code class="example">$(function(){
   // Document is ready
 });</code></pre>
 </div>
-<div id="example-1">
+<div id="example-2-1">
 <h4>Example: <span class="desc">Uses both the shortcut for $(document).ready() and the argument to write failsafe jQuery code using the $ alias, without relying on the global alias.</span>
 </h4>
 <pre><code class="example">jQuery(function($) {

@@ -2,13 +2,14 @@
 <html lang='en'><head><meta http-equiv='content-type' content='text/html; charset=UTF-8' /></head><body>
 <div class="entry-content">
         <div class="entry-title roundTop">
-				<h1 class="jq-clearfix">.toArray()</h1>
+                    
+				  <h1 class="jq-clearfix">.toArray()</h1>
   				<div class="entry-meta">Categories:
-  					<span class="category"><a href="http://api.jquery.com/category/miscellaneous/" title="View all posts in Miscellaneous">Miscellaneous</a> &gt; <a href="http://api.jquery.com/category/miscellaneous/dom-element-methods/" title="View all posts in DOM Element Methods">DOM Element Methods</a></span>  
-    
+  					<span class="category"><a href="http://api.jquery.com/category/miscellaneous/" title="View all posts in Miscellaneous">Miscellaneous</a> &gt; <a href="http://api.jquery.com/category/miscellaneous/dom-element-methods/" title="View all posts in DOM Element Methods">DOM Element Methods</a></span>
+  
   				</div>
 </div>
-<div class="entry method" id="toArray1">
+<div id="toArray1" class="entry method">
 <h2 class="jq-clearfix roundTop section-title">
 <span class="name">.toArray()</span> <span class="returns">Returns: <a class="return" href="http://docs.jquery.com/Types#Array">Array</a></span>
 </h2>
@@ -23,7 +24,7 @@
 <p><span class="result">[&lt;li id="foo"&gt;, &lt;li id="bar"&gt;]</span></p>
 </div>
 <h3>Example:</h3>
-<div id="entry-examples" class="entry-examples"><div id="example-0">
+<div class="entry-examples" id="entry-examples"><div id="example-0">
 <h4><span class="desc">Selects all divs in the document and returns the DOM Elements as an Array, then uses the built-in reverse-method to reverse that array.</span></h4>
 <pre><code class="example demo-code">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
@@ -31,10 +32,10 @@
   &lt;style&gt;
   span { color:red; }
   &lt;/style&gt;
-  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-latest.min.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
-	Reversed - &lt;span&gt;&lt;/span&gt;
+  Reversed - &lt;span&gt;&lt;/span&gt;
 
   &lt;div&gt;One&lt;/div&gt;
   &lt;div&gt;Two&lt;/div&gt;
@@ -51,6 +52,7 @@
     
     disp( $("div").toArray().reverse() );
 &lt;/script&gt;
+
 &lt;/body&gt;
 &lt;/html&gt;</code></pre>
 <h4>Demo:</h4>

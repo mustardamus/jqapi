@@ -2,10 +2,11 @@
 <html lang='en'><head><meta http-equiv='content-type' content='text/html; charset=UTF-8' /></head><body>
 <div class="entry-content">
         <div class="entry-title roundTop">
-				<h1 class="jq-clearfix">.data()</h1>
+                    
+				  <h1 class="jq-clearfix">.data()</h1>
   				<div class="entry-meta">Categories:
-  					<span class="category"><a href="http://api.jquery.com/category/data/" title="View all posts in Data">Data</a></span> | <span class="category"><a href="http://api.jquery.com/category/miscellaneous/" title="View all posts in Miscellaneous">Miscellaneous</a> &gt; <a href="http://api.jquery.com/category/miscellaneous/data-storage/" title="View all posts in Data Storage">Data Storage</a></span>  
-    
+  					<span class="category"><a href="http://api.jquery.com/category/data/" title="View all posts in Data">Data</a></span> | <span class="category"><a href="http://api.jquery.com/category/miscellaneous/" title="View all posts in Miscellaneous">Miscellaneous</a> &gt; <a href="http://api.jquery.com/category/miscellaneous/data-storage/" title="View all posts in Data Storage">Data Storage</a></span>
+  
   				</div>
 </div>
 
@@ -15,22 +16,22 @@
 <li>
 <a href="#data1">data( key, value ) </a><ul>
 <li>.data( key, value )
-	  					</li>
+              </li>
 <li>.data( obj )
-	  					</li>
+              </li>
 </ul>
 </li>
 <li>
 <a href="#data2">data( key ) </a><ul>
 <li>.data( key )
-	  					</li>
+              </li>
 <li>.data()
-	  					</li>
+              </li>
 </ul>
 </li>
 </ul>
 </fieldset>
-<div class="entry method" id="data1">
+<div id="data1" class="entry method">
 <h2 class="jq-clearfix roundTop section-title">
 <span class="name">.data( key, value )</span> <span class="returns">Returns: <a class="return" href="http://docs.jquery.com/Types#jQuery">jQuery</a></span>
 </h2>
@@ -45,8 +46,8 @@
 </li>
 <li class="signature" id="data-obj">
 <h4 class="name">
-<span class="versionAdded">version added: <a href="/category/version/1.4/">1.4</a></span>.data( obj )</h4>
-<p class="arguement"><strong>obj</strong>An object of key-value pairs of data to set.</p>
+<span class="versionAdded">version added: <a href="/category/version/1.4.3/">1.4.3</a></span>.data( obj )</h4>
+<p class="arguement"><strong>obj</strong>An object of key-value pairs of data to update.</p>
 </li>
 </ul>
 <div class="longdesc">
@@ -59,18 +60,23 @@ $('body').data('bar', { myType: 'test', count: 40 });
 $('body').data('foo'); // 52
 $('body').data(); // {foo: 52, bar: { myType: 'test', count: 40 }}
 </pre>
-<p>Setting an element's data object with <code>.data(obj)</code> replaces all data previously stored with that element. If you are using third-party plugins it may not be advisable to completely replace the element's data object, since plugins may have also set data. Until jQuery 1.4.2, jQuery itself used the <code>.data()</code> method to save information about events that have been bound to the element, using a data item named 'events'.</p>
-<pre>
-$('body').data('foo', 52);
-$('body').data({one: 1, two: 2});
-
-$('body').data('foo'); // undefined
-$('body').data(); // {one: 1, two: 2}
-</pre>
-<p>Due to the way browsers interact with plugins and external code, the <code>.data()</code> method cannot be used on <code>&lt;object&gt;</code>, <code>&lt;applet&gt;</code> or <code>&lt;embed&gt;</code> elements.</p>
+<p>In jQuery 1.4.3 setting an element's data object with <code>.data(obj)</code> extends the data previously stored with that element. jQuery itself uses the <code>.data()</code> method to save information under the names 'events' and 'handle', and also reserves any data name starting with an underscore ('_') for internal use.</p>
+<p>Prior to jQuery 1.4.3 (starting in jQuery 1.4) the .data() method completely replaced all data, instead of just extending the data object. If you are using third-party plugins it may not be advisable to completely replace the element's data object, since plugins may have also set data.</p>
+<p>Due to the way browsers interact with plugins and external code, the <code>.data()</code> method cannot be used on <code>&lt;object&gt;</code> (unless it's a Flash plugin), <code>&lt;applet&gt;</code> or <code>&lt;embed&gt;</code> elements.</p>
+<p><strong>HTML 5 data- Attributes</strong></p>
+<p>As of jQuery 1.4.3 <a href="http://ejohn.org/blog/html-5-data-attributes/">HTML 5 data- attributes</a> will be automatically pulled in to jQuery's data object.</p>
+<p>For example, given the following HTML:</p>
+<pre>&lt;div data-role="page" data-hidden="true" data-options='{"name":"John"}'&gt;&lt;/div&gt;</pre>
+<p>All of the following jQuery code will work.</p>
+<pre>$("div").data("role") === "page";
+$("div").data("hidden") === true;
+$("div").data("options").name === "John";</pre>
+<p>Note that strings are left intact while JavaScript values are converted to their associated value (this includes booleans, numbers, objects, arrays, and null). The data- attributes are pulled in the first time the data property is accessed and then are no longer accessed or mutated (all data values are then stored internally in jQuery).</p>
 </div>
+<h3 id="notes-0">Additional Notes:</h3>
+<div class="longdesc"><ul><li>Note that this method currently does not provide cross-platform support for setting data on XML documents, as Internet Explorer does not allow data to be attached via expando properties.</li></ul></div>
 <h3>Example:</h3>
-<div id="entry-examples" class="entry-examples"><div id="example-0">
+<div class="entry-examples" id="entry-examples"><div id="example-0">
 <h4><span class="desc">Store then retrieve a value from the div element.</span></h4>
 <pre><code class="example demo-code">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
@@ -79,10 +85,10 @@ $('body').data(); // {one: 1, two: 2}
   div { color:blue; }
   span { color:red; }
   &lt;/style&gt;
-  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-latest.min.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
-	&lt;div&gt;
+  &lt;div&gt;
     The values stored were 
     &lt;span&gt;&lt;/span&gt;
     and
@@ -93,6 +99,7 @@ $("div").data("test", { first: 16, last: "pizza!" });
 $("span:first").text($("div").data("test").first);
 $("span:last").text($("div").data("test").last);
 &lt;/script&gt;
+
 &lt;/body&gt;
 &lt;/html&gt;</code></pre>
 <h4>Demo:</h4>
@@ -100,12 +107,12 @@ $("span:last").text($("div").data("test").last);
 </div></div>
 </div>
 </div>
-<div class="entry method" id="data2">
+<div id="data2" class="entry method">
 <h2 class="jq-clearfix roundTop section-title">
 <span class="name">.data( key )</span> <span class="returns">Returns: <a class="return" href="http://docs.jquery.com/Types#Object">Object</a></span>
 </h2>
 <div class="jq-box roundBottom entry-details">
-<p class="desc"><strong>Description: </strong>Returns value at named data store for the element, as set by data(name, value).</p>
+<p class="desc"><strong>Description: </strong>Returns value at named data store for the first element in the jQuery collection, as set by data(name, value).</p>
 <ul class="signatures">
 <li class="signature" id="data-key">
 <h4 class="name">
@@ -121,11 +128,20 @@ $("span:last").text($("div").data("test").last);
 alert($('body').data('foo'));
 alert($('body').data());
 </pre>
-<p>The above lines alert the data values that were set on the <code>body</code> element. If nothing was set on that element, an empty string is returned:</p>
-<p>Calling <code>.data()</code> with no parameters retrieves all of the values as a JavaScript object. This object can be safely cached in a variable as long as a new object is not set with <code>.data(obj)</code>.</p>
+<p>The above lines alert the data values that were set on the <code>body</code> element. If nothing was set on that element, null is returned.</p>
+<p>Calling <code>.data()</code> with no parameters retrieves all of the values as a JavaScript object. This object can be safely cached in a variable as long as a new object is not set with <code>.data(obj)</code>. Using the object directly to get or set values is faster than making individual calls to <code>.data()</code> to get or set each value:</p>
+<pre>
+var mydata = $("#mydiv").data();
+if ( mydata.count &lt; 9 ) {
+    mydata.count = 43;
+    mydata.status = "embiggened";
+}
+</pre>
 </div>
+<h3 id="notes-1">Additional Notes:</h3>
+<div class="longdesc"><ul><li>Note that this method currently does not provide cross-platform support for setting data on XML documents, as Internet Explorer does not allow data to be attached via expando properties.</li></ul></div>
 <h3>Example:</h3>
-<div id="entry-examples" class="entry-examples"><div id="example-0">
+<div class="entry-examples" id="entry-examples-1"><div id="example-1-0">
 <h4><span class="desc">Get the data named "blah" stored at for an element.</span></h4>
 <pre><code class="example demo-code">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
@@ -136,10 +152,10 @@ alert($('body').data());
   p { margin:5px; color:blue; }
   span { color:red; }
   &lt;/style&gt;
-  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-latest.min.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
-	&lt;div&gt;A div&lt;/div&gt;
+  &lt;div&gt;A div&lt;/div&gt;
   &lt;button&gt;Get "blah" from the div&lt;/button&gt;
   &lt;button&gt;Set "blah" to "hello"&lt;/button&gt;
 
@@ -172,6 +188,7 @@ $("button").click(function(e) {
 });
 
 &lt;/script&gt;
+
 &lt;/body&gt;
 &lt;/html&gt;</code></pre>
 <h4>Demo:</h4>

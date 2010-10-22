@@ -2,23 +2,32 @@
 <html lang='en'><head><meta http-equiv='content-type' content='text/html; charset=UTF-8' /></head><body>
 <div class="entry-content">
         <div class="entry-title roundTop">
-				<h1 class="jq-clearfix">.error()</h1>
+                    
+				  <h1 class="jq-clearfix">.error()</h1>
   				<div class="entry-meta">Categories:
-  					<span class="category"><a href="http://api.jquery.com/category/events/" title="View all posts in Events">Events</a> &gt; <a href="http://api.jquery.com/category/events/browser-events/" title="View all posts in Browser Events">Browser Events</a></span>  
-    
+  					<span class="category"><a href="http://api.jquery.com/category/events/" title="View all posts in Events">Events</a> &gt; <a href="http://api.jquery.com/category/events/browser-events/" title="View all posts in Browser Events">Browser Events</a></span>
+  
   				</div>
 </div>
-<div class="entry method" id="error1">
+<div id="error1" class="entry method">
 <h2 class="jq-clearfix roundTop section-title">
 <span class="name">.error( handler(eventObject) )</span> <span class="returns">Returns: <a class="return" href="http://docs.jquery.com/Types#jQuery">jQuery</a></span>
 </h2>
 <div class="jq-box roundBottom entry-details">
 <p class="desc"><strong>Description: </strong>Bind an event handler to the "error" JavaScript event.</p>
-<ul class="signatures"><li class="signature" id="error-handlereventObject">
+<ul class="signatures">
+<li class="signature" id="error-handlereventObject">
 <h4 class="name">
 <span class="versionAdded">version added: <a href="/category/version/1.0/">1.0</a></span>.error( handler(eventObject) )</h4>
 <p class="arguement"><strong>handler(eventObject)</strong>A function to execute when the event is triggered.</p>
-</li></ul>
+</li>
+<li class="signature" id="error-eventData-handlereventObject">
+<h4 class="name">
+<span class="versionAdded">version added: <a href="/category/version/1.4.3/">1.4.3</a></span>.error( [ eventData ], handler(eventObject) )</h4>
+<p class="arguement"><strong>eventData</strong>A map of data that will be passed to the event handler.</p>
+<p class="arguement"><strong>handler(eventObject)</strong>A function to execute each time the event is triggered.</p>
+</li>
+</ul>
 <div class="longdesc">
 <p>This method is a shortcut for <code>.bind('error', handler)</code>.</p>
 <p>The <code>error</code> event is sent to elements, such as images, that are referenced by a document and loaded by the browser. It is called if the element was not loaded correctly.</p>
@@ -34,24 +43,19 @@
 <blockquote>
 <p>This event may not be correctly fired when the page is served locally. Since <code>error</code> relies on normal HTTP status codes, it will generally not be triggered if the URL uses the <code>file:</code> protocol.</p>
 </blockquote>
+<p>Note: A jQuery error event handler should not be attached to the window object. The browser fires the window's error event when a script error occurs. However, the window error event receives different arguments and has different return value requirements than conventional event handlers.
+</p>
 </div>
 <h3>Examples:</h3>
-<div id="entry-examples" class="entry-examples">
+<div class="entry-examples" id="entry-examples">
 <div id="example-0">
-<h4>Example: <span class="desc">To keep a server-side log of JavaScript errors, you might want to:</span>
-</h4>
-<pre><code class="example">$(window).error(function(msg, url, line){
-  jQuery.post("js_error_log.php", { msg: msg, url: url, line: line });
-});</code></pre>
-</div>
-<div id="example-1">
 <h4>Example: <span class="desc">To hide JavaScript errors from the user, you can try:</span>
 </h4>
 <pre><code class="example">$(window).error(function(){
   return true;
 });</code></pre>
 </div>
-<div id="example-2">
+<div id="example-1">
 <h4>Example: <span class="desc">To hide the "broken image" icons for your IE users, you can try:</span>
 </h4>
 <pre><code class="example">$("img").error(function(){

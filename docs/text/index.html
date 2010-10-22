@@ -2,10 +2,11 @@
 <html lang='en'><head><meta http-equiv='content-type' content='text/html; charset=UTF-8' /></head><body>
 <div class="entry-content">
         <div class="entry-title roundTop">
-				<h1 class="jq-clearfix">.text()</h1>
+                    
+				  <h1 class="jq-clearfix">.text()</h1>
   				<div class="entry-meta">Categories:
-  					<span class="category"><a href="http://api.jquery.com/category/attributes/" title="View all posts in Attributes">Attributes</a></span> | <span class="category"><a href="http://api.jquery.com/category/manipulation/" title="View all posts in Manipulation">Manipulation</a> &gt; <a href="http://api.jquery.com/category/manipulation/dom-insertion-inside/" title="View all posts in DOM Insertion, Inside">DOM Insertion, Inside</a></span> | <span class="category"><a href="http://api.jquery.com/category/manipulation/" title="View all posts in Manipulation">Manipulation</a> &gt; <a href="http://api.jquery.com/category/manipulation/general-attributes/" title="View all posts in General Attributes">General Attributes</a></span>  
-    
+  					<span class="category"><a href="http://api.jquery.com/category/manipulation/" title="View all posts in Manipulation">Manipulation</a> &gt; <a href="http://api.jquery.com/category/manipulation/dom-insertion-inside/" title="View all posts in DOM Insertion, Inside">DOM Insertion, Inside</a></span>
+  
   				</div>
 </div>
 
@@ -14,19 +15,19 @@
 <ul class="toc-list">
 <li>
 <a href="#text1">text() </a><ul><li>.text()
-	  					</li></ul>
+              </li></ul>
 </li>
 <li>
 <a href="#text2">text( textString ) </a><ul>
 <li>.text( textString )
-	  					</li>
+              </li>
 <li>.text( function(index, text) )
-	  					</li>
+              </li>
 </ul>
 </li>
 </ul>
 </fieldset>
-<div class="entry method" id="text1">
+<div id="text1" class="entry method">
 <h2 class="jq-clearfix roundTop section-title">
 <span class="name">.text()</span> <span class="returns">Returns: <a class="return" href="http://docs.jquery.com/Types#String">String</a></span>
 </h2>
@@ -52,7 +53,7 @@
 <p>As of jQuery 1.4, the <code>.text()</code> method returns the value of text and CDATA nodes as well as element nodes.</p>
 </div>
 <h3>Example:</h3>
-<div id="entry-examples" class="entry-examples"><div id="example-0">
+<div class="entry-examples" id="entry-examples"><div id="example-0">
 <h4><span class="desc">Find the text in the first paragraph (stripping out the html), then set the html of the last paragraph to show it is just text (the red bold is gone).</span></h4>
 <pre><code class="example demo-code">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
@@ -61,16 +62,17 @@
   p { color:blue; margin:8px; }
   b { color:red; }
   &lt;/style&gt;
-  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-latest.min.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
-	&lt;p&gt;&lt;b&gt;Test&lt;/b&gt; Paragraph.&lt;/p&gt;
+  &lt;p&gt;&lt;b&gt;Test&lt;/b&gt; Paragraph.&lt;/p&gt;
 
   &lt;p&gt;&lt;/p&gt;
 &lt;script&gt;
     var str = $("p:first").text();
     $("p:last").html(str);
 &lt;/script&gt;
+
 &lt;/body&gt;
 &lt;/html&gt;</code></pre>
 <h4>Demo:</h4>
@@ -78,7 +80,7 @@
 </div></div>
 </div>
 </div>
-<div class="entry method" id="text2">
+<div id="text2" class="entry method">
 <h2 class="jq-clearfix roundTop section-title">
 <span class="name">.text( textString )</span> <span class="returns">Returns: <a class="return" href="http://docs.jquery.com/Types#jQuery">jQuery</a></span>
 </h2>
@@ -90,7 +92,7 @@
 <span class="versionAdded">version added: <a href="/category/version/1.0/">1.0</a></span>.text( textString )</h4>
 <p class="arguement"><strong>textString</strong>A string of text to set as the content of each matched element.</p>
 </li>
-<li class="signature" id="text-functionindex, text">
+<li class="signature" id="text-functionindex- text">
 <h4 class="name">
 <span class="versionAdded">version added: <a href="/category/version/1.4/">1.4</a></span>.text( function(index, text) )</h4>
 <p class="arguement"><strong>function(index, text)</strong>A function returning the text content to set. Receives the index position of the element in the set and the old text value as arguments.</p>
@@ -127,7 +129,7 @@
 </pre>
 </div>
 <h3>Example:</h3>
-<div id="entry-examples" class="entry-examples"><div id="example-0">
+<div class="entry-examples" id="entry-examples-1"><div id="example-1-0">
 <h4><span class="desc">Add text to the paragraph (notice the bold tag is escaped).</span></h4>
 <pre><code class="example demo-code">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
@@ -136,11 +138,12 @@
 
   p { color:blue; margin:8px; }
   &lt;/style&gt;
-  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-latest.min.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
-	&lt;p&gt;Test Paragraph.&lt;/p&gt;
+  &lt;p&gt;Test Paragraph.&lt;/p&gt;
 &lt;script&gt;$("p").text("&lt;b&gt;Some&lt;/b&gt; new text.");&lt;/script&gt;
+
 &lt;/body&gt;
 &lt;/html&gt;</code></pre>
 <h4>Demo:</h4>

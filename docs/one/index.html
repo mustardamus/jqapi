@@ -2,18 +2,19 @@
 <html lang='en'><head><meta http-equiv='content-type' content='text/html; charset=UTF-8' /></head><body>
 <div class="entry-content">
         <div class="entry-title roundTop">
-				<h1 class="jq-clearfix">.one()</h1>
+                    
+				  <h1 class="jq-clearfix">.one()</h1>
   				<div class="entry-meta">Categories:
-  					<span class="category"><a href="http://api.jquery.com/category/events/" title="View all posts in Events">Events</a> &gt; <a href="http://api.jquery.com/category/events/event-handler-attachment/" title="View all posts in Event Handler Attachment">Event Handler Attachment</a></span>  
-    
+  					<span class="category"><a href="http://api.jquery.com/category/events/" title="View all posts in Events">Events</a> &gt; <a href="http://api.jquery.com/category/events/event-handler-attachment/" title="View all posts in Event Handler Attachment">Event Handler Attachment</a></span>
+  
   				</div>
 </div>
-<div class="entry method" id="one1">
+<div id="one1" class="entry method">
 <h2 class="jq-clearfix roundTop section-title">
 <span class="name">.one( eventType, [ eventData ], handler(eventObject) )</span> <span class="returns">Returns: <a class="return" href="http://docs.jquery.com/Types#jQuery">jQuery</a></span>
 </h2>
 <div class="jq-box roundBottom entry-details">
-<p class="desc"><strong>Description: </strong>Attach a handler to an event for the elements. The handler is executed at most once.</p>
+<p class="desc"><strong>Description: </strong>Attach a handler to an event for the elements. The handler is executed at most once per element.</p>
 <ul class="signatures"><li class="signature" id="one-eventType-eventData-handlereventObject">
 <h4 class="name">
 <span class="versionAdded">version added: <a href="/category/version/1.1/">1.1</a></span>.one( eventType, [ eventData ], handler(eventObject) )</h4>
@@ -36,7 +37,7 @@
 <p>In other words, explicitly calling <code>.unbind()</code> from within a regularly-bound handler has exactly the same effect.</p>
 </div>
 <h3>Examples:</h3>
-<div id="entry-examples" class="entry-examples">
+<div class="entry-examples" id="entry-examples">
 <div id="example-0">
 <h4>Example: <span class="desc">Tie a one-time click to each div.</span>
 </h4>
@@ -49,10 +50,10 @@ background:green; border:10px outset;
 cursor:pointer; }
 p { color:red; margin:0; clear:left; }
 &lt;/style&gt;
-  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-latest.min.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
-	&lt;div&gt;&lt;/div&gt;
+  &lt;div&gt;&lt;/div&gt;
 &lt;div&gt;&lt;/div&gt;
 &lt;div&gt;&lt;/div&gt;
 &lt;div&gt;&lt;/div&gt;
@@ -70,6 +71,7 @@ $("p").text("Div at index #" + index + " clicked." +
 });
 
 &lt;/script&gt;
+
 &lt;/body&gt;
 &lt;/html&gt;</code></pre>
 <h4>Demo:</h4>

@@ -2,13 +2,14 @@
 <html lang='en'><head><meta http-equiv='content-type' content='text/html; charset=UTF-8' /></head><body>
 <div class="entry-content">
         <div class="entry-title roundTop">
-				<h1 class="jq-clearfix">.resize()</h1>
+                    
+				  <h1 class="jq-clearfix">.resize()</h1>
   				<div class="entry-meta">Categories:
-  					<span class="category"><a href="http://api.jquery.com/category/events/" title="View all posts in Events">Events</a> &gt; <a href="http://api.jquery.com/category/events/browser-events/" title="View all posts in Browser Events">Browser Events</a></span>  
-    
+  					<span class="category"><a href="http://api.jquery.com/category/events/" title="View all posts in Events">Events</a> &gt; <a href="http://api.jquery.com/category/events/browser-events/" title="View all posts in Browser Events">Browser Events</a></span>
+  
   				</div>
 </div>
-<div class="entry method" id="resize1">
+<div id="resize1" class="entry method">
 <h2 class="jq-clearfix roundTop section-title">
 <span class="name">.resize( handler(eventObject) )</span> <span class="returns">Returns: <a class="return" href="http://docs.jquery.com/Types#jQuery">jQuery</a></span>
 </h2>
@@ -18,6 +19,12 @@
 <li class="signature" id="resize-handlereventObject">
 <h4 class="name">
 <span class="versionAdded">version added: <a href="/category/version/1.0/">1.0</a></span>.resize( handler(eventObject) )</h4>
+<p class="arguement"><strong>handler(eventObject)</strong>A function to execute each time the event is triggered.</p>
+</li>
+<li class="signature" id="resize-eventData-handlereventObject">
+<h4 class="name">
+<span class="versionAdded">version added: <a href="/category/version/1.4.3/">1.4.3</a></span>.resize( [ eventData ], handler(eventObject) )</h4>
+<p class="arguement"><strong>eventData</strong>A map of data that will be passed to the event handler.</p>
 <p class="arguement"><strong>handler(eventObject)</strong>A function to execute each time the event is triggered.</p>
 </li>
 <li class="signature" id="resize"><h4 class="name">
@@ -34,7 +41,7 @@
 <p>Code in a <code>resize</code> handler should never rely on the number of times the handler is called. Depending on implementation, <code>resize</code> events can be sent continuously as the resizing is in progress (the typical behavior in Internet Explorer and WebKit-based browsers such as Safari and Chrome), or only once at the end of the resize operation (the typical behavior in Firefox).</p>
 </div>
 <h3>Example:</h3>
-<div id="entry-examples" class="entry-examples"><div id="example-0">
+<div class="entry-examples" id="entry-examples"><div id="example-0">
 <h4><span class="desc">To see the window width while (or after) it is resized, try:</span></h4>
 <pre><code class="example">
 $(window).resize(function() {

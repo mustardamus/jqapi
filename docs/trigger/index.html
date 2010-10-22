@@ -2,31 +2,40 @@
 <html lang='en'><head><meta http-equiv='content-type' content='text/html; charset=UTF-8' /></head><body>
 <div class="entry-content">
         <div class="entry-title roundTop">
-				<h1 class="jq-clearfix">.trigger()</h1>
+                    
+				  <h1 class="jq-clearfix">.trigger()</h1>
   				<div class="entry-meta">Categories:
-  					<span class="category"><a href="http://api.jquery.com/category/events/" title="View all posts in Events">Events</a> &gt; <a href="http://api.jquery.com/category/events/event-handler-attachment/" title="View all posts in Event Handler Attachment">Event Handler Attachment</a></span>  
-    
+  					<span class="category"><a href="http://api.jquery.com/category/events/" title="View all posts in Events">Events</a> &gt; <a href="http://api.jquery.com/category/events/event-handler-attachment/" title="View all posts in Event Handler Attachment">Event Handler Attachment</a></span>
+  
   				</div>
 </div>
-<div class="entry method" id="trigger1">
+<div id="trigger1" class="entry method">
 <h2 class="jq-clearfix roundTop section-title">
 <span class="name">.trigger( eventType, extraParameters )</span> <span class="returns">Returns: <a class="return" href="http://docs.jquery.com/Types#jQuery">jQuery</a></span>
 </h2>
 <div class="jq-box roundBottom entry-details">
 <p class="desc"><strong>Description: </strong>Execute all handlers and behaviors attached to the matched elements for the given event type.</p>
-<ul class="signatures"><li class="signature" id="trigger-eventType-extraParameters">
+<ul class="signatures">
+<li class="signature" id="trigger-eventType-extraParameters">
 <h4 class="name">
 <span class="versionAdded">version added: <a href="/category/version/1.0/">1.0</a></span>.trigger( eventType, extraParameters )</h4>
 <p class="arguement"><strong>eventType</strong>A string containing a JavaScript event type, such as <code>click</code> or <code>submit</code>.</p>
 <p class="arguement"><strong>extraParameters</strong>An array of additional parameters to pass along to the event handler.</p>
-</li></ul>
+</li>
+<li class="signature" id="trigger-event">
+<h4 class="name">
+<span class="versionAdded">version added: <a href="/category/version/1.3/">1.3</a></span>.trigger( event )</h4>
+<p class="arguement"><strong>event</strong>A <a href="http://api.jquery.com/category/events/event-object/"><code>jQuery.Event</code></a> object.</p>
+</li>
+</ul>
 <div class="longdesc">
 <p>Any event handlers attached with <code>.bind()</code> or one of its shortcut methods are triggered when the corresponding event occurs. They can be fired manually, however, with the <code>.trigger()</code> method. A call to <code>.trigger()</code> executes the handlers in the same order they would be if the event were triggered naturally by the user:</p>
 <pre>$('#foo').bind('click', function() {
       alert($(this).text());
     });
     $('#foo').trigger('click');</pre>
-<p>While <code>.trigger()</code> simulates an event activation, complete with a synthesized event object, it does not perfectly replicate a naturally-occurring event.</p>
+<p>As of jQuery 1.3, <code>.trigger()</code>ed events bubble up the DOM tree; an event handler can stop the bubbling by returning <code>false</code> from the handler or calling the <a href="http://api.jquery.com/event.stopPropagation/"><code>.stopPropagation()</code></a> method on the event object passed into the event. Although <code>.trigger()</code> simulates an event activation, complete with a synthesized event object, it does not perfectly replicate a naturally-occurring event.</p>
+<p>To trigger handlers bound via jQuery without also triggering the native event, use <a href="http://api.jquery.com/triggerHandler/"><code>.triggerHandler()</code></a> instead. </p>
 <p>When we define a custom event type using the <code>.bind()</code> method, the second argument to <code>.trigger()</code> can become useful. For example, suppose we have bound a handler for the <code>custom</code> event to our element instead of the built-in <code>click</code> event as we did above:</p>
 <pre>$('#foo').bind('custom', function(event, param1, param2) {
   alert(param1 + "\n" + param2);
@@ -37,7 +46,7 @@ $('#foo').trigger('custom', ['Custom', 'Event']);
 <p>Note the difference between the extra parameters we're passing here and the <code>eventData</code> parameter to the <a href="/bind/">.bind()</a> method. Both are mechanisms for passing information to an event handler, but the <code>extraParameters</code> argument to <code>.trigger()</code> allows information to be determined at the time the event is triggered, while the <code>eventData</code> argument to <code>.bind()</code> requires the information to be already computed at the time the handler is bound.</p>
 </div>
 <h3>Examples:</h3>
-<div id="entry-examples" class="entry-examples">
+<div class="entry-examples" id="entry-examples">
 <div id="example-0">
 <h4>Example: <span class="desc">Clicks to button #2 also trigger a click for button #1.</span>
 </h4>
@@ -50,10 +59,10 @@ button { margin:10px; }
 div { color:blue; font-weight:bold; }
 span { color:red; }
 &lt;/style&gt;
-  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-latest.min.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
-	&lt;button&gt;Button #1&lt;/button&gt;
+  &lt;button&gt;Button #1&lt;/button&gt;
 &lt;button&gt;Button #2&lt;/button&gt;
 &lt;div&gt;&lt;span&gt;0&lt;/span&gt; button #1 clicks.&lt;/div&gt;
 
@@ -73,6 +82,7 @@ var n = parseInt(j.text(), 10);
 j.text(n + 1);
 }
 &lt;/script&gt;
+
 &lt;/body&gt;
 &lt;/html&gt;</code></pre>
 <h4>Demo:</h4>
@@ -110,7 +120,7 @@ event.pass = "bar";
 $("body").trigger(event);</code></pre>
 </div>
 <div id="example-5">
-<h4>Example: <span class="desc">Alternate way to pass data through an event object:</span>
+<h4>Example: <span class="desc">Alternative way to pass data through an event object:</span>
 </h4>
 <pre><code class="example">$("body").trigger({
 type:"logged",

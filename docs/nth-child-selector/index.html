@@ -2,13 +2,14 @@
 <html lang='en'><head><meta http-equiv='content-type' content='text/html; charset=UTF-8' /></head><body>
 <div class="entry-content">
         <div class="entry-title roundTop">
-				<h1 class="jq-clearfix">:nth-child Selector</h1>
+                    
+				  <h1 class="jq-clearfix">:nth-child() Selector</h1>
   				<div class="entry-meta">Categories:
-  					<span class="category"><a href="http://api.jquery.com/category/selectors/" title="View all posts in Selectors">Selectors</a> &gt; <a href="http://api.jquery.com/category/selectors/child-filter-selectors/" title="View all posts in Child Filter">Child Filter</a></span>  
-    
+  					<span class="category"><a href="http://api.jquery.com/category/selectors/" title="View all posts in Selectors">Selectors</a> &gt; <a href="http://api.jquery.com/category/selectors/child-filter-selectors/" title="View all posts in Child Filter">Child Filter</a></span>
+  
   				</div>
 </div>
-<div class="entry selector" id="nth-child1">
+<div id="nth-child1" class="entry selector">
 <h2 class="jq-clearfix roundTop section-title">
 <span class="name">nth-child</span>  selector</h2>
 <div class="jq-box roundBottom entry-details">
@@ -21,11 +22,11 @@
 <p class="desc"><strong>Description: </strong>Selects all elements that are the nth-child of their parent.</p>
 <div class="longdesc">
 <p>Because jQuery's implementation of <code>:nth-child(n)</code> is strictly derived from the CSS specification, the value of <code>n</code> is "1-indexed", meaning that the counting starts at 1. For all other selector expressions, however, jQuery follows JavaScript's "0-indexed" counting. Therefore, given a single <code>&lt;ul&gt;</code> containing two <code>&lt;li&gt;</code>s, <code>$('li:nth-child(1)')</code> selects the first <code>&lt;li&gt;</code> while  <code>$('li:eq(1)')</code> selects the second.</p>
-<p>The <code>:nth-child(n)</code> pseudo-class is easily confused with <code>:eq(n)</code>, even though the two can result in dramatically different matched elements. With <code>:nth-child(n)</code>, all children are counted, regardless of what they are, and the specified element is selected only if it matches the selector attached to the pseudo-class. With <code>:eq(n)</code> only the selector attached to the pseudo-class is counted, not limited to children of any other element, and the nth one is selected.</p>
+<p>The <code>:nth-child(n)</code> pseudo-class is easily confused with <code>:eq(n)</code>, even though the two can result in dramatically different matched elements. With <code>:nth-child(n)</code>, all children are counted, regardless of what they are, and the specified element is selected only if it matches the selector attached to the pseudo-class. With <code>:eq(n)</code> only the selector attached to the pseudo-class is counted, not limited to children of any other element, and the (n+1)th one (n is 0-based) is selected.</p>
 <p>Further discussion of this unusual usage can be found in the <a href="http://www.w3.org/TR/css3-selectors/#nth-child-pseudo">W3C CSS specification</a>.</p>
 </div>
 <h3>Examples:</h3>
-<div id="entry-examples" class="entry-examples">
+<div class="entry-examples" id="entry-examples">
 <div id="example-0">
 <h4>Example: <span class="desc">Finds the second li in each matched ul and notes it.</span>
 </h4>
@@ -37,10 +38,10 @@
   div { float:left; }
   span { color:blue; }
   &lt;/style&gt;
-  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-latest.min.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
-	&lt;div&gt;&lt;ul&gt;
+  &lt;div&gt;&lt;ul&gt;
     &lt;li&gt;John&lt;/li&gt;
     &lt;li&gt;Karl&lt;/li&gt;
     &lt;li&gt;Brandon&lt;/li&gt;
@@ -58,6 +59,7 @@
     &lt;li&gt;David&lt;/li&gt;
   &lt;/ul&gt;&lt;/div&gt;
 &lt;script&gt;$("ul li:nth-child(2)").append("&lt;span&gt; - 2nd!&lt;/span&gt;");&lt;/script&gt;
+
 &lt;/body&gt;
 &lt;/html&gt;</code></pre>
 <h4>Demo:</h4>
@@ -77,10 +79,10 @@
   #inner { color:red; }
   td { width:50px; text-align:center; }
   &lt;/style&gt;
-  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-latest.min.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
-	&lt;div&gt;
+  &lt;div&gt;
     &lt;button&gt;:nth-child(even)&lt;/button&gt;
     &lt;button&gt;:nth-child(odd)&lt;/button&gt;
     &lt;button&gt;:nth-child(3n)&lt;/button&gt;
@@ -129,6 +131,7 @@
     });
 
 &lt;/script&gt;
+
 &lt;/body&gt;
 &lt;/html&gt;</code></pre>
 <h4>Demo:</h4>

@@ -2,13 +2,14 @@
 <html lang='en'><head><meta http-equiv='content-type' content='text/html; charset=UTF-8' /></head><body>
 <div class="entry-content">
         <div class="entry-title roundTop">
-				<h1 class="jq-clearfix">.size()</h1>
+                    
+				  <h1 class="jq-clearfix">.size()</h1>
   				<div class="entry-meta">Categories:
-  					<span class="category"><a href="http://api.jquery.com/category/miscellaneous/" title="View all posts in Miscellaneous">Miscellaneous</a> &gt; <a href="http://api.jquery.com/category/miscellaneous/dom-element-methods/" title="View all posts in DOM Element Methods">DOM Element Methods</a></span>  
-    
+  					<span class="category"><a href="http://api.jquery.com/category/miscellaneous/" title="View all posts in Miscellaneous">Miscellaneous</a> &gt; <a href="http://api.jquery.com/category/miscellaneous/dom-element-methods/" title="View all posts in DOM Element Methods">DOM Element Methods</a></span>
+  
   				</div>
 </div>
-<div class="entry method" id="size1">
+<div id="size1" class="entry method">
 <h2 class="jq-clearfix roundTop section-title">
 <span class="name">.size()</span> <span class="returns">Returns: <a class="return" href="http://docs.jquery.com/Types#Number">Number</a></span>
 </h2>
@@ -27,10 +28,10 @@
 <pre>alert('Size: ' + $('li').size());</pre>
 <p>This will alert the count of items:</p>
 <p><span class="output">Size: 2</span></p>
-<p>The <a href="/length/">.length</a> property is a slightly faster way to get this information.</p>
+<p><strong>You should use the <a href="/length/">.length</a> property instead, which is slightly faster.</strong></p>
 </div>
 <h3>Example:</h3>
-<div id="entry-examples" class="entry-examples"><div id="example-0">
+<div class="entry-examples" id="entry-examples"><div id="example-0">
 <h4><span class="desc">Count the divs. Click to add more.</span></h4>
 <pre><code class="example demo-code">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
@@ -39,15 +40,16 @@
  div { width:50px; height:30px; margin:5px; float:left; background:blue; }
  span { color:red; }
  &lt;/style&gt;
-  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-latest.min.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
-	&lt;span&gt;&lt;/span&gt;
+  &lt;span&gt;&lt;/span&gt;
 
  &lt;div&gt;&lt;/div&gt;
 &lt;script&gt;$(document.body).click(function () { $(document.body).append($("&lt;div&gt;"));
 var n = $("div").size();
 $("span").text("There are " + n + " divs." + "Click to add more.");}).click(); // trigger the click to start&lt;/script&gt;
+
 &lt;/body&gt;
 &lt;/html&gt;</code></pre>
 <h4>Demo:</h4>

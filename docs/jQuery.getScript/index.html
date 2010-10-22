@@ -2,19 +2,20 @@
 <html lang='en'><head><meta http-equiv='content-type' content='text/html; charset=UTF-8' /></head><body>
 <div class="entry-content">
         <div class="entry-title roundTop">
-				<h1 class="jq-clearfix">jQuery.getScript()</h1>
+                    
+				  <h1 class="jq-clearfix">jQuery.getScript()</h1>
   				<div class="entry-meta">Categories:
-  					<span class="category"><a href="http://api.jquery.com/category/ajax/" title="View all posts in Ajax">Ajax</a> &gt; <a href="http://api.jquery.com/category/ajax/shorthand-methods/" title="View all posts in Shorthand Methods">Shorthand Methods</a></span>  
-    
+  					<span class="category"><a href="http://api.jquery.com/category/ajax/" title="View all posts in Ajax">Ajax</a> &gt; <a href="http://api.jquery.com/category/ajax/shorthand-methods/" title="View all posts in Shorthand Methods">Shorthand Methods</a></span>
+  
   				</div>
 </div>
-<div class="entry method" id="jQuery.getScript1">
+<div id="jQuery-getScript1" class="entry method">
 <h2 class="jq-clearfix roundTop section-title">
 <span class="name">jQuery.getScript( url, [ success(data, textStatus) ] )</span> <span class="returns">Returns: <a class="return" href="http://docs.jquery.com/Types#XMLHttpRequest">XMLHttpRequest</a></span>
 </h2>
 <div class="jq-box roundBottom entry-details">
 <p class="desc"><strong>Description: </strong>Load a JavaScript file from the server using a GET HTTP request, then execute it.</p>
-<ul class="signatures"><li class="signature" id="jQuery.getScript-url-successdata, textStatus">
+<ul class="signatures"><li class="signature" id="jQuery-getScript-url-successdata- textStatus">
 <h4 class="name">
 <span class="versionAdded">version added: <a href="/category/version/1.0/">1.0</a></span>jQuery.getScript( url, [ success(data, textStatus) ] )</h4>
 <p class="arguement"><strong>url</strong>A string containing the URL to which the request is sent.</p>
@@ -37,9 +38,9 @@
 });</pre>
 </div>
 <h3>Examples:</h3>
-<div id="entry-examples" class="entry-examples">
+<div class="entry-examples" id="entry-examples">
 <div id="example-0">
-<h4>Example: <span class="desc">We load the new official jQuery Color Animation plugin dynamically and bind some color animations to occur once the new functionality is loaded.</span>
+<h4>Example: <span class="desc">Load the official jQuery Color Animation plugin dynamically and bind some color animations to occur once the new functionality is loaded.</span>
 </h4>
 <pre><code class="example demo-code">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
@@ -50,10 +51,10 @@
    height: 70px;
    margin: 10px; 
 }&lt;/style&gt;
-  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-latest.min.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
-	&lt;button id="go"&gt;&amp;raquo; Run&lt;/button&gt;
+  &lt;button id="go"&gt;&amp;raquo; Run&lt;/button&gt;
 
 &lt;div class="block"&gt;&lt;/div&gt;
 
@@ -63,6 +64,7 @@
       .animate( { backgroundColor: 'blue' }, 1000);
   });
 });&lt;/script&gt;
+
 &lt;/body&gt;
 &lt;/html&gt;</code></pre>
 <h4>Demo:</h4>

@@ -2,13 +2,14 @@
 <html lang='en'><head><meta http-equiv='content-type' content='text/html; charset=UTF-8' /></head><body>
 <div class="entry-content">
         <div class="entry-title roundTop">
-				<h1 class="jq-clearfix">.select()</h1>
+                    
+				  <h1 class="jq-clearfix">.select()</h1>
   				<div class="entry-meta">Categories:
-  					<span class="category"><a href="http://api.jquery.com/category/events/" title="View all posts in Events">Events</a> &gt; <a href="http://api.jquery.com/category/events/form-events/" title="View all posts in Form Events">Form Events</a></span> | <span class="category"><a href="http://api.jquery.com/category/forms/" title="View all posts in Forms">Forms</a></span>  
-    
+  					<span class="category"><a href="http://api.jquery.com/category/events/" title="View all posts in Events">Events</a> &gt; <a href="http://api.jquery.com/category/events/form-events/" title="View all posts in Form Events">Form Events</a></span> | <span class="category"><a href="http://api.jquery.com/category/forms/" title="View all posts in Forms">Forms</a></span>
+  
   				</div>
 </div>
-<div class="entry method" id="select1">
+<div id="select1" class="entry method">
 <h2 class="jq-clearfix roundTop section-title">
 <span class="name">.select( handler(eventObject) )</span> <span class="returns">Returns: <a class="return" href="http://docs.jquery.com/Types#jQuery">jQuery</a></span>
 </h2>
@@ -18,6 +19,12 @@
 <li class="signature" id="select-handlereventObject">
 <h4 class="name">
 <span class="versionAdded">version added: <a href="/category/version/1.0/">1.0</a></span>.select( handler(eventObject) )</h4>
+<p class="arguement"><strong>handler(eventObject)</strong>A function to execute each time the event is triggered.</p>
+</li>
+<li class="signature" id="select-eventData-handlereventObject">
+<h4 class="name">
+<span class="versionAdded">version added: <a href="/category/version/1.4.3/">1.4.3</a></span>.select( [ eventData ], handler(eventObject) )</h4>
+<p class="arguement"><strong>eventData</strong>A map of data that will be passed to the event handler.</p>
 <p class="arguement"><strong>handler(eventObject)</strong>A function to execute each time the event is triggered.</p>
 </li>
 <li class="signature" id="select"><h4 class="name">
@@ -47,7 +54,7 @@
 <blockquote><p>The method for retrieving the current selected text differs from one browser to another. A number of jQuery plug-ins offer cross-platform solutions.</p></blockquote>
 </div>
 <h3>Examples:</h3>
-<div id="entry-examples" class="entry-examples">
+<div class="entry-examples" id="entry-examples">
 <div id="example-0">
 <h4>Example: <span class="desc">To do something when text in input boxes is selected:</span>
 </h4>
@@ -58,10 +65,10 @@
   p { color:blue; }
   div { color:red; }
   &lt;/style&gt;
-  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-latest.min.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
-	&lt;p&gt;
+  &lt;p&gt;
 
     Click and drag the mouse to select text in the inputs.
   &lt;/p&gt;
@@ -74,6 +81,7 @@
       $("div").text("Something was selected").show().fadeOut(1000); 
     });
 &lt;/script&gt;
+
 &lt;/body&gt;
 &lt;/html&gt;</code></pre>
 <h4>Demo:</h4>

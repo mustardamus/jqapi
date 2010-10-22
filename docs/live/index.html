@@ -2,18 +2,19 @@
 <html lang='en'><head><meta http-equiv='content-type' content='text/html; charset=UTF-8' /></head><body>
 <div class="entry-content">
         <div class="entry-title roundTop">
-				<h1 class="jq-clearfix">.live()</h1>
+                    
+				  <h1 class="jq-clearfix">.live()</h1>
   				<div class="entry-meta">Categories:
-  					<span class="category"><a href="http://api.jquery.com/category/events/" title="View all posts in Events">Events</a> &gt; <a href="http://api.jquery.com/category/events/event-handler-attachment/" title="View all posts in Event Handler Attachment">Event Handler Attachment</a></span>  
-    
+  					<span class="category"><a href="http://api.jquery.com/category/events/" title="View all posts in Events">Events</a> &gt; <a href="http://api.jquery.com/category/events/event-handler-attachment/" title="View all posts in Event Handler Attachment">Event Handler Attachment</a></span>
+  
   				</div>
 </div>
-<div class="entry method" id="live1">
+<div id="live1" class="entry method">
 <h2 class="jq-clearfix roundTop section-title">
 <span class="name">.live( eventType, handler )</span> <span class="returns">Returns: <a class="return" href="http://docs.jquery.com/Types#jQuery">jQuery</a></span>
 </h2>
 <div class="jq-box roundBottom entry-details">
-<p class="desc"><strong>Description: </strong>Attach a handler to the event for all elements which match the current selector, now or in the future.</p>
+<p class="desc"><strong>Description: </strong>Attach a handler to the event for all elements which match the current selector, now and in the future.</p>
 <ul class="signatures">
 <li class="signature" id="live-eventType-handler">
 <h4 class="name">
@@ -93,12 +94,12 @@
 <blockquote>
     <ul>
 <li>As of <b>jQuery 1.4</b> the <code>.live()</code> method supports custom events as well as all JavaScript events. As of <b>jQuery 1.4.1</b> even <code>focus</code> and <code>blur</code> work with live (mapping to the more appropriate, bubbling, events <code>focusin</code> and <code>focusout</code>).</li>
-      <li>As of <b>jQuery 1.4.1</b> the <code>hover</code> event can be specified (mapping to "<code>mouseenter mouseleave</code>").</li>
+      <li>As of <b>jQuery 1.4.1</b> the <code>hover</code> event can be specified (mapping to <code>mouseenter</code> and  <code>mouseleave</code>, which, in turn, are mapped to <code>mouseover</code> and <code>mouseout</code>).</li>
     </ul>
 </blockquote>
 </div>
 <h3>Examples:</h3>
-<div id="entry-examples" class="entry-examples">
+<div class="entry-examples" id="entry-examples">
 <div id="example-0">
 <h4>Example: <span class="desc">Click a paragraph to add another. Note that .live() binds the click event to all paragraphs - even new ones.</span>
 </h4>
@@ -111,10 +112,10 @@
   p.over { background: #ccc; }
   span { color:red; }
   &lt;/style&gt;
-  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-latest.min.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
-	&lt;p&gt;Click me!&lt;/p&gt;
+  &lt;p&gt;Click me!&lt;/p&gt;
 
   &lt;span&gt;&lt;/span&gt;
 &lt;script&gt;
@@ -122,6 +123,7 @@
       $(this).after("&lt;p&gt;Another paragraph!&lt;/p&gt;");
     });
 &lt;/script&gt;
+
 &lt;/body&gt;
 &lt;/html&gt;</code></pre>
 <h4>Demo:</h4>
@@ -156,10 +158,10 @@
   p { color:red; }
   span { color:blue; }
   &lt;/style&gt;
-  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-latest.min.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
-	&lt;p&gt;Has an attached custom event.&lt;/p&gt;
+  &lt;p&gt;Has an attached custom event.&lt;/p&gt;
   &lt;button&gt;Trigger custom event&lt;/button&gt;
   &lt;span style="display:none;"&gt;&lt;/span&gt;
 &lt;script&gt;
@@ -175,6 +177,7 @@
     });
 
 &lt;/script&gt;
+
 &lt;/body&gt;
 &lt;/html&gt;</code></pre>
 <h4>Demo:</h4>

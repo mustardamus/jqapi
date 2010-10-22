@@ -2,13 +2,14 @@
 <html lang='en'><head><meta http-equiv='content-type' content='text/html; charset=UTF-8' /></head><body>
 <div class="entry-content">
         <div class="entry-title roundTop">
-				<h1 class="jq-clearfix">.prev()</h1>
+                    
+				  <h1 class="jq-clearfix">.prev()</h1>
   				<div class="entry-meta">Categories:
-  					<span class="category"><a href="http://api.jquery.com/category/traversing/" title="View all posts in Traversing">Traversing</a> &gt; <a href="http://api.jquery.com/category/traversing/tree-traversal/" title="View all posts in Tree Traversal">Tree Traversal</a></span>  
-    
+  					<span class="category"><a href="http://api.jquery.com/category/traversing/" title="View all posts in Traversing">Traversing</a> &gt; <a href="http://api.jquery.com/category/traversing/tree-traversal/" title="View all posts in Tree Traversal">Tree Traversal</a></span>
+  
   				</div>
 </div>
-<div class="entry method" id="prev1">
+<div id="prev1" class="entry method">
 <h2 class="jq-clearfix roundTop section-title">
 <span class="name">.prev( [ selector ] )</span> <span class="returns">Returns: <a class="return" href="http://docs.jquery.com/Types#jQuery">jQuery</a></span>
 </h2>
@@ -37,7 +38,7 @@
 <p>The result of this call is a red background behind item 2. Since we do not supply a selector expression, this preceding element is unequivocally included as part of the object. If we had supplied one, the element would be tested for a match before it was included.</p>
 </div>
 <h3>Examples:</h3>
-<div id="entry-examples" class="entry-examples">
+<div class="entry-examples" id="entry-examples">
 <div id="example-0">
 <h4>Example: <span class="desc">Find the very previous sibling of each div.</span>
 </h4>
@@ -51,10 +52,10 @@
   span { font-size:14px; }
   p { clear:left; margin:10px; }
   &lt;/style&gt;
-  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-latest.min.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
-	&lt;div&gt;&lt;/div&gt;
+  &lt;div&gt;&lt;/div&gt;
   &lt;div&gt;&lt;/div&gt;
   &lt;div&gt;&lt;span&gt;has child&lt;/span&gt;&lt;/div&gt;
 
@@ -75,6 +76,7 @@
     });
 
 &lt;/script&gt;
+
 &lt;/body&gt;
 &lt;/html&gt;</code></pre>
 <h4>Demo:</h4>
@@ -86,14 +88,15 @@
 <pre><code class="example demo-code">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;
-  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-latest.min.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
-	&lt;div&gt;&lt;span&gt;Hello&lt;/span&gt;&lt;/div&gt;
+  &lt;div&gt;&lt;span&gt;Hello&lt;/span&gt;&lt;/div&gt;
 
   &lt;p class="selected"&gt;Hello Again&lt;/p&gt;
   &lt;p&gt;And Again&lt;/p&gt;
 &lt;script&gt;$("p").prev(".selected").css("background", "yellow");&lt;/script&gt;
+
 &lt;/body&gt;
 &lt;/html&gt;</code></pre>
 <h4>Demo:</h4>

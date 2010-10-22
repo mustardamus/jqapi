@@ -2,13 +2,14 @@
 <html lang='en'><head><meta http-equiv='content-type' content='text/html; charset=UTF-8' /></head><body>
 <div class="entry-content">
         <div class="entry-title roundTop">
-				<h1 class="jq-clearfix">Attribute Contains Word Selector [name~=value]</h1>
+                    
+				  <h1 class="jq-clearfix">Attribute Contains Word Selector [name~=value]</h1>
   				<div class="entry-meta">Categories:
-  					<span class="category"><a href="http://api.jquery.com/category/selectors/" title="View all posts in Selectors">Selectors</a> &gt; <a href="http://api.jquery.com/category/selectors/attribute-selectors/" title="View all posts in Attribute">Attribute</a></span>  
-    
+  					<span class="category"><a href="http://api.jquery.com/category/selectors/" title="View all posts in Selectors">Selectors</a> &gt; <a href="http://api.jquery.com/category/selectors/attribute-selectors/" title="View all posts in Attribute">Attribute</a></span>
+  
   				</div>
 </div>
-<div class="entry selector" id="attributeContainsWord1">
+<div id="attributeContainsWord1" class="entry selector">
 <h2 class="jq-clearfix roundTop section-title">
 <span class="name">attributeContainsWord</span>  selector</h2>
 <div class="jq-box roundBottom entry-details">
@@ -23,20 +24,21 @@
 <p class="desc"><strong>Description: </strong>Selects elements that have the specified attribute with a value containing a given word, delimited by spaces.</p>
 <div class="longdesc"><p>This selector matches the test string against each word in the attribute value, where a "word" is defined as a string delimited by whitespace. The selector matches if the test string is exactly equal to any of the words.</p></div>
 <h3>Example:</h3>
-<div id="entry-examples" class="entry-examples"><div id="example-0">
+<div class="entry-examples" id="entry-examples"><div id="example-0">
 <h4><span class="desc">Finds all inputs with a name attribute that contains the word 'man' and sets the value with some text.</span></h4>
 <pre><code class="example demo-code">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;
-  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-latest.min.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
-	&lt;input name="man-news" /&gt;
+  &lt;input name="man-news" /&gt;
 
   &lt;input name="milk man" /&gt;
   &lt;input name="letterman2" /&gt;
   &lt;input name="newmilk" /&gt;
 &lt;script&gt;$("input[name~=man]").val("mr. man is in it!");&lt;/script&gt;
+
 &lt;/body&gt;
 &lt;/html&gt;</code></pre>
 <h4>Demo:</h4>

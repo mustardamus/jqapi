@@ -2,13 +2,14 @@
 <html lang='en'><head><meta http-equiv='content-type' content='text/html; charset=UTF-8' /></head><body>
 <div class="entry-content">
         <div class="entry-title roundTop">
-				<h1 class="jq-clearfix">:not() Selector</h1>
+                    
+				  <h1 class="jq-clearfix">:not() Selector</h1>
   				<div class="entry-meta">Categories:
-  					<span class="category"><a href="http://api.jquery.com/category/selectors/" title="View all posts in Selectors">Selectors</a> &gt; <a href="http://api.jquery.com/category/selectors/basic-filter-selectors/" title="View all posts in Basic Filter">Basic Filter</a></span>  
-    
+  					<span class="category"><a href="http://api.jquery.com/category/selectors/" title="View all posts in Selectors">Selectors</a> &gt; <a href="http://api.jquery.com/category/selectors/basic-filter-selectors/" title="View all posts in Basic Filter">Basic Filter</a></span>
+  
   				</div>
 </div>
-<div class="entry selector" id="not1">
+<div id="not1" class="entry selector">
 <h2 class="jq-clearfix roundTop section-title">
 <span class="name">not</span>  selector</h2>
 <div class="jq-box roundBottom entry-details">
@@ -19,17 +20,21 @@
 <dd>A selector with which to filter by.</dd>
 </dl></li></ul>
 <p class="desc"><strong>Description: </strong>Selects all elements that do not match the given selector.</p>
-<div class="longdesc"><p>All selectors are accepted inside <code>:not()</code>,  for example: <code>:not(div a)</code> and <code>:not(div,a)</code>.</p></div>
+<div class="longdesc">
+<p>All selectors are accepted inside <code>:not()</code>,  for example: <code>:not(div a)</code> and <code>:not(div,a)</code>.</p>
+<h3>Additional Notes</h3>
+<p>The <code><a href="/not/">.not()</a></code> method is typically faster and may end up providing you with more readable selections than pushing complex selectors or variables into a <code>:not()</code> selector filter.</p>
+</div>
 <h3>Example:</h3>
-<div id="entry-examples" class="entry-examples"><div id="example-0">
+<div class="entry-examples" id="entry-examples"><div id="example-0">
 <h4><span class="desc">Finds all inputs that are not checked and highlights the next sibling span.  Notice there is no change when clicking the checkboxes since no click events have been linked.</span></h4>
 <pre><code class="example demo-code">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;
-  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-latest.min.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
-	&lt;div&gt;
+  &lt;div&gt;
   &lt;input type="checkbox" name="a" /&gt;
   &lt;span&gt;Mary&lt;/span&gt;
 &lt;/div&gt;
@@ -49,6 +54,7 @@
   $("input").attr("disabled", "disabled");
 
 &lt;/script&gt;
+
 &lt;/body&gt;
 &lt;/html&gt;</code></pre>
 <h4>Demo:</h4>

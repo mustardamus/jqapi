@@ -2,10 +2,11 @@
 <html lang='en'><head><meta http-equiv='content-type' content='text/html; charset=UTF-8' /></head><body>
 <div class="entry-content">
         <div class="entry-title roundTop">
-				<h1 class="jq-clearfix">.die()</h1>
+                    
+				  <h1 class="jq-clearfix">.die()</h1>
   				<div class="entry-meta">Categories:
-  					<span class="category"><a href="http://api.jquery.com/category/events/" title="View all posts in Events">Events</a> &gt; <a href="http://api.jquery.com/category/events/event-handler-attachment/" title="View all posts in Event Handler Attachment">Event Handler Attachment</a></span>  
-    
+  					<span class="category"><a href="http://api.jquery.com/category/events/" title="View all posts in Events">Events</a> &gt; <a href="http://api.jquery.com/category/events/event-handler-attachment/" title="View all posts in Event Handler Attachment">Event Handler Attachment</a></span>
+  
   				</div>
 </div>
 
@@ -14,15 +15,15 @@
 <ul class="toc-list">
 <li>
 <a href="#die1">die() </a><ul><li>.die()
-	  					</li></ul>
+              </li></ul>
 </li>
 <li>
 <a href="#die2">die( eventType, [ handler ] ) </a><ul><li>.die( eventType, [ handler ] )
-	  					</li></ul>
+              </li></ul>
 </li>
 </ul>
 </fieldset>
-<div class="entry method" id="die1">
+<div id="die1" class="entry method">
 <h2 class="jq-clearfix roundTop section-title">
 <span class="name">.die()</span> <span class="returns">Returns: <a class="return" href="http://docs.jquery.com/Types#jQuery">jQuery</a></span>
 </h2>
@@ -34,7 +35,7 @@
 See the discussions of <code>.live()</code> and <code>.unbind()</code> for further details.</p></div>
 </div>
 </div>
-<div class="entry method" id="die2">
+<div id="die2" class="entry method">
 <h2 class="jq-clearfix roundTop section-title">
 <span class="name">.die( eventType, [ handler ] )</span> <span class="returns">Returns: <a class="return" href="http://docs.jquery.com/Types#jQuery">jQuery</a></span>
 </h2>
@@ -49,8 +50,8 @@ See the discussions of <code>.live()</code> and <code>.unbind()</code> for furth
 <div class="longdesc"><p>Any handler that has been attached with <code>.live()</code> can be removed with <code>.die()</code>. This method is analogous to <code>.unbind()</code>, which is used to remove handlers attached with <code>.bind()</code>.
 See the discussions of <code>.live()</code> and <code>.unbind()</code> for further details.</p></div>
 <h3>Examples:</h3>
-<div id="entry-examples" class="entry-examples">
-<div id="example-0">
+<div class="entry-examples" id="entry-examples-1">
+<div id="example-1-0">
 <h4>Example: <span class="desc">Can bind and unbind events to the colored button.</span>
 </h4>
 <pre><code class="example demo-code">&lt;!DOCTYPE html&gt;
@@ -60,10 +61,10 @@ See the discussions of <code>.live()</code> and <code>.unbind()</code> for furth
 button { margin:5px; }
 button#theone { color:red; background:yellow; }
 &lt;/style&gt;
-  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-latest.min.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
-	&lt;button id="theone"&gt;Does nothing...&lt;/button&gt;
+  &lt;button id="theone"&gt;Does nothing...&lt;/button&gt;
 &lt;button id="bind"&gt;Bind Click&lt;/button&gt;
 &lt;button id="unbind"&gt;Unbind Click&lt;/button&gt;
 
@@ -83,22 +84,23 @@ $("#unbind").click(function () {
 });
 
 &lt;/script&gt;
+
 &lt;/body&gt;
 &lt;/html&gt;</code></pre>
 <h4>Demo:</h4>
 <div class="demo code-demo"></div>
 </div>
-<div id="example-1">
+<div id="example-1-1">
 <h4>Example: <span class="desc">To unbind all live events from all paragraphs, write:</span>
 </h4>
 <pre><code class="example">$("p").die()</code></pre>
 </div>
-<div id="example-2">
+<div id="example-1-2">
 <h4>Example: <span class="desc">To unbind all live click events from all paragraphs, write:</span>
 </h4>
 <pre><code class="example">$("p").die( "click" )</code></pre>
 </div>
-<div id="example-3">
+<div id="example-1-3">
 <h4>Example: <span class="desc">To unbind just one previously bound handler, pass the function in as the second argument:</span>
 </h4>
 <pre><code class="example">var foo = function () {

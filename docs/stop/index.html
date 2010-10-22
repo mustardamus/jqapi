@@ -2,13 +2,14 @@
 <html lang='en'><head><meta http-equiv='content-type' content='text/html; charset=UTF-8' /></head><body>
 <div class="entry-content">
         <div class="entry-title roundTop">
-				<h1 class="jq-clearfix">.stop()</h1>
+                    
+				  <h1 class="jq-clearfix">.stop()</h1>
   				<div class="entry-meta">Categories:
-  					<span class="category"><a href="http://api.jquery.com/category/effects/" title="View all posts in Effects">Effects</a> &gt; <a href="http://api.jquery.com/category/effects/custom-effects/" title="View all posts in Custom">Custom</a></span>  
-    
+  					<span class="category"><a href="http://api.jquery.com/category/effects/" title="View all posts in Effects">Effects</a> &gt; <a href="http://api.jquery.com/category/effects/custom-effects/" title="View all posts in Custom">Custom</a></span>
+  
   				</div>
 </div>
-<div class="entry method" id="stop1">
+<div id="stop1" class="entry method">
 <h2 class="jq-clearfix roundTop section-title">
 <span class="name">.stop( [ clearQueue ], [ jumpToEnd ] )</span> <span class="returns">Returns: <a class="return" href="http://docs.jquery.com/Types#jQuery">jQuery</a></span>
 </h2>
@@ -38,7 +39,7 @@
 <blockquote><p>Animations may be stopped globally by setting the property <code>$.fx.off</code> to <code>true</code>. When this is done, all animation methods will immediately set elements to their final state when called, rather than displaying an effect.</p></blockquote>
 </div>
 <h3>Example:</h3>
-<div id="entry-examples" class="entry-examples"><div id="example-0">
+<div class="entry-examples" id="entry-examples"><div id="example-0">
 <h4><span class="desc">Click the Go button once to start the animation, then click the STOP button to stop it where it's currently positioned.  Another option is to click several buttons to queue them up and see that stop just kills the currently playing one.</span></h4>
 <pre><code class="example demo-code">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
@@ -53,10 +54,10 @@ height: 60px;
 margin: 5px; 
 }
 &lt;/style&gt;
-  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-latest.min.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
-	&lt;button id="go"&gt;Go&lt;/button&gt; 
+  &lt;button id="go"&gt;Go&lt;/button&gt; 
 &lt;button id="stop"&gt;STOP!&lt;/button&gt;
 &lt;button id="back"&gt;Back&lt;/button&gt;
 &lt;div class="block"&gt;&lt;/div&gt;
@@ -77,6 +78,7 @@ $(".block").animate({left: '-=100px'}, 2000);
 });
 
 &lt;/script&gt;
+
 &lt;/body&gt;
 &lt;/html&gt;</code></pre>
 <h4>Demo:</h4>

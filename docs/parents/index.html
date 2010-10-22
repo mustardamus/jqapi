@@ -2,13 +2,14 @@
 <html lang='en'><head><meta http-equiv='content-type' content='text/html; charset=UTF-8' /></head><body>
 <div class="entry-content">
         <div class="entry-title roundTop">
-				<h1 class="jq-clearfix">.parents()</h1>
+                    
+				  <h1 class="jq-clearfix">.parents()</h1>
   				<div class="entry-meta">Categories:
-  					<span class="category"><a href="http://api.jquery.com/category/traversing/" title="View all posts in Traversing">Traversing</a> &gt; <a href="http://api.jquery.com/category/traversing/tree-traversal/" title="View all posts in Tree Traversal">Tree Traversal</a></span>  
-    
+  					<span class="category"><a href="http://api.jquery.com/category/traversing/" title="View all posts in Traversing">Traversing</a> &gt; <a href="http://api.jquery.com/category/traversing/tree-traversal/" title="View all posts in Tree Traversal">Tree Traversal</a></span>
+  
   				</div>
 </div>
-<div class="entry method" id="parents1">
+<div id="parents1" class="entry method">
 <h2 class="jq-clearfix roundTop section-title">
 <span class="name">.parents( [ selector ] )</span> <span class="returns">Returns: <a class="return" href="http://docs.jquery.com/Types#jQuery">jQuery</a></span>
 </h2>
@@ -20,7 +21,7 @@
 <p class="arguement"><strong>selector</strong>A string containing a selector expression to match elements against.</p>
 </li></ul>
 <div class="longdesc">
-<p>Given a jQuery object that represents a set of DOM elements, the <code>.parents()</code> method allows us to search through the ancestors of these elements in the DOM tree and construct a new jQuery object from the matching elements. The <code>.parents()</code> and <code>.parent()</code> methods are similar, except that the latter only travels a single level up the DOM tree.</p>
+<p>Given a jQuery object that represents a set of DOM elements, the <code>.parents()</code> method allows us to search through the ancestors of these elements in the DOM tree and construct a new jQuery object from the matching elements ordered from immediate parent on up; the elements are returned in order from the closest parent to the outer ones. The <code>.parents()</code> and <code>.parent()</code> methods are similar, except that the latter only travels a single level up the DOM tree.</p>
 <p>The method optionally accepts a selector expression of the same type that we can pass to the <code>$()</code> function. If the selector is supplied, the elements will be filtered by testing whether they match it.</p>
 <p>Consider a page with a basic nested list on it:</p>
 <pre>
@@ -47,7 +48,7 @@
 <p>The result of this call is a red background for the level-2 list, item II, and the level-1 list (and on up the DOM tree all the way to the <code>&lt;html&gt;</code> element). Since we do not supply a selector expression, all of the ancestors are part of the returned jQuery object. If we had supplied one, only the matching items among these would be included.</p>
 </div>
 <h3>Examples:</h3>
-<div id="entry-examples" class="entry-examples">
+<div class="entry-examples" id="entry-examples">
 <div id="example-0">
 <h4>Example: <span class="desc">Find all parent elements of each b.</span>
 </h4>
@@ -62,10 +63,10 @@
   b { color:blue; }
   strong { color:red; }
   &lt;/style&gt;
-  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-latest.min.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
-	&lt;div&gt;
+  &lt;div&gt;
     &lt;p&gt;
       &lt;span&gt;
         &lt;b&gt;My parents are: &lt;/b&gt;
@@ -74,14 +75,15 @@
     &lt;/p&gt;
   &lt;/div&gt;
 &lt;script&gt;
-    var parentEls = $("b").parents()
-                          .map(function () { 
-                                return this.tagName; 
-                              })
-                          .get().join(", ");
-    $("b").append("&lt;strong&gt;" + parentEls + "&lt;/strong&gt;");
+var parentEls = $("b").parents()
+            .map(function () { 
+                  return this.tagName; 
+                })
+            .get().join(", ");
+$("b").append("&lt;strong&gt;" + parentEls + "&lt;/strong&gt;");
 
 &lt;/script&gt;
+
 &lt;/body&gt;
 &lt;/html&gt;</code></pre>
 <h4>Demo:</h4>
@@ -101,10 +103,10 @@
   .selected { color:blue; }
   b { color:red; display:block; font-size:14px; }
   &lt;/style&gt;
-  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-latest.min.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
-	&lt;p&gt;
+  &lt;p&gt;
     &lt;div&gt;
       &lt;div&gt;&lt;span&gt;Hello&lt;/span&gt;&lt;/div&gt;
       &lt;span&gt;Hello Again&lt;/span&gt;
@@ -117,18 +119,19 @@
 
   &lt;b&gt;Click Hellos to toggle their parents.&lt;/b&gt;
 &lt;script&gt;
-    function showParents() {
-      $("div").css("border-color", "white");
-      var len = $("span.selected")
-                       .parents("div")
-                       .css("border", "2px red solid")
-                       .length;
-      $("b").text("Unique div parents: " + len);
-    }
-    $("span").click(function () {
-      $(this).toggleClass("selected");
-      showParents();
-    });&lt;/script&gt;
+function showParents() {
+  $("div").css("border-color", "white");
+  var len = $("span.selected")
+                   .parents("div")
+                   .css("border", "2px red solid")
+                   .length;
+  $("b").text("Unique div parents: " + len);
+}
+$("span").click(function () {
+  $(this).toggleClass("selected");
+  showParents();
+});&lt;/script&gt;
+
 &lt;/body&gt;
 &lt;/html&gt;</code></pre>
 <h4>Demo:</h4>

@@ -2,13 +2,14 @@
 <html lang='en'><head><meta http-equiv='content-type' content='text/html; charset=UTF-8' /></head><body>
 <div class="entry-content">
         <div class="entry-title roundTop">
-				<h1 class="jq-clearfix">.keyup()</h1>
+                    
+				  <h1 class="jq-clearfix">.keyup()</h1>
   				<div class="entry-meta">Categories:
-  					<span class="category"><a href="http://api.jquery.com/category/events/" title="View all posts in Events">Events</a> &gt; <a href="http://api.jquery.com/category/events/keyboard-events/" title="View all posts in Keyboard Events">Keyboard Events</a></span>  
-    
+  					<span class="category"><a href="http://api.jquery.com/category/events/" title="View all posts in Events">Events</a> &gt; <a href="http://api.jquery.com/category/events/keyboard-events/" title="View all posts in Keyboard Events">Keyboard Events</a></span>
+  
   				</div>
 </div>
-<div class="entry method" id="keyup1">
+<div id="keyup1" class="entry method">
 <h2 class="jq-clearfix roundTop section-title">
 <span class="name">.keyup( handler(eventObject) )</span> <span class="returns">Returns: <a class="return" href="http://docs.jquery.com/Types#jQuery">jQuery</a></span>
 </h2>
@@ -18,6 +19,12 @@
 <li class="signature" id="keyup-handlereventObject">
 <h4 class="name">
 <span class="versionAdded">version added: <a href="/category/version/1.0/">1.0</a></span>.keyup( handler(eventObject) )</h4>
+<p class="arguement"><strong>handler(eventObject)</strong>A function to execute each time the event is triggered.</p>
+</li>
+<li class="signature" id="keyup-eventData-handlereventObject">
+<h4 class="name">
+<span class="versionAdded">version added: <a href="/category/version/1.4.3/">1.4.3</a></span>.keyup( [ eventData ], handler(eventObject) )</h4>
+<p class="arguement"><strong>eventData</strong>A map of data that will be passed to the event handler.</p>
 <p class="arguement"><strong>handler(eventObject)</strong>A function to execute each time the event is triggered.</p>
 </li>
 <li class="signature" id="keyup"><h4 class="name">
@@ -49,7 +56,7 @@
 <p>To determine which key was pressed, we can examine the event object that is passed to the handler function. While browsers use differing attributes to store this information, jQuery normalizes the <code>.which</code> attribute so we can reliably use it to retrieve the key code. This code corresponds to a key on the keyboard, including codes for special keys such as arrows. For catching actual text entry, <code>.keypress()</code> may be a better choice.</p>
 </div>
 <h3>Example:</h3>
-<div id="entry-examples" class="entry-examples"><div id="example-0">
+<div class="entry-examples" id="entry-examples"><div id="example-0">
 <h4><span class="desc">Show the event object for the keyup handler when a key is released in the input.</span></h4>
 <pre><code class="example demo-code">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
@@ -68,10 +75,10 @@ input { display: block; margin-bottom: .25em; }
 }
 
 &lt;/style&gt;
-  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-latest.min.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
-	&lt;form&gt;
+  &lt;form&gt;
   &lt;fieldset&gt;
     &lt;label for="target"&gt;Type Something:&lt;/label&gt;
     &lt;input id="target" type="text" /&gt;
@@ -96,6 +103,7 @@ $('#target').keyup(function(event) {
 $('#other').click(function() {
   $('#target').keyup();
 });&lt;/script&gt;
+
 &lt;/body&gt;
 &lt;/html&gt;</code></pre>
 <h4>Demo:</h4>

@@ -2,13 +2,14 @@
 <html lang='en'><head><meta http-equiv='content-type' content='text/html; charset=UTF-8' /></head><body>
 <div class="entry-content">
         <div class="entry-title roundTop">
-				<h1 class="jq-clearfix">:radio Selector</h1>
+                    
+				  <h1 class="jq-clearfix">:radio Selector</h1>
   				<div class="entry-meta">Categories:
-  					<span class="category"><a href="http://api.jquery.com/category/selectors/" title="View all posts in Selectors">Selectors</a> &gt; <a href="http://api.jquery.com/category/selectors/form-selectors/" title="View all posts in Form">Form</a></span>  
-    
+  					<span class="category"><a href="http://api.jquery.com/category/selectors/" title="View all posts in Selectors">Selectors</a> &gt; <a href="http://api.jquery.com/category/selectors/form-selectors/" title="View all posts in Form">Form</a></span>
+  
   				</div>
 </div>
-<div class="entry selector" id="radio1">
+<div id="radio1" class="entry selector">
 <h2 class="jq-clearfix roundTop section-title">
 <span class="name">radio</span>  selector</h2>
 <div class="jq-box roundBottom entry-details">
@@ -20,7 +21,7 @@
 <p>To select a set of associated radio buttons, you might use: <code>$('input[name=gender]:radio')</code></p>
 </div>
 <h3>Example:</h3>
-<div id="entry-examples" class="entry-examples"><div id="example-0">
+<div class="entry-examples" id="entry-examples"><div id="example-0">
 <h4><span class="desc">Finds all radio inputs.</span></h4>
 <pre><code class="example demo-code">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
@@ -28,10 +29,10 @@
   &lt;style&gt;
   textarea { height:25px; }
   &lt;/style&gt;
-  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-latest.min.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
-	&lt;form&gt;
+  &lt;form&gt;
     &lt;input type="button" value="Input Button"/&gt;
     &lt;input type="checkbox" /&gt;
 
@@ -62,6 +63,7 @@
     $("form").submit(function () { return false; }); // so it won't submit
 
 &lt;/script&gt;
+
 &lt;/body&gt;
 &lt;/html&gt;</code></pre>
 <h4>Demo:</h4>

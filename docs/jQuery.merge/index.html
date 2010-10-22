@@ -2,19 +2,20 @@
 <html lang='en'><head><meta http-equiv='content-type' content='text/html; charset=UTF-8' /></head><body>
 <div class="entry-content">
         <div class="entry-title roundTop">
-				<h1 class="jq-clearfix">jQuery.merge()</h1>
+                    
+				  <h1 class="jq-clearfix">jQuery.merge()</h1>
   				<div class="entry-meta">Categories:
-  					<span class="category"><a href="http://api.jquery.com/category/utilities/" title="View all posts in Utilities">Utilities</a></span>  
-    
+  					<span class="category"><a href="http://api.jquery.com/category/utilities/" title="View all posts in Utilities">Utilities</a></span>
+  
   				</div>
 </div>
-<div class="entry method" id="jQuery.merge1">
+<div id="jQuery-merge1" class="entry method">
 <h2 class="jq-clearfix roundTop section-title">
 <span class="name">jQuery.merge( first, second )</span> <span class="returns">Returns: <a class="return" href="http://docs.jquery.com/Types#Array">Array</a></span>
 </h2>
 <div class="jq-box roundBottom entry-details">
 <p class="desc"><strong>Description: </strong>Merge the contents of two arrays together into the first array. </p>
-<ul class="signatures"><li class="signature" id="jQuery.merge-first-second">
+<ul class="signatures"><li class="signature" id="jQuery-merge-first-second">
 <h4 class="name">
 <span class="versionAdded">version added: <a href="/category/version/1.0/">1.0</a></span>jQuery.merge( first, second )</h4>
 <p class="arguement"><strong>first</strong>The first array to merge, the elements of second added.</p>
@@ -25,10 +26,10 @@
 <p>If you need the original first array, make a copy of it before calling <code>$.merge()</code>. Fortunately, <code>$.merge()</code> itself can be used for this duplication:</p>
 <pre>var newArray = $.merge([], oldArray);</pre>
 <p>This shortcut creates a new, empty array and merges the contents of oldArray into it, effectively cloning the array.</p>
-<p>The arguments should be true Javascript Array objects; use <code>$.makeArray</code> if they are not.</p>
+<p>Prior to jQuery 1.4, the arguments should be true Javascript Array objects; use <code>$.makeArray</code> if they are not.</p>
 </div>
 <h3>Examples:</h3>
-<div id="entry-examples" class="entry-examples">
+<div class="entry-examples" id="entry-examples">
 <div id="example-0">
 <h4>Example: <span class="desc">Merges two arrays, altering the first argument.</span>
 </h4>

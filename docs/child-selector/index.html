@@ -2,13 +2,14 @@
 <html lang='en'><head><meta http-equiv='content-type' content='text/html; charset=UTF-8' /></head><body>
 <div class="entry-content">
         <div class="entry-title roundTop">
-				<h1 class="jq-clearfix">Child Selector (“parent &gt; child”)</h1>
+                    
+				  <h1 class="jq-clearfix">Child Selector (“parent &gt; child”)</h1>
   				<div class="entry-meta">Categories:
-  					<span class="category"><a href="http://api.jquery.com/category/selectors/" title="View all posts in Selectors">Selectors</a> &gt; <a href="http://api.jquery.com/category/selectors/hierarchy-selectors/" title="View all posts in Hierarchy">Hierarchy</a></span>  
-    
+  					<span class="category"><a href="http://api.jquery.com/category/selectors/" title="View all posts in Selectors">Selectors</a> &gt; <a href="http://api.jquery.com/category/selectors/hierarchy-selectors/" title="View all posts in Hierarchy">Hierarchy</a></span>
+  
   				</div>
 </div>
-<div class="entry selector" id="child1">
+<div id="child1" class="entry selector">
 <h2 class="jq-clearfix roundTop section-title">
 <span class="name">child</span>  selector</h2>
 <div class="jq-box roundBottom entry-details">
@@ -26,7 +27,7 @@
 <p>The child combinator (E <strong>&gt;</strong> F) can be thought of as a more specific form of the descendant combinator (E F) in that it selects only first-level descendants.</p>
 </div>
 <h3>Example:</h3>
-<div id="entry-examples" class="entry-examples"><div id="example-0">
+<div class="entry-examples" id="entry-examples"><div id="example-0">
 <h4><span class="desc">Places a border around all list items that are children of &lt;ul class="topnav"&gt; .</span></h4>
 <pre><code class="example demo-code">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
@@ -34,10 +35,10 @@
   &lt;style&gt;
 body { font-size:14px; }
 &lt;/style&gt;
-  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-latest.min.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
-	
+  
                     
 &lt;ul class="topnav"&gt;
     &lt;li&gt;Item 1&lt;/li&gt;
@@ -48,6 +49,7 @@ body { font-size:14px; }
 &lt;/ul&gt;
 
 &lt;script&gt;$("ul.topnav &gt; li").css("border", "3px double red");&lt;/script&gt;
+
 &lt;/body&gt;
 &lt;/html&gt;</code></pre>
 <h4>Demo:</h4>

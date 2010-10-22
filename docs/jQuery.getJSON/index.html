@@ -2,19 +2,20 @@
 <html lang='en'><head><meta http-equiv='content-type' content='text/html; charset=UTF-8' /></head><body>
 <div class="entry-content">
         <div class="entry-title roundTop">
-				<h1 class="jq-clearfix">jQuery.getJSON()</h1>
+                    
+				  <h1 class="jq-clearfix">jQuery.getJSON()</h1>
   				<div class="entry-meta">Categories:
-  					<span class="category"><a href="http://api.jquery.com/category/ajax/" title="View all posts in Ajax">Ajax</a> &gt; <a href="http://api.jquery.com/category/ajax/shorthand-methods/" title="View all posts in Shorthand Methods">Shorthand Methods</a></span>  
-    
+  					<span class="category"><a href="http://api.jquery.com/category/ajax/" title="View all posts in Ajax">Ajax</a> &gt; <a href="http://api.jquery.com/category/ajax/shorthand-methods/" title="View all posts in Shorthand Methods">Shorthand Methods</a></span>
+  
   				</div>
 </div>
-<div class="entry method" id="jQuery.getJSON1">
+<div id="jQuery-getJSON1" class="entry method">
 <h2 class="jq-clearfix roundTop section-title">
 <span class="name">jQuery.getJSON( url, [ data ], [ callback(data, textStatus) ] )</span> <span class="returns">Returns: <a class="return" href="http://docs.jquery.com/Types#XMLHttpRequest">XMLHttpRequest</a></span>
 </h2>
 <div class="jq-box roundBottom entry-details">
 <p class="desc"><strong>Description: </strong>Load JSON-encoded data from the server using a GET HTTP request.</p>
-<ul class="signatures"><li class="signature" id="jQuery.getJSON-url-data-callbackdata, textStatus">
+<ul class="signatures"><li class="signature" id="jQuery-getJSON-url-data-callbackdata- textStatus">
 <h4 class="name">
 <span class="versionAdded">version added: <a href="/category/version/1.0/">1.0</a></span>jQuery.getJSON( url, [ data ], [ callback(data, textStatus) ] )</h4>
 <p class="arguement"><strong>url</strong>A string containing the URL to which the request is sent.</p>
@@ -27,11 +28,10 @@
   url: <em>url</em>,
   dataType: 'json',
   data: <em>data</em>,
-  success: <em>success</em>
+  success: <em>callback</em>
 });
 </pre>
 <p>The callback is passed the returned data, which will be a JavaScript object or array as defined by the JSON structure and parsed using the <code><a href="/jQuery.parseJSON">$.parseJSON()</a></code> method.</p>
-<p><strong>Note:</strong> For details on the JSON format, see <a href="http://json.org/">http://json.org/</a>.</p>
 <p>Most implementations will specify a success handler:</p>
 <pre>$.getJSON('ajax/test.json', function(data) {
   $('.result').html('&lt;p&gt;' + data.foo + '&lt;/p&gt;'
@@ -46,11 +46,19 @@
 }
 </pre>
 <p>Using this structure, the example inserts the first string and second number from the file onto the page.</p>
-<p>If there is a syntax error in the JSON file, the request will usually fail silently. Avoid frequent hand-editing of JSON data for this reason.</p>
-<p>If the specified URL is on a remote server, the request is treated as JSONP instead. See the discussion of the <code>jsonp</code> data type in <code><a href="/jQuery.ajax">$.ajax()</a></code> for more details.</p>
+<blockquote>
+    <p><strong>Important:</strong> As of jQuery 1.4, if the JSON file contains a syntax error, the request will usually fail silently. Avoid frequent hand-editing of JSON data for this reason. JSON is a data-interchange format with syntax rules that are stricter than those of JavaScript's object literal notation. For example, all strings represented in JSON, whether they are properties or values, must be enclosed in double-quotes. For details on the JSON format, see <a href="http://json.org/">http://json.org/</a>.</p>
+	</blockquote>
+<h4 id="jsonp">JSONP</h4>
+<p>If the URL includes the string "callback=?" in the URL, the request is treated as JSONP instead. See the discussion of the <code>jsonp</code> data type in <code><a href="/jQuery.ajax">$.ajax()</a></code> for more details.</p>
 </div>
+<h3 id="notes-0">Additional Notes:</h3>
+<div class="longdesc"><ul>
+<li>Due to browser security restrictions, most "Ajax" requests are subject to the <a title="Same Origin Policy on Wikipedia" href="http://en.wikipedia.org/wiki/Same_origin_policy">same origin policy</a>; the request can not successfully retrieve data from a different domain, subdomain, or protocol.</li>
+<li>Script and JSONP requests are not subject to the same origin policy restrictions.</li>
+</ul></div>
 <h3>Examples:</h3>
-<div id="entry-examples" class="entry-examples">
+<div class="entry-examples" id="entry-examples">
 <div id="example-0">
 <h4>Example: <span class="desc">Loads the four most recent cat pictures from the Flickr JSONP API.</span>
 </h4>
@@ -58,10 +66,10 @@
 &lt;html&gt;
 &lt;head&gt;
   &lt;style&gt;img{ height: 100px; float: left; }&lt;/style&gt;
-  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-latest.min.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
-	&lt;div id="images"&gt;
+  &lt;div id="images"&gt;
 
 &lt;/div&gt;
 &lt;script&gt;$.getJSON("http://api.flickr.com/services/feeds/photos_public.gne?tags=cat&amp;tagmode=any&amp;format=json&amp;jsoncallback=?",
@@ -71,6 +79,7 @@
             if ( i == 3 ) return false;
           });
         });&lt;/script&gt;
+
 &lt;/body&gt;
 &lt;/html&gt;</code></pre>
 <h4>Demo:</h4>

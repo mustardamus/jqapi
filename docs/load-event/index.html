@@ -2,27 +2,36 @@
 <html lang='en'><head><meta http-equiv='content-type' content='text/html; charset=UTF-8' /></head><body>
 <div class="entry-content">
         <div class="entry-title roundTop">
-				<h1 class="jq-clearfix">.load()</h1>
+                    
+				  <h1 class="jq-clearfix">.load()</h1>
   				<div class="entry-meta">Categories:
-  					<span class="category"><a href="http://api.jquery.com/category/events/" title="View all posts in Events">Events</a> &gt; <a href="http://api.jquery.com/category/events/document-loading/" title="View all posts in Document Loading">Document Loading</a></span>  
-    
+  					<span class="category"><a href="http://api.jquery.com/category/events/" title="View all posts in Events">Events</a> &gt; <a href="http://api.jquery.com/category/events/document-loading/" title="View all posts in Document Loading">Document Loading</a></span>
+  
   				</div>
 </div>
-<div class="entry method" id="load1">
+<div id="load1" class="entry method">
 <h2 class="jq-clearfix roundTop section-title">
 <span class="name">.load( handler(eventObject) )</span> <span class="returns">Returns: <a class="return" href="http://docs.jquery.com/Types#jQuery">jQuery</a></span>
 </h2>
 <div class="jq-box roundBottom entry-details">
 <p class="desc"><strong>Description: </strong>Bind an event handler to the "load" JavaScript event.</p>
-<ul class="signatures"><li class="signature" id="load-handlereventObject">
+<ul class="signatures">
+<li class="signature" id="load-handlereventObject">
 <h4 class="name">
 <span class="versionAdded">version added: <a href="/category/version/1.0/">1.0</a></span>.load( handler(eventObject) )</h4>
 <p class="arguement"><strong>handler(eventObject)</strong>A function to execute when the event is triggered.</p>
-</li></ul>
+</li>
+<li class="signature" id="load-eventData-handlereventObject">
+<h4 class="name">
+<span class="versionAdded">version added: <a href="/category/version/1.4.3/">1.4.3</a></span>.load( [ eventData ], handler(eventObject) )</h4>
+<p class="arguement"><strong>eventData</strong>A map of data that will be passed to the event handler.</p>
+<p class="arguement"><strong>handler(eventObject)</strong>A function to execute each time the event is triggered.</p>
+</li>
+</ul>
 <div class="longdesc">
 <p>This method is a shortcut for <code>.bind('load', handler)</code>.</p>
-<p>The <code>load</code> event is sent to an element when it and all sub-elements have been completely loaded. This event can be sent to any element associated with a URL: images, scripts, frames, iframes, and the body of the document itself.</p>
-<blockquote><p>It is possible that the load event will not be triggered if the image is loaded from the browser cache. To account for this possibility, we can test the value of the image's <code>.complete</code> property. </p></blockquote>
+<p>The <code>load</code> event is sent to an element when it and all sub-elements have been completely loaded. This event can be sent to any element associated with a URL: images, scripts, frames, iframes, and the <code>window</code> object.</p>
+<blockquote><p>It is possible that the load event will not be triggered if the image is loaded from the browser cache. To account for this possibility, we can use a special load event that fires immediately if the image is ready. <code>event.special.load</code> is currently <a href="http://github.com/peol/jquery.imgloaded/raw/master/ahpi.imgload.js">available as a plugin</a>. </p></blockquote>
 <p>For example, consider a page with a simple image:</p>
 <pre>&lt;img src="book.png" alt="Book" id="book" /&gt;</pre>
 <p>The event handler can be bound to the image:</p>
@@ -35,7 +44,7 @@
 <blockquote><p>The Ajax module also has a method named <code><a href="/load">.load()</a></code>. Which one is fired depends on the set of arguments passed.</p></blockquote>
 </div>
 <h3>Examples:</h3>
-<div id="entry-examples" class="entry-examples">
+<div class="entry-examples" id="entry-examples">
 <div id="example-0">
 <h4>Example: <span class="desc">Run a function when the page is fully loaded including graphics.</span>
 </h4>

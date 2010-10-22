@@ -2,13 +2,14 @@
 <html lang='en'><head><meta http-equiv='content-type' content='text/html; charset=UTF-8' /></head><body>
 <div class="entry-content">
         <div class="entry-title roundTop">
-				<h1 class="jq-clearfix">.mouseout()</h1>
+                    
+				  <h1 class="jq-clearfix">.mouseout()</h1>
   				<div class="entry-meta">Categories:
-  					<span class="category"><a href="http://api.jquery.com/category/events/" title="View all posts in Events">Events</a> &gt; <a href="http://api.jquery.com/category/events/mouse-events/" title="View all posts in Mouse Events">Mouse Events</a></span>  
-    
+  					<span class="category"><a href="http://api.jquery.com/category/events/" title="View all posts in Events">Events</a> &gt; <a href="http://api.jquery.com/category/events/mouse-events/" title="View all posts in Mouse Events">Mouse Events</a></span>
+  
   				</div>
 </div>
-<div class="entry method" id="mouseout1">
+<div id="mouseout1" class="entry method">
 <h2 class="jq-clearfix roundTop section-title">
 <span class="name">.mouseout( handler(eventObject) )</span> <span class="returns">Returns: <a class="return" href="http://docs.jquery.com/Types#jQuery">jQuery</a></span>
 </h2>
@@ -18,6 +19,12 @@
 <li class="signature" id="mouseout-handlereventObject">
 <h4 class="name">
 <span class="versionAdded">version added: <a href="/category/version/1.0/">1.0</a></span>.mouseout( handler(eventObject) )</h4>
+<p class="arguement"><strong>handler(eventObject)</strong>A function to execute each time the event is triggered.</p>
+</li>
+<li class="signature" id="mouseout-eventData-handlereventObject">
+<h4 class="name">
+<span class="versionAdded">version added: <a href="/category/version/1.4.3/">1.4.3</a></span>.mouseout( [ eventData ], handler(eventObject) )</h4>
+<p class="arguement"><strong>eventData</strong>A map of data that will be passed to the event handler.</p>
 <p class="arguement"><strong>handler(eventObject)</strong>A function to execute each time the event is triggered.</p>
 </li>
 <li class="signature" id="mouseout"><h4 class="name">
@@ -50,7 +57,7 @@
 <p>This event type can cause many headaches due to event bubbling. For instance, when the mouse pointer moves out of the <span class="output">Inner</span> element in this example, a <code>mouseout</code> event will be sent to that, then trickle up to <span class="output">Outer</span>. This can trigger the bound <code>mouseout</code> handler at inopportune times. See the discussion for <code>.<a href="/mouseleave">mouseleave</a>()</code> for a useful alternative.</p>
 </div>
 <h3>Example:</h3>
-<div id="entry-examples" class="entry-examples"><div id="example-0">
+<div class="entry-examples" id="entry-examples"><div id="example-0">
 <h4><span class="desc">Show the number of times mouseout and mouseleave events are triggered.
 mouseout fires when the pointer moves out of the child element as well, while mouseleave fires only when the pointer moves out of the bound element.</span></h4>
 <pre><code class="example demo-code">&lt;!DOCTYPE html&gt;
@@ -76,10 +83,10 @@ margin:0;
 padding:0;
 }
 &lt;/style&gt;
-  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-latest.min.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
-	
+  
 &lt;div class="out overout"&gt;&lt;p&gt;move your mouse&lt;/p&gt;&lt;div class="in overout"&gt;&lt;p&gt;move your mouse&lt;/p&gt;&lt;p&gt;0&lt;/p&gt;&lt;/div&gt;&lt;p&gt;0&lt;/p&gt;&lt;/div&gt;
 
 &lt;div class="out enterleave"&gt;&lt;p&gt;move your mouse&lt;/p&gt;&lt;div class="in enterleave"&gt;&lt;p&gt;move your mouse&lt;/p&gt;&lt;p&gt;0&lt;/p&gt;&lt;/div&gt;&lt;p&gt;0&lt;/p&gt;&lt;/div&gt;
@@ -103,6 +110,7 @@ padding:0;
     });
 
 &lt;/script&gt;
+
 &lt;/body&gt;
 &lt;/html&gt;</code></pre>
 <h4>Demo:</h4>

@@ -2,13 +2,14 @@
 <html lang='en'><head><meta http-equiv='content-type' content='text/html; charset=UTF-8' /></head><body>
 <div class="entry-content">
         <div class="entry-title roundTop">
-				<h1 class="jq-clearfix">.serializeArray()</h1>
+                    
+				  <h1 class="jq-clearfix">.serializeArray()</h1>
   				<div class="entry-meta">Categories:
-  					<span class="category"><a href="http://api.jquery.com/category/forms/" title="View all posts in Forms">Forms</a></span> | <span class="category"><a href="http://api.jquery.com/category/ajax/" title="View all posts in Ajax">Ajax</a> &gt; <a href="http://api.jquery.com/category/ajax/helper-functions/" title="View all posts in Helper Functions">Helper Functions</a></span>  
-    
+  					<span class="category"><a href="http://api.jquery.com/category/forms/" title="View all posts in Forms">Forms</a></span> | <span class="category"><a href="http://api.jquery.com/category/ajax/" title="View all posts in Ajax">Ajax</a> &gt; <a href="http://api.jquery.com/category/ajax/helper-functions/" title="View all posts in Helper Functions">Helper Functions</a></span>
+  
   				</div>
 </div>
-<div class="entry method" id="serializeArray1">
+<div id="serializeArray1" class="entry method">
 <h2 class="jq-clearfix roundTop section-title">
 <span class="name">.serializeArray()</span> <span class="returns">Returns: <a class="return" href="http://docs.jquery.com/Types#Array">Array</a></span>
 </h2>
@@ -37,9 +38,10 @@
     &lt;input type="submit" name="g" value="Submit" id="g" /&gt;
   &lt;/div&gt;
 &lt;/form&gt;</pre>
-<p>The <code>.serializeArray()</code> method can act on a jQuery object that has selected individual form elements, such as <code>&lt;input&gt;</code>, <code>&lt;textarea&gt;</code>, and <code>&lt;select&gt;</code>. However, it is typically easier to select the <code>&lt;form&gt;</code> tag itself for serialization:</p>
+<p>The <code>.serializeArray()</code> method uses the standard W3C rules for <a href="http://www.w3.org/TR/html401/interact/forms.html#h-17.13.2">successful controls</a> to determine which elements it should include; in particular the element cannot be disabled and must contain a <code>name</code> attribute. No submit button value is serialized since the form was not submitted using a button. Data from file select elements is not serialized.</p>
+<p>This method can act on a jQuery object that has selected individual form elements, such as <code>&lt;input&gt;</code>, <code>&lt;textarea&gt;</code>, and <code>&lt;select&gt;</code>. However, it is typically easier to select the <code>&lt;form&gt;</code> tag itself for serialization:</p>
 <pre>$('form').submit(function() {
-  $.print($(this).serializeArray());
+  alert($(this).serializeArray());
   return false;
 });</pre>
 <p>This produces the following data structure:</p>
@@ -67,7 +69,7 @@
 ]</pre>
 </div>
 <h3>Example:</h3>
-<div id="entry-examples" class="entry-examples"><div id="example-0">
+<div class="entry-examples" id="entry-examples"><div id="example-0">
 <h4><span class="desc">Get the values from a form, iterate through them, and append them to a results display.</span></h4>
 <pre><code class="example demo-code">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
@@ -78,10 +80,10 @@
   p { color:red; margin:5px; }
   b { color:blue; }
   &lt;/style&gt;
-  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-latest.min.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
-	&lt;p&gt;&lt;b&gt;Results:&lt;/b&gt; &lt;span id="results"&gt;&lt;/span&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;b&gt;Results:&lt;/b&gt; &lt;span id="results"&gt;&lt;/span&gt;&lt;/p&gt;
 
   &lt;form&gt;
     &lt;select name="single"&gt;
@@ -122,6 +124,7 @@
     $("select").change(showValues);
     showValues();
 &lt;/script&gt;
+
 &lt;/body&gt;
 &lt;/html&gt;</code></pre>
 <h4>Demo:</h4>

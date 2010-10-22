@@ -2,10 +2,11 @@
 <html lang='en'><head><meta http-equiv='content-type' content='text/html; charset=UTF-8' /></head><body>
 <div class="entry-content">
         <div class="entry-title roundTop">
-				<h1 class="jq-clearfix">.hover()</h1>
+                    
+				  <h1 class="jq-clearfix">.hover()</h1>
   				<div class="entry-meta">Categories:
-  					<span class="category"><a href="http://api.jquery.com/category/events/" title="View all posts in Events">Events</a> &gt; <a href="http://api.jquery.com/category/events/mouse-events/" title="View all posts in Mouse Events">Mouse Events</a></span>  
-    
+  					<span class="category"><a href="http://api.jquery.com/category/events/" title="View all posts in Events">Events</a> &gt; <a href="http://api.jquery.com/category/events/mouse-events/" title="View all posts in Mouse Events">Mouse Events</a></span>
+  
   				</div>
 </div>
 
@@ -14,15 +15,15 @@
 <ul class="toc-list">
 <li>
 <a href="#hover1">hover( handlerIn(eventObject), handlerOut(eventObject) ) </a><ul><li>.hover( handlerIn(eventObject), handlerOut(eventObject) )
-	  					</li></ul>
+              </li></ul>
 </li>
 <li>
 <a href="#hover2">hover( handlerInOut(eventObject) ) </a><ul><li>.hover( handlerInOut(eventObject) )
-	  					</li></ul>
+              </li></ul>
 </li>
 </ul>
 </fieldset>
-<div class="entry method" id="hover1">
+<div id="hover1" class="entry method">
 <h2 class="jq-clearfix roundTop section-title">
 <span class="name">.hover( handlerIn(eventObject), handlerOut(eventObject) )</span> <span class="returns">Returns: <a class="return" href="http://docs.jquery.com/Types#jQuery">jQuery</a></span>
 </h2>
@@ -41,7 +42,7 @@
 <p>See the discussions for <code><a href="/mouseenter">.mouseenter()</a></code> and <code><a href="/mouseleave">.mouseleave()</a></code> for more details.</p>
 </div>
 <h3>Examples:</h3>
-<div id="entry-examples" class="entry-examples">
+<div class="entry-examples" id="entry-examples">
 <div id="example-0">
 <h4>Example: <span class="desc">To add a special style to list items that are being hovered over, try:</span>
 </h4>
@@ -53,10 +54,10 @@
   li { cursor:default; }
   span { color:red; }
 &lt;/style&gt;
-  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-latest.min.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
-	&lt;ul&gt;
+  &lt;ul&gt;
     &lt;li&gt;Milk&lt;/li&gt;
     &lt;li&gt;Bread&lt;/li&gt;
     &lt;li class='fade'&gt;Chips&lt;/li&gt;
@@ -79,6 +80,7 @@ $("li").hover(
 $("li.fade").hover(function(){$(this).fadeOut(100);$(this).fadeIn(500);});
 
 &lt;/script&gt;
+
 &lt;/body&gt;
 &lt;/html&gt;</code></pre>
 <h4>Demo:</h4>
@@ -104,7 +106,7 @@ $("li.fade").hover(function(){$(this).fadeOut(100);$(this).fadeIn(500);});
 </div>
 </div>
 </div>
-<div class="entry method" id="hover2">
+<div id="hover2" class="entry method">
 <h2 class="jq-clearfix roundTop section-title">
 <span class="name">.hover( handlerInOut(eventObject) )</span> <span class="returns">Returns: <a class="return" href="http://docs.jquery.com/Types#jQuery">jQuery</a></span>
 </h2>
@@ -122,7 +124,7 @@ $("li.fade").hover(function(){$(this).fadeOut(100);$(this).fadeIn(500);});
 <p>See the discussions for <code><a href="/mouseenter">.mouseenter()</a></code> and <code><a href="/mouseleave">.mouseleave()</a></code> for more details.</p>
 </div>
 <h3>Example:</h3>
-<div id="entry-examples" class="entry-examples"><div id="example-0">
+<div class="entry-examples" id="entry-examples-1"><div id="example-1-0">
 <h4><span class="desc">Slide the next sibling LI up or down on hover, and toggle a class.</span></h4>
 <pre><code class="example demo-code">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
@@ -133,10 +135,10 @@ $("li.fade").hover(function(){$(this).fadeOut(100);$(this).fadeIn(500);});
   li.active { background:black;color:white; }
   span { color:red; }
   &lt;/style&gt;
-  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-latest.min.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
-	&lt;ul&gt;
+  &lt;ul&gt;
     &lt;li&gt;Milk&lt;/li&gt;
     &lt;li&gt;White&lt;/li&gt;
     &lt;li&gt;Carrots&lt;/li&gt;
@@ -159,6 +161,7 @@ $("li")
 
 
 &lt;/script&gt;
+
 &lt;/body&gt;
 &lt;/html&gt;</code></pre>
 <h4>Demo:</h4>

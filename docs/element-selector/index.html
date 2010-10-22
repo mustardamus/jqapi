@@ -2,13 +2,14 @@
 <html lang='en'><head><meta http-equiv='content-type' content='text/html; charset=UTF-8' /></head><body>
 <div class="entry-content">
         <div class="entry-title roundTop">
-				<h1 class="jq-clearfix">Element Selector (“element”)</h1>
+                    
+				  <h1 class="jq-clearfix">Element Selector (“element”)</h1>
   				<div class="entry-meta">Categories:
-  					<span class="category"><a href="http://api.jquery.com/category/selectors/" title="View all posts in Selectors">Selectors</a> &gt; <a href="http://api.jquery.com/category/selectors/basic-css-selectors/" title="View all posts in Basic">Basic</a></span>  
-    
+  					<span class="category"><a href="http://api.jquery.com/category/selectors/" title="View all posts in Selectors">Selectors</a> &gt; <a href="http://api.jquery.com/category/selectors/basic-css-selectors/" title="View all posts in Basic">Basic</a></span>
+  
   				</div>
 </div>
-<div class="entry selector" id="element1">
+<div id="element1" class="entry selector">
 <h2 class="jq-clearfix roundTop section-title">
 <span class="name">element</span>  selector</h2>
 <div class="jq-box roundBottom entry-details">
@@ -21,7 +22,7 @@
 <p class="desc"><strong>Description: </strong>Selects all elements with the given tag name.</p>
 <div class="longdesc"><p>JavaScript's <code>getElementsByTagName()</code> function is called to return the appropriate elements when this expression is used.</p></div>
 <h3>Example:</h3>
-<div id="entry-examples" class="entry-examples"><div id="example-0">
+<div class="entry-examples" id="entry-examples"><div id="example-0">
 <h4><span class="desc">Finds every DIV element.</span></h4>
 <pre><code class="example demo-code">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
@@ -36,14 +37,15 @@
     background-color: #EEEEEE;
   }
   &lt;/style&gt;
-  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-latest.min.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
-	&lt;div&gt;DIV1&lt;/div&gt;
+  &lt;div&gt;DIV1&lt;/div&gt;
 
   &lt;div&gt;DIV2&lt;/div&gt;
   &lt;span&gt;SPAN&lt;/span&gt;
 &lt;script&gt;$("div").css("border","9px solid red");&lt;/script&gt;
+
 &lt;/body&gt;
 &lt;/html&gt;</code></pre>
 <h4>Demo:</h4>

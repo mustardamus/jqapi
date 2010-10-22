@@ -2,10 +2,11 @@
 <html lang='en'><head><meta http-equiv='content-type' content='text/html; charset=UTF-8' /></head><body>
 <div class="entry-content">
         <div class="entry-title roundTop">
-				<h1 class="jq-clearfix">.val()</h1>
+                    
+				  <h1 class="jq-clearfix">.val()</h1>
   				<div class="entry-meta">Categories:
-  					<span class="category"><a href="http://api.jquery.com/category/attributes/" title="View all posts in Attributes">Attributes</a></span> | <span class="category"><a href="http://api.jquery.com/category/forms/" title="View all posts in Forms">Forms</a></span> | <span class="category"><a href="http://api.jquery.com/category/manipulation/" title="View all posts in Manipulation">Manipulation</a> &gt; <a href="http://api.jquery.com/category/manipulation/general-attributes/" title="View all posts in General Attributes">General Attributes</a></span>  
-    
+  					<span class="category"><a href="http://api.jquery.com/category/attributes/" title="View all posts in Attributes">Attributes</a></span> | <span class="category"><a href="http://api.jquery.com/category/forms/" title="View all posts in Forms">Forms</a></span> | <span class="category"><a href="http://api.jquery.com/category/manipulation/" title="View all posts in Manipulation">Manipulation</a> &gt; <a href="http://api.jquery.com/category/manipulation/general-attributes/" title="View all posts in General Attributes">General Attributes</a></span>
+  
   				</div>
 </div>
 
@@ -14,19 +15,19 @@
 <ul class="toc-list">
 <li>
 <a href="#val1">val() </a><ul><li>.val()
-	  					</li></ul>
+              </li></ul>
 </li>
 <li>
 <a href="#val2">val( value ) </a><ul>
 <li>.val( value )
-	  					</li>
+              </li>
 <li>.val( function(index, value) )
-	  					</li>
+              </li>
 </ul>
 </li>
 </ul>
 </fieldset>
-<div class="entry method" id="val1">
+<div id="val1" class="entry method">
 <h2 class="jq-clearfix roundTop section-title">
 <span class="name">.val()</span> <span class="returns">Returns: <a class="return" href="http://docs.jquery.com/Types#String,%20Array">String, Array</a></span>
 </h2>
@@ -43,7 +44,7 @@ $('input:checkbox:checked').val();        // get the value from a checked checkb
 $('input:radio[name=bar]:checked').val(); // get the value from a set of radio buttons</pre>
 </div>
 <h3>Examples:</h3>
-<div id="entry-examples" class="entry-examples">
+<div class="entry-examples" id="entry-examples">
 <div id="example-0">
 <h4>Example: <span class="desc">Get the single value from a single select and an array of values from a multiple select and display their values.</span>
 </h4>
@@ -54,10 +55,10 @@ $('input:radio[name=bar]:checked').val(); // get the value from a set of radio b
   p { color:red; margin:4px; }
   b { color:blue; }
   &lt;/style&gt;
-  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-latest.min.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
-	&lt;p&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;/p&gt;
   &lt;select id="single"&gt;
     &lt;option&gt;Single&lt;/option&gt;
     &lt;option&gt;Single2&lt;/option&gt;
@@ -83,6 +84,7 @@ $('input:radio[name=bar]:checked').val(); // get the value from a set of radio b
     displayVals();
 
 &lt;/script&gt;
+
 &lt;/body&gt;
 &lt;/html&gt;</code></pre>
 <h4>Demo:</h4>
@@ -98,10 +100,10 @@ $('input:radio[name=bar]:checked').val(); // get the value from a set of radio b
 
   p { color:blue; margin:8px; }
   &lt;/style&gt;
-  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-latest.min.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
-	&lt;input type="text" value="some text"/&gt;
+  &lt;input type="text" value="some text"/&gt;
   &lt;p&gt;&lt;/p&gt;
 &lt;script&gt;
     $("input").keyup(function () {
@@ -109,6 +111,7 @@ $('input:radio[name=bar]:checked').val(); // get the value from a set of radio b
       $("p").text(value);
     }).keyup();
 &lt;/script&gt;
+
 &lt;/body&gt;
 &lt;/html&gt;</code></pre>
 <h4>Demo:</h4>
@@ -117,7 +120,7 @@ $('input:radio[name=bar]:checked').val(); // get the value from a set of radio b
 </div>
 </div>
 </div>
-<div class="entry method" id="val2">
+<div id="val2" class="entry method">
 <h2 class="jq-clearfix roundTop section-title">
 <span class="name">.val( value )</span> <span class="returns">Returns: <a class="return" href="http://docs.jquery.com/Types#jQuery">jQuery</a></span>
 </h2>
@@ -129,7 +132,7 @@ $('input:radio[name=bar]:checked').val(); // get the value from a set of radio b
 <span class="versionAdded">version added: <a href="/category/version/1.0/">1.0</a></span>.val( value )</h4>
 <p class="arguement"><strong>value</strong>A string of text or an array of strings to set as the value property of each matched element.</p>
 </li>
-<li class="signature" id="val-functionindex, value">
+<li class="signature" id="val-functionindex- value">
 <h4 class="name">
 <span class="versionAdded">version added: <a href="/category/version/1.4/">1.4</a></span>.val( function(index, value) )</h4>
 <p class="arguement"><strong>function(index, value)</strong>A function returning the value to set.</p>
@@ -145,8 +148,8 @@ $('input:radio[name=bar]:checked').val(); // get the value from a set of radio b
 <p>This example appends the string " items" to the text inputs' values.</p>
 </div>
 <h3>Examples:</h3>
-<div id="entry-examples" class="entry-examples">
-<div id="example-0">
+<div class="entry-examples" id="entry-examples-1">
+<div id="example-1-0">
 <h4>Example: <span class="desc">Set the value of an input box.</span>
 </h4>
 <pre><code class="example demo-code">&lt;!DOCTYPE html&gt;
@@ -156,10 +159,10 @@ $('input:radio[name=bar]:checked').val(); // get the value from a set of radio b
   button { margin:4px; cursor:pointer; }
   input { margin:4px; color:blue; }
   &lt;/style&gt;
-  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-latest.min.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
-	&lt;div&gt;
+  &lt;div&gt;
     &lt;button&gt;Feed&lt;/button&gt;
     &lt;button&gt;the&lt;/button&gt;
 
@@ -172,12 +175,13 @@ $('input:radio[name=bar]:checked').val(); // get the value from a set of radio b
       $("input").val(text);
     });
 &lt;/script&gt;
+
 &lt;/body&gt;
 &lt;/html&gt;</code></pre>
 <h4>Demo:</h4>
 <div class="demo code-demo"></div>
 </div>
-<div id="example-1">
+<div id="example-1-1">
 <h4>Example: <span class="desc">Set a single select and a multiple select .</span>
 </h4>
 <pre><code class="example demo-code">&lt;!DOCTYPE html&gt;
@@ -186,10 +190,10 @@ $('input:radio[name=bar]:checked').val(); // get the value from a set of radio b
   &lt;style&gt;
   body { color:blue; }
   &lt;/style&gt;
-  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-latest.min.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
-	&lt;select id="single"&gt;
+  &lt;select id="single"&gt;
     &lt;option&gt;Single&lt;/option&gt;
     &lt;option&gt;Single2&lt;/option&gt;
   &lt;/select&gt;
@@ -211,6 +215,7 @@ $('input:radio[name=bar]:checked').val(); // get the value from a set of radio b
     $("input").val(["check1","check2", "radio1" ]);
 
 &lt;/script&gt;
+
 &lt;/body&gt;
 &lt;/html&gt;</code></pre>
 <h4>Demo:</h4>

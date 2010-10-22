@@ -2,13 +2,14 @@
 <html lang='en'><head><meta http-equiv='content-type' content='text/html; charset=UTF-8' /></head><body>
 <div class="entry-content">
         <div class="entry-title roundTop">
-				<h1 class="jq-clearfix">.triggerHandler()</h1>
+                    
+				  <h1 class="jq-clearfix">.triggerHandler()</h1>
   				<div class="entry-meta">Categories:
-  					<span class="category"><a href="http://api.jquery.com/category/events/" title="View all posts in Events">Events</a> &gt; <a href="http://api.jquery.com/category/events/event-handler-attachment/" title="View all posts in Event Handler Attachment">Event Handler Attachment</a></span>  
-    
+  					<span class="category"><a href="http://api.jquery.com/category/events/" title="View all posts in Events">Events</a> &gt; <a href="http://api.jquery.com/category/events/event-handler-attachment/" title="View all posts in Event Handler Attachment">Event Handler Attachment</a></span>
+  
   				</div>
 </div>
-<div class="entry method" id="triggerHandler1">
+<div id="triggerHandler1" class="entry method">
 <h2 class="jq-clearfix roundTop section-title">
 <span class="name">.triggerHandler( eventType, extraParameters )</span> <span class="returns">Returns: <a class="return" href="http://docs.jquery.com/Types#Object">Object</a></span>
 </h2>
@@ -32,15 +33,15 @@
 <p>For more information on this method, see the discussion for <code><a href="/trigger">.trigger()</a></code>.</p>
 </div>
 <h3>Example:</h3>
-<div id="entry-examples" class="entry-examples"><div id="example-0">
+<div class="entry-examples" id="entry-examples"><div id="example-0">
 <h4><span class="desc">If you called .triggerHandler() on a focus event - the browser's default focus action would not be triggered, only the event handlers bound to the focus event.</span></h4>
 <pre><code class="example demo-code">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;
-  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-latest.min.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
-	&lt;button id="old"&gt;.trigger("focus")&lt;/button&gt;
+  &lt;button id="old"&gt;.trigger("focus")&lt;/button&gt;
 &lt;button id="new"&gt;.triggerHandler("focus")&lt;/button&gt;&lt;br/&gt;&lt;br/&gt;
 
 &lt;input type="text" value="To Be Focused"/&gt;
@@ -57,6 +58,7 @@ $("&lt;span&gt;Focused!&lt;/span&gt;").appendTo("body").fadeOut(1000);
 });
 
 &lt;/script&gt;
+
 &lt;/body&gt;
 &lt;/html&gt;</code></pre>
 <h4>Demo:</h4>

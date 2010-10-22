@@ -2,13 +2,14 @@
 <html lang='en'><head><meta http-equiv='content-type' content='text/html; charset=UTF-8' /></head><body>
 <div class="entry-content">
         <div class="entry-title roundTop">
-				<h1 class="jq-clearfix">.dequeue()</h1>
+                    
+				  <h1 class="jq-clearfix">.dequeue()</h1>
   				<div class="entry-meta">Categories:
-  					<span class="category"><a href="http://api.jquery.com/category/effects/" title="View all posts in Effects">Effects</a> &gt; <a href="http://api.jquery.com/category/effects/custom-effects/" title="View all posts in Custom">Custom</a></span> | <span class="category"><a href="http://api.jquery.com/category/data/" title="View all posts in Data">Data</a></span> | <span class="category"><a href="http://api.jquery.com/category/utilities/" title="View all posts in Utilities">Utilities</a></span>  
-    
+  					<span class="category"><a href="http://api.jquery.com/category/effects/" title="View all posts in Effects">Effects</a> &gt; <a href="http://api.jquery.com/category/effects/custom-effects/" title="View all posts in Custom">Custom</a></span> | <span class="category"><a href="http://api.jquery.com/category/data/" title="View all posts in Data">Data</a></span> | <span class="category"><a href="http://api.jquery.com/category/utilities/" title="View all posts in Utilities">Utilities</a></span>
+  
   				</div>
 </div>
-<div class="entry method" id="dequeue1">
+<div id="dequeue1" class="entry method">
 <h2 class="jq-clearfix roundTop section-title">
 <span class="name">.dequeue( [ queueName ] )</span> <span class="returns">Returns: <a class="return" href="http://docs.jquery.com/Types#jQuery">jQuery</a></span>
 </h2>
@@ -21,7 +22,7 @@
 </li></ul>
 <div class="longdesc"><p>When <code>.dequeue()</code> is called, the next function on the queue is removed from the queue, and then executed. This function should in turn (directly or indirectly) cause <code>.dequeue()</code> to be called, so that the sequence can continue.</p></div>
 <h3>Example:</h3>
-<div id="entry-examples" class="entry-examples"><div id="example-0">
+<div class="entry-examples" id="entry-examples"><div id="example-0">
 <h4><span class="desc">Use dequeue to end a custom queue function which allows the queue to keep going.</span></h4>
 <pre><code class="example demo-code">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
@@ -32,10 +33,10 @@
   background-color:yellow; }
   div.red { background-color:red; }  
 &lt;/style&gt;
-  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-latest.min.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
-	&lt;button&gt;Start&lt;/button&gt;  
+  &lt;button&gt;Start&lt;/button&gt;  
 &lt;div&gt;&lt;/div&gt;
 &lt;script&gt;
 $("button").click(function () {
@@ -48,6 +49,7 @@ $("button").click(function () {
   $("div").animate({left:'10px', top:'30px'}, 700);
 });
 &lt;/script&gt;
+
 &lt;/body&gt;
 &lt;/html&gt;</code></pre>
 <h4>Demo:</h4>

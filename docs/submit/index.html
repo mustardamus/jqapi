@@ -2,13 +2,14 @@
 <html lang='en'><head><meta http-equiv='content-type' content='text/html; charset=UTF-8' /></head><body>
 <div class="entry-content">
         <div class="entry-title roundTop">
-				<h1 class="jq-clearfix">.submit()</h1>
+                    
+				  <h1 class="jq-clearfix">.submit()</h1>
   				<div class="entry-meta">Categories:
-  					<span class="category"><a href="http://api.jquery.com/category/events/" title="View all posts in Events">Events</a> &gt; <a href="http://api.jquery.com/category/events/form-events/" title="View all posts in Form Events">Form Events</a></span> | <span class="category"><a href="http://api.jquery.com/category/forms/" title="View all posts in Forms">Forms</a></span>  
-    
+  					<span class="category"><a href="http://api.jquery.com/category/events/" title="View all posts in Events">Events</a> &gt; <a href="http://api.jquery.com/category/events/form-events/" title="View all posts in Form Events">Form Events</a></span> | <span class="category"><a href="http://api.jquery.com/category/forms/" title="View all posts in Forms">Forms</a></span>
+  
   				</div>
 </div>
-<div class="entry method" id="submit1">
+<div id="submit1" class="entry method">
 <h2 class="jq-clearfix roundTop section-title">
 <span class="name">.submit( handler(eventObject) )</span> <span class="returns">Returns: <a class="return" href="http://docs.jquery.com/Types#jQuery">jQuery</a></span>
 </h2>
@@ -18,6 +19,12 @@
 <li class="signature" id="submit-handlereventObject">
 <h4 class="name">
 <span class="versionAdded">version added: <a href="/category/version/1.0/">1.0</a></span>.submit( handler(eventObject) )</h4>
+<p class="arguement"><strong>handler(eventObject)</strong>A function to execute each time the event is triggered.</p>
+</li>
+<li class="signature" id="submit-eventData-handlereventObject">
+<h4 class="name">
+<span class="versionAdded">version added: <a href="/category/version/1.4.3/">1.4.3</a></span>.submit( [ eventData ], handler(eventObject) )</h4>
+<p class="arguement"><strong>eventData</strong>A map of data that will be passed to the event handler.</p>
 <p class="arguement"><strong>handler(eventObject)</strong>A function to execute each time the event is triggered.</p>
 </li>
 <li class="signature" id="submit"><h4 class="name">
@@ -47,8 +54,11 @@
 <p>After this code executes, clicks on <span class="output">Trigger the handler</span> will also display the message. In addition, the default <code>submit</code> action on the form will be fired, so the form will be submitted.</p>
 <p>The JavaScript <code>submit</code> event does not bubble in Internet Explorer. However, scripts that rely on event delegation with the <code>submit</code> event will work consistently across browsers as of jQuery 1.4, which has normalized the event's behavior. </p>
 </div>
+<h3 id="notes-0">Additional Notes:</h3>
+<div class="longdesc"><ul><li>Forms and their child elements should not use input names or ids that conflict with properties of a form, such as <code>submit</code>, <code>length</code>, or <code>method</code>. Name conflicts can cause confusing failures. For a complete list of rules and to check your markup for these problems, see <a href="http://yura.thinkweb2.com/domlint/">DOMLint</a>. 
+</li></ul></div>
 <h3>Examples:</h3>
-<div id="entry-examples" class="entry-examples">
+<div class="entry-examples" id="entry-examples">
 <div id="example-0">
 <h4>Example: <span class="desc">If you'd like to prevent forms from being submitted unless a flag variable is set, try:</span>
 </h4>
@@ -61,10 +71,10 @@
   div,p { margin-left:10px; }
   span { color:red; }
   &lt;/style&gt;
-  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-latest.min.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
-	&lt;p&gt;Type 'correct' to validate.&lt;/p&gt;
+  &lt;p&gt;Type 'correct' to validate.&lt;/p&gt;
   &lt;form action="javascript:alert('success!');"&gt;
     &lt;div&gt;
       &lt;input type="text" /&gt;
@@ -84,6 +94,7 @@
       return false;
     });
 &lt;/script&gt;
+
 &lt;/body&gt;
 &lt;/html&gt;</code></pre>
 <h4>Demo:</h4>

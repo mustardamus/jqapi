@@ -2,13 +2,14 @@
 <html lang='en'><head><meta http-equiv='content-type' content='text/html; charset=UTF-8' /></head><body>
 <div class="entry-content">
         <div class="entry-title roundTop">
-				<h1 class="jq-clearfix">Multiple Attribute Selector [name=value][name2=value2]</h1>
+                    
+				  <h1 class="jq-clearfix">Multiple Attribute Selector [name=value][name2=value2]</h1>
   				<div class="entry-meta">Categories:
-  					<span class="category"><a href="http://api.jquery.com/category/selectors/" title="View all posts in Selectors">Selectors</a> &gt; <a href="http://api.jquery.com/category/selectors/attribute-selectors/" title="View all posts in Attribute">Attribute</a></span>  
-    
+  					<span class="category"><a href="http://api.jquery.com/category/selectors/" title="View all posts in Selectors">Selectors</a> &gt; <a href="http://api.jquery.com/category/selectors/attribute-selectors/" title="View all posts in Attribute">Attribute</a></span>
+  
   				</div>
 </div>
-<div class="entry selector" id="attributeMultiple1">
+<div id="attributeMultiple1" class="entry selector">
 <h2 class="jq-clearfix roundTop section-title">
 <span class="name">attributeMultiple</span>  selector</h2>
 <div class="jq-box roundBottom entry-details">
@@ -24,20 +25,21 @@
 </dl></li></ul>
 <p class="desc"><strong>Description: </strong>Matches elements that match all of the specified attribute filters.</p>
 <h3>Example:</h3>
-<div id="entry-examples" class="entry-examples"><div id="example-0">
+<div class="entry-examples" id="entry-examples"><div id="example-0">
 <h4><span class="desc">Finds all inputs that have an id attribute and whose name attribute ends with man and sets the value.</span></h4>
 <pre><code class="example demo-code">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;
-  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-latest.min.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
-	&lt;input id="man-news" name="man-news" /&gt;
+  &lt;input id="man-news" name="man-news" /&gt;
 
   &lt;input name="milkman" /&gt;
   &lt;input id="letterman" name="new-letterman" /&gt;
   &lt;input name="newmilk" /&gt;
 &lt;script&gt;$("input[id][name$='man']").val("only this one");&lt;/script&gt;
+
 &lt;/body&gt;
 &lt;/html&gt;</code></pre>
 <h4>Demo:</h4>

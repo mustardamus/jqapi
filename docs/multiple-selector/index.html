@@ -2,13 +2,14 @@
 <html lang='en'><head><meta http-equiv='content-type' content='text/html; charset=UTF-8' /></head><body>
 <div class="entry-content">
         <div class="entry-title roundTop">
-				<h1 class="jq-clearfix">Multiple Selector (“selector1, selector2, selectorN”)</h1>
+                    
+				  <h1 class="jq-clearfix">Multiple Selector (“selector1, selector2, selectorN”)</h1>
   				<div class="entry-meta">Categories:
-  					<span class="category"><a href="http://api.jquery.com/category/selectors/" title="View all posts in Selectors">Selectors</a> &gt; <a href="http://api.jquery.com/category/selectors/basic-css-selectors/" title="View all posts in Basic">Basic</a></span>  
-    
+  					<span class="category"><a href="http://api.jquery.com/category/selectors/" title="View all posts in Selectors">Selectors</a> &gt; <a href="http://api.jquery.com/category/selectors/basic-css-selectors/" title="View all posts in Basic">Basic</a></span>
+  
   				</div>
 </div>
-<div class="entry selector" id="multiple1">
+<div id="multiple1" class="entry selector">
 <h2 class="jq-clearfix roundTop section-title">
 <span class="name">multiple</span>  selector</h2>
 <div class="jq-box roundBottom entry-details">
@@ -25,7 +26,7 @@
 <p class="desc"><strong>Description: </strong>Selects the combined results of all the specified selectors.</p>
 <div class="longdesc"><p>You can specify any number of selectors to combine into a single result.  This multiple expression combinator is an efficient way to select disparate elements. The order of the DOM elements in the returned jQuery object may not be identical, as they will be in document order. An alternative to this combinator is the .<a href="/add">add()</a> method.</p></div>
 <h3>Examples:</h3>
-<div id="entry-examples" class="entry-examples">
+<div class="entry-examples" id="entry-examples">
 <div id="example-0">
 <h4>Example: <span class="desc">Finds the elements that match any of these three selectors.</span>
 </h4>
@@ -44,15 +45,16 @@
     font-size:14px;
   }
   &lt;/style&gt;
-  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-latest.min.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
-	&lt;div&gt;div&lt;/div&gt;
+  &lt;div&gt;div&lt;/div&gt;
 
   &lt;p class="myClass"&gt;p class="myClass"&lt;/p&gt;
   &lt;p class="notMyClass"&gt;p class="notMyClass"&lt;/p&gt;
   &lt;span&gt;span&lt;/span&gt;
 &lt;script&gt;$("div,span,p.myClass").css("border","3px solid red");&lt;/script&gt;
+
 &lt;/body&gt;
 &lt;/html&gt;</code></pre>
 <h4>Demo:</h4>
@@ -71,10 +73,10 @@
                padding:3px; color:white; 
              }
   &lt;/style&gt;
-  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-latest.min.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
-	&lt;span&gt;span&lt;/span&gt;
+  &lt;span&gt;span&lt;/span&gt;
 
   &lt;p&gt;p&lt;/p&gt;
   &lt;p&gt;p&lt;/p&gt;
@@ -90,6 +92,7 @@
     }).get().join(", ");
     $("b").append(document.createTextNode(list));
 &lt;/script&gt;
+
 &lt;/body&gt;
 &lt;/html&gt;</code></pre>
 <h4>Demo:</h4>

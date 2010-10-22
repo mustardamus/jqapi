@@ -2,13 +2,14 @@
 <html lang='en'><head><meta http-equiv='content-type' content='text/html; charset=UTF-8' /></head><body>
 <div class="entry-content">
         <div class="entry-title roundTop">
-				<h1 class="jq-clearfix">:hidden Selector</h1>
+                    
+				  <h1 class="jq-clearfix">:hidden Selector</h1>
   				<div class="entry-meta">Categories:
-  					<span class="category"><a href="http://api.jquery.com/category/selectors/" title="View all posts in Selectors">Selectors</a> &gt; <a href="http://api.jquery.com/category/selectors/visibility-filter-selectors/" title="View all posts in Visibility Filter">Visibility Filter</a></span>  
-    
+  					<span class="category"><a href="http://api.jquery.com/category/selectors/" title="View all posts in Selectors">Selectors</a> &gt; <a href="http://api.jquery.com/category/selectors/visibility-filter-selectors/" title="View all posts in Visibility Filter">Visibility Filter</a></span>
+  
   				</div>
 </div>
-<div class="entry selector" id="hidden1">
+<div id="hidden1" class="entry selector">
 <h2 class="jq-clearfix roundTop section-title">
 <span class="name">hidden</span>  selector</h2>
 <div class="jq-box roundBottom entry-details">
@@ -18,15 +19,16 @@
 <div class="longdesc">
 <p>Elements can be considered hidden for several reasons:</p>
 <ul>
-<li>They have a display value of none.</li>
-<li>They are form elements with type="hidden".</li>
+<li>They have a CSS <code>display</code> value of <code>none</code>.</li>
+<li>They are form elements with <code>type="hidden"</code>.</li>
 <li>Their width and height are explicitly set to 0.</li>
 <li>An ancestor element is hidden, so the element is not shown on the page.</li>
 </ul>
+<p>Elements with <code>visibility: hidden</code> or <code>opacity: 0</code> are considered to be visible, since they still consume space in the layout. During animations that hide an element, the element is considered to be visible until the end of the animation. During animations to show an element, the element is considered to be visible at the start at the animation.</p>
 <p>How <code>:hidden</code> is determined was changed in jQuery 1.3.2. An element is assumed to be hidden if it or any of its parents consumes no space in the document. CSS visibility isn't taken into account (therefore <code>$(elem).css('visibility','hidden').is(':hidden') == false</code>). The <a href="http://docs.jquery.com/Release:jQuery_1.3.2#:visible.2F:hidden_Overhauled">release notes</a> outline the changes in more detail.</p>
 </div>
 <h3>Example:</h3>
-<div id="entry-examples" class="entry-examples"><div id="example-0">
+<div class="entry-examples" id="entry-examples"><div id="example-0">
 <h4><span class="desc">Shows all hidden divs and counts hidden inputs.</span></h4>
 <pre><code class="example demo-code">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
@@ -36,10 +38,10 @@
   span { display:block; clear:left; color:red; }
   .starthidden { display:none; }
   &lt;/style&gt;
-  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-latest.min.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
-	&lt;span&gt;&lt;/span&gt;
+  &lt;span&gt;&lt;/span&gt;
   &lt;div&gt;&lt;/div&gt;
   &lt;div style="display:none;"&gt;Hider!&lt;/div&gt;
   &lt;div&gt;&lt;/div&gt;
@@ -60,9 +62,9 @@
     $("span:first").text("Found " + $(":hidden", document.body).length + 
                          " hidden elements total.");
     $("div:hidden").show(3000);
-    $("span:last").text("Found " + $("input:hidden").length + " hidden inputs.");
-
+    $("span:last").text("Found " + $("input:hidden").length + " hidden inputs."); 
 &lt;/script&gt;
+
 &lt;/body&gt;
 &lt;/html&gt;</code></pre>
 <h4>Demo:</h4>

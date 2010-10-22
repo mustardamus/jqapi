@@ -2,13 +2,14 @@
 <html lang='en'><head><meta http-equiv='content-type' content='text/html; charset=UTF-8' /></head><body>
 <div class="entry-content">
         <div class="entry-title roundTop">
-				<h1 class="jq-clearfix">.show()</h1>
+                    
+				  <h1 class="jq-clearfix">.show()</h1>
   				<div class="entry-meta">Categories:
-  					<span class="category"><a href="http://api.jquery.com/category/effects/" title="View all posts in Effects">Effects</a> &gt; <a href="http://api.jquery.com/category/effects/basics/" title="View all posts in Basics">Basics</a></span>  
-    
+  					<span class="category"><a href="http://api.jquery.com/category/effects/" title="View all posts in Effects">Effects</a> &gt; <a href="http://api.jquery.com/category/effects/basics/" title="View all posts in Basics">Basics</a></span>
+  
   				</div>
 </div>
-<div class="entry method" id="show1">
+<div id="show1" class="entry method">
 <h2 class="jq-clearfix roundTop section-title">
 <span class="name">.show(  )</span> <span class="returns">Returns: <a class="return" href="http://docs.jquery.com/Types#jQuery">jQuery</a></span>
 </h2>
@@ -21,6 +22,13 @@
 <h4 class="name">
 <span class="versionAdded">version added: <a href="/category/version/1.0/">1.0</a></span>.show( duration, [ callback ] )</h4>
 <p class="arguement"><strong>duration</strong>A string or number determining how long the animation will run.</p>
+<p class="arguement"><strong>callback</strong>A function to call once the animation is complete.</p>
+</li>
+<li class="signature" id="show-duration-easing-callback">
+<h4 class="name">
+<span class="versionAdded">version added: <a href="/category/version/1.4.3/">1.4.3</a></span>.show( [ duration ], [ easing ], [ callback ] )</h4>
+<p class="arguement"><strong>duration</strong>A string or number determining how long the animation will run.</p>
+<p class="arguement"><strong>easing</strong>A string indicating which easing function to use for the transition.</p>
 <p class="arguement"><strong>callback</strong>A function to call once the animation is complete.</p>
 </li>
 </ul>
@@ -48,7 +56,7 @@ $('#clickme').click(function() {
   <img src="/images/0042_06_01.png" alt=""><img src="/images/0042_06_02.png" alt=""><img src="/images/0042_06_03.png" alt=""><img src="/images/0042_06_04.png" alt=""></p>
 </div>
 <h3>Examples:</h3>
-<div id="entry-examples" class="entry-examples">
+<div class="entry-examples" id="entry-examples">
 <div id="example-0">
 <h4>Example: <span class="desc">Animates all hidden paragraphs to show slowly, completing the animation within 600 milliseconds.</span>
 </h4>
@@ -58,10 +66,10 @@ $('#clickme').click(function() {
   &lt;style&gt;
       p { background:yellow; }
       &lt;/style&gt;
-  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-latest.min.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
-	&lt;button&gt;Show it&lt;/button&gt;
+  &lt;button&gt;Show it&lt;/button&gt;
 
       &lt;p style="display: none"&gt;Hello  2&lt;/p&gt;
 &lt;script&gt;
@@ -69,6 +77,7 @@ $('#clickme').click(function() {
     $("p").show("slow");
     });
     &lt;/script&gt;
+
 &lt;/body&gt;
 &lt;/html&gt;</code></pre>
 <h4>Demo:</h4>
@@ -84,10 +93,10 @@ $('#clickme').click(function() {
   div { background:#def3ca; margin:3px; width:80px; 
   display:none; float:left; text-align:center; }
   &lt;/style&gt;
-  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-latest.min.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
-	
+  
   &lt;button id="showr"&gt;Show&lt;/button&gt;
   &lt;button id="hidr"&gt;Hide&lt;/button&gt;
   &lt;div&gt;Hello 3,&lt;/div&gt;
@@ -107,13 +116,14 @@ $("#hidr").click(function () {
 });
 
 &lt;/script&gt;
+
 &lt;/body&gt;
 &lt;/html&gt;</code></pre>
 <h4>Demo:</h4>
 <div class="demo code-demo"></div>
 </div>
 <div id="example-2">
-<h4>Example: <span class="desc">Animates all span and input elements to show normally. Once the animation is done, it changes the text.</span>
+<h4>Example: <span class="desc">Shows all span and input elements with an animation. Once the animation is done, it changes the text.</span>
 </h4>
 <pre><code class="example demo-code">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
@@ -123,10 +133,10 @@ $("#hidr").click(function () {
   div { display:none; }
   p { font-weight:bold; background-color:#fcd; }
   &lt;/style&gt;
-  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-latest.min.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
-	&lt;button&gt;Do it!&lt;/button&gt;
+  &lt;button&gt;Do it!&lt;/button&gt;
   &lt;span&gt;Are you sure? (type 'yes' if you are) &lt;/span&gt;
   &lt;div&gt;
     &lt;form&gt;
@@ -137,7 +147,7 @@ $("#hidr").click(function () {
   
 &lt;script&gt;
 function doIt() {
-  $("span,div").show("normal");
+  $("span,div").show("slow");
 }
 /* can pass in function name */
 $("button").click(doIt);
@@ -148,11 +158,12 @@ $("form").submit(function () {
       $(this).text("Ok, DONE! (now showing)");
     });
   }
-  $("span,div").hide("normal");
+  $("span,div").hide("fast");
   /* to stop the submit */
   return false; 
 });
 &lt;/script&gt;
+
 &lt;/body&gt;
 &lt;/html&gt;</code></pre>
 <h4>Demo:</h4>

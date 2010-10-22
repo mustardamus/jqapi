@@ -2,24 +2,34 @@
 <html lang='en'><head><meta http-equiv='content-type' content='text/html; charset=UTF-8' /></head><body>
 <div class="entry-content">
         <div class="entry-title roundTop">
-				<h1 class="jq-clearfix">.slideToggle()</h1>
+                    
+				  <h1 class="jq-clearfix">.slideToggle()</h1>
   				<div class="entry-meta">Categories:
-  					<span class="category"><a href="http://api.jquery.com/category/effects/" title="View all posts in Effects">Effects</a> &gt; <a href="http://api.jquery.com/category/effects/sliding/" title="View all posts in Sliding">Sliding</a></span>  
-    
+  					<span class="category"><a href="http://api.jquery.com/category/effects/" title="View all posts in Effects">Effects</a> &gt; <a href="http://api.jquery.com/category/effects/sliding/" title="View all posts in Sliding">Sliding</a></span>
+  
   				</div>
 </div>
-<div class="entry method" id="slideToggle1">
+<div id="slideToggle1" class="entry method">
 <h2 class="jq-clearfix roundTop section-title">
 <span class="name">.slideToggle( [ duration ], [ callback ] )</span> <span class="returns">Returns: <a class="return" href="http://docs.jquery.com/Types#jQuery">jQuery</a></span>
 </h2>
 <div class="jq-box roundBottom entry-details">
 <p class="desc"><strong>Description: </strong>Display or hide the matched elements with a sliding motion.</p>
-<ul class="signatures"><li class="signature" id="slideToggle-duration-callback">
+<ul class="signatures">
+<li class="signature" id="slideToggle-duration-callback">
 <h4 class="name">
 <span class="versionAdded">version added: <a href="/category/version/1.0/">1.0</a></span>.slideToggle( [ duration ], [ callback ] )</h4>
 <p class="arguement"><strong>duration</strong>A string or number determining how long the animation will run.</p>
 <p class="arguement"><strong>callback</strong>A function to call once the animation is complete.</p>
-</li></ul>
+</li>
+<li class="signature" id="slideToggle-duration-easing-callback">
+<h4 class="name">
+<span class="versionAdded">version added: <a href="/category/version/1.4.3/">1.4.3</a></span>.slideToggle( [ duration ], [ easing ], [ callback ] )</h4>
+<p class="arguement"><strong>duration</strong>A string or number determining how long the animation will run.</p>
+<p class="arguement"><strong>easing</strong>A string indicating which easing function to use for the transition.</p>
+<p class="arguement"><strong>callback</strong>A function to call once the animation is complete.</p>
+</li>
+</ul>
 <div class="longdesc">
 <p>The <code>.slideToggle()</code> method animates the height of the matched elements. This causes lower parts of the page to slide up or down, appearing to reveal or conceal the items. If the element is initially displayed, it will be hidden; if hidden, it will be shown. The <code>display</code> property is saved and restored as needed. If an element has a <code>display</code> value of <code>inline</code>, then is hidden and shown, it will once again be displayed <code>inline</code>. When the height reaches 0 after a hiding animation, the <code>display</code> style property is set to <code>none</code> to ensure that the element no longer affects the layout of the page.</p>
 <p>Durations are given in milliseconds; higher values indicate slower animations, not faster ones. The strings <code>'fast'</code> and <code>'slow'</code> can be supplied to indicate durations of <code>200</code> and <code>600</code> milliseconds, respectively.</p>
@@ -43,8 +53,10 @@
 <p class="image four-across"> 
     <img src="/images/0042_06_29.png" alt=""><img src="/images/0042_06_30.png" alt=""><img src="/images/0042_06_31.png" alt=""><img src="/images/0042_06_32.png" alt=""></p>
 </div>
+<h3 id="notes-0">Additional Notes:</h3>
+<div class="longdesc"><ul><li>All jQuery effects, including <code>.slideToggle()</code>, can be turned off globally by setting  <code>jQuery.fx.off = true</code>. For more information, see <a href="http://api.jquery.com/jquery.fx.off">jQuery.fx.off</a>.</li></ul></div>
 <h3>Examples:</h3>
-<div id="entry-examples" class="entry-examples">
+<div class="entry-examples" id="entry-examples">
 <div id="example-0">
 <h4>Example: <span class="desc">Animates all paragraphs to slide up or down, completing the animation within 600 milliseconds.</span>
 </h4>
@@ -54,10 +66,10 @@
   &lt;style&gt;
   p { width:400px; }
   &lt;/style&gt;
-  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-latest.min.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
-	&lt;button&gt;Toggle&lt;/button&gt;
+  &lt;button&gt;Toggle&lt;/button&gt;
 
   &lt;p&gt;
     This is the paragraph to end all paragraphs.  You
@@ -69,6 +81,7 @@
       $("p").slideToggle("slow");
     });
 &lt;/script&gt;
+
 &lt;/body&gt;
 &lt;/html&gt;</code></pre>
 <h4>Demo:</h4>
@@ -87,10 +100,10 @@
   div.hider { display:none; }
   span { color:red; }
   p { clear: left; }&lt;/style&gt;
-  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-latest.min.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
-	&lt;div&gt;&lt;/div&gt;
+  &lt;div&gt;&lt;/div&gt;
 &lt;div class="still"&gt;&lt;/div&gt;
 &lt;div style="display:none;"&gt;
 &lt;/div&gt;&lt;div class="still"&gt;&lt;/div&gt;
@@ -111,6 +124,7 @@
   });
 
 &lt;/script&gt;
+
 &lt;/body&gt;
 &lt;/html&gt;</code></pre>
 <h4>Demo:</h4>

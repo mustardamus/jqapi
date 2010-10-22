@@ -2,13 +2,14 @@
 <html lang='en'><head><meta http-equiv='content-type' content='text/html; charset=UTF-8' /></head><body>
 <div class="entry-content">
         <div class="entry-title roundTop">
-				<h1 class="jq-clearfix">.change()</h1>
+                    
+				  <h1 class="jq-clearfix">.change()</h1>
   				<div class="entry-meta">Categories:
-  					<span class="category"><a href="http://api.jquery.com/category/events/" title="View all posts in Events">Events</a> &gt; <a href="http://api.jquery.com/category/events/form-events/" title="View all posts in Form Events">Form Events</a></span> | <span class="category"><a href="http://api.jquery.com/category/forms/" title="View all posts in Forms">Forms</a></span>  
-    
+  					<span class="category"><a href="http://api.jquery.com/category/events/" title="View all posts in Events">Events</a> &gt; <a href="http://api.jquery.com/category/events/form-events/" title="View all posts in Form Events">Form Events</a></span> | <span class="category"><a href="http://api.jquery.com/category/forms/" title="View all posts in Forms">Forms</a></span>
+  
   				</div>
 </div>
-<div class="entry method" id="change1">
+<div id="change1" class="entry method">
 <h2 class="jq-clearfix roundTop section-title">
 <span class="name">.change( handler(eventObject) )</span> <span class="returns">Returns: <a class="return" href="http://docs.jquery.com/Types#jQuery">jQuery</a></span>
 </h2>
@@ -18,6 +19,12 @@
 <li class="signature" id="change-handlereventObject">
 <h4 class="name">
 <span class="versionAdded">version added: <a href="/category/version/1.0/">1.0</a></span>.change( handler(eventObject) )</h4>
+<p class="arguement"><strong>handler(eventObject)</strong>A function to execute each time the event is triggered.</p>
+</li>
+<li class="signature" id="change-eventData-handlereventObject">
+<h4 class="name">
+<span class="versionAdded">version added: <a href="/category/version/1.4.3/">1.4.3</a></span>.change( [ eventData ], handler(eventObject) )</h4>
+<p class="arguement"><strong>eventData</strong>A map of data that will be passed to the event handler.</p>
 <p class="arguement"><strong>handler(eventObject)</strong>A function to execute each time the event is triggered.</p>
 </li>
 <li class="signature" id="change"><h4 class="name">
@@ -49,7 +56,7 @@
 <p>As of jQuery 1.4 the <code>change</code> event now bubbles, and works identically to all other browsers, in Internet Explorer.</p>
 </div>
 <h3>Examples:</h3>
-<div id="entry-examples" class="entry-examples">
+<div class="entry-examples" id="entry-examples">
 <div id="example-0">
 <h4>Example: <span class="desc">Attaches a change event to the select that gets the text for each selected option and writes them in the div.  It then triggers the event for the initial text draw.</span>
 </h4>
@@ -60,10 +67,10 @@
 
   div { color:red; }
   &lt;/style&gt;
-  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-latest.min.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
-	&lt;select name="sweets" multiple="multiple"&gt;
+  &lt;select name="sweets" multiple="multiple"&gt;
     &lt;option&gt;Chocolate&lt;/option&gt;
     &lt;option selected="selected"&gt;Candy&lt;/option&gt;
 
@@ -84,6 +91,7 @@
         })
         .change();
 &lt;/script&gt;
+
 &lt;/body&gt;
 &lt;/html&gt;</code></pre>
 <h4>Demo:</h4>

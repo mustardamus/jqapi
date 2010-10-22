@@ -2,19 +2,20 @@
 <html lang='en'><head><meta http-equiv='content-type' content='text/html; charset=UTF-8' /></head><body>
 <div class="entry-content">
         <div class="entry-title roundTop">
-				<h1 class="jq-clearfix">jQuery.unique()</h1>
+                    
+				  <h1 class="jq-clearfix">jQuery.unique()</h1>
   				<div class="entry-meta">Categories:
-  					<span class="category"><a href="http://api.jquery.com/category/utilities/" title="View all posts in Utilities">Utilities</a></span>  
-    
+  					<span class="category"><a href="http://api.jquery.com/category/utilities/" title="View all posts in Utilities">Utilities</a></span>
+  
   				</div>
 </div>
-<div class="entry method" id="jQuery.unique1">
+<div id="jQuery-unique1" class="entry method">
 <h2 class="jq-clearfix roundTop section-title">
 <span class="name">jQuery.unique( array )</span> <span class="returns">Returns: <a class="return" href="http://docs.jquery.com/Types#Array">Array</a></span>
 </h2>
 <div class="jq-box roundBottom entry-details">
 <p class="desc"><strong>Description: </strong>Sorts an array of DOM elements, in place, with the duplicates removed. Note that this only works on arrays of DOM elements, not strings or numbers.</p>
-<ul class="signatures"><li class="signature" id="jQuery.unique-array">
+<ul class="signatures"><li class="signature" id="jQuery-unique-array">
 <h4 class="name">
 <span class="versionAdded">version added: <a href="/category/version/1.1.3/">1.1.3</a></span>jQuery.unique( array )</h4>
 <p class="arguement"><strong>array</strong>The Array of DOM elements.</p>
@@ -24,7 +25,7 @@
 <p>As of jQuery 1.4 the results will always be returned in document order.</p>
 </div>
 <h3>Example:</h3>
-<div id="entry-examples" class="entry-examples"><div id="example-0">
+<div class="entry-examples" id="entry-examples"><div id="example-0">
 <h4><span class="desc">Removes any duplicate elements from the array of divs.</span></h4>
 <pre><code class="example demo-code">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
@@ -32,10 +33,10 @@
   &lt;style&gt;
   div { color:blue; }
   &lt;/style&gt;
-  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-latest.min.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
-	&lt;div&gt;There are 6 divs in this document.&lt;/div&gt;
+  &lt;div&gt;There are 6 divs in this document.&lt;/div&gt;
   &lt;div&gt;&lt;/div&gt;
   &lt;div class="dup"&gt;&lt;/div&gt;
   &lt;div class="dup"&gt;&lt;/div&gt;
@@ -55,6 +56,7 @@
                   .css("color", "red");
 
 &lt;/script&gt;
+
 &lt;/body&gt;
 &lt;/html&gt;</code></pre>
 <h4>Demo:</h4>

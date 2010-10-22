@@ -2,23 +2,24 @@
 <html lang='en'><head><meta http-equiv='content-type' content='text/html; charset=UTF-8' /></head><body>
 <div class="entry-content">
         <div class="entry-title roundTop">
-				<h1 class="jq-clearfix">event.target</h1>
+                    
+				  <h1 class="jq-clearfix">event.target</h1>
   				<div class="entry-meta">Categories:
-  					<span class="category"><a href="http://api.jquery.com/category/events/" title="View all posts in Events">Events</a> &gt; <a href="http://api.jquery.com/category/events/event-object/" title="View all posts in Event Object">Event Object</a></span>  
-    
+  					<span class="category"><a href="http://api.jquery.com/category/events/" title="View all posts in Events">Events</a> &gt; <a href="http://api.jquery.com/category/events/event-object/" title="View all posts in Event Object">Event Object</a></span>
+  
   				</div>
 </div>
-<div class="entry property" id="event.target1">
+<div id="event-target1" class="entry property">
 <h2 class="jq-clearfix roundTop section-title">
 <span class="name">event.target</span> <span class="returns">Returns: <a class="return" href="http://docs.jquery.com/Types#Element">Element</a></span>
 </h2>
 <div class="jq-box roundBottom entry-details">
 <p class="desc"><strong>Description: </strong> The DOM element that initiated the event.  </p>
-<ul class="signatures"><li class="signature" id="event.target"><h4 class="name">
+<ul class="signatures"><li class="signature" id="event-target"><h4 class="name">
 <span class="versionAdded">version added: <a href="/category/version/1.0/">1.0</a></span>event.target</h4></li></ul>
 <div class="longdesc"><p>This can be the element that registered for the event or a child of it.  It is often useful to compare <code>event.target</code> to <code>this</code> in order to determine if the event is being handled due to event bubbling. This property is very useful in event delegation, when events bubble.</p></div>
 <h3>Examples:</h3>
-<div id="entry-examples" class="entry-examples">
+<div class="entry-examples" id="entry-examples">
 <div id="example-0">
 <h4>Example: <span class="desc">Display the tag's name on click</span>
 </h4>
@@ -29,10 +30,10 @@
 span, strong, p { 
   padding: 8px; display: block; border: 1px solid #999;  }
     &lt;/style&gt;
-  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-latest.min.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
-	
+  
 &lt;div id="log"&gt;&lt;/div&gt;
 &lt;div&gt;
   &lt;p&gt;
@@ -42,6 +43,7 @@ span, strong, p {
 &lt;script&gt;$("body").click(function(event) {
   $("#log").html("clicked: " + event.target.nodeName);
 });  &lt;/script&gt;
+
 &lt;/body&gt;
 &lt;/html&gt;</code></pre>
 <h4>Demo:</h4>
@@ -53,10 +55,10 @@ span, strong, p {
 <pre><code class="example demo-code">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;
-  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-latest.min.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
-	
+  
 &lt;ul&gt;
   &lt;li&gt;item 1
     &lt;ul&gt;
@@ -78,6 +80,7 @@ span, strong, p {
   }
 }
 $("ul").click(handler).find("ul").hide();&lt;/script&gt;
+
 &lt;/body&gt;
 &lt;/html&gt;</code></pre>
 <h4>Demo:</h4>

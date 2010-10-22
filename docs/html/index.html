@@ -2,10 +2,11 @@
 <html lang='en'><head><meta http-equiv='content-type' content='text/html; charset=UTF-8' /></head><body>
 <div class="entry-content">
         <div class="entry-title roundTop">
-				<h1 class="jq-clearfix">.html()</h1>
+                    
+				  <h1 class="jq-clearfix">.html()</h1>
   				<div class="entry-meta">Categories:
-  					<span class="category"><a href="http://api.jquery.com/category/attributes/" title="View all posts in Attributes">Attributes</a></span> | <span class="category"><a href="http://api.jquery.com/category/manipulation/" title="View all posts in Manipulation">Manipulation</a> &gt; <a href="http://api.jquery.com/category/manipulation/dom-insertion/" title="View all posts in DOM Insertion">DOM Insertion</a></span>  
-    
+  					<span class="category"><a href="http://api.jquery.com/category/attributes/" title="View all posts in Attributes">Attributes</a></span> | <span class="category"><a href="http://api.jquery.com/category/manipulation/" title="View all posts in Manipulation">Manipulation</a> &gt; <a href="http://api.jquery.com/category/manipulation/dom-insertion-inside/" title="View all posts in DOM Insertion, Inside">DOM Insertion, Inside</a></span>
+  
   				</div>
 </div>
 
@@ -14,19 +15,19 @@
 <ul class="toc-list">
 <li>
 <a href="#html1">html() </a><ul><li>.html()
-	  					</li></ul>
+              </li></ul>
 </li>
 <li>
 <a href="#html2">html( htmlString ) </a><ul>
 <li>.html( htmlString )
-	  					</li>
-<li>.html( function(index, html) )
-	  					</li>
+              </li>
+<li>.html( function(index, oldhtml) )
+              </li>
 </ul>
 </li>
 </ul>
 </fieldset>
-<div class="entry method" id="html1">
+<div id="html1" class="entry method">
 <h2 class="jq-clearfix roundTop section-title">
 <span class="name">.html()</span> <span class="returns">Returns: <a class="return" href="http://docs.jquery.com/Types#String">String</a></span>
 </h2>
@@ -44,9 +45,10 @@
 &lt;/div&gt;</pre>
 <p>The result would look like this:</p>
 <pre>&lt;div class="demo-box"&gt;Demonstration Box&lt;/div&gt;</pre>
+<p>This method uses the browser's <code>innerHTML</code> property. Some browsers may not return HTML that exactly replicates the HTML source in an original document. For example, Internet Explorer sometimes leaves off the quotes around attribute values if they contain only alphanumeric characters.</p>
 </div>
 <h3>Example:</h3>
-<div id="entry-examples" class="entry-examples"><div id="example-0">
+<div class="entry-examples" id="entry-examples"><div id="example-0">
 <h4><span class="desc">Click a paragraph to convert it from html to text.</span></h4>
 <pre><code class="example demo-code">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
@@ -57,10 +59,10 @@
   b { text-decoration:underline; }
   button { cursor:pointer; }
   &lt;/style&gt;
-  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-latest.min.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
-	&lt;p&gt;
+  &lt;p&gt;
 
     &lt;b&gt;Click&lt;/b&gt; to change the &lt;span id="tag"&gt;html&lt;/span&gt;
   &lt;/p&gt;
@@ -77,6 +79,7 @@
       $(this).text(htmlStr);
     });
 &lt;/script&gt;
+
 &lt;/body&gt;
 &lt;/html&gt;</code></pre>
 <h4>Demo:</h4>
@@ -84,7 +87,7 @@
 </div></div>
 </div>
 </div>
-<div class="entry method" id="html2">
+<div id="html2" class="entry method">
 <h2 class="jq-clearfix roundTop section-title">
 <span class="name">.html( htmlString )</span> <span class="returns">Returns: <a class="return" href="http://docs.jquery.com/Types#jQuery">jQuery</a></span>
 </h2>
@@ -96,10 +99,10 @@
 <span class="versionAdded">version added: <a href="/category/version/1.0/">1.0</a></span>.html( htmlString )</h4>
 <p class="arguement"><strong>htmlString</strong>A string of HTML to set as the content of each matched element.</p>
 </li>
-<li class="signature" id="html-functionindex, html">
+<li class="signature" id="html-functionindex- oldhtml">
 <h4 class="name">
-<span class="versionAdded">version added: <a href="/category/version/1.4/">1.4</a></span>.html( function(index, html) )</h4>
-<p class="arguement"><strong>function(index, html)</strong>A function returning the HTML content to set. Receives the index position of the element in the set and the old HTML value as arguments.</p>
+<span class="versionAdded">version added: <a href="/category/version/1.4/">1.4</a></span>.html( function(index, oldhtml) )</h4>
+<p class="arguement"><strong>function(index, oldhtml)</strong>A function returning the HTML content to set. Receives the index position of the element in the set and the old HTML value as arguments. jQuery empties the element before calling the function; use the oldhtml argument to reference the previous content.</p>
 </li>
 </ul>
 <div class="longdesc">
@@ -121,10 +124,11 @@
   return '&lt;p&gt;All new content for ' + emph + '&lt;/p&gt;';
 });</pre>
 <p>Given a document with six paragraphs, this example will set the HTML of <code>&lt;div class="demo-container"&gt;</code> to <code>&lt;p&gt;All new content for &lt;em&gt;6 paragraphs!&lt;/em&gt;&lt;/p&gt;</code>.</p>
+<p>This method uses the browser's <code>innerHTML</code> property. Some browsers may not generate a DOM that exactly replicates the HTML source provided. For example, Internet Explorer prior to version 8 will convert all <code>href</code> properties on links to absolute URLs, and Internet Explorer prior to version 9 will not correctly handle HTML5 elements without the addition of a separate <a href="http://code.google.com/p/html5shiv/">compatibility layer</a>.</p>
 </div>
 <h3>Examples:</h3>
-<div id="entry-examples" class="entry-examples">
-<div id="example-0">
+<div class="entry-examples" id="entry-examples-1">
+<div id="example-1-0">
 <h4>Example: <span class="desc">Add some html to each div.</span>
 </h4>
 <pre><code class="example demo-code">&lt;!DOCTYPE html&gt;
@@ -134,20 +138,21 @@
 
   .red { color:red; }
   &lt;/style&gt;
-  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-latest.min.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
-	&lt;span&gt;Hello&lt;/span&gt;
+  &lt;span&gt;Hello&lt;/span&gt;
   &lt;div&gt;&lt;/div&gt;
   &lt;div&gt;&lt;/div&gt;
   &lt;div&gt;&lt;/div&gt;
 &lt;script&gt;$("div").html("&lt;span class='red'&gt;Hello &lt;b&gt;Again&lt;/b&gt;&lt;/span&gt;");&lt;/script&gt;
+
 &lt;/body&gt;
 &lt;/html&gt;</code></pre>
 <h4>Demo:</h4>
 <div class="demo code-demo"></div>
 </div>
-<div id="example-1">
+<div id="example-1-1">
 <h4>Example: <span class="desc">Add some html to each div then immediately do further manipulations to the inserted html.</span>
 </h4>
 <pre><code class="example demo-code">&lt;!DOCTYPE html&gt;
@@ -156,10 +161,10 @@
   &lt;style&gt;
   div { color:blue; font-size:18px; }
   &lt;/style&gt;
-  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-latest.min.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
-	&lt;div&gt;&lt;/div&gt;
+  &lt;div&gt;&lt;/div&gt;
   &lt;div&gt;&lt;/div&gt;
   &lt;div&gt;&lt;/div&gt;
 &lt;script&gt;
@@ -169,6 +174,7 @@
               .css("color", "red");
 
 &lt;/script&gt;
+
 &lt;/body&gt;
 &lt;/html&gt;</code></pre>
 <h4>Demo:</h4>

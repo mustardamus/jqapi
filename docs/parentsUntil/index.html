@@ -2,13 +2,14 @@
 <html lang='en'><head><meta http-equiv='content-type' content='text/html; charset=UTF-8' /></head><body>
 <div class="entry-content">
         <div class="entry-title roundTop">
-				<h1 class="jq-clearfix">.parentsUntil()</h1>
+                    
+				  <h1 class="jq-clearfix">.parentsUntil()</h1>
   				<div class="entry-meta">Categories:
-  					<span class="category"><a href="http://api.jquery.com/category/traversing/" title="View all posts in Traversing">Traversing</a> &gt; <a href="http://api.jquery.com/category/traversing/tree-traversal/" title="View all posts in Tree Traversal">Tree Traversal</a></span>  
-    
+  					<span class="category"><a href="http://api.jquery.com/category/traversing/" title="View all posts in Traversing">Traversing</a> &gt; <a href="http://api.jquery.com/category/traversing/tree-traversal/" title="View all posts in Tree Traversal">Tree Traversal</a></span>
+  
   				</div>
 </div>
-<div class="entry method" id="parentsUntil1">
+<div id="parentsUntil1" class="entry method">
 <h2 class="jq-clearfix roundTop section-title">
 <span class="name">.parentsUntil( [ selector ] )</span> <span class="returns">Returns: <a class="return" href="http://docs.jquery.com/Types#jQuery">jQuery</a></span>
 </h2>
@@ -49,15 +50,15 @@
 <p>The result of this call is a red background-color style applied to the level-2 list, the item II, the level-1 list, the <code>&lt;body&gt;</code> element, and the <code>&lt;html&gt;</code> element.</p>
 </div>
 <h3>Example:</h3>
-<div id="entry-examples" class="entry-examples"><div id="example-0">
+<div class="entry-examples" id="entry-examples"><div id="example-0">
 <h4><span class="desc">Find the ancestors of &lt;li class="item-a"&gt; up to &lt;ul class="level-1"&gt; and give them a red background color.</span></h4>
 <pre><code class="example demo-code">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;
-  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-latest.min.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
-	
+  
 &lt;ul class="level-1"&gt;
   &lt;li class="item-i"&gt;I&lt;/li&gt;
   &lt;li class="item-ii"&gt;II
@@ -79,6 +80,7 @@
     $('li.item-a').parentsUntil('.level-1')
       .css('background-color', 'red');
 &lt;/script&gt;
+
 &lt;/body&gt;
 &lt;/html&gt;</code></pre>
 <h4>Demo:</h4>

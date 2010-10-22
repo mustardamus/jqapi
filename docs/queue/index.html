@@ -2,10 +2,11 @@
 <html lang='en'><head><meta http-equiv='content-type' content='text/html; charset=UTF-8' /></head><body>
 <div class="entry-content">
         <div class="entry-title roundTop">
-				<h1 class="jq-clearfix">.queue()</h1>
+                    
+				  <h1 class="jq-clearfix">.queue()</h1>
   				<div class="entry-meta">Categories:
-  					<span class="category"><a href="http://api.jquery.com/category/effects/" title="View all posts in Effects">Effects</a> &gt; <a href="http://api.jquery.com/category/effects/custom-effects/" title="View all posts in Custom">Custom</a></span> | <span class="category"><a href="http://api.jquery.com/category/data/" title="View all posts in Data">Data</a></span> | <span class="category"><a href="http://api.jquery.com/category/utilities/" title="View all posts in Utilities">Utilities</a></span>  
-    
+  					<span class="category"><a href="http://api.jquery.com/category/effects/" title="View all posts in Effects">Effects</a> &gt; <a href="http://api.jquery.com/category/effects/custom-effects/" title="View all posts in Custom">Custom</a></span> | <span class="category"><a href="http://api.jquery.com/category/data/" title="View all posts in Data">Data</a></span> | <span class="category"><a href="http://api.jquery.com/category/utilities/" title="View all posts in Utilities">Utilities</a></span>
+  
   				</div>
 </div>
 
@@ -14,19 +15,19 @@
 <ul class="toc-list">
 <li>
 <a href="#queue1">queue( [ queueName ] ) </a><ul><li>.queue( [ queueName ] )
-	  					</li></ul>
+              </li></ul>
 </li>
 <li>
 <a href="#queue2">queue( [ queueName ], newQueue ) </a><ul>
 <li>.queue( [ queueName ], newQueue )
-	  					</li>
+              </li>
 <li>.queue( [ queueName ], callback( next ) )
-	  					</li>
+              </li>
 </ul>
 </li>
 </ul>
 </fieldset>
-<div class="entry method" id="queue1">
+<div id="queue1" class="entry method">
 <h2 class="jq-clearfix roundTop section-title">
 <span class="name">.queue( [ queueName ] )</span> <span class="returns">Returns: <a class="return" href="http://docs.jquery.com/Types#Array">Array</a></span>
 </h2>
@@ -38,25 +39,25 @@
 <p class="arguement"><strong>queueName</strong>A string containing the name of the queue. Defaults to <code>fx</code>, the standard effects queue.</p>
 </li></ul>
 <h3>Example:</h3>
-<div id="entry-examples" class="entry-examples"><div id="example-0">
+<div class="entry-examples" id="entry-examples"><div id="example-0">
 <h4><span class="desc">Show the length of the queue.</span></h4>
 <pre><code class="example demo-code">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;
   &lt;style&gt;div { margin:3px; width:40px; height:40px;
-        position:absolute; left:0px; top:30px; 
+        position:absolute; left:0px; top:60px; 
         background:green; display:none; }
   div.newcolor { background:blue; }
-  span { color:red; }  &lt;/style&gt;
-  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
+  p { color:red; }  &lt;/style&gt;
+  &lt;script src="http://code.jquery.com/jquery-latest.min.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
-	&lt;button id="show"&gt;Show Length of Queue&lt;/button&gt;
-  &lt;span&gt;&lt;/span&gt;
+  &lt;button id="show"&gt;Show Length of Queue&lt;/button&gt;
+  &lt;p&gt;&lt;/p&gt;
   &lt;div&gt;&lt;/div&gt;
 &lt;script&gt;$("#show").click(function () {
       var n = $("div").queue("fx");
-      $("span").text("Queue length is: " + n.length);
+      $("p").text("Queue length is: " + n.length);
     });
     function runIt() {
       $("div").show("slow");
@@ -69,6 +70,7 @@
       $("div").slideUp("normal", runIt);
     }
     runIt();&lt;/script&gt;
+
 &lt;/body&gt;
 &lt;/html&gt;</code></pre>
 <h4>Demo:</h4>
@@ -76,7 +78,7 @@
 </div></div>
 </div>
 </div>
-<div class="entry method" id="queue2">
+<div id="queue2" class="entry method">
 <h2 class="jq-clearfix roundTop section-title">
 <span class="name">.queue( [ queueName ], newQueue )</span> <span class="returns">Returns: <a class="return" href="http://docs.jquery.com/Types#jQuery">jQuery</a></span>
 </h2>
@@ -119,8 +121,8 @@ $('#foo').queue(function() {
 });</pre>
 </div>
 <h3>Examples:</h3>
-<div id="entry-examples" class="entry-examples">
-<div id="example-0">
+<div class="entry-examples" id="entry-examples-1">
+<div id="example-1-0">
 <h4>Example: <span class="desc">Queue a custom function.</span>
 </h4>
 <pre><code class="example demo-code">&lt;!DOCTYPE html&gt;
@@ -132,10 +134,10 @@ $('#foo').queue(function() {
         background:green; display:none; }
   div.newcolor { background:blue; }
   &lt;/style&gt;
-  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-latest.min.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
-	Click here...
+  Click here...
   &lt;div&gt;&lt;/div&gt;
 &lt;script&gt;$(document.body).click(function () {
       $("div").show("slow");
@@ -151,12 +153,13 @@ $('#foo').queue(function() {
       });
       $("div").slideUp();
     });&lt;/script&gt;
+
 &lt;/body&gt;
 &lt;/html&gt;</code></pre>
 <h4>Demo:</h4>
 <div class="demo code-demo"></div>
 </div>
-<div id="example-1">
+<div id="example-1-1">
 <h4>Example: <span class="desc">Set a queue array to delete the queue.</span>
 </h4>
 <pre><code class="example demo-code">&lt;!DOCTYPE html&gt;
@@ -168,10 +171,10 @@ $('#foo').queue(function() {
         background:green; display:none; }
   div.newcolor { background:blue; }
   &lt;/style&gt;
-  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-latest.min.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
-	&lt;button id="start"&gt;Start&lt;/button&gt;
+  &lt;button id="start"&gt;Start&lt;/button&gt;
   &lt;button id="stop"&gt;Stop&lt;/button&gt;
   &lt;div&gt;&lt;/div&gt;
 &lt;script&gt;$("#start").click(function () {
@@ -192,6 +195,7 @@ $('#foo').queue(function() {
       $("div").queue("fx", []);
       $("div").stop();
     });&lt;/script&gt;
+
 &lt;/body&gt;
 &lt;/html&gt;</code></pre>
 <h4>Demo:</h4>

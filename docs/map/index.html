@@ -2,24 +2,26 @@
 <html lang='en'><head><meta http-equiv='content-type' content='text/html; charset=UTF-8' /></head><body>
 <div class="entry-content">
         <div class="entry-title roundTop">
-				<h1 class="jq-clearfix">.map()</h1>
+                    
+				  <h1 class="jq-clearfix">.map()</h1>
   				<div class="entry-meta">Categories:
-  					<span class="category"><a href="http://api.jquery.com/category/traversing/" title="View all posts in Traversing">Traversing</a> &gt; <a href="http://api.jquery.com/category/traversing/filtering/" title="View all posts in Filtering">Filtering</a></span>  
-    
+  					<span class="category"><a href="http://api.jquery.com/category/traversing/" title="View all posts in Traversing">Traversing</a> &gt; <a href="http://api.jquery.com/category/traversing/filtering/" title="View all posts in Filtering">Filtering</a></span>
+  
   				</div>
 </div>
-<div class="entry method" id="map1">
+<div id="map1" class="entry method">
 <h2 class="jq-clearfix roundTop section-title">
 <span class="name">.map( callback(index, domElement) )</span> <span class="returns">Returns: <a class="return" href="http://docs.jquery.com/Types#jQuery">jQuery</a></span>
 </h2>
 <div class="jq-box roundBottom entry-details">
 <p class="desc"><strong>Description: </strong>Pass each element in the current matched set through a function, producing a new jQuery object containing the return values.</p>
-<ul class="signatures"><li class="signature" id="map-callbackindex, domElement">
+<ul class="signatures"><li class="signature" id="map-callbackindex- domElement">
 <h4 class="name">
 <span class="versionAdded">version added: <a href="/category/version/1.2/">1.2</a></span>.map( callback(index, domElement) )</h4>
 <p class="arguement"><strong>callback(index, domElement)</strong>A function object that will be invoked for each element in the current set.</p>
 </li></ul>
 <div class="longdesc">
+<p>As the return value is a jQuery-wrapped array, it's very common to <code>get()</code> the returned object to work with a basic array.</p>
 <p>The <code>.map()</code> method is particularly useful for getting or setting the value of a collection of elements. Consider a form with a set of checkboxes in it:</p>
 <pre>
 &lt;form method="post" action=""&gt;
@@ -48,10 +50,10 @@
   return this.id;
 }).get().join(',');</pre>
 <p>The result of this call is the string, <code>"two,four,six,eight"</code>.</p>
-<p>Within the callback function, <code>this</code> refers to the current DOM element for each iteration.</p>
+<p>Within the callback function, <code>this</code> refers to the current DOM element for each iteration. The function can return an individual data item or an array of data items to be inserted into the resulting set. If an array is returned, the elements inside the array are inserted into the set. If the function returns <code>null</code> or <code>undefined</code>, no element will be inserted.</p>
 </div>
 <h3>Examples:</h3>
-<div id="entry-examples" class="entry-examples">
+<div class="entry-examples" id="entry-examples">
 <div id="example-0">
 <h4>Example: <span class="desc">Build a list of all the values within a form.</span>
 </h4>
@@ -61,10 +63,10 @@
   &lt;style&gt;
   p { color:red; }
   &lt;/style&gt;
-  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-latest.min.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
-	&lt;p&gt;&lt;b&gt;Values: &lt;/b&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;b&gt;Values: &lt;/b&gt;&lt;/p&gt;
   &lt;form&gt;
     &lt;input type="text" name="name" value="John"/&gt;
 
@@ -78,6 +80,7 @@
     }).get().join(", ") );
 
 &lt;/script&gt;
+
 &lt;/body&gt;
 &lt;/html&gt;</code></pre>
 <h4>Demo:</h4>
@@ -94,10 +97,10 @@
   ul { float:left; margin:0 30px; color:blue; }
   #results { color:red; }
   &lt;/style&gt;
-  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-latest.min.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
-	&lt;ul&gt;
+  &lt;ul&gt;
     &lt;li&gt;First&lt;/li&gt;
     &lt;li&gt;Second&lt;/li&gt;
     &lt;li&gt;Third&lt;/li&gt;
@@ -131,6 +134,7 @@
     $("#results").append(mappedItems);
 
 &lt;/script&gt;
+
 &lt;/body&gt;
 &lt;/html&gt;</code></pre>
 <h4>Demo:</h4>
@@ -146,10 +150,10 @@
 div { width: 40px; float:left; }
 input { clear:left}
   &lt;/style&gt;
-  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-latest.min.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
-	
+  
 
 &lt;input type="button" value="equalize div heights"&gt;
 
@@ -167,6 +171,7 @@ $('input').click(function(){
 });
 
 &lt;/script&gt;
+
 &lt;/body&gt;
 &lt;/html&gt;</code></pre>
 <h4>Demo:</h4>

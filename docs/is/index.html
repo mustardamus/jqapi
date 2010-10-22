@@ -2,13 +2,14 @@
 <html lang='en'><head><meta http-equiv='content-type' content='text/html; charset=UTF-8' /></head><body>
 <div class="entry-content">
         <div class="entry-title roundTop">
-				<h1 class="jq-clearfix">.is()</h1>
+                    
+				  <h1 class="jq-clearfix">.is()</h1>
   				<div class="entry-meta">Categories:
-  					<span class="category"><a href="http://api.jquery.com/category/traversing/" title="View all posts in Traversing">Traversing</a> &gt; <a href="http://api.jquery.com/category/traversing/filtering/" title="View all posts in Filtering">Filtering</a></span>  
-    
+  					<span class="category"><a href="http://api.jquery.com/category/traversing/" title="View all posts in Traversing">Traversing</a> &gt; <a href="http://api.jquery.com/category/traversing/filtering/" title="View all posts in Filtering">Filtering</a></span>
+  
   				</div>
 </div>
-<div class="entry method" id="is1">
+<div id="is1" class="entry method">
 <h2 class="jq-clearfix roundTop section-title">
 <span class="name">.is( selector )</span> <span class="returns">Returns: <a class="return" href="http://docs.jquery.com/Types#Boolean">Boolean</a></span>
 </h2>
@@ -39,7 +40,7 @@
 </p>
 </div>
 <h3>Examples:</h3>
-<div id="entry-examples" class="entry-examples">
+<div class="entry-examples" id="entry-examples">
 <div id="example-0">
 <h4>Example: <span class="desc">Shows a few ways is() can be used inside an event handler.</span>
 </h4>
@@ -56,10 +57,10 @@
   p { color:red; font-weight:bolder; background:yellow; 
       margin:3px; clear:left; display:none; }
   &lt;/style&gt;
-  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-latest.min.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
-	&lt;div&gt;&lt;/div&gt;
+  &lt;div&gt;&lt;/div&gt;
   &lt;div class="blue"&gt;&lt;/div&gt;
   &lt;div&gt;&lt;/div&gt;
   &lt;div class="red"&gt;&lt;/div&gt;
@@ -83,6 +84,7 @@
     });
 
 &lt;/script&gt;
+
 &lt;/body&gt;
 &lt;/html&gt;</code></pre>
 <h4>Demo:</h4>
@@ -95,10 +97,10 @@
 &lt;html&gt;
 &lt;head&gt;
   &lt;style&gt;div { color:red; }&lt;/style&gt;
-  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-latest.min.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
-	&lt;form&gt;&lt;input type="checkbox" /&gt;&lt;/form&gt;
+  &lt;form&gt;&lt;input type="checkbox" /&gt;&lt;/form&gt;
 
   &lt;div&gt;&lt;/div&gt;
 &lt;script&gt;
@@ -106,6 +108,7 @@
     var isFormParent = $("input[type='checkbox']").parent().is("form")
     $("div").text("isFormParent = " + isFormParent);
 &lt;/script&gt;
+
 &lt;/body&gt;
 &lt;/html&gt;</code></pre>
 <h4>Demo:</h4>
@@ -118,16 +121,17 @@
 &lt;html&gt;
 &lt;head&gt;
   &lt;style&gt;div { color:red; }&lt;/style&gt;
-  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-latest.min.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
-	&lt;form&gt;&lt;p&gt;&lt;input type="checkbox" /&gt;&lt;/p&gt;&lt;/form&gt;
+  &lt;form&gt;&lt;p&gt;&lt;input type="checkbox" /&gt;&lt;/p&gt;&lt;/form&gt;
 
   &lt;div&gt;&lt;/div&gt;
 &lt;script&gt;
     var isFormParent = $("input[type='checkbox']").parent().is("form")
     $("div").text("isFormParent = " + isFormParent);
 &lt;/script&gt;
+
 &lt;/body&gt;
 &lt;/html&gt;</code></pre>
 <h4>Demo:</h4>

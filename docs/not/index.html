@@ -2,13 +2,14 @@
 <html lang='en'><head><meta http-equiv='content-type' content='text/html; charset=UTF-8' /></head><body>
 <div class="entry-content">
         <div class="entry-title roundTop">
-				<h1 class="jq-clearfix">.not()</h1>
+                    
+				  <h1 class="jq-clearfix">.not()</h1>
   				<div class="entry-meta">Categories:
-  					<span class="category"><a href="http://api.jquery.com/category/traversing/" title="View all posts in Traversing">Traversing</a> &gt; <a href="http://api.jquery.com/category/traversing/filtering/" title="View all posts in Filtering">Filtering</a></span>  
-    
+  					<span class="category"><a href="http://api.jquery.com/category/traversing/" title="View all posts in Traversing">Traversing</a> &gt; <a href="http://api.jquery.com/category/traversing/filtering/" title="View all posts in Filtering">Filtering</a></span>
+  
   				</div>
 </div>
-<div class="entry method" id="not1">
+<div id="not1" class="entry method">
 <h2 class="jq-clearfix roundTop section-title">
 <span class="name">.not( selector )</span> <span class="returns">Returns: <a class="return" href="http://docs.jquery.com/Types#jQuery">jQuery</a></span>
 </h2>
@@ -66,7 +67,7 @@ $('li').not(document.getElementById('notli'))
 <p>As of jQuery 1.4, the <code>.not()</code> method can take a function as its argument in the same way that <code>.filter()</code> does. Elements for which the function returns <code>true</code> are excluded from the filtered set; all other elements are included.</p>
 </div>
 <h3>Examples:</h3>
-<div id="entry-examples" class="entry-examples">
+<div class="entry-examples" id="entry-examples">
 <div id="example-0">
 <h4>Example: <span class="desc">Adds a border to divs that are not green or blue.</span>
 </h4>
@@ -80,10 +81,10 @@ $('li').not(document.getElementById('notli'))
   .gray { background:#ccc; }
   #blueone { background:#99f; }
   &lt;/style&gt;
-  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-latest.min.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
-	&lt;div&gt;&lt;/div&gt;
+  &lt;div&gt;&lt;/div&gt;
   &lt;div id="blueone"&gt;&lt;/div&gt;
   &lt;div&gt;&lt;/div&gt;
   &lt;div class="green"&gt;&lt;/div&gt;
@@ -96,6 +97,7 @@ $('li').not(document.getElementById('notli'))
             .css("border-color", "red");
 
 &lt;/script&gt;
+
 &lt;/body&gt;
 &lt;/html&gt;</code></pre>
 <h4>Demo:</h4>

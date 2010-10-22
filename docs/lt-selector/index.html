@@ -2,13 +2,14 @@
 <html lang='en'><head><meta http-equiv='content-type' content='text/html; charset=UTF-8' /></head><body>
 <div class="entry-content">
         <div class="entry-title roundTop">
-				<h1 class="jq-clearfix">:lt() Selector</h1>
+                    
+				  <h1 class="jq-clearfix">:lt() Selector</h1>
   				<div class="entry-meta">Categories:
-  					<span class="category"><a href="http://api.jquery.com/category/selectors/" title="View all posts in Selectors">Selectors</a> &gt; <a href="http://api.jquery.com/category/selectors/basic-filter-selectors/" title="View all posts in Basic Filter">Basic Filter</a></span>  
-    
+  					<span class="category"><a href="http://api.jquery.com/category/selectors/" title="View all posts in Selectors">Selectors</a> &gt; <a href="http://api.jquery.com/category/selectors/basic-filter-selectors/" title="View all posts in Basic Filter">Basic Filter</a></span>
+  
   				</div>
 </div>
-<div class="entry selector" id="lt1">
+<div id="lt1" class="entry selector">
 <h2 class="jq-clearfix roundTop section-title">
 <span class="name">lt</span>  selector</h2>
 <div class="jq-box roundBottom entry-details">
@@ -25,15 +26,15 @@
 <p>Note that since JavaScript arrays use <em>0-based indexing</em>, these selectors reflect that fact. This is why <code>$('.myclass:lt(1)')</code> selects the first element in the document with the class <code>myclass</code>, rather than selecting no elements. In contrast, <code>:nth-child(n)</code> uses <em>1-based indexing</em> to conform to the CSS specification.</p>
 </div>
 <h3>Example:</h3>
-<div id="entry-examples" class="entry-examples"><div id="example-0">
+<div class="entry-examples" id="entry-examples"><div id="example-0">
 <h4><span class="desc">Finds TDs less than the one with the 4th index (TD#4).</span></h4>
 <pre><code class="example demo-code">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;
-  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-latest.min.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
-	&lt;table border="1"&gt;
+  &lt;table border="1"&gt;
 
   &lt;tr&gt;&lt;td&gt;TD #0&lt;/td&gt;&lt;td&gt;TD #1&lt;/td&gt;&lt;td&gt;TD #2&lt;/td&gt;&lt;/tr&gt;
   &lt;tr&gt;&lt;td&gt;TD #3&lt;/td&gt;&lt;td&gt;TD #4&lt;/td&gt;&lt;td&gt;TD #5&lt;/td&gt;&lt;/tr&gt;
@@ -41,6 +42,7 @@
   &lt;tr&gt;&lt;td&gt;TD #6&lt;/td&gt;&lt;td&gt;TD #7&lt;/td&gt;&lt;td&gt;TD #8&lt;/td&gt;&lt;/tr&gt;
 &lt;/table&gt;
 &lt;script&gt;$("td:lt(4)").css("color", "red");&lt;/script&gt;
+
 &lt;/body&gt;
 &lt;/html&gt;</code></pre>
 <h4>Demo:</h4>

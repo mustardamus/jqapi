@@ -2,19 +2,20 @@
 <html lang='en'><head><meta http-equiv='content-type' content='text/html; charset=UTF-8' /></head><body>
 <div class="entry-content">
         <div class="entry-title roundTop">
-				<h1 class="jq-clearfix">jQuery.get()</h1>
+                    
+				  <h1 class="jq-clearfix">jQuery.get()</h1>
   				<div class="entry-meta">Categories:
-  					<span class="category"><a href="http://api.jquery.com/category/ajax/" title="View all posts in Ajax">Ajax</a> &gt; <a href="http://api.jquery.com/category/ajax/shorthand-methods/" title="View all posts in Shorthand Methods">Shorthand Methods</a></span>  
-    
+  					<span class="category"><a href="http://api.jquery.com/category/ajax/" title="View all posts in Ajax">Ajax</a> &gt; <a href="http://api.jquery.com/category/ajax/shorthand-methods/" title="View all posts in Shorthand Methods">Shorthand Methods</a></span>
+  
   				</div>
 </div>
-<div class="entry method" id="jQuery.get1">
+<div id="jQuery-get1" class="entry method">
 <h2 class="jq-clearfix roundTop section-title">
 <span class="name">jQuery.get( url, [ data ], [ callback(data, textStatus, XMLHttpRequest) ], [ dataType ] )</span> <span class="returns">Returns: <a class="return" href="http://docs.jquery.com/Types#XMLHttpRequest">XMLHttpRequest</a></span>
 </h2>
 <div class="jq-box roundBottom entry-details">
 <p class="desc"><strong>Description: </strong>Load data from the server using a HTTP GET request.</p>
-<ul class="signatures"><li class="signature" id="jQuery.get-url-data-callbackdata, textStatus, XMLHttpRequest-dataType">
+<ul class="signatures"><li class="signature" id="jQuery-get-url-data-callbackdata- textStatus- XMLHttpRequest-dataType">
 <h4 class="name">
 <span class="versionAdded">version added: <a href="/category/version/1.0/">1.0</a></span>jQuery.get( url, [ data ], [ callback(data, textStatus, XMLHttpRequest) ], [ dataType ] )</h4>
 <p class="arguement"><strong>url</strong>A string containing the URL to which the request is sent.</p>
@@ -41,8 +42,14 @@
 </pre>
 <p>This example fetches the requested HTML snippet and inserts it on the page.</p>
 </div>
+<h3 id="notes-0">Additional Notes:</h3>
+<div class="longdesc"><ul>
+<li>Due to browser security restrictions, most "Ajax" requests are subject to the <a title="Same Origin Policy on Wikipedia" href="http://en.wikipedia.org/wiki/Same_origin_policy">same origin policy</a>; the request can not successfully retrieve data from a different domain, subdomain, or protocol.</li>
+<li>If a request with jQuery.get() returns an error code, it will fail silently unless the script has also called the global <a href="http://api.jquery.com/ajaxError/">.ajaxError() </a> method. </li>
+<li>Script and JSONP requests are not subject to the same origin policy restrictions.</li>
+</ul></div>
 <h3>Examples:</h3>
-<div id="entry-examples" class="entry-examples">
+<div class="entry-examples" id="entry-examples">
 <div id="example-0">
 <h4>Example: <span class="desc">Request the test.php page, but ignore the return results.</span>
 </h4>

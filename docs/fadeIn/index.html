@@ -2,24 +2,34 @@
 <html lang='en'><head><meta http-equiv='content-type' content='text/html; charset=UTF-8' /></head><body>
 <div class="entry-content">
         <div class="entry-title roundTop">
-				<h1 class="jq-clearfix">.fadeIn()</h1>
+                    
+				  <h1 class="jq-clearfix">.fadeIn()</h1>
   				<div class="entry-meta">Categories:
-  					<span class="category"><a href="http://api.jquery.com/category/effects/" title="View all posts in Effects">Effects</a> &gt; <a href="http://api.jquery.com/category/effects/fading/" title="View all posts in Fading">Fading</a></span>  
-    
+  					<span class="category"><a href="http://api.jquery.com/category/effects/" title="View all posts in Effects">Effects</a> &gt; <a href="http://api.jquery.com/category/effects/fading/" title="View all posts in Fading">Fading</a></span>
+  
   				</div>
 </div>
-<div class="entry method" id="fadeIn1">
+<div id="fadeIn1" class="entry method">
 <h2 class="jq-clearfix roundTop section-title">
 <span class="name">.fadeIn( [ duration ], [ callback ] )</span> <span class="returns">Returns: <a class="return" href="http://docs.jquery.com/Types#jQuery">jQuery</a></span>
 </h2>
 <div class="jq-box roundBottom entry-details">
 <p class="desc"><strong>Description: </strong>Display the matched elements by fading them to opaque.</p>
-<ul class="signatures"><li class="signature" id="fadeIn-duration-callback">
+<ul class="signatures">
+<li class="signature" id="fadeIn-duration-callback">
 <h4 class="name">
 <span class="versionAdded">version added: <a href="/category/version/1.0/">1.0</a></span>.fadeIn( [ duration ], [ callback ] )</h4>
 <p class="arguement"><strong>duration</strong>A string or number determining how long the animation will run.</p>
 <p class="arguement"><strong>callback</strong>A function to call once the animation is complete.</p>
-</li></ul>
+</li>
+<li class="signature" id="fadeIn-duration-easing-callback">
+<h4 class="name">
+<span class="versionAdded">version added: <a href="/category/version/1.4.3/">1.4.3</a></span>.fadeIn( [ duration ], [ easing ], [ callback ] )</h4>
+<p class="arguement"><strong>duration</strong>A string or number determining how long the animation will run.</p>
+<p class="arguement"><strong>easing</strong>A string indicating which easing function to use for the transition.</p>
+<p class="arguement"><strong>callback</strong>A function to call once the animation is complete.</p>
+</li>
+</ul>
 <div class="longdesc">
 <p>The <code>.fadeIn()</code> method animates the opacity of the matched elements.</p>
 <p>Durations are given in milliseconds; higher values indicate slower animations, not faster ones. The strings <code>'fast'</code> and <code>'slow'</code> can be supplied to indicate durations of <code>200</code> and <code>600</code> milliseconds, respectively. If any other string is supplied, or if the <code>duration</code> parameter is omitted, the default duration of  <code>400</code> milliseconds is used.</p>
@@ -38,8 +48,10 @@
 <p class="image four-across">
       <img src="/images/0042_06_33.png" alt=""><img src="/images/0042_06_34.png" alt=""><img src="/images/0042_06_35.png" alt=""><img src="/images/0042_06_36.png" alt=""></p>
 </div>
+<h3 id="notes-0">Additional Notes:</h3>
+<div class="longdesc"><ul><li>All jQuery effects, including <code>.fadeIn()</code>, can be turned off globally by setting  <code>jQuery.fx.off = true</code>. For more information, see <a href="http://api.jquery.com/jquery.fx.off">jQuery.fx.off</a>.</li></ul></div>
 <h3>Examples:</h3>
-<div id="entry-examples" class="entry-examples">
+<div class="entry-examples" id="entry-examples">
 <div id="example-0">
 <h4>Example: <span class="desc">Animates hidden divs to fade in one by one, completing each animation within 600 milliseconds.</span>
 </h4>
@@ -54,10 +66,10 @@
       div#two { background:#0f0; }
       div#three { background:#00f; }
     &lt;/style&gt;
-  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-latest.min.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
-	&lt;span&gt;Click here...&lt;/span&gt;
+  &lt;span&gt;Click here...&lt;/span&gt;
 
     &lt;div id="one"&gt;&lt;/div&gt;
     &lt;div id="two"&gt;&lt;/div&gt;
@@ -67,6 +79,7 @@
         $("div:hidden:first").fadeIn("slow");
       });
     &lt;/script&gt;
+
 &lt;/body&gt;
 &lt;/html&gt;</code></pre>
 <h4>Demo:</h4>
@@ -87,10 +100,10 @@
         top:0; left:0; display:none; }
         span { display:none; }
       &lt;/style&gt;
-  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-latest.min.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
-	&lt;p&gt;
+  &lt;p&gt;
         Let it be known that the party of the first part
         and the party of the second part are henceforth
         and hereto directed to assess the allegations
@@ -107,6 +120,7 @@
         }); 
 
       &lt;/script&gt;
+
 &lt;/body&gt;
 &lt;/html&gt;</code></pre>
 <h4>Demo:</h4>

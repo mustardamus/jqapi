@@ -2,13 +2,14 @@
 <html lang='en'><head><meta http-equiv='content-type' content='text/html; charset=UTF-8' /></head><body>
 <div class="entry-content">
         <div class="entry-title roundTop">
-				<h1 class="jq-clearfix">Attribute Contains Prefix Selector [name|=value]</h1>
+                    
+				  <h1 class="jq-clearfix">Attribute Contains Prefix Selector [name|=value]</h1>
   				<div class="entry-meta">Categories:
-  					<span class="category"><a href="http://api.jquery.com/category/selectors/" title="View all posts in Selectors">Selectors</a> &gt; <a href="http://api.jquery.com/category/selectors/attribute-selectors/" title="View all posts in Attribute">Attribute</a></span>  
-    
+  					<span class="category"><a href="http://api.jquery.com/category/selectors/" title="View all posts in Selectors">Selectors</a> &gt; <a href="http://api.jquery.com/category/selectors/attribute-selectors/" title="View all posts in Attribute">Attribute</a></span>
+  
   				</div>
 </div>
-<div class="entry selector" id="attributeContainsPrefix1">
+<div id="attributeContainsPrefix1" class="entry selector">
 <h2 class="jq-clearfix roundTop section-title">
 <span class="name">attributeContainsPrefix</span>  selector</h2>
 <div class="jq-box roundBottom entry-details">
@@ -23,20 +24,21 @@
 <p class="desc"><strong>Description: </strong>Selects elements that have the specified attribute with a value either equal to a given string or starting with that string followed by a hyphen (-).</p>
 <div class="longdesc"><p>This selector was introduced into the CSS specification to handle language attributes.</p></div>
 <h3>Example:</h3>
-<div id="entry-examples" class="entry-examples"><div id="example-0">
+<div class="entry-examples" id="entry-examples"><div id="example-0">
 <h4><span class="desc">Finds all links with an hreflang attribute that is english.</span></h4>
 <pre><code class="example demo-code">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;
-  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-latest.min.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
-	
-                         &lt;a href="example.html" hreflang="en"&gt;Some text&lt;/a&gt; 
-                         
-                          &lt;a href="example.html" hreflang="en-UK"&gt;Some other text&lt;/a&gt;
-                        
+  
+  &lt;a href="example.html" hreflang="en"&gt;Some text&lt;/a&gt; 
+
+  &lt;a href="example.html" hreflang="en-UK"&gt;Some other text&lt;/a&gt;
+  
 &lt;script&gt;$('a[hreflang|=en]').css('border','3px dotted green');&lt;/script&gt;
+
 &lt;/body&gt;
 &lt;/html&gt;</code></pre>
 <h4>Demo:</h4>

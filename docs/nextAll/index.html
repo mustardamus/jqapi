@@ -2,13 +2,14 @@
 <html lang='en'><head><meta http-equiv='content-type' content='text/html; charset=UTF-8' /></head><body>
 <div class="entry-content">
         <div class="entry-title roundTop">
-				<h1 class="jq-clearfix">.nextAll()</h1>
+                    
+				  <h1 class="jq-clearfix">.nextAll()</h1>
   				<div class="entry-meta">Categories:
-  					<span class="category"><a href="http://api.jquery.com/category/traversing/" title="View all posts in Traversing">Traversing</a> &gt; <a href="http://api.jquery.com/category/traversing/tree-traversal/" title="View all posts in Tree Traversal">Tree Traversal</a></span>  
-    
+  					<span class="category"><a href="http://api.jquery.com/category/traversing/" title="View all posts in Traversing">Traversing</a> &gt; <a href="http://api.jquery.com/category/traversing/tree-traversal/" title="View all posts in Tree Traversal">Tree Traversal</a></span>
+  
   				</div>
 </div>
-<div class="entry method" id="nextAll1">
+<div id="nextAll1" class="entry method">
 <h2 class="jq-clearfix roundTop section-title">
 <span class="name">.nextAll( [ selector ] )</span> <span class="returns">Returns: <a class="return" href="http://docs.jquery.com/Types#jQuery">jQuery</a></span>
 </h2>
@@ -37,7 +38,7 @@
 <p>The result of this call is a red background behind items 4 and 5. Since we do not supply a selector expression, these following elements are unequivocally included as part of the object. If we had supplied one, the elements would be tested for a match before they were included.</p>
 </div>
 <h3>Examples:</h3>
-<div id="entry-examples" class="entry-examples">
+<div class="entry-examples" id="entry-examples">
 <div id="example-0">
 <h4>Example: <span class="desc">Locate all the divs after the first and give them a class.</span>
 </h4>
@@ -50,15 +51,16 @@
         border: 2px solid black; margin: 10px; float: left; }
   div.after { border-color: red; }
   &lt;/style&gt;
-  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-latest.min.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
-	&lt;div&gt;first&lt;/div&gt;
+  &lt;div&gt;first&lt;/div&gt;
   &lt;div&gt;sibling&lt;div&gt;child&lt;/div&gt;&lt;/div&gt;
   &lt;div&gt;sibling&lt;/div&gt;
 
   &lt;div&gt;sibling&lt;/div&gt;
 &lt;script&gt;$("div:first").nextAll().addClass("after");&lt;/script&gt;
+
 &lt;/body&gt;
 &lt;/html&gt;</code></pre>
 <h4>Demo:</h4>
@@ -75,10 +77,10 @@
            border: 2px solid black; margin: 10px; float: left; }
   .after { border-color: red; }
   &lt;/style&gt;
-  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-latest.min.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
-	&lt;p&gt;p&lt;/p&gt;
+  &lt;p&gt;p&lt;/p&gt;
 
   &lt;div&gt;div&lt;/div&gt;
   &lt;p&gt;p&lt;/p&gt;
@@ -90,6 +92,7 @@
 &lt;script&gt;
     $(":nth-child(1)").nextAll("p").addClass("after");
 &lt;/script&gt;
+
 &lt;/body&gt;
 &lt;/html&gt;</code></pre>
 <h4>Demo:</h4>

@@ -2,13 +2,14 @@
 <html lang='en'><head><meta http-equiv='content-type' content='text/html; charset=UTF-8' /></head><body>
 <div class="entry-content">
         <div class="entry-title roundTop">
-				<h1 class="jq-clearfix">.delay()</h1>
+                    
+				  <h1 class="jq-clearfix">.delay()</h1>
   				<div class="entry-meta">Categories:
-  					<span class="category"><a href="http://api.jquery.com/category/effects/" title="View all posts in Effects">Effects</a> &gt; <a href="http://api.jquery.com/category/effects/custom-effects/" title="View all posts in Custom">Custom</a></span>  
-    
+  					<span class="category"><a href="http://api.jquery.com/category/effects/" title="View all posts in Effects">Effects</a> &gt; <a href="http://api.jquery.com/category/effects/custom-effects/" title="View all posts in Custom">Custom</a></span>
+  
   				</div>
 </div>
-<div class="entry method" id="delay1">
+<div id="delay1" class="entry method">
 <h2 class="jq-clearfix roundTop section-title">
 <span class="name">.delay( duration, [ queueName ] )</span> <span class="returns">Returns: <a class="return" href="http://docs.jquery.com/Types#jQuery">jQuery</a></span>
 </h2>
@@ -29,7 +30,7 @@
 <p><strong>jQuery.delay() is best for delaying between queued jQuery effects and such, and is not a replacement for JavaScript's native <a href="https://developer.mozilla.org/en/DOM/window.setTimeout">setTimeout</a> function, which may be more appropriate for certain use cases.</strong></p>
 </div>
 <h3>Example:</h3>
-<div id="entry-examples" class="entry-examples"><div id="example-0">
+<div class="entry-examples" id="entry-examples"><div id="example-0">
 <h4><span class="desc">Animate the hiding and showing of two divs, delaying the first before showing it.</span></h4>
 <pre><code class="example demo-code">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
@@ -39,10 +40,10 @@ div { width: 60px; height: 60px; float: left; }
 .first { background-color: #3f3; }
 .second { background-color: #33f;}
 &lt;/style&gt;
-  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-latest.min.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
-	
+  
 &lt;p&gt;&lt;button&gt;Run&lt;/button&gt;&lt;/p&gt;
 &lt;div class="first"&gt;&lt;/div&gt;
 &lt;div class="second"&gt;&lt;/div&gt;
@@ -53,6 +54,7 @@ div { width: 60px; height: 60px; float: left; }
       $("div.second").slideUp(300).fadeIn(400);
     });
 &lt;/script&gt;
+
 &lt;/body&gt;
 &lt;/html&gt;</code></pre>
 <h4>Demo:</h4>

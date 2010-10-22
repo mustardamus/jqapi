@@ -2,13 +2,14 @@
 <html lang='en'><head><meta http-equiv='content-type' content='text/html; charset=UTF-8' /></head><body>
 <div class="entry-content">
         <div class="entry-title roundTop">
-				<h1 class="jq-clearfix">Attribute Starts With Selector [name^=value]</h1>
+                    
+				  <h1 class="jq-clearfix">Attribute Starts With Selector [name^=value]</h1>
   				<div class="entry-meta">Categories:
-  					<span class="category"><a href="http://api.jquery.com/category/selectors/" title="View all posts in Selectors">Selectors</a> &gt; <a href="http://api.jquery.com/category/selectors/attribute-selectors/" title="View all posts in Attribute">Attribute</a></span>  
-    
+  					<span class="category"><a href="http://api.jquery.com/category/selectors/" title="View all posts in Selectors">Selectors</a> &gt; <a href="http://api.jquery.com/category/selectors/attribute-selectors/" title="View all posts in Attribute">Attribute</a></span>
+  
   				</div>
 </div>
-<div class="entry selector" id="attributeStartsWith1">
+<div id="attributeStartsWith1" class="entry selector">
 <h2 class="jq-clearfix roundTop section-title">
 <span class="name">attributeStartsWith</span>  selector</h2>
 <div class="jq-box roundBottom entry-details">
@@ -23,19 +24,20 @@
 <p class="desc"><strong>Description: </strong>Selects elements that have the specified attribute with a value beginning exactly with a given string.</p>
 <div class="longdesc"><p>This selector can be useful for identifying elements in pages produced by server-side frameworks that produce HTML with systematic element IDs. However it will be slower than using a class selector so leverage classes, if you can, to group like elements.</p></div>
 <h3>Example:</h3>
-<div id="entry-examples" class="entry-examples"><div id="example-0">
+<div class="entry-examples" id="entry-examples"><div id="example-0">
 <h4><span class="desc">Finds all inputs with an attribute name that starts with 'news' and puts text in them.</span></h4>
 <pre><code class="example demo-code">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;
-  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-latest.min.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
-	&lt;input name="newsletter" /&gt;
+  &lt;input name="newsletter" /&gt;
 
   &lt;input name="milkman" /&gt;
   &lt;input name="newsboy" /&gt;
 &lt;script&gt;$("input[name^='news']").val("news here!");&lt;/script&gt;
+
 &lt;/body&gt;
 &lt;/html&gt;</code></pre>
 <h4>Demo:</h4>

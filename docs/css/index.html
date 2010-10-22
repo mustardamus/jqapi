@@ -2,10 +2,11 @@
 <html lang='en'><head><meta http-equiv='content-type' content='text/html; charset=UTF-8' /></head><body>
 <div class="entry-content">
         <div class="entry-title roundTop">
-				<h1 class="jq-clearfix">.css()</h1>
+                    
+				  <h1 class="jq-clearfix">.css()</h1>
   				<div class="entry-meta">Categories:
-  					<span class="category"><a href="http://api.jquery.com/category/css/" title="View all posts in CSS">CSS</a></span> | <span class="category"><a href="http://api.jquery.com/category/manipulation/" title="View all posts in Manipulation">Manipulation</a> &gt; <a href="http://api.jquery.com/category/manipulation/style-properties/" title="View all posts in Style Properties">Style Properties</a></span>  
-    
+  					<span class="category"><a href="http://api.jquery.com/category/css/" title="View all posts in CSS">CSS</a></span> | <span class="category"><a href="http://api.jquery.com/category/manipulation/" title="View all posts in Manipulation">Manipulation</a> &gt; <a href="http://api.jquery.com/category/manipulation/style-properties/" title="View all posts in Style Properties">Style Properties</a></span>
+  
   				</div>
 </div>
 
@@ -14,21 +15,21 @@
 <ul class="toc-list">
 <li>
 <a href="#css1">css( propertyName ) </a><ul><li>.css( propertyName )
-	  					</li></ul>
+              </li></ul>
 </li>
 <li>
 <a href="#css2">css( propertyName, value ) </a><ul>
 <li>.css( propertyName, value )
-	  					</li>
+              </li>
 <li>.css( propertyName, function(index, value) )
-	  					</li>
+              </li>
 <li>.css( map )
-	  					</li>
+              </li>
 </ul>
 </li>
 </ul>
 </fieldset>
-<div class="entry method" id="css1">
+<div id="css1" class="entry method">
 <h2 class="jq-clearfix roundTop section-title">
 <span class="name">.css( propertyName )</span> <span class="returns">Returns: <a class="return" href="http://docs.jquery.com/Types#String">String</a></span>
 </h2>
@@ -50,7 +51,7 @@
 <p>Shorthand CSS properties (e.g. margin, background, border) are not supported. For example, if you want to retrieve the rendered margin, use: <code>$(elem).css('marginTop')</code> and <code>$(elem).css('marginRight')</code>, and so on.</p>
 </div>
 <h3>Example:</h3>
-<div id="entry-examples" class="entry-examples"><div id="example-0">
+<div class="entry-examples" id="entry-examples"><div id="example-0">
 <h4><span class="desc">To access the background color of a clicked div.</span></h4>
 <pre><code class="example demo-code">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
@@ -58,10 +59,10 @@
   &lt;style&gt;
 div { width:60px; height:60px; margin:5px; float:left; }
   &lt;/style&gt;
-  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-latest.min.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
-	
+  
 &lt;span id="result"&gt;&amp;nbsp;&lt;/span&gt;
 &lt;div style="background-color:blue;"&gt;&lt;/div&gt;
 &lt;div style="background-color:rgb(15,99,30);"&gt;&lt;/div&gt;
@@ -76,6 +77,7 @@ $("div").click(function () {
 });
 
 &lt;/script&gt;
+
 &lt;/body&gt;
 &lt;/html&gt;</code></pre>
 <h4>Demo:</h4>
@@ -83,7 +85,7 @@ $("div").click(function () {
 </div></div>
 </div>
 </div>
-<div class="entry method" id="css2">
+<div id="css2" class="entry method">
 <h2 class="jq-clearfix roundTop section-title">
 <span class="name">.css( propertyName, value )</span> <span class="returns">Returns: <a class="return" href="http://docs.jquery.com/Types#jQuery">jQuery</a></span>
 </h2>
@@ -96,7 +98,7 @@ $("div").click(function () {
 <p class="arguement"><strong>propertyName</strong>A CSS property name.</p>
 <p class="arguement"><strong>value</strong>A value to set for the property.</p>
 </li>
-<li class="signature" id="css-propertyName-functionindex, value">
+<li class="signature" id="css-propertyName-functionindex- value">
 <h4 class="name">
 <span class="versionAdded">version added: <a href="/category/version/1.4/">1.4</a></span>.css( propertyName, function(index, value) )</h4>
 <p class="arguement"><strong>propertyName</strong>A CSS property name.</p>
@@ -118,8 +120,8 @@ $("div").click(function () {
 <p>This example sets the widths of the matched elements to incrementally larger values.</p>
 </div>
 <h3>Examples:</h3>
-<div id="entry-examples" class="entry-examples">
-<div id="example-0">
+<div class="entry-examples" id="entry-examples-1">
+<div id="example-1-0">
 <h4>Example: <span class="desc">To change the color of any paragraph to red on mouseover event.</span>
 </h4>
 <pre><code class="example demo-code">&lt;!DOCTYPE html&gt;
@@ -128,10 +130,10 @@ $("div").click(function () {
   &lt;style&gt;
   p { color:blue; width:200px; font-size:14px; }
   &lt;/style&gt;
-  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-latest.min.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
-	
+  
   &lt;p&gt;Just roll the mouse over me.&lt;/p&gt;
 
   &lt;p&gt;Or me to see a color change.&lt;/p&gt;
@@ -141,12 +143,13 @@ $("div").click(function () {
     $(this).css("color","red");
   });
 &lt;/script&gt;
+
 &lt;/body&gt;
 &lt;/html&gt;</code></pre>
 <h4>Demo:</h4>
 <div class="demo code-demo"></div>
 </div>
-<div id="example-1">
+<div id="example-1-1">
 <h4>Example: <span class="desc">To highlight a clicked word in the paragraph.</span>
 </h4>
 <pre><code class="example demo-code">&lt;!DOCTYPE html&gt;
@@ -155,10 +158,10 @@ $("div").click(function () {
   &lt;style&gt;
   p { color:blue; font-weight:bold; cursor:pointer; }
   &lt;/style&gt;
-  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-latest.min.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
-	
+  
 &lt;p&gt;
   Once upon a time there was a man
   who lived in a pizza parlor. This
@@ -175,12 +178,13 @@ $("div").click(function () {
   });
 
 &lt;/script&gt;
+
 &lt;/body&gt;
 &lt;/html&gt;</code></pre>
 <h4>Demo:</h4>
 <div class="demo code-demo"></div>
 </div>
-<div id="example-2">
+<div id="example-1-2">
 <h4>Example: <span class="desc">To set the color of all paragraphs to red and background to blue:</span>
 </h4>
 <pre><code class="example demo-code">&lt;!DOCTYPE html&gt;
@@ -189,10 +193,10 @@ $("div").click(function () {
   &lt;style&gt;
   p { color:green; }
 &lt;/style&gt;
-  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-latest.min.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
-	
+  
   &lt;p&gt;Move the mouse over a paragraph.&lt;/p&gt;
   &lt;p&gt;Like this one or the one above.&lt;/p&gt;
 
@@ -208,12 +212,13 @@ $("div").click(function () {
     $(this).css(cssObj);
   });
 &lt;/script&gt;
+
 &lt;/body&gt;
 &lt;/html&gt;</code></pre>
 <h4>Demo:</h4>
 <div class="demo code-demo"></div>
 </div>
-<div id="example-3">
+<div id="example-1-3">
 <h4>Example: <span class="desc">Increase the size of a div when you click it:</span>
 </h4>
 <pre><code class="example demo-code">&lt;!DOCTYPE html&gt;
@@ -222,10 +227,10 @@ $("div").click(function () {
   &lt;style&gt;
   div { width: 20px; height: 15px; background-color: #f33; }
   &lt;/style&gt;
-  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-latest.min.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
-	
+  
   &lt;div&gt;click&lt;/div&gt;
   &lt;div&gt;click&lt;/div&gt;
 
@@ -242,6 +247,7 @@ $("div").click(function () {
     });
   });
 &lt;/script&gt;
+
 &lt;/body&gt;
 &lt;/html&gt;</code></pre>
 <h4>Demo:</h4>

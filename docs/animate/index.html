@@ -2,13 +2,14 @@
 <html lang='en'><head><meta http-equiv='content-type' content='text/html; charset=UTF-8' /></head><body>
 <div class="entry-content">
         <div class="entry-title roundTop">
-				<h1 class="jq-clearfix">.animate()</h1>
+                    
+				  <h1 class="jq-clearfix">.animate()</h1>
   				<div class="entry-meta">Categories:
-  					<span class="category"><a href="http://api.jquery.com/category/effects/" title="View all posts in Effects">Effects</a> &gt; <a href="http://api.jquery.com/category/effects/custom-effects/" title="View all posts in Custom">Custom</a></span>  
-    
+  					<span class="category"><a href="http://api.jquery.com/category/effects/" title="View all posts in Effects">Effects</a> &gt; <a href="http://api.jquery.com/category/effects/custom-effects/" title="View all posts in Custom">Custom</a></span>
+  
   				</div>
 </div>
-<div class="entry method" id="animate1">
+<div id="animate1" class="entry method">
 <h2 class="jq-clearfix roundTop section-title">
 <span class="name">.animate( properties, [ duration ], [ easing ], [ callback ] )</span> <span class="returns">Returns: <a class="return" href="http://docs.jquery.com/Types#jQuery">jQuery</a></span>
 </h2>
@@ -112,8 +113,10 @@
 });</pre>
 <p>As previously noted, a plug-in is required for the <code>easeOutBounce</code> function.</p>
 </div>
+<h3 id="notes-0">Additional Notes:</h3>
+<div class="longdesc"><ul><li>All jQuery effects, including <code>.animate()</code>, can be turned off globally by setting  <code>jQuery.fx.off = true</code>. For more information, see <a href="http://api.jquery.com/jquery.fx.off">jQuery.fx.off</a>.</li></ul></div>
 <h3>Examples:</h3>
-<div id="entry-examples" class="entry-examples">
+<div class="entry-examples" id="entry-examples">
 <div id="example-0">
 <h4>Example: <span class="desc">Click the button to animate the div with a number of different properties.</span>
 </h4>
@@ -127,15 +130,16 @@ width:100px;
 border:1px solid green;
 }
 &lt;/style&gt;
-  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-latest.min.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
-	&lt;button id="go"&gt;&amp;raquo; Run&lt;/button&gt;
+  &lt;button id="go"&gt;&amp;raquo; Run&lt;/button&gt;
 
 &lt;div id="block"&gt;Hello!&lt;/div&gt;
 &lt;script&gt;
 
-// Using multiple unit types within one animation.
+/* Using multiple unit types within one animation. */
+
 $("#go").click(function(){
   $("#block").animate({ 
     width: "70%",
@@ -146,6 +150,7 @@ $("#go").click(function(){
   }, 1500 );
 });
 &lt;/script&gt;
+
 &lt;/body&gt;
 &lt;/html&gt;</code></pre>
 <h4>Demo:</h4>
@@ -167,10 +172,10 @@ height:90px;
 margin:5px; 
 }
 &lt;/style&gt;
-  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-latest.min.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
-	&lt;button id="left"&gt;&amp;laquo;&lt;/button&gt; &lt;button id="right"&gt;&amp;raquo;&lt;/button&gt;
+  &lt;button id="left"&gt;&amp;laquo;&lt;/button&gt; &lt;button id="right"&gt;&amp;raquo;&lt;/button&gt;
 &lt;div class="block"&gt;&lt;/div&gt;
 
 &lt;script&gt;
@@ -183,6 +188,7 @@ $("#left").click(function(){
 });
 
 &lt;/script&gt;
+
 &lt;/body&gt;
 &lt;/html&gt;</code></pre>
 <h4>Demo:</h4>
@@ -233,10 +239,10 @@ button {
   font-size:14px;
 }
 &lt;/style&gt;
-  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-latest.min.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
-	&lt;button id="go1"&gt;&amp;raquo; Animate Block1&lt;/button&gt;
+  &lt;button id="go1"&gt;&amp;raquo; Animate Block1&lt;/button&gt;
 &lt;button id="go2"&gt;&amp;raquo; Animate Block2&lt;/button&gt;
 &lt;button id="go3"&gt;&amp;raquo; Animate Both&lt;/button&gt;
 
@@ -266,6 +272,7 @@ $("#go4").click(function(){
 });
 
 &lt;/script&gt;
+
 &lt;/body&gt;
 &lt;/html&gt;</code></pre>
 <h4>Demo:</h4>

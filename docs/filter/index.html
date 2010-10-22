@@ -2,13 +2,14 @@
 <html lang='en'><head><meta http-equiv='content-type' content='text/html; charset=UTF-8' /></head><body>
 <div class="entry-content">
         <div class="entry-title roundTop">
-				<h1 class="jq-clearfix">.filter()</h1>
+                    
+				  <h1 class="jq-clearfix">.filter()</h1>
   				<div class="entry-meta">Categories:
-  					<span class="category"><a href="http://api.jquery.com/category/traversing/" title="View all posts in Traversing">Traversing</a> &gt; <a href="http://api.jquery.com/category/traversing/filtering/" title="View all posts in Filtering">Filtering</a></span>  
-    
+  					<span class="category"><a href="http://api.jquery.com/category/traversing/" title="View all posts in Traversing">Traversing</a> &gt; <a href="http://api.jquery.com/category/traversing/filtering/" title="View all posts in Filtering">Filtering</a></span>
+  
   				</div>
 </div>
-<div class="entry method" id="filter1">
+<div id="filter1" class="entry method">
 <h2 class="jq-clearfix roundTop section-title">
 <span class="name">.filter( selector )</span> <span class="returns">Returns: <a class="return" href="http://docs.jquery.com/Types#jQuery">jQuery</a></span>
 </h2>
@@ -18,12 +19,22 @@
 <li class="signature" id="filter-selector">
 <h4 class="name">
 <span class="versionAdded">version added: <a href="/category/version/1.0/">1.0</a></span>.filter( selector )</h4>
-<p class="arguement"><strong>selector</strong>A string containing a selector expression to match elements against.</p>
+<p class="arguement"><strong>selector</strong>A string containing a selector expression to match the current set of elements against.</p>
 </li>
 <li class="signature" id="filter-functionindex">
 <h4 class="name">
 <span class="versionAdded">version added: <a href="/category/version/1.0/">1.0</a></span>.filter( function(index) )</h4>
 <p class="arguement"><strong>function(index)</strong>A function used as a test for each element in the set. <code>this</code> is the current DOM element.</p>
+</li>
+<li class="signature" id="filter-element">
+<h4 class="name">
+<span class="versionAdded">version added: <a href="/category/version/1.4/">1.4</a></span>.filter( element )</h4>
+<p class="arguement"><strong>element</strong>An element to match the current set of elements against.</p>
+</li>
+<li class="signature" id="filter-jQuery object">
+<h4 class="name">
+<span class="versionAdded">version added: <a href="/category/version/1.4/">1.4</a></span>.filter( jQuery object )</h4>
+<p class="arguement"><strong>jQuery object</strong>An existing jQuery object to match the current set of elements against.</p>
 </li>
 </ul>
 <div class="longdesc">
@@ -64,7 +75,7 @@ $('li').filter(function(index) {
 <p>This alteration to the code will cause the third and sixth list items to be highlighted, as it uses the modulus operator (<code>%</code>) to select every item with an <code>index</code> value that, when divided by 3, has a remainder of <code>2</code>.</p>
 </div>
 <h3>Examples:</h3>
-<div id="entry-examples" class="entry-examples">
+<div class="entry-examples" id="entry-examples">
 <div id="example-0">
 <h4>Example: <span class="desc">Change the color of all divs then put a border around only some of them.</span>
 </h4>
@@ -75,10 +86,10 @@ $('li').filter(function(index) {
   div { width:60px; height:60px; margin:5px; float:left; 
         border:2px white solid;}
   &lt;/style&gt;
-  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-latest.min.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
-	&lt;div&gt;&lt;/div&gt;
+  &lt;div&gt;&lt;/div&gt;
 
   &lt;div class="middle"&gt;&lt;/div&gt;
   &lt;div class="middle"&gt;&lt;/div&gt;
@@ -92,6 +103,7 @@ $('li').filter(function(index) {
             .filter(".middle")
             .css("border-color", "red");
 &lt;/script&gt;
+
 &lt;/body&gt;
 &lt;/html&gt;</code></pre>
 <h4>Demo:</h4>
@@ -117,10 +129,10 @@ $('li').filter(function(index) {
   div { width:60px; height:60px; margin:5px; float:left; 
         border:3px white solid; }
   &lt;/style&gt;
-  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-latest.min.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
-	&lt;div id="first"&gt;&lt;/div&gt;
+  &lt;div id="first"&gt;&lt;/div&gt;
   &lt;div id="second"&gt;&lt;/div&gt;
   &lt;div id="third"&gt;&lt;/div&gt;
 
@@ -135,6 +147,7 @@ $('li').filter(function(index) {
             .css("border", "3px double red");
 
 &lt;/script&gt;
+
 &lt;/body&gt;
 &lt;/html&gt;</code></pre>
 <h4>Demo:</h4>

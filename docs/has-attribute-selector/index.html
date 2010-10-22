@@ -2,13 +2,14 @@
 <html lang='en'><head><meta http-equiv='content-type' content='text/html; charset=UTF-8' /></head><body>
 <div class="entry-content">
         <div class="entry-title roundTop">
-				<h1 class="jq-clearfix">Has Attribute Selector [name]</h1>
+                    
+				  <h1 class="jq-clearfix">Has Attribute Selector [name]</h1>
   				<div class="entry-meta">Categories:
-  					<span class="category"><a href="http://api.jquery.com/category/selectors/" title="View all posts in Selectors">Selectors</a> &gt; <a href="http://api.jquery.com/category/selectors/attribute-selectors/" title="View all posts in Attribute">Attribute</a></span>  
-    
+  					<span class="category"><a href="http://api.jquery.com/category/selectors/" title="View all posts in Selectors">Selectors</a> &gt; <a href="http://api.jquery.com/category/selectors/attribute-selectors/" title="View all posts in Attribute">Attribute</a></span>
+  
   				</div>
 </div>
-<div class="entry selector" id="attributeHas1">
+<div id="attributeHas1" class="entry selector">
 <h2 class="jq-clearfix roundTop section-title">
 <span class="name">attributeHas</span>  selector</h2>
 <div class="jq-box roundBottom entry-details">
@@ -20,15 +21,15 @@
 </dl></li></ul>
 <p class="desc"><strong>Description: </strong>Selects elements that have the specified attribute, with any value. </p>
 <h3>Example:</h3>
-<div id="entry-examples" class="entry-examples"><div id="example-0">
+<div class="entry-examples" id="entry-examples"><div id="example-0">
 <h4><span class="desc">Bind a single click that adds the div id to its text.</span></h4>
 <pre><code class="example demo-code">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;
-  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-latest.min.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
-	&lt;div&gt;no id&lt;/div&gt;
+  &lt;div&gt;no id&lt;/div&gt;
   &lt;div id="hey"&gt;with id&lt;/div&gt;
 
   &lt;div id="there"&gt;has an id&lt;/div&gt;
@@ -40,6 +41,7 @@
       $(this).text(idString);
     });
 &lt;/script&gt;
+
 &lt;/body&gt;
 &lt;/html&gt;</code></pre>
 <h4>Demo:</h4>

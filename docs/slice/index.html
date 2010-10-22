@@ -2,13 +2,14 @@
 <html lang='en'><head><meta http-equiv='content-type' content='text/html; charset=UTF-8' /></head><body>
 <div class="entry-content">
         <div class="entry-title roundTop">
-				<h1 class="jq-clearfix">.slice()</h1>
+                    
+				  <h1 class="jq-clearfix">.slice()</h1>
   				<div class="entry-meta">Categories:
-  					<span class="category"><a href="http://api.jquery.com/category/traversing/" title="View all posts in Traversing">Traversing</a> &gt; <a href="http://api.jquery.com/category/traversing/filtering/" title="View all posts in Filtering">Filtering</a></span>  
-    
+  					<span class="category"><a href="http://api.jquery.com/category/traversing/" title="View all posts in Traversing">Traversing</a> &gt; <a href="http://api.jquery.com/category/traversing/filtering/" title="View all posts in Filtering">Filtering</a></span>
+  
   				</div>
 </div>
-<div class="entry method" id="slice1">
+<div id="slice1" class="entry method">
 <h2 class="jq-clearfix roundTop section-title">
 <span class="name">.slice( start, [ end ] )</span> <span class="returns">Returns: <a class="return" href="http://docs.jquery.com/Types#jQuery">jQuery</a></span>
 </h2>
@@ -17,8 +18,8 @@
 <ul class="signatures"><li class="signature" id="slice-start-end">
 <h4 class="name">
 <span class="versionAdded">version added: <a href="/category/version/1.1.4/">1.1.4</a></span>.slice( start, [ end ] )</h4>
-<p class="arguement"><strong>start</strong>An integer indicating the 0-based position after which the elements are selected. If negative, it indicates an offset from the end of the set.</p>
-<p class="arguement"><strong>end</strong>An integer indicating the 0-based position before which the elements stop being selected. If negative, it indicates an offset from the end of the set. If omitted, the range continues until the end of the set.</p>
+<p class="arguement"><strong>start</strong>An integer indicating the 0-based position at which the elements begin to be selected. If negative, it indicates an offset from the end of the set.</p>
+<p class="arguement"><strong>end</strong>An integer indicating the 0-based position at which the elements stop being selected. If negative, it indicates an offset from the end of the set. If omitted, the range continues until the end of the set.</p>
 </li></ul>
 <div class="longdesc">
 <p>Given a jQuery object that represents a set of DOM elements, the <code>.slice()</code> method constructs a new jQuery object from a subset of the matching elements. The supplied <code>start</code> index identifies the position of one of the elements in the set; if <code>end</code> is omitted, all elements after this one will be included in the result.</p>
@@ -44,7 +45,7 @@
 <p>This time only list item 4 is turned red, since it is the only item in the range between two from the end (<code>-2</code>) and one from the end (<code>-1</code>).</p>
 </div>
 <h3>Examples:</h3>
-<div id="entry-examples" class="entry-examples">
+<div class="entry-examples" id="entry-examples">
 <div id="example-0">
 <h4>Example: <span class="desc">Turns divs yellow based on a random slice.</span>
 </h4>
@@ -57,10 +58,10 @@
   span { color:red; font-weight:bold; }
   button { margin:5px; }
   &lt;/style&gt;
-  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-latest.min.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
-	&lt;p&gt;&lt;button&gt;Turn slice yellow&lt;/button&gt;
+  &lt;p&gt;&lt;button&gt;Turn slice yellow&lt;/button&gt;
   &lt;span&gt;Click the button!&lt;/span&gt;&lt;/p&gt;
   &lt;div&gt;&lt;/div&gt;
   &lt;div&gt;&lt;/div&gt;
@@ -97,6 +98,7 @@
     $("button").click(colorEm);
 
 &lt;/script&gt;
+
 &lt;/body&gt;
 &lt;/html&gt;</code></pre>
 <h4>Demo:</h4>

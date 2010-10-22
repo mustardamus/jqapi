@@ -2,13 +2,14 @@
 <html lang='en'><head><meta http-equiv='content-type' content='text/html; charset=UTF-8' /></head><body>
 <div class="entry-content">
         <div class="entry-title roundTop">
-				<h1 class="jq-clearfix">.unbind()</h1>
+                    
+				  <h1 class="jq-clearfix">.unbind()</h1>
   				<div class="entry-meta">Categories:
-  					<span class="category"><a href="http://api.jquery.com/category/events/" title="View all posts in Events">Events</a> &gt; <a href="http://api.jquery.com/category/events/event-handler-attachment/" title="View all posts in Event Handler Attachment">Event Handler Attachment</a></span>  
-    
+  					<span class="category"><a href="http://api.jquery.com/category/events/" title="View all posts in Events">Events</a> &gt; <a href="http://api.jquery.com/category/events/event-handler-attachment/" title="View all posts in Event Handler Attachment">Event Handler Attachment</a></span>
+  
   				</div>
 </div>
-<div class="entry method" id="unbind1">
+<div id="unbind1" class="entry method">
 <h2 class="jq-clearfix roundTop section-title">
 <span class="name">.unbind( eventType, handler(eventObject) )</span> <span class="returns">Returns: <a class="return" href="http://docs.jquery.com/Types#jQuery">jQuery</a></span>
 </h2>
@@ -20,6 +21,12 @@
 <span class="versionAdded">version added: <a href="/category/version/1.0/">1.0</a></span>.unbind( eventType, handler(eventObject) )</h4>
 <p class="arguement"><strong>eventType</strong>A string containing a JavaScript event type, such as <code>click</code> or <code>submit</code>.</p>
 <p class="arguement"><strong>handler(eventObject)</strong>The function that is to be no longer executed.</p>
+</li>
+<li class="signature" id="unbind-eventType-false">
+<h4 class="name">
+<span class="versionAdded">version added: <a href="/category/version/1.4.3/">1.4.3</a></span>.unbind( eventType, false )</h4>
+<p class="arguement"><strong>eventType</strong>A string containing a JavaScript event type, such as <code>click</code> or <code>submit</code>.</p>
+<p class="arguement"><strong>false</strong>Unbinds the corresponding 'return false' function that was bound using .bind( eventName, false ).</p>
 </li>
 <li class="signature" id="unbind-event">
 <h4 class="name">
@@ -77,7 +84,7 @@ $('#foo').bind('click', function(event) {
 This example is also an illustration of a closure. Since the handler refers to the <code>timesClicked</code> variable, which is defined outside the function, incrementing the variable has an effect even between invocations of the handler.</p>
 </div>
 <h3>Examples:</h3>
-<div id="entry-examples" class="entry-examples">
+<div class="entry-examples" id="entry-examples">
 <div id="example-0">
 <h4>Example: <span class="desc">Can bind and unbind events to the colored button.</span>
 </h4>
@@ -88,10 +95,10 @@ This example is also an illustration of a closure. Since the handler refers to t
 button { margin:5px; }
 button#theone { color:red; background:yellow; }
 &lt;/style&gt;
-  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-latest.min.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
-	&lt;button id="theone"&gt;Does nothing...&lt;/button&gt;
+  &lt;button id="theone"&gt;Does nothing...&lt;/button&gt;
 &lt;button id="bind"&gt;Bind Click&lt;/button&gt;
 &lt;button id="unbind"&gt;Unbind Click&lt;/button&gt;
 
@@ -112,6 +119,7 @@ $("#theone").unbind('click', aClick)
 });
 
 &lt;/script&gt;
+
 &lt;/body&gt;
 &lt;/html&gt;</code></pre>
 <h4>Demo:</h4>

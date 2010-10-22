@@ -2,13 +2,14 @@
 <html lang='en'><head><meta http-equiv='content-type' content='text/html; charset=UTF-8' /></head><body>
 <div class="entry-content">
         <div class="entry-title roundTop">
-				<h1 class="jq-clearfix">.position()</h1>
+                    
+				  <h1 class="jq-clearfix">.position()</h1>
   				<div class="entry-meta">Categories:
-  					<span class="category"><a href="http://api.jquery.com/category/css/" title="View all posts in CSS">CSS</a></span> | <span class="category"><a href="http://api.jquery.com/category/offset/" title="View all posts in Offset">Offset</a></span> | <span class="category"><a href="http://api.jquery.com/category/manipulation/" title="View all posts in Manipulation">Manipulation</a> &gt; <a href="http://api.jquery.com/category/manipulation/style-properties/" title="View all posts in Style Properties">Style Properties</a></span>  
-    
+  					<span class="category"><a href="http://api.jquery.com/category/css/" title="View all posts in CSS">CSS</a></span> | <span class="category"><a href="http://api.jquery.com/category/offset/" title="View all posts in Offset">Offset</a></span> | <span class="category"><a href="http://api.jquery.com/category/manipulation/" title="View all posts in Manipulation">Manipulation</a> &gt; <a href="http://api.jquery.com/category/manipulation/style-properties/" title="View all posts in Style Properties">Style Properties</a></span>
+  
   				</div>
 </div>
-<div class="entry method" id="position1">
+<div id="position1" class="entry method">
 <h2 class="jq-clearfix roundTop section-title">
 <span class="name">.position()</span> <span class="returns">Returns: <a class="return" href="http://docs.jquery.com/Types#Object">Object</a></span>
 </h2>
@@ -21,7 +22,7 @@
 <p>Returns an object containing the properties <code>top</code> and <code>left</code>.</p>
 </div>
 <h3>Example:</h3>
-<div id="entry-examples" class="entry-examples"><div id="example-0">
+<div class="entry-examples" id="entry-examples"><div id="example-0">
 <h4><span class="desc">Access the position of the second paragraph:</span></h4>
 <pre><code class="example demo-code">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
@@ -31,13 +32,21 @@
   div { padding: 15px;}
   p { margin-left:10px; }
   &lt;/style&gt;
-  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-latest.min.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
-	&lt;div&gt;&lt;p&gt;Hello&lt;/p&gt;&lt;/div&gt;&lt;p&gt;&lt;/p&gt;
-&lt;script&gt;var p = $("p:first");
+  
+&lt;div&gt;
+  &lt;p&gt;Hello&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;/p&gt;
+
+&lt;script&gt;
+var p = $("p:first");
 var position = p.position();
-$("p:last").text( "left: " + position.left + ", top: " + position.top );&lt;/script&gt;
+$("p:last").text( "left: " + position.left + ", top: " + position.top );
+&lt;/script&gt;
+
 &lt;/body&gt;
 &lt;/html&gt;</code></pre>
 <h4>Demo:</h4>

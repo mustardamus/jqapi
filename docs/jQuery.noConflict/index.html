@@ -2,19 +2,20 @@
 <html lang='en'><head><meta http-equiv='content-type' content='text/html; charset=UTF-8' /></head><body>
 <div class="entry-content">
         <div class="entry-title roundTop">
-				<h1 class="jq-clearfix">jQuery.noConflict()</h1>
+                    
+				  <h1 class="jq-clearfix">jQuery.noConflict()</h1>
   				<div class="entry-meta">Categories:
-  					<span class="category"><a href="http://api.jquery.com/category/core/" title="View all posts in Core">Core</a></span> | <span class="category"><a href="http://api.jquery.com/category/miscellaneous/" title="View all posts in Miscellaneous">Miscellaneous</a> &gt; <a href="http://api.jquery.com/category/miscellaneous/setup-methods/" title="View all posts in Setup Methods">Setup Methods</a></span>  
-    
+  					<span class="category"><a href="http://api.jquery.com/category/core/" title="View all posts in Core">Core</a></span> | <span class="category"><a href="http://api.jquery.com/category/miscellaneous/" title="View all posts in Miscellaneous">Miscellaneous</a> &gt; <a href="http://api.jquery.com/category/miscellaneous/setup-methods/" title="View all posts in Setup Methods">Setup Methods</a></span>
+  
   				</div>
 </div>
-<div class="entry method" id="jQuery.noConflict1">
+<div id="jQuery-noConflict1" class="entry method">
 <h2 class="jq-clearfix roundTop section-title">
 <span class="name">jQuery.noConflict( [ removeAll ] )</span> <span class="returns">Returns: <a class="return" href="http://docs.jquery.com/Types#Object">Object</a></span>
 </h2>
 <div class="jq-box roundBottom entry-details">
 <p class="desc"><strong>Description: </strong>Relinquish jQuery's control of the $ variable.</p>
-<ul class="signatures"><li class="signature" id="jQuery.noConflict-removeAll">
+<ul class="signatures"><li class="signature" id="jQuery-noConflict-removeAll">
 <h4 class="name">
 <span class="versionAdded">version added: <a href="/category/version/1.0/">1.0</a></span>jQuery.noConflict( [ removeAll ] )</h4>
 <p class="arguement"><strong>removeAll</strong>A Boolean indicating whether to remove all jQuery variables from the global scope (including jQuery itself).</p>
@@ -44,7 +45,7 @@
 <p>If necessary, we can free up the <code> jQuery</code> name as well by passing <code>true</code> as an argument to the method. This is rarely necessary, and if we must do this (for example, if we need to use multiple versions of the <code>jQuery</code> library on the same page), we need to consider that most plug-ins rely on the presence of the jQuery variable and may not operate correctly in this situation.</p>
 </div>
 <h3>Examples:</h3>
-<div id="entry-examples" class="entry-examples">
+<div class="entry-examples" id="entry-examples">
 <div id="example-0">
 <h4>Example: <span class="desc">Maps the original object that was referenced by $ back to $.</span>
 </h4>

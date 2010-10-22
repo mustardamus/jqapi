@@ -2,13 +2,14 @@
 <html lang='en'><head><meta http-equiv='content-type' content='text/html; charset=UTF-8' /></head><body>
 <div class="entry-content">
         <div class="entry-title roundTop">
-				<h1 class="jq-clearfix">.add()</h1>
+                    
+				  <h1 class="jq-clearfix">.add()</h1>
   				<div class="entry-meta">Categories:
-  					<span class="category"><a href="http://api.jquery.com/category/traversing/" title="View all posts in Traversing">Traversing</a> &gt; <a href="http://api.jquery.com/category/traversing/miscellaneous-traversal/" title="View all posts in Miscellaneous Traversing">Miscellaneous Traversing</a></span>  
-    
+  					<span class="category"><a href="http://api.jquery.com/category/traversing/" title="View all posts in Traversing">Traversing</a> &gt; <a href="http://api.jquery.com/category/traversing/miscellaneous-traversal/" title="View all posts in Miscellaneous Traversing">Miscellaneous Traversing</a></span>
+  
   				</div>
 </div>
-<div class="entry method" id="add1">
+<div id="add1" class="entry method">
 <h2 class="jq-clearfix roundTop section-title">
 <span class="name">.add( selector )</span> <span class="returns">Returns: <a class="return" href="http://docs.jquery.com/Types#jQuery">jQuery</a></span>
 </h2>
@@ -59,7 +60,7 @@ Using an HTML snippet as the <code>.add()</code> method's argument (as in the th
 <p>As of jQuery 1.4 the results from .add() will always be returned in document order (rather than a simple concatenation).</p>
 </div>
 <h3>Examples:</h3>
-<div id="entry-examples" class="entry-examples">
+<div class="entry-examples" id="entry-examples">
 <div id="example-0">
 <h4>Example: <span class="desc">Finds all divs and makes a border.  Then adds all paragraphs to the jQuery object to set their backgrounds yellow.</span>
 </h4>
@@ -71,10 +72,10 @@ Using an HTML snippet as the <code>.add()</code> method's argument (as in the th
  p { clear:left; font-weight:bold; font-size:16px; 
      color:blue; margin:0 10px; padding:2px; }
  &lt;/style&gt;
-  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-latest.min.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
-	&lt;div&gt;&lt;/div&gt;
+  &lt;div&gt;&lt;/div&gt;
 
   &lt;div&gt;&lt;/div&gt;
   &lt;div&gt;&lt;/div&gt;
@@ -89,6 +90,7 @@ $("div").css("border", "2px solid red")
         .add("p")
         .css("background", "yellow");
 &lt;/script&gt;
+
 &lt;/body&gt;
 &lt;/html&gt;</code></pre>
 <h4>Demo:</h4>
@@ -100,11 +102,12 @@ $("div").css("border", "2px solid red")
 <pre><code class="example demo-code">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;
-  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-latest.min.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
-	&lt;p&gt;Hello&lt;/p&gt;&lt;span&gt;Hello Again&lt;/span&gt;
+  &lt;p&gt;Hello&lt;/p&gt;&lt;span&gt;Hello Again&lt;/span&gt;
 &lt;script&gt;$("p").add("span").css("background", "yellow");&lt;/script&gt;
+
 &lt;/body&gt;
 &lt;/html&gt;</code></pre>
 <h4>Demo:</h4>
@@ -116,11 +119,12 @@ $("div").css("border", "2px solid red")
 <pre><code class="example demo-code">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;
-  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-latest.min.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
-	&lt;p&gt;Hello&lt;/p&gt;
+  &lt;p&gt;Hello&lt;/p&gt;
 &lt;script&gt;$("p").clone().add("&lt;span&gt;Again&lt;/span&gt;").appendTo(document.body);&lt;/script&gt;
+
 &lt;/body&gt;
 &lt;/html&gt;</code></pre>
 <h4>Demo:</h4>
@@ -132,11 +136,12 @@ $("div").css("border", "2px solid red")
 <pre><code class="example demo-code">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;
-  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-latest.min.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
-	&lt;p&gt;Hello&lt;/p&gt;&lt;span id="a"&gt;Hello Again&lt;/span&gt;
+  &lt;p&gt;Hello&lt;/p&gt;&lt;span id="a"&gt;Hello Again&lt;/span&gt;
 &lt;script&gt;$("p").add(document.getElementById("a")).css("background", "yellow");&lt;/script&gt;
+
 &lt;/body&gt;
 &lt;/html&gt;</code></pre>
 <h4>Demo:</h4>
@@ -148,14 +153,15 @@ $("div").css("border", "2px solid red")
 <pre><code class="example demo-code">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;
-  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-latest.min.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
-	&lt;p&gt;Hello&lt;/p&gt;&lt;span id="a"&gt;Hello Again&lt;/span&gt;
+  &lt;p&gt;Hello&lt;/p&gt;&lt;span id="a"&gt;Hello Again&lt;/span&gt;
 &lt;script&gt;var collection = $("p");
 // capture the new collection
 collection = collection.add(document.getElementById("a"));
 collection.css("background", "yellow");&lt;/script&gt;
+
 &lt;/body&gt;
 &lt;/html&gt;</code></pre>
 <h4>Demo:</h4>

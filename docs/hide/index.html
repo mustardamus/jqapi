@@ -2,13 +2,14 @@
 <html lang='en'><head><meta http-equiv='content-type' content='text/html; charset=UTF-8' /></head><body>
 <div class="entry-content">
         <div class="entry-title roundTop">
-				<h1 class="jq-clearfix">.hide()</h1>
+                    
+				  <h1 class="jq-clearfix">.hide()</h1>
   				<div class="entry-meta">Categories:
-  					<span class="category"><a href="http://api.jquery.com/category/effects/" title="View all posts in Effects">Effects</a> &gt; <a href="http://api.jquery.com/category/effects/basics/" title="View all posts in Basics">Basics</a></span>  
-    
+  					<span class="category"><a href="http://api.jquery.com/category/effects/" title="View all posts in Effects">Effects</a> &gt; <a href="http://api.jquery.com/category/effects/basics/" title="View all posts in Basics">Basics</a></span>
+  
   				</div>
 </div>
-<div class="entry method" id="hide1">
+<div id="hide1" class="entry method">
 <h2 class="jq-clearfix roundTop section-title">
 <span class="name">.hide(  )</span> <span class="returns">Returns: <a class="return" href="http://docs.jquery.com/Types#jQuery">jQuery</a></span>
 </h2>
@@ -21,6 +22,13 @@
 <h4 class="name">
 <span class="versionAdded">version added: <a href="/category/version/1.0/">1.0</a></span>.hide( duration, [ callback ] )</h4>
 <p class="arguement"><strong>duration</strong>A string or number determining how long the animation will run.</p>
+<p class="arguement"><strong>callback</strong>A function to call once the animation is complete.</p>
+</li>
+<li class="signature" id="hide-duration-easing-callback">
+<h4 class="name">
+<span class="versionAdded">version added: <a href="/category/version/1.4.3/">1.4.3</a></span>.hide( [ duration ], [ easing ], [ callback ] )</h4>
+<p class="arguement"><strong>duration</strong>A string or number determining how long the animation will run.</p>
+<p class="arguement"><strong>easing</strong>A string indicating which easing function to use for the transition.</p>
 <p class="arguement"><strong>callback</strong>A function to call once the animation is complete.</p>
 </li>
 </ul>
@@ -40,24 +48,24 @@
 With the element initially shown, we can hide it slowly:
 $('#clickme').click(function() {
   $('#book').hide('slow', function() {
-    $.print('Animation complete.');
+    alert('Animation complete.');
   });
 });</pre>
 <p class="image four-across"> 
   <img src="/images/0042_06_05.png" alt=""><img src="/images/0042_06_06.png" alt=""><img src="/images/0042_06_07.png" alt=""><img src="/images/0042_06_08.png" alt=""></p>
 </div>
 <h3>Examples:</h3>
-<div id="entry-examples" class="entry-examples">
+<div class="entry-examples" id="entry-examples">
 <div id="example-0">
 <h4>Example: <span class="desc">Hides all paragraphs then the link on click.</span>
 </h4>
 <pre><code class="example demo-code">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;
-  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-latest.min.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
-	&lt;p&gt;Hello&lt;/p&gt;
+  &lt;p&gt;Hello&lt;/p&gt;
   &lt;a href="#"&gt;Click to hide me too&lt;/a&gt;
   &lt;p&gt;Here is another paragraph&lt;/p&gt;
 &lt;script&gt;
@@ -68,6 +76,7 @@ $('#clickme').click(function() {
       return true;
     });
 &lt;/script&gt;
+
 &lt;/body&gt;
 &lt;/html&gt;</code></pre>
 <h4>Demo:</h4>
@@ -82,10 +91,10 @@ $('#clickme').click(function() {
   &lt;style&gt;
   p { background:#dad; font-weight:bold; }
   &lt;/style&gt;
-  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-latest.min.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
-	&lt;button&gt;Hide 'em&lt;/button&gt;
+  &lt;button&gt;Hide 'em&lt;/button&gt;
 
   &lt;p&gt;Hiya&lt;/p&gt;
   &lt;p&gt;Such interesting text, eh?&lt;/p&gt;
@@ -94,6 +103,7 @@ $('#clickme').click(function() {
       $("p").hide("slow");
     });    
 &lt;/script&gt;
+
 &lt;/body&gt;
 &lt;/html&gt;</code></pre>
 <h4>Demo:</h4>
@@ -108,10 +118,10 @@ $('#clickme').click(function() {
   &lt;style&gt;
   span { background:#def3ca; padding:3px; float:left; }
   &lt;/style&gt;
-  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-latest.min.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
-	&lt;button id="hidr"&gt;Hide&lt;/button&gt;
+  &lt;button id="hidr"&gt;Hide&lt;/button&gt;
   &lt;button id="showr"&gt;Show&lt;/button&gt;
   &lt;div&gt;
 
@@ -132,6 +142,7 @@ $('#clickme').click(function() {
     });
 
 &lt;/script&gt;
+
 &lt;/body&gt;
 &lt;/html&gt;</code></pre>
 <h4>Demo:</h4>
@@ -147,10 +158,10 @@ $('#clickme').click(function() {
   div { background:#ece023; width:30px; 
         height:40px; margin:2px; float:left; }
   &lt;/style&gt;
-  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-latest.min.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
-	&lt;div&gt;&lt;/div&gt;
+  &lt;div&gt;&lt;/div&gt;
 &lt;script&gt;
     for (var i = 0; i &lt; 5; i++) {
       $("&lt;div&gt;").appendTo(document.body);
@@ -161,6 +172,7 @@ $('#clickme').click(function() {
       });
     });
 &lt;/script&gt;
+
 &lt;/body&gt;
 &lt;/html&gt;</code></pre>
 <h4>Demo:</h4>
