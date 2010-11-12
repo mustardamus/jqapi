@@ -20,7 +20,10 @@
 <span class="versionAdded">version added: <a href="/category/version/1.2.3/">1.2.3</a></span>.removeData( [ name ] )</h4>
 <p class="arguement"><strong>name</strong>A string naming the piece of data to delete.</p>
 </li></ul>
-<div class="longdesc"><p>The <code>.removeData()</code> method allows us to remove values that were previously set using <code>.data()</code>. When called with the name of a key, <code>.removeData()</code> deletes that particular value; when called with no arguments, all values are removed.</p></div>
+<div class="longdesc">
+<p>The <code>.removeData()</code> method allows us to remove values that were previously set using <code>.data()</code>. When called with the name of a key, <code>.removeData()</code> deletes that particular value; when called with no arguments, all values are removed.</p>
+<p>NOTE: Starting with jQuery 1.4.3, calling <code>.removeData()</code> will cause the value of the property being removed to revert to the value of the data attribute of the same name in the DOM, rather than being set to <code>undefined</code>.</p>
+</div>
 <h3>Example:</h3>
 <div class="entry-examples" id="entry-examples"><div id="example-0">
 <h4><span class="desc">Set a data store for 2 names then remove one of them.</span></h4>

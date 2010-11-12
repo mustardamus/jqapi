@@ -41,7 +41,7 @@
 <p class="arguement"><strong>value</strong>The new data value.</p>
 </li></ul>
 <div class="longdesc">
-<p><strong>Note:</strong> This is a low-level method; you should probably use <code><a href="/data">.data()</a></code> instead.</p>
+<p><strong>Note:</strong> This is a low-level method; a more convenient <code><a href="/data">.data()</a></code> is also available.</p>
 <p>The <code>jQuery.data()</code> method allows us to attach data of any type to DOM elements in a way that is safe from circular references and therefore free from memory leaks. jQuery ensures that the data is removed when DOM elements are removed via jQuery methods, and when the user leaves the page. We can set several distinct values for a single element and retrieve them later:</p>
 <pre>jQuery.data(document.body, 'foo', 52);
 		jQuery.data(document.body, 'bar', 'test');</pre>
@@ -99,7 +99,7 @@
 </li>
 </ul>
 <div class="longdesc">
-<p><strong>Note:</strong> This is a low-level method; you should probably use <code><a href="/data">.data()</a></code> instead.</p>
+<p><strong>Note:</strong> This is a low-level method; a more convenient <code><a href="/data">.data()</a></code> is also available.</p>
 <p>The <code>jQuery.data()</code> method allows us to attach data of any type to DOM elements in a way that is safe from circular references and therefore from memory leaks. We can retrieve several distinct values for a single element one at a time, or as a set:</p>
 <pre>alert(jQuery.data( document.body, 'foo' ));
 alert(jQuery.data( document.body ));</pre>

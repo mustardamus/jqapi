@@ -3,7 +3,7 @@
 <div class="entry-content">
         <div class="entry-title roundTop">
                     
-				  <h1 class="jq-clearfix">Attribute Not Equal Selector [name!=value]</h1>
+				  <h1 class="jq-clearfix">Attribute Not Equal Selector [name!="value"]</h1>
   				<div class="entry-meta">Categories:
   					<span class="category"><a href="http://api.jquery.com/category/selectors/" title="View all posts in Selectors">Selectors</a> &gt; <a href="http://api.jquery.com/category/selectors/attribute-selectors/" title="View all posts in Attribute">Attribute</a></span>
   
@@ -14,15 +14,15 @@
 <span class="name">attributeNotEqual</span>  selector</h2>
 <div class="jq-box roundBottom entry-details">
 <h4 class="name">
-<span class="versionAdded">version added: <a href="/version/1.0/">1.0</a></span>jQuery('[attribute!=value]')</h4>
+<span class="versionAdded">version added: <a href="/version/1.0/">1.0</a></span>jQuery('[attribute!="value"]')</h4>
 <ul class="signatures"><li><dl class="arguments">
 <dt>attribute</dt>
 <dd>An attribute name.</dd>
 <dt>value</dt>
-<dd>An attribute value. Quotes are optional.</dd>
+<dd>An attribute value. Quotes are mandatory.</dd>
 </dl></li></ul>
 <p class="desc"><strong>Description: </strong>Select elements that either don't have the specified attribute, or do have the specified attribute but not with a certain value.</p>
-<div class="longdesc"><p>This selector is equivalent to <code>:not([attr=value])</code>.</p></div>
+<div class="longdesc"><p>This selector is equivalent to <code>:not([attr="value"])</code>.</p></div>
 <h3>Example:</h3>
 <div class="entry-examples" id="entry-examples"><div id="example-0">
 <h4><span class="desc">Finds all inputs that don't have the name 'newsletter' and appends text to the span next to it.</span></h4>
@@ -48,7 +48,7 @@
 
     &lt;span&gt;name is accept&lt;/span&gt;
   &lt;/div&gt;
-&lt;script&gt;$("input[name!=newsletter]").next().append("&lt;b&gt;; not newsletter&lt;/b&gt;");&lt;/script&gt;
+&lt;script&gt;$('input[name!="newsletter"]').next().append('&lt;b&gt;; not newsletter&lt;/b&gt;');&lt;/script&gt;
 
 &lt;/body&gt;
 &lt;/html&gt;</code></pre>
