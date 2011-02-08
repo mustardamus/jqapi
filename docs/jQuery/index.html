@@ -2,16 +2,19 @@
 <html lang='en'><head><meta http-equiv='content-type' content='text/html; charset=UTF-8' /></head><body>
 <div class="entry-content">
         <div class="entry-title roundTop">
-                    
-				  <h1 class="jq-clearfix">jQuery()</h1>
-  				<div class="entry-meta">Categories:
-  					<span class="category"><a href="http://api.jquery.com/category/core/" title="View all posts in Core">Core</a></span>
+          
+          <h1 class="jq-clearfix">jQuery()</h1>
+          <div class="entry-meta jq-clearfix">
+                        Categories:
+            <span class="category"><a href="http://api.jquery.com/category/core/" title="View all posts in Core">Core</a></span>
   
-  				</div>
+
+          </div>
+
 </div>
 
-<fieldset class="toc">
-<legend>Contents:</legend>
+<div class="toc">
+<h4><span>Contents:</span></h4>
 <ul class="toc-list">
 <li>
 <a href="#jQuery1">jQuery( selector, [ context ] ) </a><ul>
@@ -40,10 +43,10 @@
               </li></ul>
 </li>
 </ul>
-</fieldset>
+</div>
 <div id="jQuery1" class="entry method">
 <h2 class="jq-clearfix roundTop section-title">
-<span class="name">jQuery( selector, [ context ] )</span> <span class="returns">Returns: <a class="return" href="http://docs.jquery.com/Types#jQuery">jQuery</a></span>
+<span class="name">jQuery( selector, [ context ] )</span> <span class="returns">Returns: <a class="return" href="http://api.jquery.com/Types/#jQuery">jQuery</a></span>
 </h2>
 <div class="jq-box roundBottom entry-details">
 <p class="desc"><strong>Description: </strong>Accepts a string containing a CSS selector which is then used to match a set of elements.</p>
@@ -96,7 +99,7 @@ $('div.foo').click(function() {
 <h4 id="cloning-jquery-objects">Cloning jQuery Objects</h4>
 <p>When a jQuery object is passed as a parameter to the  <code>$()</code> function, a clone of the object is created. This new jQuery object references the same DOM elements as the initial one.</p>
 <h4 id="returning-empty-set">Returning an Empty Set</h4>
-<p>As of jQuery 1.4,  calling the <code>jQuery()</code> method with <em>no arguments</em> returns an empty jQuery set. In previous versions of jQuery, this would return a set containing the document node.</p>
+<p>As of jQuery 1.4,  calling the <code>jQuery()</code> method with <em>no arguments</em> returns an empty jQuery set (with a <code><a href="http://api.jquery.com/length/">.length</a></code> property of 0). In previous versions of jQuery, this would return a set containing the document node.</p>
 </div>
 <h3>Examples:</h3>
 <div class="entry-examples" id="entry-examples">
@@ -106,7 +109,7 @@ $('div.foo').click(function() {
 <pre><code class="example demo-code">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;
-  &lt;script src="http://code.jquery.com/jquery-latest.min.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-1.5.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
   &lt;p&gt;one&lt;/p&gt; &lt;div&gt;&lt;p&gt;two&lt;/p&gt;&lt;/div&gt; &lt;p&gt;three&lt;/p&gt;
@@ -144,7 +147,7 @@ $('div.foo').click(function() {
 </div>
 <div id="jQuery2" class="entry method">
 <h2 class="jq-clearfix roundTop section-title">
-<span class="name">jQuery( html, [ ownerDocument ] )</span> <span class="returns">Returns: <a class="return" href="http://docs.jquery.com/Types#jQuery">jQuery</a></span>
+<span class="name">jQuery( html, [ ownerDocument ] )</span> <span class="returns">Returns: <a class="return" href="http://api.jquery.com/Types/#jQuery">jQuery</a></span>
 </h2>
 <div class="jq-box roundBottom entry-details">
 <p class="desc"><strong>Description: </strong>Creates DOM elements on the fly from the provided string of raw HTML.</p>
@@ -212,7 +215,7 @@ $("&lt;input&gt;", {
 </div>
 <div id="jQuery3" class="entry method">
 <h2 class="jq-clearfix roundTop section-title">
-<span class="name">jQuery( callback )</span> <span class="returns">Returns: <a class="return" href="http://docs.jquery.com/Types#jQuery">jQuery</a></span>
+<span class="name">jQuery( callback )</span> <span class="returns">Returns: <a class="return" href="http://api.jquery.com/Types/#jQuery">jQuery</a></span>
 </h2>
 <div class="jq-box roundBottom entry-details">
 <p class="desc"><strong>Description: </strong>Binds a function to be executed when the DOM has finished loading.</p>
@@ -243,6 +246,6 @@ $("&lt;input&gt;", {
 </div>
 
 
-				</div>
+        </div>
 
 </body></html>

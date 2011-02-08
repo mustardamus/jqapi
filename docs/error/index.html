@@ -2,16 +2,19 @@
 <html lang='en'><head><meta http-equiv='content-type' content='text/html; charset=UTF-8' /></head><body>
 <div class="entry-content">
         <div class="entry-title roundTop">
-                    
-				  <h1 class="jq-clearfix">.error()</h1>
-  				<div class="entry-meta">Categories:
-  					<span class="category"><a href="http://api.jquery.com/category/events/" title="View all posts in Events">Events</a> &gt; <a href="http://api.jquery.com/category/events/browser-events/" title="View all posts in Browser Events">Browser Events</a></span>
+          
+          <h1 class="jq-clearfix">.error()</h1>
+          <div class="entry-meta jq-clearfix">
+                        Categories:
+            <span class="category"><a href="http://api.jquery.com/category/events/" title="View all posts in Events">Events</a> &gt; <a href="http://api.jquery.com/category/events/browser-events/" title="View all posts in Browser Events">Browser Events</a></span>
   
-  				</div>
+
+          </div>
+
 </div>
 <div id="error1" class="entry method">
 <h2 class="jq-clearfix roundTop section-title">
-<span class="name">.error( handler(eventObject) )</span> <span class="returns">Returns: <a class="return" href="http://docs.jquery.com/Types#jQuery">jQuery</a></span>
+<span class="name">.error( handler(eventObject) )</span> <span class="returns">Returns: <a class="return" href="http://api.jquery.com/Types/#jQuery">jQuery</a></span>
 </h2>
 <div class="jq-box roundBottom entry-details">
 <p class="desc"><strong>Description: </strong>Bind an event handler to the "error" JavaScript event.</p>
@@ -46,26 +49,16 @@
 <p>Note: A jQuery error event handler should not be attached to the window object. The browser fires the window's error event when a script error occurs. However, the window error event receives different arguments and has different return value requirements than conventional event handlers.
 </p>
 </div>
-<h3>Examples:</h3>
-<div class="entry-examples" id="entry-examples">
-<div id="example-0">
-<h4>Example: <span class="desc">To hide JavaScript errors from the user, you can try:</span>
-</h4>
-<pre><code class="example">$(window).error(function(){
-  return true;
-});</code></pre>
-</div>
-<div id="example-1">
-<h4>Example: <span class="desc">To hide the "broken image" icons for your IE users, you can try:</span>
-</h4>
+<h3>Example:</h3>
+<div class="entry-examples" id="entry-examples"><div id="example-0">
+<h4><span class="desc">To hide the "broken image" icons for your IE users, you can try:</span></h4>
 <pre><code class="example">$("img").error(function(){
   $(this).hide();
 });</code></pre>
-</div>
-</div>
+</div></div>
 </div>
 </div>
 
-				</div>
+        </div>
 
 </body></html>

@@ -2,16 +2,19 @@
 <html lang='en'><head><meta http-equiv='content-type' content='text/html; charset=UTF-8' /></head><body>
 <div class="entry-content">
         <div class="entry-title roundTop">
-                    
-				  <h1 class="jq-clearfix">.add()</h1>
-  				<div class="entry-meta">Categories:
-  					<span class="category"><a href="http://api.jquery.com/category/traversing/" title="View all posts in Traversing">Traversing</a> &gt; <a href="http://api.jquery.com/category/traversing/miscellaneous-traversal/" title="View all posts in Miscellaneous Traversing">Miscellaneous Traversing</a></span>
+          
+          <h1 class="jq-clearfix">.add()</h1>
+          <div class="entry-meta jq-clearfix">
+                        Categories:
+            <span class="category"><a href="http://api.jquery.com/category/traversing/" title="View all posts in Traversing">Traversing</a> &gt; <a href="http://api.jquery.com/category/traversing/miscellaneous-traversal/" title="View all posts in Miscellaneous Traversing">Miscellaneous Traversing</a></span>
   
-  				</div>
+
+          </div>
+
 </div>
 <div id="add1" class="entry method">
 <h2 class="jq-clearfix roundTop section-title">
-<span class="name">.add( selector )</span> <span class="returns">Returns: <a class="return" href="http://docs.jquery.com/Types#jQuery">jQuery</a></span>
+<span class="name">.add( selector )</span> <span class="returns">Returns: <a class="return" href="http://api.jquery.com/Types/#jQuery">jQuery</a></span>
 </h2>
 <div class="jq-box roundBottom entry-details">
 <p class="desc"><strong>Description: </strong>Add elements to the set of matched elements.</p>
@@ -35,11 +38,21 @@
 <h4 class="name">
 <span class="versionAdded">version added: <a href="/category/version/1.4/">1.4</a></span>.add( selector, context )</h4>
 <p class="arguement"><strong>selector</strong>A string containing a selector expression to match additional elements against.</p>
-<p class="arguement"><strong>context</strong>Add some elements rooted against the specified context.</p>
+<p class="arguement"><strong>context</strong>The point in the document at which the selector should begin matching; similar to the context argument of the <code>$()</code> method.</p>
 </li>
 </ul>
 <div class="longdesc">
 <p>Given a jQuery object that represents a set of DOM elements, the <code>.add()</code> method constructs a new jQuery object from the union of those elements and the ones passed into the method. The argument to <code>.add()</code> can be pretty much anything that  <code>$()</code> accepts, including a jQuery selector expression, references to DOM elements, or an HTML snippet.</p>
+<p>The updated set of elements can be used in a following (chained) method, or assigned to a variable for later use. For example:</p>
+<pre>
+$("p").add("div").addClass("widget");
+var pdiv = $("p").add("div");
+</pre>
+<p>The following will <em>not</em> save the added elements, because the <code>.add()</code> method creates a new set and leaves the original set in pdiv unchanged:</p>
+<pre>
+var pdiv = $("p");
+pdiv.add("div");  // WRONG, pdiv will not change
+</pre>
 <p>Consider a page with a simple list and a paragraph following it:</p>
 <pre>&lt;ul&gt;
   &lt;li&gt;list item 1&lt;/li&gt;
@@ -72,7 +85,7 @@ Using an HTML snippet as the <code>.add()</code> method's argument (as in the th
  p { clear:left; font-weight:bold; font-size:16px; 
      color:blue; margin:0 10px; padding:2px; }
  &lt;/style&gt;
-  &lt;script src="http://code.jquery.com/jquery-latest.min.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-1.5.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
   &lt;div&gt;&lt;/div&gt;
@@ -102,7 +115,7 @@ $("div").css("border", "2px solid red")
 <pre><code class="example demo-code">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;
-  &lt;script src="http://code.jquery.com/jquery-latest.min.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-1.5.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
   &lt;p&gt;Hello&lt;/p&gt;&lt;span&gt;Hello Again&lt;/span&gt;
@@ -119,7 +132,7 @@ $("div").css("border", "2px solid red")
 <pre><code class="example demo-code">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;
-  &lt;script src="http://code.jquery.com/jquery-latest.min.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-1.5.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
   &lt;p&gt;Hello&lt;/p&gt;
@@ -136,7 +149,7 @@ $("div").css("border", "2px solid red")
 <pre><code class="example demo-code">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;
-  &lt;script src="http://code.jquery.com/jquery-latest.min.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-1.5.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
   &lt;p&gt;Hello&lt;/p&gt;&lt;span id="a"&gt;Hello Again&lt;/span&gt;
@@ -153,7 +166,7 @@ $("div").css("border", "2px solid red")
 <pre><code class="example demo-code">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;
-  &lt;script src="http://code.jquery.com/jquery-latest.min.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-1.5.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
   &lt;p&gt;Hello&lt;/p&gt;&lt;span id="a"&gt;Hello Again&lt;/span&gt;
@@ -171,6 +184,6 @@ collection.css("background", "yellow");&lt;/script&gt;
 </div>
 </div>
 
-				</div>
+        </div>
 
 </body></html>

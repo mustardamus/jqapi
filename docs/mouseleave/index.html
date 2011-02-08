@@ -2,16 +2,19 @@
 <html lang='en'><head><meta http-equiv='content-type' content='text/html; charset=UTF-8' /></head><body>
 <div class="entry-content">
         <div class="entry-title roundTop">
-                    
-				  <h1 class="jq-clearfix">.mouseleave()</h1>
-  				<div class="entry-meta">Categories:
-  					<span class="category"><a href="http://api.jquery.com/category/events/" title="View all posts in Events">Events</a> &gt; <a href="http://api.jquery.com/category/events/mouse-events/" title="View all posts in Mouse Events">Mouse Events</a></span>
+          
+          <h1 class="jq-clearfix">.mouseleave()</h1>
+          <div class="entry-meta jq-clearfix">
+                        Categories:
+            <span class="category"><a href="http://api.jquery.com/category/events/" title="View all posts in Events">Events</a> &gt; <a href="http://api.jquery.com/category/events/mouse-events/" title="View all posts in Mouse Events">Mouse Events</a></span>
   
-  				</div>
+
+          </div>
+
 </div>
 <div id="mouseleave1" class="entry method">
 <h2 class="jq-clearfix roundTop section-title">
-<span class="name">.mouseleave( handler(eventObject) )</span> <span class="returns">Returns: <a class="return" href="http://docs.jquery.com/Types#jQuery">jQuery</a></span>
+<span class="name">.mouseleave( handler(eventObject) )</span> <span class="returns">Returns: <a class="return" href="http://api.jquery.com/Types/#jQuery">jQuery</a></span>
 </h2>
 <div class="jq-box roundBottom entry-details">
 <p class="desc"><strong>Description: </strong>Bind an event handler to be fired when the mouse leaves an element, or trigger that handler on an element.</p>
@@ -31,7 +34,7 @@
 <span class="versionAdded">version added: <a href="/category/version/1.0/">1.0</a></span>.mouseleave()</h4></li>
 </ul>
 <div class="longdesc">
-<p>This method is a shortcut for <code>.bind('mouseleave', handler)</code> in the first variation, and <code>.trigger('mouseleave')</code> in the second.</p>
+<p>This method is a shortcut for <code>.bind('mouseleave', handler)</code> in the first two variations, and <code>.trigger('mouseleave')</code> in the third.</p>
 <p>The <code>mouseleave</code> JavaScript event is proprietary to Internet Explorer. Because of the event's general utility, jQuery simulates this event so that it can be used regardless of browser. This event is sent to an element when the mouse pointer leaves the element. Any HTML element can receive this event.</p>
 <p>For example, consider the HTML:</p>
 <pre>&lt;div id="outer"&gt;
@@ -49,7 +52,7 @@
 <pre>$('#outer').mouseleave(function() {
   $('#log').append('&lt;div&gt;Handler for .mouseleave() called.&lt;/div&gt;');
 });</pre>
-<p>Now when the mouse pointer moves out of the <span class="output">Outer</span> <code>&lt;div&gt;</code>, the message is appended to <code>&lt;div id="log"&gt;</code>. We can also trigger the event when another element is clicked:</p>
+<p>Now when the mouse pointer moves out of the <span class="output">Outer</span> <code>&lt;div&gt;</code>, the message is appended to <code>&lt;div id="log"&gt;</code>. You can also trigger the event when another element is clicked:</p>
 <pre>$('#other').click(function() {
   $('#outer').mouseleave();
 });</pre>
@@ -83,7 +86,7 @@ margin:0;
 padding:0;
 }
 &lt;/style&gt;
-  &lt;script src="http://code.jquery.com/jquery-latest.min.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-1.5.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
   
@@ -119,6 +122,6 @@ padding:0;
 </div>
 </div>
 
-				</div>
+        </div>
 
 </body></html>

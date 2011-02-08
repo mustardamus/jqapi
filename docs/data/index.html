@@ -2,16 +2,19 @@
 <html lang='en'><head><meta http-equiv='content-type' content='text/html; charset=UTF-8' /></head><body>
 <div class="entry-content">
         <div class="entry-title roundTop">
-                    
-				  <h1 class="jq-clearfix">.data()</h1>
-  				<div class="entry-meta">Categories:
-  					<span class="category"><a href="http://api.jquery.com/category/data/" title="View all posts in Data">Data</a></span> | <span class="category"><a href="http://api.jquery.com/category/miscellaneous/" title="View all posts in Miscellaneous">Miscellaneous</a> &gt; <a href="http://api.jquery.com/category/miscellaneous/data-storage/" title="View all posts in Data Storage">Data Storage</a></span>
+          
+          <h1 class="jq-clearfix">.data()</h1>
+          <div class="entry-meta jq-clearfix">
+                        Categories:
+            <span class="category"><a href="http://api.jquery.com/category/data/" title="View all posts in Data">Data</a></span> | <span class="category"><a href="http://api.jquery.com/category/miscellaneous/" title="View all posts in Miscellaneous">Miscellaneous</a> &gt; <a href="http://api.jquery.com/category/miscellaneous/data-storage/" title="View all posts in Data Storage">Data Storage</a></span>
   
-  				</div>
+
+          </div>
+
 </div>
 
-<fieldset class="toc">
-<legend>Contents:</legend>
+<div class="toc">
+<h4><span>Contents:</span></h4>
 <ul class="toc-list">
 <li>
 <a href="#data1">data( key, value ) </a><ul>
@@ -30,10 +33,10 @@
 </ul>
 </li>
 </ul>
-</fieldset>
+</div>
 <div id="data1" class="entry method">
 <h2 class="jq-clearfix roundTop section-title">
-<span class="name">.data( key, value )</span> <span class="returns">Returns: <a class="return" href="http://docs.jquery.com/Types#jQuery">jQuery</a></span>
+<span class="name">.data( key, value )</span> <span class="returns">Returns: <a class="return" href="http://api.jquery.com/Types/#jQuery">jQuery</a></span>
 </h2>
 <div class="jq-box roundBottom entry-details">
 <p class="desc"><strong>Description: </strong>Store arbitrary data associated with the matched elements.</p>
@@ -71,7 +74,7 @@ $('body').data(); // {foo: 52, bar: { myType: 'test', count: 40 }}
 <pre>$("div").data("role") === "page";
 $("div").data("hidden") === true;
 $("div").data("options").name === "John";</pre>
-<p>Note that strings are left intact while JavaScript values are converted to their associated value (this includes booleans, numbers, objects, arrays, and null). The data- attributes are pulled in the first time the data property is accessed and then are no longer accessed or mutated (all data values are then stored internally in jQuery).</p>
+<p>Every attempt is made to convert the string to a JavaScript value (this includes booleans, numbers, objects, arrays, and null) otherwise it is left as a string. To retrieve the value's attribute as a string without any attempt to convert it, use the <code><a href="/attr/">attr()</a></code> method. When the data attribute is an object (starts with '{') or array (starts with '[') then <code>jQuery.parseJSON</code> is used to parse the string; it must follow <a href="http://en.wikipedia.org/wiki/JSON#Data_types.2C_syntax_and_example">valid JSON syntax</a> <em>including quoted property names</em>. The data- attributes are pulled in the first time the data property is accessed and then are no longer accessed or mutated (all data values are then stored internally in jQuery).</p>
 </div>
 <h3 id="notes-0">Additional Notes:</h3>
 <div class="longdesc"><ul><li>Note that this method currently does not provide cross-platform support for setting data on XML documents, as Internet Explorer does not allow data to be attached via expando properties.</li></ul></div>
@@ -85,7 +88,7 @@ $("div").data("options").name === "John";</pre>
   div { color:blue; }
   span { color:red; }
   &lt;/style&gt;
-  &lt;script src="http://code.jquery.com/jquery-latest.min.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-1.5.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
   &lt;div&gt;
@@ -109,7 +112,7 @@ $("span:last").text($("div").data("test").last);
 </div>
 <div id="data2" class="entry method">
 <h2 class="jq-clearfix roundTop section-title">
-<span class="name">.data( key )</span> <span class="returns">Returns: <a class="return" href="http://docs.jquery.com/Types#Object">Object</a></span>
+<span class="name">.data( key )</span> <span class="returns">Returns: <a class="return" href="http://api.jquery.com/Types/#Object">Object</a></span>
 </h2>
 <div class="jq-box roundBottom entry-details">
 <p class="desc"><strong>Description: </strong>Returns value at named data store for the first element in the jQuery collection, as set by data(name, value).</p>
@@ -152,7 +155,7 @@ if ( mydata.count &lt; 9 ) {
   p { margin:5px; color:blue; }
   span { color:red; }
   &lt;/style&gt;
-  &lt;script src="http://code.jquery.com/jquery-latest.min.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-1.5.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
   &lt;div&gt;A div&lt;/div&gt;
@@ -198,6 +201,6 @@ $("button").click(function(e) {
 </div>
 
 
-				</div>
+        </div>
 
 </body></html>

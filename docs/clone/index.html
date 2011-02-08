@@ -2,24 +2,35 @@
 <html lang='en'><head><meta http-equiv='content-type' content='text/html; charset=UTF-8' /></head><body>
 <div class="entry-content">
         <div class="entry-title roundTop">
-                    
-				  <h1 class="jq-clearfix">.clone()</h1>
-  				<div class="entry-meta">Categories:
-  					<span class="category"><a href="http://api.jquery.com/category/manipulation/" title="View all posts in Manipulation">Manipulation</a> &gt; <a href="http://api.jquery.com/category/manipulation/copying/" title="View all posts in Copying">Copying</a></span>
+          
+          <h1 class="jq-clearfix">.clone()</h1>
+          <div class="entry-meta jq-clearfix">
+                        Categories:
+            <span class="category"><a href="http://api.jquery.com/category/manipulation/" title="View all posts in Manipulation">Manipulation</a> &gt; <a href="http://api.jquery.com/category/manipulation/copying/" title="View all posts in Copying">Copying</a></span>
   
-  				</div>
+
+          </div>
+
 </div>
 <div id="clone1" class="entry method">
 <h2 class="jq-clearfix roundTop section-title">
-<span class="name">.clone( [ withDataAndEvents ] )</span> <span class="returns">Returns: <a class="return" href="http://docs.jquery.com/Types#jQuery">jQuery</a></span>
+<span class="name">.clone( [ withDataAndEvents ] )</span> <span class="returns">Returns: <a class="return" href="http://api.jquery.com/Types/#jQuery">jQuery</a></span>
 </h2>
 <div class="jq-box roundBottom entry-details">
 <p class="desc"><strong>Description: </strong>Create a deep copy of the set of matched elements.</p>
-<ul class="signatures"><li class="signature" id="clone-withDataAndEvents">
+<ul class="signatures">
+<li class="signature" id="clone-withDataAndEvents">
 <h4 class="name">
 <span class="versionAdded">version added: <a href="/category/version/1.0/">1.0</a></span>.clone( [ withDataAndEvents ] )</h4>
-<p class="arguement"><strong>withDataAndEvents</strong>A Boolean indicating whether event handlers should be copied along with the elements. As of jQuery 1.4 element data will be copied as well.</p>
-</li></ul>
+<p class="arguement"><strong>withDataAndEvents</strong>A Boolean indicating whether event handlers should be copied along with the elements. As of jQuery 1.4, element data will be copied as well.</p>
+</li>
+<li class="signature" id="clone-withDataAndEvents-deepWithDataAndEvents">
+<h4 class="name">
+<span class="versionAdded">version added: <a href="/category/version/1.5/">1.5</a></span>.clone( [ withDataAndEvents ], [ deepWithDataAndEvents ] )</h4>
+<p class="arguement"><strong>withDataAndEvents</strong>A Boolean indicating whether event handlers should be copied along with the elements. As of jQuery 1.4, element data will be copied as well. The default value is <code>false</code></p>
+<p class="arguement"><strong>deepWithDataAndEvents</strong>A Boolean indicating whether event handlers and data for all children of the cloned element should be copied. The default value is <code>false</code></p>
+</li>
+</ul>
 <div class="longdesc">
 <p>The <code>.clone()</code> method performs a <em>deep</em> copy of the set of matched elements, meaning that it copies the matched elements as well as all of their descendant elements and text nodes. When used in conjunction with one of the insertion methods, <code>.clone()</code> is a convenient way to duplicate elements on a page. Consider the following HTML:</p>
 <pre>&lt;div class="container"&gt;
@@ -47,6 +58,7 @@
 &lt;/div&gt;</pre>
 <blockquote><p>Note that when using the <code>.clone()</code> method, we can modify the cloned elements or their contents before (re-)inserting them into the document.</p></blockquote>
 <p>Normally, any event handlers bound to the original element are <em>not</em> copied to the clone. The optional <code>withDataAndEvents </code>parameter allows us to change this behavior, and to instead make copies of all of the event handlers as well, bound to the new copy of the element. As of jQuery 1.4, all element data (attached by the <code>.data()</code> method) is also copied to the new copy. </p>
+<p>As of jQuery 1.5, <code>withDataAndEvents</code> can be optionally enhanced with <code>deepWithDataAndEvents </code> to copy the events and data for all children of the cloned element.</p>
 </div>
 <h3>Example:</h3>
 <div class="entry-examples" id="entry-examples"><div id="example-0">
@@ -54,7 +66,7 @@
 <pre><code class="example demo-code">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;
-  &lt;script src="http://code.jquery.com/jquery-latest.min.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-1.5.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
   
@@ -72,6 +84,6 @@
 </div>
 </div>
 
-				</div>
+        </div>
 
 </body></html>

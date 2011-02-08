@@ -2,16 +2,19 @@
 <html lang='en'><head><meta http-equiv='content-type' content='text/html; charset=UTF-8' /></head><body>
 <div class="entry-content">
         <div class="entry-title roundTop">
-                    
-				  <h1 class="jq-clearfix">.css()</h1>
-  				<div class="entry-meta">Categories:
-  					<span class="category"><a href="http://api.jquery.com/category/css/" title="View all posts in CSS">CSS</a></span> | <span class="category"><a href="http://api.jquery.com/category/manipulation/" title="View all posts in Manipulation">Manipulation</a> &gt; <a href="http://api.jquery.com/category/manipulation/style-properties/" title="View all posts in Style Properties">Style Properties</a></span>
+          
+          <h1 class="jq-clearfix">.css()</h1>
+          <div class="entry-meta jq-clearfix">
+                        Categories:
+            <span class="category"><a href="http://api.jquery.com/category/css/" title="View all posts in CSS">CSS</a></span> | <span class="category"><a href="http://api.jquery.com/category/manipulation/" title="View all posts in Manipulation">Manipulation</a> &gt; <a href="http://api.jquery.com/category/manipulation/style-properties/" title="View all posts in Style Properties">Style Properties</a></span>
   
-  				</div>
+
+          </div>
+
 </div>
 
-<fieldset class="toc">
-<legend>Contents:</legend>
+<div class="toc">
+<h4><span>Contents:</span></h4>
 <ul class="toc-list">
 <li>
 <a href="#css1">css( propertyName ) </a><ul><li>.css( propertyName )
@@ -28,10 +31,10 @@
 </ul>
 </li>
 </ul>
-</fieldset>
+</div>
 <div id="css1" class="entry method">
 <h2 class="jq-clearfix roundTop section-title">
-<span class="name">.css( propertyName )</span> <span class="returns">Returns: <a class="return" href="http://docs.jquery.com/Types#String">String</a></span>
+<span class="name">.css( propertyName )</span> <span class="returns">Returns: <a class="return" href="http://api.jquery.com/Types/#String">String</a></span>
 </h2>
 <div class="jq-box roundBottom entry-details">
 <p class="desc"><strong>Description: </strong>Get the value of a style property for the first element in the set of matched elements.</p>
@@ -59,7 +62,7 @@
   &lt;style&gt;
 div { width:60px; height:60px; margin:5px; float:left; }
   &lt;/style&gt;
-  &lt;script src="http://code.jquery.com/jquery-latest.min.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-1.5.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
   
@@ -87,7 +90,7 @@ $("div").click(function () {
 </div>
 <div id="css2" class="entry method">
 <h2 class="jq-clearfix roundTop section-title">
-<span class="name">.css( propertyName, value )</span> <span class="returns">Returns: <a class="return" href="http://docs.jquery.com/Types#jQuery">jQuery</a></span>
+<span class="name">.css( propertyName, value )</span> <span class="returns">Returns: <a class="return" href="http://api.jquery.com/Types/#jQuery">jQuery</a></span>
 </h2>
 <div class="jq-box roundBottom entry-details">
 <p class="desc"><strong>Description: </strong>Set one or more CSS properties for the  set of matched elements.</p>
@@ -113,7 +116,8 @@ $("div").click(function () {
 <div class="longdesc">
 <p>As with the <code>.attr()</code> method, the <code>.css()</code> method makes setting properties of elements quick and easy. This method can take either a property name and value as separate parameters, or a single map of key-value pairs (JavaScript object notation).</p>
 <p>Also, jQuery can equally interpret the CSS and DOM formatting of multiple-word properties. For example, jQuery understands and returns the correct value for both <code>.css({'background-color': '#ffe', 'border-left': '5px solid #ccc'})</code> and <code>.css({backgroundColor: '#ffe', borderLeft: '5px solid #ccc'})</code>. Notice that with the DOM notation, quotation marks around the property names are optional, but with CSS notation they're required due to the hyphen in the name.</p>
-<p>As with <code><a href="/attr">.attr()</a></code>, <code>.css()</code> allows us to pass a function as the property value:</p>
+<p>When using <code>.css()</code> as a setter, jQuery modifies the element's <code>style</code> property. For example,  <code>$('#mydiv').css('color', 'green')</code> is equivalent to <code>document.getElementById('mydiv').style.color = 'green'</code>. Setting the value of a style property to an empty string — e.g. <code>$('#mydiv').css('color', '')</code> — removes that property from an element if it has already been directly applied, whether in the HTML style attribute, through jQuery's <code>.css()</code> method, or through direct DOM manipulation of the <code>style</code> property. It does not, however, remove a style that has been applied with a CSS rule in a stylesheet or <code>&lt;style&gt;</code> element.</p>
+<p>As of jQuery 1.4, <code>.css()</code> allows us to pass a function as the property value:</p>
 <pre>$('div.example').css('width', function(index) {
   return index * 50;
 });</pre>
@@ -130,7 +134,7 @@ $("div").click(function () {
   &lt;style&gt;
   p { color:blue; width:200px; font-size:14px; }
   &lt;/style&gt;
-  &lt;script src="http://code.jquery.com/jquery-latest.min.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-1.5.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
   
@@ -158,7 +162,7 @@ $("div").click(function () {
   &lt;style&gt;
   p { color:blue; font-weight:bold; cursor:pointer; }
   &lt;/style&gt;
-  &lt;script src="http://code.jquery.com/jquery-latest.min.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-1.5.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
   
@@ -193,7 +197,7 @@ $("div").click(function () {
   &lt;style&gt;
   p { color:green; }
 &lt;/style&gt;
-  &lt;script src="http://code.jquery.com/jquery-latest.min.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-1.5.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
   
@@ -227,7 +231,7 @@ $("div").click(function () {
   &lt;style&gt;
   div { width: 20px; height: 15px; background-color: #f33; }
   &lt;/style&gt;
-  &lt;script src="http://code.jquery.com/jquery-latest.min.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-1.5.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
   
@@ -258,6 +262,6 @@ $("div").click(function () {
 </div>
 
 
-				</div>
+        </div>
 
 </body></html>

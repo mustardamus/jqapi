@@ -2,16 +2,19 @@
 <html lang='en'><head><meta http-equiv='content-type' content='text/html; charset=UTF-8' /></head><body>
 <div class="entry-content">
         <div class="entry-title roundTop">
-                    
-				  <h1 class="jq-clearfix">.is()</h1>
-  				<div class="entry-meta">Categories:
-  					<span class="category"><a href="http://api.jquery.com/category/traversing/" title="View all posts in Traversing">Traversing</a> &gt; <a href="http://api.jquery.com/category/traversing/filtering/" title="View all posts in Filtering">Filtering</a></span>
+          
+          <h1 class="jq-clearfix">.is()</h1>
+          <div class="entry-meta jq-clearfix">
+                        Categories:
+            <span class="category"><a href="http://api.jquery.com/category/traversing/" title="View all posts in Traversing">Traversing</a> &gt; <a href="http://api.jquery.com/category/traversing/filtering/" title="View all posts in Filtering">Filtering</a></span>
   
-  				</div>
+
+          </div>
+
 </div>
 <div id="is1" class="entry method">
 <h2 class="jq-clearfix roundTop section-title">
-<span class="name">.is( selector )</span> <span class="returns">Returns: <a class="return" href="http://docs.jquery.com/Types#Boolean">Boolean</a></span>
+<span class="name">.is( selector )</span> <span class="returns">Returns: <a class="return" href="http://api.jquery.com/Types/#Boolean">Boolean</a></span>
 </h2>
 <div class="jq-box roundBottom entry-details">
 <p class="desc"><strong>Description: </strong>Check the current matched set of elements against a selector and return true if at least one of these elements matches the selector.</p>
@@ -21,8 +24,8 @@
 <p class="arguement"><strong>selector</strong>A string containing a selector expression to match elements against.</p>
 </li></ul>
 <div class="longdesc">
-<p>Unlike the other filtering and traversal methods, <code>.is()</code> does not create a new jQuery object. Instead, it allows us to test the contents of a jQuery object without modification. This is often useful inside callbacks, such as event handlers.</p>
-<p>Suppose we have a list, with two of its items containing a child element:</p>
+<p>Unlike the other filtering methods, <code>.is()</code> does not create a new jQuery object. Instead, it allows you to test the contents of a jQuery object without modification. This is often useful inside callbacks, such as event handlers.</p>
+<p>Suppose you have a list, with two of its items containing a child element:</p>
 <pre>
 &lt;ul&gt;
   &lt;li&gt;list &lt;strong&gt;item 1&lt;/strong&gt;&lt;/li&gt;
@@ -30,13 +33,13 @@
   &lt;li&gt;list item 3&lt;/li&gt;
 &lt;/ul&gt;
 </pre>
-<p>We can attach a click handler to the &lt;ul&gt; element, and then limit the code to be triggered only when a list item itself, not one of its children, is clicked:</p>
+<p>You can attach a click handler to the &lt;ul&gt; element, and then limit the code to be triggered only when a list item itself, not one of its children, is clicked:</p>
 <pre>$('ul').click(function(event) {
   if ($(event.target).is('li') ) {
     $(event.target).css('background-color', 'red');
   }
 });</pre>
-<p>Now, when the user clicks on the word list in the first item or anywhere in the third item, the clicked list item will be given a red background. However, when the user clicks on item 1 in the first item or anywhere in the second item, nothing will occur, because in those cases the target of the event would be <code>&lt;strong&gt;</code> or <code>&lt;span&gt;</code>, respectively.
+<p>Now, when the user clicks on the word "list" in the first item or anywhere in the third item, the clicked list item will be given a red background. However, when the user clicks on item 1 in the first item or anywhere in the second item, nothing will occur, because in those cases the target of the event would be <code>&lt;strong&gt;</code> or <code>&lt;span&gt;</code>, respectively.
 </p>
 </div>
 <h3>Examples:</h3>
@@ -57,7 +60,7 @@
   p { color:red; font-weight:bolder; background:yellow; 
       margin:3px; clear:left; display:none; }
   &lt;/style&gt;
-  &lt;script src="http://code.jquery.com/jquery-latest.min.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-1.5.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
   &lt;div&gt;&lt;/div&gt;
@@ -97,7 +100,7 @@
 &lt;html&gt;
 &lt;head&gt;
   &lt;style&gt;div { color:red; }&lt;/style&gt;
-  &lt;script src="http://code.jquery.com/jquery-latest.min.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-1.5.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
   &lt;form&gt;&lt;input type="checkbox" /&gt;&lt;/form&gt;
@@ -105,7 +108,7 @@
   &lt;div&gt;&lt;/div&gt;
 &lt;script&gt;
 
-    var isFormParent = $("input[type='checkbox']").parent().is("form")
+    var isFormParent = $("input[type='checkbox']").parent().is("form");
     $("div").text("isFormParent = " + isFormParent);
 &lt;/script&gt;
 
@@ -121,7 +124,7 @@
 &lt;html&gt;
 &lt;head&gt;
   &lt;style&gt;div { color:red; }&lt;/style&gt;
-  &lt;script src="http://code.jquery.com/jquery-latest.min.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-1.5.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
   &lt;form&gt;&lt;p&gt;&lt;input type="checkbox" /&gt;&lt;/p&gt;&lt;/form&gt;
@@ -141,6 +144,6 @@
 </div>
 </div>
 
-				</div>
+        </div>
 
 </body></html>

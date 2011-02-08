@@ -2,16 +2,19 @@
 <html lang='en'><head><meta http-equiv='content-type' content='text/html; charset=UTF-8' /></head><body>
 <div class="entry-content">
         <div class="entry-title roundTop">
-                    
-				  <h1 class="jq-clearfix">.fadeOut()</h1>
-  				<div class="entry-meta">Categories:
-  					<span class="category"><a href="http://api.jquery.com/category/effects/" title="View all posts in Effects">Effects</a> &gt; <a href="http://api.jquery.com/category/effects/fading/" title="View all posts in Fading">Fading</a></span>
+          
+          <h1 class="jq-clearfix">.fadeOut()</h1>
+          <div class="entry-meta jq-clearfix">
+                        Categories:
+            <span class="category"><a href="http://api.jquery.com/category/effects/" title="View all posts in Effects">Effects</a> &gt; <a href="http://api.jquery.com/category/effects/fading/" title="View all posts in Fading">Fading</a></span>
   
-  				</div>
+
+          </div>
+
 </div>
 <div id="fadeOut1" class="entry method">
 <h2 class="jq-clearfix roundTop section-title">
-<span class="name">.fadeOut( [ duration ], [ callback ] )</span> <span class="returns">Returns: <a class="return" href="http://docs.jquery.com/Types#jQuery">jQuery</a></span>
+<span class="name">.fadeOut( [ duration ], [ callback ] )</span> <span class="returns">Returns: <a class="return" href="http://api.jquery.com/Types/#jQuery">jQuery</a></span>
 </h2>
 <div class="jq-box roundBottom entry-details">
 <p class="desc"><strong>Description: </strong>Hide the matched elements by fading them to transparent.</p>
@@ -62,7 +65,7 @@
   &lt;style&gt;
   p { font-size:150%; cursor:pointer; }
   &lt;/style&gt;
-  &lt;script src="http://code.jquery.com/jquery-latest.min.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-1.5.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
   &lt;p&gt;
@@ -91,7 +94,7 @@
   span.hilite { background:yellow; }
   div { display:inline; color:red; }
   &lt;/style&gt;
-  &lt;script src="http://code.jquery.com/jquery-latest.min.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-1.5.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
   &lt;h3&gt;Find the modifiers - &lt;div&gt;&lt;/div&gt;&lt;/h3&gt;
@@ -122,10 +125,57 @@
 <h4>Demo:</h4>
 <div class="demo code-demo"></div>
 </div>
+<div id="example-2">
+<h4>Example: <span class="desc">Fades out two divs, one with a "linear" easing and one with the default, "swing," easing.</span>
+</h4>
+<pre><code class="example demo-code">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;style&gt;
+.box,
+button { float:left; margin:5px 10px 5px 0; }
+.box { height:80px; width:80px; background:#090; }
+#log { clear:left; }
+
+&lt;/style&gt;
+  &lt;script src="http://code.jquery.com/jquery-1.5.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  
+&lt;button id="btn1"&gt;fade out&lt;/button&gt;
+&lt;button id="btn2"&gt;show&lt;/button&gt;
+
+&lt;div id="log"&gt;&lt;/div&gt;
+
+&lt;div id="box1" class="box"&gt;linear&lt;/div&gt;
+&lt;div id="box2" class="box"&gt;swing&lt;/div&gt;
+
+&lt;script&gt;
+$("#btn1").click(function() {
+  function complete() {
+    $("&lt;div/&gt;").text(this.id).appendTo("#log");
+  }
+  
+  $("#box1").fadeOut(1600, "linear", complete);
+  $("#box2").fadeOut(1600, complete);
+});
+
+$("#btn2").click(function() {
+  $("div").show();
+  $("#log").empty();
+});
+
+&lt;/script&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+<h4>Demo:</h4>
+<div class="demo code-demo"></div>
+</div>
 </div>
 </div>
 </div>
 
-				</div>
+        </div>
 
 </body></html>

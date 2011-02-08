@@ -2,23 +2,26 @@
 <html lang='en'><head><meta http-equiv='content-type' content='text/html; charset=UTF-8' /></head><body>
 <div class="entry-content">
         <div class="entry-title roundTop">
-                    
-				  <h1 class="jq-clearfix">.andSelf()</h1>
-  				<div class="entry-meta">Categories:
-  					<span class="category"><a href="http://api.jquery.com/category/traversing/" title="View all posts in Traversing">Traversing</a> &gt; <a href="http://api.jquery.com/category/traversing/miscellaneous-traversal/" title="View all posts in Miscellaneous Traversing">Miscellaneous Traversing</a></span>
+          
+          <h1 class="jq-clearfix">.andSelf()</h1>
+          <div class="entry-meta jq-clearfix">
+                        Categories:
+            <span class="category"><a href="http://api.jquery.com/category/traversing/" title="View all posts in Traversing">Traversing</a> &gt; <a href="http://api.jquery.com/category/traversing/miscellaneous-traversal/" title="View all posts in Miscellaneous Traversing">Miscellaneous Traversing</a></span>
   
-  				</div>
+
+          </div>
+
 </div>
 <div id="andSelf1" class="entry method">
 <h2 class="jq-clearfix roundTop section-title">
-<span class="name">.andSelf()</span> <span class="returns">Returns: <a class="return" href="http://docs.jquery.com/Types#jQuery">jQuery</a></span>
+<span class="name">.andSelf()</span> <span class="returns">Returns: <a class="return" href="http://api.jquery.com/Types/#jQuery">jQuery</a></span>
 </h2>
 <div class="jq-box roundBottom entry-details">
 <p class="desc"><strong>Description: </strong>Add the previous set of elements on the stack to the current set.</p>
 <ul class="signatures"><li class="signature" id="andSelf"><h4 class="name">
 <span class="versionAdded">version added: <a href="/category/version/1.2/">1.2</a></span>.andSelf()</h4></li></ul>
 <div class="longdesc">
-<p>As described in the discussion for <code>.end()</code> above, jQuery objects maintain an internal stack that keeps track of changes to the matched set of elements. When one of the DOM traversal methods is called, the new set of elements is pushed onto the stack. If the previous set of elements is desired as well, <code>.andSelf()</code> can help.</p>
+<p>As described in the discussion for <code><a href="http://api.jquery.com/end/">.end()</a></code>, jQuery objects maintain an internal stack that keeps track of changes to the matched set of elements. When one of the DOM traversal methods is called, the new set of elements is pushed onto the stack. If the previous set of elements is desired as well, <code>.andSelf()</code> can help.</p>
 <p>Consider a page with a simple list on it:</p>
 <pre>
 &lt;ul&gt;
@@ -29,15 +32,15 @@
    &lt;li&gt;list item 5&lt;/li&gt;
 &lt;/ul&gt;
 </pre>
-<p>If we begin at the third item, we can find the elements which come after it:</p>
+<p>The result of the following code is a red background behind items 3, 4 and 5:</p>
 <pre>$('li.third-item').nextAll().andSelf()
   .css('background-color', 'red');
 </pre>
-<p>The result of this call is a red background behind items 3, 4 and 5. First, the initial selector locates item 3, initializing the stack with the set containing just this item. The call to <code>.nextAll()</code> then pushes the set of items 4 and 5 onto the stack. Finally, the <code>.andSelf()</code> invocation merges these two sets together, creating a jQuery object that points to all three items in document order: <code>{[&lt;li.third-item&gt;,&lt;li&gt;,&lt;li&gt; ]}</code>.</p>
+<p>First, the initial selector locates item 3, initializing the stack with the set containing just this item. The call to <code>.nextAll()</code> then pushes the set of items 4 and 5 onto the stack. Finally, the <code>.andSelf()</code> invocation merges these two sets together, creating a jQuery object that points to all three items in document order: <code>{[&lt;li.third-item&gt;,&lt;li&gt;,&lt;li&gt; ]}</code>.</p>
 </div>
 <h3>Example:</h3>
 <div class="entry-examples" id="entry-examples"><div id="example-0">
-<h4><span class="desc">Find all divs, and all the paragraphs inside of them, and give them both classnames.  Notice the div doesn't have the yellow background color since it didn't use andSelf.</span></h4>
+<h4><span class="desc">Find all divs, and all the paragraphs inside of them, and give them both class names.  Notice the div doesn't have the yellow background color since it didn't use .andSelf().</span></h4>
 <pre><code class="example demo-code">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;
@@ -46,7 +49,7 @@
   .border { border: 2px solid red; }
   .background { background:yellow; }
   &lt;/style&gt;
-  &lt;script src="http://code.jquery.com/jquery-latest.min.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-1.5.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
   &lt;div&gt;
@@ -67,6 +70,6 @@
 </div>
 </div>
 
-				</div>
+        </div>
 
 </body></html>

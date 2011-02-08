@@ -2,16 +2,19 @@
 <html lang='en'><head><meta http-equiv='content-type' content='text/html; charset=UTF-8' /></head><body>
 <div class="entry-content">
         <div class="entry-title roundTop">
-                    
-				  <h1 class="jq-clearfix">jQuery.data()</h1>
-  				<div class="entry-meta">Categories:
-  					<span class="category"><a href="http://api.jquery.com/category/data/" title="View all posts in Data">Data</a></span> | <span class="category"><a href="http://api.jquery.com/category/utilities/" title="View all posts in Utilities">Utilities</a></span>
+          
+          <h1 class="jq-clearfix">jQuery.data()</h1>
+          <div class="entry-meta jq-clearfix">
+                        Categories:
+            <span class="category"><a href="http://api.jquery.com/category/data/" title="View all posts in Data">Data</a></span> | <span class="category"><a href="http://api.jquery.com/category/utilities/" title="View all posts in Utilities">Utilities</a></span>
   
-  				</div>
+
+          </div>
+
 </div>
 
-<fieldset class="toc">
-<legend>Contents:</legend>
+<div class="toc">
+<h4><span>Contents:</span></h4>
 <ul class="toc-list">
 <li>
 <a href="#jQuery-data1">jQuery.data( element, key, value ) </a><ul><li>jQuery.data( element, key, value )
@@ -26,10 +29,10 @@
 </ul>
 </li>
 </ul>
-</fieldset>
+</div>
 <div id="jQuery-data1" class="entry method">
 <h2 class="jq-clearfix roundTop section-title">
-<span class="name">jQuery.data( element, key, value )</span> <span class="returns">Returns: <a class="return" href="http://docs.jquery.com/Types#jQuery">jQuery</a></span>
+<span class="name">jQuery.data( element, key, value )</span> <span class="returns">Returns: <a class="return" href="http://api.jquery.com/Types/#jQuery">jQuery</a></span>
 </h2>
 <div class="jq-box roundBottom entry-details">
 <p class="desc"><strong>Description: </strong>Store arbitrary data associated with the specified element.</p>
@@ -43,8 +46,10 @@
 <div class="longdesc">
 <p><strong>Note:</strong> This is a low-level method; a more convenient <code><a href="/data">.data()</a></code> is also available.</p>
 <p>The <code>jQuery.data()</code> method allows us to attach data of any type to DOM elements in a way that is safe from circular references and therefore free from memory leaks. jQuery ensures that the data is removed when DOM elements are removed via jQuery methods, and when the user leaves the page. We can set several distinct values for a single element and retrieve them later:</p>
-<pre>jQuery.data(document.body, 'foo', 52);
-		jQuery.data(document.body, 'bar', 'test');</pre>
+<pre>
+jQuery.data(document.body, 'foo', 52);
+jQuery.data(document.body, 'bar', 'test');
+</pre>
 </div>
 <h3 id="notes-0">Additional Notes:</h3>
 <div class="longdesc"><ul><li>Note that this method currently does not provide cross-platform support for setting data on XML documents, as Internet Explorer does not allow data to be attached via expando properties.</li></ul></div>
@@ -58,7 +63,7 @@
   div { color:blue; }
   span { color:red; }
   &lt;/style&gt;
-  &lt;script src="http://code.jquery.com/jquery-latest.min.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-1.5.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
   &lt;div&gt;
@@ -81,7 +86,7 @@
 </div>
 <div id="jQuery-data2" class="entry method">
 <h2 class="jq-clearfix roundTop section-title">
-<span class="name">jQuery.data( element, key )</span> <span class="returns">Returns: <a class="return" href="http://docs.jquery.com/Types#Object">Object</a></span>
+<span class="name">jQuery.data( element, key )</span> <span class="returns">Returns: <a class="return" href="http://api.jquery.com/Types/#Object">Object</a></span>
 </h2>
 <div class="jq-box roundBottom entry-details">
 <p class="desc"><strong>Description: </strong>Returns value at named data store for the element, as set by jQuery.data(element, name, value), or the full data store for the element.</p>
@@ -105,15 +110,6 @@
 alert(jQuery.data( document.body ));</pre>
 <p>The above lines alert the data values that were set on the <code>body</code> element. If nothing was set on that element, an empty string is returned.</p>
 <p>Calling <code>jQuery.data(element)</code> retrieves all of the element's associated values as a JavaScript object. Note that jQuery itself uses this method to store data for internal use, such as event handlers, so do not assume that it contains only data that your own code has stored.</p>
-<p><strong>HTML 5 data- Attributes</strong></p>
-<p>As of jQuery 1.4.3 <a href="http://ejohn.org/blog/html-5-data-attributes/">HTML 5 data- attributes</a> will be automatically pulled in to jQuery's data object.</p>
-<p>For example, given the following HTML:</p>
-<pre>&lt;div data-role="page" data-hidden="true" data-options='{"name":"John"}'&gt;&lt;/div&gt;</pre>
-<p>All of the following jQuery code will work.</p>
-<pre>$("div").data("role") === "page";
-$("div").data("hidden") === true;
-$("div").data("options").name === "John";</pre>
-<p>Note that strings are left intact while JavaScript values are converted to their associated value (this includes booleans, numbers, objects, arrays, and null). The data- attributes are pulled in the first time the data property is accessed and then are no longer accessed or mutated (all data values are then stored internally in jQuery).</p>
 </div>
 <h3 id="notes-1">Additional Notes:</h3>
 <div class="longdesc"><ul><li>Note that this method currently does not provide cross-platform support for setting data on XML documents, as Internet Explorer does not allow data to be attached via expando properties.</li></ul></div>
@@ -129,7 +125,7 @@ button { margin:5px; font-size:14px; }
 p { margin:5px; color:blue; }
 span { color:red; }
   &lt;/style&gt;
-  &lt;script src="http://code.jquery.com/jquery-latest.min.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-1.5.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
   &lt;div&gt;A div&lt;/div&gt;
@@ -175,6 +171,6 @@ $("button").click(function(e) {
 </div>
 
 
-				</div>
+        </div>
 
 </body></html>

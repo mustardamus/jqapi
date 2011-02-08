@@ -2,16 +2,19 @@
 <html lang='en'><head><meta http-equiv='content-type' content='text/html; charset=UTF-8' /></head><body>
 <div class="entry-content">
         <div class="entry-title roundTop">
-                    
-				  <h1 class="jq-clearfix">.die()</h1>
-  				<div class="entry-meta">Categories:
-  					<span class="category"><a href="http://api.jquery.com/category/events/" title="View all posts in Events">Events</a> &gt; <a href="http://api.jquery.com/category/events/event-handler-attachment/" title="View all posts in Event Handler Attachment">Event Handler Attachment</a></span>
+          
+          <h1 class="jq-clearfix">.die()</h1>
+          <div class="entry-meta jq-clearfix">
+                        Categories:
+            <span class="category"><a href="http://api.jquery.com/category/events/" title="View all posts in Events">Events</a> &gt; <a href="http://api.jquery.com/category/events/event-handler-attachment/" title="View all posts in Event Handler Attachment">Event Handler Attachment</a></span>
   
-  				</div>
+
+          </div>
+
 </div>
 
-<fieldset class="toc">
-<legend>Contents:</legend>
+<div class="toc">
+<h4><span>Contents:</span></h4>
 <ul class="toc-list">
 <li>
 <a href="#die1">die() </a><ul><li>.die()
@@ -22,10 +25,10 @@
               </li></ul>
 </li>
 </ul>
-</fieldset>
+</div>
 <div id="die1" class="entry method">
 <h2 class="jq-clearfix roundTop section-title">
-<span class="name">.die()</span> <span class="returns">Returns: <a class="return" href="http://docs.jquery.com/Types#jQuery">jQuery</a></span>
+<span class="name">.die()</span> <span class="returns">Returns: <a class="return" href="http://api.jquery.com/Types/#jQuery">jQuery</a></span>
 </h2>
 <div class="jq-box roundBottom entry-details">
 <p class="desc"><strong>Description: </strong>Remove all event handlers previously attached using .live() from the elements.</p>
@@ -37,7 +40,7 @@ See the discussions of <code>.live()</code> and <code>.unbind()</code> for furth
 </div>
 <div id="die2" class="entry method">
 <h2 class="jq-clearfix roundTop section-title">
-<span class="name">.die( eventType, [ handler ] )</span> <span class="returns">Returns: <a class="return" href="http://docs.jquery.com/Types#jQuery">jQuery</a></span>
+<span class="name">.die( eventType, [ handler ] )</span> <span class="returns">Returns: <a class="return" href="http://api.jquery.com/Types/#jQuery">jQuery</a></span>
 </h2>
 <div class="jq-box roundBottom entry-details">
 <p class="desc"><strong>Description: </strong>Remove an event handler previously attached using .live() from the elements.</p>
@@ -61,7 +64,7 @@ See the discussions of <code>.live()</code> and <code>.unbind()</code> for furth
 button { margin:5px; }
 button#theone { color:red; background:yellow; }
 &lt;/style&gt;
-  &lt;script src="http://code.jquery.com/jquery-latest.min.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-1.5.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
   &lt;button id="theone"&gt;Does nothing...&lt;/button&gt;
@@ -116,6 +119,6 @@ $("p").die("click", foo); // ... foo will no longer be called.</code></pre>
 </div>
 
 
-				</div>
+        </div>
 
 </body></html>

@@ -2,16 +2,19 @@
 <html lang='en'><head><meta http-equiv='content-type' content='text/html; charset=UTF-8' /></head><body>
 <div class="entry-content">
         <div class="entry-title roundTop">
-                    
-				  <h1 class="jq-clearfix">.delay()</h1>
-  				<div class="entry-meta">Categories:
-  					<span class="category"><a href="http://api.jquery.com/category/effects/" title="View all posts in Effects">Effects</a> &gt; <a href="http://api.jquery.com/category/effects/custom-effects/" title="View all posts in Custom">Custom</a></span>
+          
+          <h1 class="jq-clearfix">.delay()</h1>
+          <div class="entry-meta jq-clearfix">
+                        Categories:
+            <span class="category"><a href="http://api.jquery.com/category/effects/" title="View all posts in Effects">Effects</a> &gt; <a href="http://api.jquery.com/category/effects/custom-effects/" title="View all posts in Custom">Custom</a></span>
   
-  				</div>
+
+          </div>
+
 </div>
 <div id="delay1" class="entry method">
 <h2 class="jq-clearfix roundTop section-title">
-<span class="name">.delay( duration, [ queueName ] )</span> <span class="returns">Returns: <a class="return" href="http://docs.jquery.com/Types#jQuery">jQuery</a></span>
+<span class="name">.delay( duration, [ queueName ] )</span> <span class="returns">Returns: <a class="return" href="http://api.jquery.com/Types/#jQuery">jQuery</a></span>
 </h2>
 <div class="jq-box roundBottom entry-details">
 <p class="desc"><strong>Description: </strong>Set a timer to delay execution of subsequent items in the queue.</p>
@@ -22,12 +25,12 @@
 <p class="arguement"><strong>queueName</strong>A string containing the name of the queue. Defaults to <code>fx</code>, the standard effects queue.</p>
 </li></ul>
 <div class="longdesc">
-<p>Added to jQuery in version 1.4, the <code>.delay()</code> method allows us to delay the execution of functions that follow it in the queue. It can be used with the standard effects queue or with a custom queue. </p>
+<p>Added to jQuery in version 1.4, the <code>.delay()</code> method allows us to delay the execution of functions that follow it in the queue. It can be used with the standard effects queue or with a custom queue. Only subsequent events in a queue are delayed; for example this will <em>not</em> delay the no-arguments forms of <code>.show()</code> or <code>.hide()</code>  which do not use the effects queue.</p>
 <p>Durations are given in milliseconds; higher values indicate slower animations, not faster ones. The strings <code>'fast'</code> and <code>'slow'</code> can be supplied to indicate durations of 200 and 600 milliseconds, respectively.</p>
 <p>Using the standard effects queue, we can, for example, set an 800-millisecond delay between the <code>.slideUp()</code> and <code>.fadeIn()</code> of <code>&lt;div id="foo"&gt;</code>:</p>
 <pre>$('#foo').slideUp(300).delay(800).fadeIn(400);</pre>
 <p>When this statement is executed, the element slides up for 300 milliseconds and then pauses for 800 milliseconds before fading in for 400 milliseconds.</p>
-<p><strong>jQuery.delay() is best for delaying between queued jQuery effects and such, and is not a replacement for JavaScript's native <a href="https://developer.mozilla.org/en/DOM/window.setTimeout">setTimeout</a> function, which may be more appropriate for certain use cases.</strong></p>
+<blockquote><p><strong>The <code>.delay()</code> method is best for delaying between queued jQuery effects. Because it is limited—it doesn't, for example, offer a way to cancel the delay—<code>.delay()</code> is not a replacement for JavaScript's native <a href="https://developer.mozilla.org/en/DOM/window.setTimeout">setTimeout</a> function, which may be more appropriate for certain use cases.</strong></p></blockquote>
 </div>
 <h3>Example:</h3>
 <div class="entry-examples" id="entry-examples"><div id="example-0">
@@ -40,7 +43,7 @@ div { width: 60px; height: 60px; float: left; }
 .first { background-color: #3f3; }
 .second { background-color: #33f;}
 &lt;/style&gt;
-  &lt;script src="http://code.jquery.com/jquery-latest.min.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-1.5.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
   
@@ -63,6 +66,6 @@ div { width: 60px; height: 60px; float: left; }
 </div>
 </div>
 
-				</div>
+        </div>
 
 </body></html>

@@ -2,16 +2,19 @@
 <html lang='en'><head><meta http-equiv='content-type' content='text/html; charset=UTF-8' /></head><body>
 <div class="entry-content">
         <div class="entry-title roundTop">
-                    
-				  <h1 class="jq-clearfix">.val()</h1>
-  				<div class="entry-meta">Categories:
-  					<span class="category"><a href="http://api.jquery.com/category/attributes/" title="View all posts in Attributes">Attributes</a></span> | <span class="category"><a href="http://api.jquery.com/category/forms/" title="View all posts in Forms">Forms</a></span> | <span class="category"><a href="http://api.jquery.com/category/manipulation/" title="View all posts in Manipulation">Manipulation</a> &gt; <a href="http://api.jquery.com/category/manipulation/general-attributes/" title="View all posts in General Attributes">General Attributes</a></span>
+          
+          <h1 class="jq-clearfix">.val()</h1>
+          <div class="entry-meta jq-clearfix">
+                        Categories:
+            <span class="category"><a href="http://api.jquery.com/category/attributes/" title="View all posts in Attributes">Attributes</a></span> | <span class="category"><a href="http://api.jquery.com/category/forms/" title="View all posts in Forms">Forms</a></span> | <span class="category"><a href="http://api.jquery.com/category/manipulation/" title="View all posts in Manipulation">Manipulation</a> &gt; <a href="http://api.jquery.com/category/manipulation/general-attributes/" title="View all posts in General Attributes">General Attributes</a></span>
   
-  				</div>
+
+          </div>
+
 </div>
 
-<fieldset class="toc">
-<legend>Contents:</legend>
+<div class="toc">
+<h4><span>Contents:</span></h4>
 <ul class="toc-list">
 <li>
 <a href="#val1">val() </a><ul><li>.val()
@@ -26,10 +29,10 @@
 </ul>
 </li>
 </ul>
-</fieldset>
+</div>
 <div id="val1" class="entry method">
 <h2 class="jq-clearfix roundTop section-title">
-<span class="name">.val()</span> <span class="returns">Returns: <a class="return" href="http://docs.jquery.com/Types#String,%20Array">String, Array</a></span>
+<span class="name">.val()</span> <span class="returns">Returns: <a class="return" href="http://api.jquery.com/Types/#String,%20Array">String, Array</a></span>
 </h2>
 <div class="jq-box roundBottom entry-details">
 <p class="desc"><strong>Description: </strong>Get the current value of the first element in the set of matched elements.</p>
@@ -55,7 +58,7 @@ $('input:radio[name=bar]:checked').val(); // get the value from a set of radio b
   p { color:red; margin:4px; }
   b { color:blue; }
   &lt;/style&gt;
-  &lt;script src="http://code.jquery.com/jquery-latest.min.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-1.5.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
   &lt;p&gt;&lt;/p&gt;
@@ -100,7 +103,7 @@ $('input:radio[name=bar]:checked').val(); // get the value from a set of radio b
 
   p { color:blue; margin:8px; }
   &lt;/style&gt;
-  &lt;script src="http://code.jquery.com/jquery-latest.min.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-1.5.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
   &lt;input type="text" value="some text"/&gt;
@@ -122,7 +125,7 @@ $('input:radio[name=bar]:checked').val(); // get the value from a set of radio b
 </div>
 <div id="val2" class="entry method">
 <h2 class="jq-clearfix roundTop section-title">
-<span class="name">.val( value )</span> <span class="returns">Returns: <a class="return" href="http://docs.jquery.com/Types#jQuery">jQuery</a></span>
+<span class="name">.val( value )</span> <span class="returns">Returns: <a class="return" href="http://api.jquery.com/Types/#jQuery">jQuery</a></span>
 </h2>
 <div class="jq-box roundBottom entry-details">
 <p class="desc"><strong>Description: </strong>Set the value of each element in the set of matched elements.</p>
@@ -130,7 +133,7 @@ $('input:radio[name=bar]:checked').val(); // get the value from a set of radio b
 <li class="signature" id="val-value">
 <h4 class="name">
 <span class="versionAdded">version added: <a href="/category/version/1.0/">1.0</a></span>.val( value )</h4>
-<p class="arguement"><strong>value</strong>A string of text or an array of strings to set as the value property of each matched element.</p>
+<p class="arguement"><strong>value</strong>A string of text or an array of strings corresponding to the value of each matched element to set as selected/checked.</p>
 </li>
 <li class="signature" id="val-functionindex- value">
 <h4 class="name">
@@ -139,7 +142,8 @@ $('input:radio[name=bar]:checked').val(); // get the value from a set of radio b
 </li>
 </ul>
 <div class="longdesc">
-<p>This method is typically used to set the values of form fields. For <code>&lt;select multiple="multiple"&gt;</code> elements, multiple <code>&lt;option&gt;</code>s can be selected by passing in an array.</p>
+<p>This method is typically used to set the values of form fields. </p>
+<p>Passing an array of element values allows matching  <code>&lt;input type="checkbox"&gt;</code>, <code>&lt;input type="radio"&gt;</code> and <code>&lt;option&gt;</code>s inside of n <code>&lt;select multiple="multiple"&gt;</code> to be selected. In the case of <code>&lt;input type="radio"&gt;</code>s that are part of a radio group and <code>&lt;select multiple="multiple"&gt;</code> the other elements will be deselected.</p>
 <p>The <code>.val()</code> method allows us to set the value by passing in a function. As of jQuery 1.4, the function is passed two arguments, the current element's index and its current value: </p>
 <pre>$('input:text.items').val(function(index, value) {
   return value + ' ' + this.className;
@@ -159,7 +163,7 @@ $('input:radio[name=bar]:checked').val(); // get the value from a set of radio b
   button { margin:4px; cursor:pointer; }
   input { margin:4px; color:blue; }
   &lt;/style&gt;
-  &lt;script src="http://code.jquery.com/jquery-latest.min.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-1.5.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
   &lt;div&gt;
@@ -182,7 +186,35 @@ $('input:radio[name=bar]:checked').val(); // get the value from a set of radio b
 <div class="demo code-demo"></div>
 </div>
 <div id="example-1-1">
-<h4>Example: <span class="desc">Set a single select and a multiple select .</span>
+<h4>Example: <span class="desc">Use the function argument to modify the value of an input box.</span>
+</h4>
+<pre><code class="example demo-code">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;script src="http://code.jquery.com/jquery-1.5.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  
+  &lt;p&gt;Type something and then click or tab out of the input.&lt;/p&gt;
+  &lt;input type="text" value="type something" /&gt;
+
+&lt;script&gt;
+  $('input').bind('blur', function() {
+      
+    $(this).val(function(i, val) {
+      return val.toUpperCase();
+    });
+    
+  });
+  &lt;/script&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+<h4>Demo:</h4>
+<div class="demo code-demo"></div>
+</div>
+<div id="example-1-2">
+<h4>Example: <span class="desc">Set a single select, a multiple select, checkboxes and a radio button .</span>
 </h4>
 <pre><code class="example demo-code">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
@@ -190,7 +222,7 @@ $('input:radio[name=bar]:checked').val(); // get the value from a set of radio b
   &lt;style&gt;
   body { color:blue; }
   &lt;/style&gt;
-  &lt;script src="http://code.jquery.com/jquery-latest.min.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-1.5.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
   &lt;select id="single"&gt;
@@ -209,9 +241,9 @@ $('input:radio[name=bar]:checked').val(); // get the value from a set of radio b
   &lt;input type="radio"  name="r" value="radio1"/&gt; radio1
   &lt;input type="radio"  name="r" value="radio2"/&gt; radio2
 &lt;script&gt;
-
+    
     $("#single").val("Single2");
-    $("#multiple").val(["Multiple2", "Multiple3"]);
+    $("#multiple").val(["Multiple2", "Multiple3"]); 
     $("input").val(["check1","check2", "radio1" ]);
 
 &lt;/script&gt;
@@ -226,6 +258,6 @@ $('input:radio[name=bar]:checked').val(); // get the value from a set of radio b
 </div>
 
 
-				</div>
+        </div>
 
 </body></html>

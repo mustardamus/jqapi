@@ -2,19 +2,22 @@
 <html lang='en'><head><meta http-equiv='content-type' content='text/html; charset=UTF-8' /></head><body>
 <div class="entry-content">
         <div class="entry-title roundTop">
-                    
-				  <h1 class="jq-clearfix">:eq() Selector</h1>
-  				<div class="entry-meta">Categories:
-  					<span class="category"><a href="http://api.jquery.com/category/selectors/" title="View all posts in Selectors">Selectors</a> &gt; <a href="http://api.jquery.com/category/selectors/basic-filter-selectors/" title="View all posts in Basic Filter">Basic Filter</a></span>
+          
+          <h1 class="jq-clearfix">:eq() Selector</h1>
+          <div class="entry-meta jq-clearfix">
+                        Categories:
+            <span class="category"><a href="http://api.jquery.com/category/selectors/" title="View all posts in Selectors">Selectors</a> &gt; <a href="http://api.jquery.com/category/selectors/basic-filter-selectors/" title="View all posts in Basic Filter">Basic Filter</a></span>
   
-  				</div>
+
+          </div>
+
 </div>
 <div id="eq1" class="entry selector">
 <h2 class="jq-clearfix roundTop section-title">
 <span class="name">eq</span>  selector</h2>
 <div class="jq-box roundBottom entry-details">
 <h4 class="name">
-<span class="versionAdded">version added: <a href="/version/1.0/">1.0</a></span>jQuery(':eq(index)')</h4>
+<span class="versionAdded">version added: <a href="/category/version/1.0/">1.0</a></span>jQuery(':eq(index)')</h4>
 <ul class="signatures"><li><dl class="arguments">
 <dt>index</dt>
 <dd>Zero-based index of the element to match.</dd>
@@ -23,6 +26,7 @@
 <div class="longdesc">
 <p>The index-related selectors (<code>:eq()</code>, <code>:lt()</code>, <code>:gt()</code>, <code>:even</code>, <code>:odd</code>) filter the set of elements that have matched the expressions that precede them. They narrow the set down based on the order of the elements within this matched set. For example, if elements are first selected with a class selector (<code>.myclass</code>) and four elements are returned, these elements are given indices <code>0</code> through <code>3</code> for the purposes of these selectors.</p>
 <p>Note that since JavaScript arrays use <em>0-based indexing</em>, these selectors reflect that fact. This is why <code>$('.myclass:eq(1)')</code> selects the second element in the document with the class myclass, rather than the first. In contrast, <code>:nth-child(n)</code> uses <em>1-based indexing</em> to conform to the CSS specification.</p>
+<p>Unlike the <a href="http://api.jquery.com/eq/"><code>.eq(index)</code></a> method, the <code>:eq(index)</code> selector does <em>not</em> accept a negative value for <code>index</code>. For example, while <code>$('li').eq(-1)</code> selects the last <code>li</code> element, <code>$('li:eq(-1)')</code> selects nothing.</p>
 </div>
 <h3>Example:</h3>
 <div class="entry-examples" id="entry-examples"><div id="example-0">
@@ -30,7 +34,7 @@
 <pre><code class="example demo-code">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;
-  &lt;script src="http://code.jquery.com/jquery-latest.min.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-1.5.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
   &lt;table border="1"&gt;
@@ -48,6 +52,6 @@
 </div>
 </div>
 
-				</div>
+        </div>
 
 </body></html>

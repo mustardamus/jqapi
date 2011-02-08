@@ -2,23 +2,26 @@
 <html lang='en'><head><meta http-equiv='content-type' content='text/html; charset=UTF-8' /></head><body>
 <div class="entry-content">
         <div class="entry-title roundTop">
-                    
-				  <h1 class="jq-clearfix">.unbind()</h1>
-  				<div class="entry-meta">Categories:
-  					<span class="category"><a href="http://api.jquery.com/category/events/" title="View all posts in Events">Events</a> &gt; <a href="http://api.jquery.com/category/events/event-handler-attachment/" title="View all posts in Event Handler Attachment">Event Handler Attachment</a></span>
+          
+          <h1 class="jq-clearfix">.unbind()</h1>
+          <div class="entry-meta jq-clearfix">
+                        Categories:
+            <span class="category"><a href="http://api.jquery.com/category/events/" title="View all posts in Events">Events</a> &gt; <a href="http://api.jquery.com/category/events/event-handler-attachment/" title="View all posts in Event Handler Attachment">Event Handler Attachment</a></span>
   
-  				</div>
+
+          </div>
+
 </div>
 <div id="unbind1" class="entry method">
 <h2 class="jq-clearfix roundTop section-title">
-<span class="name">.unbind( eventType, handler(eventObject) )</span> <span class="returns">Returns: <a class="return" href="http://docs.jquery.com/Types#jQuery">jQuery</a></span>
+<span class="name">.unbind( [ eventType ], [ handler(eventObject) ] )</span> <span class="returns">Returns: <a class="return" href="http://api.jquery.com/Types/#jQuery">jQuery</a></span>
 </h2>
 <div class="jq-box roundBottom entry-details">
 <p class="desc"><strong>Description: </strong>Remove a previously-attached event handler from the elements.</p>
 <ul class="signatures">
 <li class="signature" id="unbind-eventType-handlereventObject">
 <h4 class="name">
-<span class="versionAdded">version added: <a href="/category/version/1.0/">1.0</a></span>.unbind( eventType, handler(eventObject) )</h4>
+<span class="versionAdded">version added: <a href="/category/version/1.0/">1.0</a></span>.unbind( [ eventType ], [ handler(eventObject) ] )</h4>
 <p class="arguement"><strong>eventType</strong>A string containing a JavaScript event type, such as <code>click</code> or <code>submit</code>.</p>
 <p class="arguement"><strong>handler(eventObject)</strong>The function that is to be no longer executed.</p>
 </li>
@@ -26,7 +29,7 @@
 <h4 class="name">
 <span class="versionAdded">version added: <a href="/category/version/1.4.3/">1.4.3</a></span>.unbind( eventType, false )</h4>
 <p class="arguement"><strong>eventType</strong>A string containing a JavaScript event type, such as <code>click</code> or <code>submit</code>.</p>
-<p class="arguement"><strong>false</strong>Unbinds the corresponding 'return false' function that was bound using .bind( eventName, false ).</p>
+<p class="arguement"><strong>false</strong>Unbinds the corresponding 'return false' function that was bound using <code>.bind( eventType, false )</code>.</p>
 </li>
 <li class="signature" id="unbind-event">
 <h4 class="name">
@@ -51,6 +54,7 @@ $('#foo').unbind('click', handler);
   alert('The quick brown fox jumps over the lazy dog.');
 });
 
+// will NOT work
 $('#foo').unbind('click', function() {
   alert('The quick brown fox jumps over the lazy dog.');
 });</pre>
@@ -70,7 +74,7 @@ $('#foo').unbind('click', function() {
 <pre>$('#foo').unbind('.myEvents');</pre>
 <p>It is particularly useful to attach namespaces to event bindings when we are developing plug-ins or otherwise writing code that may interact with other event-handling code in the future.</p>
 <h4>Using the Event Object</h4>
-<p>The second form of the <code>.unbind()</code> method is used when we wish to unbind a handler from within itself. For example, suppose we wish to trigger an event handler only three times:</p>
+<p>The third form of the <code>.unbind()</code> method is used when we wish to unbind a handler from within itself. For example, suppose we wish to trigger an event handler only three times:</p>
 <pre>var timesClicked = 0;
 $('#foo').bind('click', function(event) {
   alert('The quick brown fox jumps over the lazy dog.');
@@ -95,7 +99,7 @@ This example is also an illustration of a closure. Since the handler refers to t
 button { margin:5px; }
 button#theone { color:red; background:yellow; }
 &lt;/style&gt;
-  &lt;script src="http://code.jquery.com/jquery-latest.min.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-1.5.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
   &lt;button id="theone"&gt;Does nothing...&lt;/button&gt;
@@ -150,6 +154,6 @@ $("p").unbind("click", foo); // ... foo will no longer be called.</code></pre>
 </div>
 </div>
 
-				</div>
+        </div>
 
 </body></html>
