@@ -134,7 +134,7 @@ $('#bar').bind('click', {msg: message}, function(event) {
 <div id="example-0">
 <h4>Example: <span class="desc">Handle click and double-click for the paragraph.  Note: the coordinates are window relative, so in this case relative to the demo iframe.</span>
 </h4>
-<pre><code class="example demo-code">&lt;!DOCTYPE html&gt;
+<pre class="prettyprint"><code class="example demo-code">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;
   &lt;style&gt;
@@ -170,14 +170,14 @@ $(this).toggleClass("over");
 <div id="example-1">
 <h4>Example: <span class="desc">To display each paragraph's text in an alert box whenever it is clicked:</span>
 </h4>
-<pre><code class="example">$("p").bind("click", function(){
+<pre class="prettyprint"><code class="example">$("p").bind("click", function(){
 alert( $(this).text() );
 });</code></pre>
 </div>
 <div id="example-2">
 <h4>Example: <span class="desc">You can pass some extra data before the event handler:</span>
 </h4>
-<pre><code class="example">function handler(event) {
+<pre class="prettyprint"><code class="example">function handler(event) {
 alert(event.data.foo);
 }
 $("p").bind("click", {foo: "bar"}, handler)</code></pre>
@@ -185,26 +185,26 @@ $("p").bind("click", {foo: "bar"}, handler)</code></pre>
 <div id="example-3">
 <h4>Example: <span class="desc">Cancel a default action and prevent it from bubbling up by returning false:</span>
 </h4>
-<pre><code class="example">$("form").bind("submit", function() { return false; })</code></pre>
+<pre class="prettyprint"><code class="example">$("form").bind("submit", function() { return false; })</code></pre>
 </div>
 <div id="example-4">
 <h4>Example: <span class="desc">Cancel only the default action by using the .preventDefault() method.</span>
 </h4>
-<pre><code class="example">$("form").bind("submit", function(event) {
+<pre class="prettyprint"><code class="example">$("form").bind("submit", function(event) {
 event.preventDefault();
 });</code></pre>
 </div>
 <div id="example-5">
 <h4>Example: <span class="desc">Stop an event from bubbling without preventing the default action by using the .stopPropagation() method.</span>
 </h4>
-<pre><code class="example">$("form").bind("submit", function(event) {
+<pre class="prettyprint"><code class="example">$("form").bind("submit", function(event) {
   event.stopPropagation();
 });</code></pre>
 </div>
 <div id="example-6">
 <h4>Example: <span class="desc">Bind custom events.</span>
 </h4>
-<pre><code class="example demo-code">&lt;!DOCTYPE html&gt;
+<pre class="prettyprint"><code class="example demo-code">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;
   &lt;style&gt;
@@ -239,7 +239,7 @@ $("p").trigger("myCustomEvent", [ "John" ]);
 <div id="example-7">
 <h4>Example: <span class="desc">Bind multiple events simultaneously.</span>
 </h4>
-<pre><code class="example">$("div.test").bind({
+<pre class="prettyprint"><code class="example">$("div.test").bind({
   click: function(){
     $(this).addClass("active");
   },

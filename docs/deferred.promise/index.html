@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang='en'><head><meta http-equiv='content-type' content='text/html; charset=UTF-8' /></head><body>
+<div class="entry-content">
+        <div class="entry-title roundTop">
+          
+          <h1 class="jq-clearfix">deferred.promise()</h1>
+          <div class="entry-meta jq-clearfix">
+                        Categories:
+            <span class="category"><a href="http://api.jquery.com/category/deferred-object/" title="View all posts in Deferred Object">Deferred Object</a></span>
+  
+
+          </div>
+
+</div>
+<div id="deferred-promise1" class="entry method">
+<h2 class="jq-clearfix roundTop section-title">
+<span class="name">deferred.promise()</span> <span class="returns">Returns: <a class="return" href="http://api.jquery.com/Types/#Promise">Promise</a></span>
+</h2>
+<div class="jq-box roundBottom entry-details">
+<p class="desc"><strong>Description: </strong> Return a Deferred's Promise object. </p>
+<ul class="signatures"><li class="signature" id="deferred-promise"><h4 class="name">
+<span class="versionAdded">version added: <a href="/category/version/1.5/">1.5</a></span>deferred.promise()</h4></li></ul>
+<div class="longdesc">
+<p>The <code>deferred.promise()</code> method allows an asynchronous function to prevent other code from interfering with the progress or status of its internal request. The Promise exposes only the Deferred methods needed to attach additional handlers or determine the state (<code>then</code>, <code>done</code>, <code>fail</code>, <code>isResolved</code>, and <code>isRejected</code>), but not ones that change the state (<code>resolve</code>, <code>reject</code>, <code>resolveWith</code>, and <code>rejectWith</code>). </p>
+<p>If you are creating a Deferred, keep a reference to the Deferred so that it can be resolved or rejected at some point. Return <em>only</em> the Promise object via <code>deferred.promise()</code> so other code can register callbacks or inspect the current state.</p>
+<p>For more information, see the documentation for <a href="/category/deferred-object/">Deferred object</a>.</p>
+</div>
+<h3>Example:</h3>
+<div class="entry-examples" id="entry-examples"><div id="example-0">
+<h4><span class="desc">This test creates a Deferred and sets two timer-based functions to either resolve or reject the Deferred after a random interval. Whichever one fires first "wins" and will call one of the callbacks. The second timeout has no effect since the Deferred is already complete (in a resolved or rejected state) from the first timeout action.</span></h4>
+<pre class="prettyprint"><code class="example">// Create a Deferred and return its Promise
+function asyncEvent(){
+    var dfd = new jQuery.Deferred();
+    setTimeout(function(){
+        dfd.resolve("hurray");
+    }, Math.floor(Math.random()*1500));
+    setTimeout(function(){
+        dfd.reject("sorry");
+    }, Math.floor(Math.random()*1500));
+    return dfd.promise();
+}
+
+// Attach a done and fail handler for the asyncEvent
+$.when( asyncEvent() ).then(
+    function(status){
+        alert( status+', things are going well' );
+    },
+    function(status){
+        alert( status+', you fail this time' );
+    }
+);
+</code></pre>
+</div></div>
+</div>
+</div>
+
+        </div>
+
+</body></html>

@@ -71,9 +71,9 @@
 </p>
 <pre>$('#foo').toggle(showOrHide);</pre>
 <p>is equivalent to:</p>
-<pre>if (showOrHide) {
+<pre>if ( showOrHide == true ) {
   $('#foo').show();
-} else {
+} else if ( showOrHide == false ) {
   $('#foo').hide();
 }
 </pre>
@@ -85,7 +85,7 @@
 <div id="example-0">
 <h4>Example: <span class="desc">Toggles all paragraphs.</span>
 </h4>
-<pre><code class="example demo-code">&lt;!DOCTYPE html&gt;
+<pre class="prettyprint"><code class="example demo-code">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;
   &lt;script src="http://code.jquery.com/jquery-1.5.js"&gt;&lt;/script&gt;
@@ -109,7 +109,7 @@ $("p").toggle();
 <div id="example-1">
 <h4>Example: <span class="desc">Animates all paragraphs to be shown if they are hidden and hidden if they are visible, completing the animation within 600 milliseconds.</span>
 </h4>
-<pre><code class="example demo-code">&lt;!DOCTYPE html&gt;
+<pre class="prettyprint"><code class="example demo-code">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;
   &lt;style&gt;
@@ -138,7 +138,7 @@ $("p").toggle("slow");
 <div id="example-2">
 <h4>Example: <span class="desc">Shows all paragraphs, then hides them all, back and forth.</span>
 </h4>
-<pre><code class="example demo-code">&lt;!DOCTYPE html&gt;
+<pre class="prettyprint"><code class="example demo-code">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;
   &lt;script src="http://code.jquery.com/jquery-1.5.js"&gt;&lt;/script&gt;

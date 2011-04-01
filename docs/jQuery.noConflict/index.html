@@ -52,7 +52,7 @@
 <div id="example-0">
 <h4>Example: <span class="desc">Maps the original object that was referenced by $ back to $.</span>
 </h4>
-<pre><code class="example">jQuery.noConflict();
+<pre class="prettyprint"><code class="example">jQuery.noConflict();
 // Do something with jQuery
 jQuery("div p").hide();
 // Do something with another library's $()
@@ -63,7 +63,7 @@ $("content").style.display = 'none';</code></pre>
 
 </span>
 </h4>
-<pre><code class="example">jQuery.noConflict();
+<pre class="prettyprint"><code class="example">jQuery.noConflict();
 (function($) { 
   $(function() {
     // more code using $ as alias to jQuery
@@ -75,7 +75,7 @@ $("content").style.display = 'none';</code></pre>
 <h4>Example: <span class="desc">You can chain the jQuery.noConflict() with the shorthand ready for a compact code.
 </span>
 </h4>
-<pre><code class="example">jQuery.noConflict()(function(){
+<pre class="prettyprint"><code class="example">jQuery.noConflict()(function(){
     // code using jQuery
 }); 
 // other code using $ as an alias to the other library</code></pre>
@@ -83,7 +83,7 @@ $("content").style.display = 'none';</code></pre>
 <div id="example-3">
 <h4>Example: <span class="desc">Creates a different alias instead of jQuery to use in the rest of the script.</span>
 </h4>
-<pre><code class="example">var j = jQuery.noConflict();
+<pre class="prettyprint"><code class="example">var j = jQuery.noConflict();
 // Do something with jQuery
 j("div p").hide();
 // Do something with another library's $()
@@ -92,7 +92,7 @@ $("content").style.display = 'none';</code></pre>
 <div id="example-4">
 <h4>Example: <span class="desc">Completely move jQuery to a new namespace in another object.</span>
 </h4>
-<pre><code class="example">var dom = {};
+<pre class="prettyprint"><code class="example">var dom = {};
 dom.query = jQuery.noConflict(true);</code></pre>
 <h4>Result:</h4>
 <pre><code class="results">// Do something with the new jQuery

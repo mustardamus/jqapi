@@ -49,7 +49,7 @@
 <div id="example-0">
 <h4>Example: <span class="desc">Load the main page's footer navigation into an ordered list.</span>
 </h4>
-<pre><code class="example demo-code">&lt;!DOCTYPE html&gt;
+<pre class="prettyprint"><code class="example demo-code">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;
   &lt;style&gt;
@@ -74,7 +74,7 @@
 <div id="example-1">
 <h4>Example: <span class="desc">Display a notice if the Ajax request encounters an error.</span>
 </h4>
-<pre><code class="example demo-code">&lt;!DOCTYPE html&gt;
+<pre class="prettyprint"><code class="example demo-code">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;
   &lt;style&gt;
@@ -106,19 +106,19 @@ $("#success").load("/not-here.php", function(response, status, xhr) {
 <div id="example-2">
 <h4>Example: <span class="desc">Load the feeds.html file into the div with the ID of feeds.</span>
 </h4>
-<pre><code class="example">$("#feeds").load("feeds.html");</code></pre>
+<pre class="prettyprint"><code class="example">$("#feeds").load("feeds.html");</code></pre>
 <h4>Result:</h4>
 <pre><code class="results">&lt;div id="feeds"&gt;&lt;b&gt;45&lt;/b&gt; feeds found.&lt;/div&gt;</code></pre>
 </div>
 <div id="example-3">
 <h4>Example: <span class="desc">pass arrays of data to the server.</span>
 </h4>
-<pre><code class="example">$("#objectID").load("test.php", { 'choices[]': ["Jon", "Susan"] } );</code></pre>
+<pre class="prettyprint"><code class="example">$("#objectID").load("test.php", { 'choices[]': ["Jon", "Susan"] } );</code></pre>
 </div>
 <div id="example-4">
 <h4>Example: <span class="desc">Same as above, but will POST the additional parameters to the server and a callback that is executed when the server is finished responding.</span>
 </h4>
-<pre><code class="example">$("#feeds").load("feeds.php", {limit: 25}, function(){
+<pre class="prettyprint"><code class="example">$("#feeds").load("feeds.php", {limit: 25}, function(){
 alert("The last 25 entries in the feed have been loaded");
 });</code></pre>
 </div>

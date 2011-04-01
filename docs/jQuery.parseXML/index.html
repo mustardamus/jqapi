@@ -27,7 +27,7 @@
 <h3>Example:</h3>
 <div class="entry-examples" id="entry-examples"><div id="example-0">
 <h4><span class="desc">Create a jQuery object using an XML string and obtain the value of the title node.</span></h4>
-<pre><code class="example">var xml = '&lt;rss version="2.0"&gt;&lt;channel&gt;&lt;title&gt;RSS Title&lt;/title&gt;&lt;/channel&gt;&lt;/rss&gt;',
+<pre class="prettyprint"><code class="example">var xml = '&lt;rss version="2.0"&gt;&lt;channel&gt;&lt;title&gt;RSS Title&lt;/title&gt;&lt;/channel&gt;&lt;/rss&gt;',
     xmlDoc = $.parseXML( xml ),
     $xml = $( xmlDoc ),
     $title = $xml.find( 'title' );	    

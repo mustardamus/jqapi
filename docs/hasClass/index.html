@@ -28,33 +28,36 @@
 <pre>&lt;div id="mydiv" class="foo bar"&gt;&lt;/div&gt;</pre>
 <p>The <code>.hasClass()</code> method will return <code>true</code> if the class is assigned to an element, even if other classes also are. For example, given the HTML above, the following will return <code>true</code>:</p>
 <pre>$('#mydiv').hasClass('foo')</pre>
-<p>as would:</p>
+<p>As would:</p>
 <pre>$('#mydiv').hasClass('bar')</pre>
+<p>While this would return <code>false</code>:</p>
+<pre>$('#mydiv').hasClass('quux')</pre>
 </div>
 <h3>Example:</h3>
 <div class="entry-examples" id="entry-examples"><div id="example-0">
-<h4><span class="desc">Looks for the class 'selected' on the matched elements.</span></h4>
-<pre><code class="example demo-code">&lt;!DOCTYPE html&gt;
+<h4><span class="desc">Looks for the paragraph that contains 'selected' as a class.</span></h4>
+<pre class="prettyprint"><code class="example demo-code">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;
   &lt;style&gt;
-
   p { margin: 8px; font-size:16px; }
   .selected { color:red; }
-  .highlight { background:yellow; }
   &lt;/style&gt;
   &lt;script src="http://code.jquery.com/jquery-1.5.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
-  &lt;p&gt;Hello&lt;/p&gt;
-  &lt;p class="selected"&gt;Goodbye&lt;/p&gt;
-  &lt;div id="result1"&gt;First paragraph has selected class: &lt;/div&gt;
+  
+  &lt;p&gt;This paragraph is black and is the first paragraph.&lt;/p&gt;
+  &lt;p class="selected"&gt;This paragraph is red and is the second paragraph.&lt;/p&gt;
 
-  &lt;div id="result2"&gt;Last paragraph has selected class: &lt;/div&gt;
-  &lt;div id="result3"&gt;Some paragraph has selected class: &lt;/div&gt;
-&lt;script&gt;$("div#result1").append($("p:first").hasClass("selected").toString());
+  &lt;div id="result1"&gt;First paragraph has selected class: &lt;/div&gt;
+  &lt;div id="result2"&gt;Second paragraph has selected class: &lt;/div&gt;
+  &lt;div id="result3"&gt;At least one paragraph has selected class: &lt;/div&gt;
+&lt;script&gt;
+$("div#result1").append($("p:first").hasClass("selected").toString());
 $("div#result2").append($("p:last").hasClass("selected").toString());
-$("div#result3").append($("p").hasClass("selected").toString());&lt;/script&gt;
+$("div#result3").append($("p").hasClass("selected").toString());
+&lt;/script&gt;
 
 &lt;/body&gt;
 &lt;/html&gt;</code></pre>

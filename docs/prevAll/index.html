@@ -24,7 +24,7 @@
 <p class="arguement"><strong>selector</strong>A string containing a selector expression to match elements against.</p>
 </li></ul>
 <div class="longdesc">
-<p>Given a jQuery object that represents a set of DOM elements, the <code>.prevAll()</code> method allows us to search through the predecessors of these elements in the DOM tree and construct a new jQuery object from the matching elements.</p>
+<p>Given a jQuery object that represents a set of DOM elements, the <code>.prevAll()</code> method searches through the predecessors of these elements in the DOM tree and construct a new jQuery object from the matching elements; the elements are returned in order beginning with the closest sibling.</p>
 <p>The method optionally accepts a selector expression of the same type that we can pass to the <code>$()</code> function. If the selector is supplied, the elements will be filtered by testing whether they match it.</p>
 <p>Consider a page with a simple list on it:</p>
 <pre>
@@ -43,7 +43,7 @@
 <h3>Example:</h3>
 <div class="entry-examples" id="entry-examples"><div id="example-0">
 <h4><span class="desc">Locate all the divs preceding the last div and give them a class.</span></h4>
-<pre><code class="example demo-code">&lt;!DOCTYPE html&gt;
+<pre class="prettyprint"><code class="example demo-code">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;
   &lt;style&gt;

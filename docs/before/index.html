@@ -14,15 +14,16 @@
 </div>
 <div id="before1" class="entry method">
 <h2 class="jq-clearfix roundTop section-title">
-<span class="name">.before( content )</span> <span class="returns">Returns: <a class="return" href="http://api.jquery.com/Types/#jQuery">jQuery</a></span>
+<span class="name">.before( content, [ content ] )</span> <span class="returns">Returns: <a class="return" href="http://api.jquery.com/Types/#jQuery">jQuery</a></span>
 </h2>
 <div class="jq-box roundBottom entry-details">
 <p class="desc"><strong>Description: </strong>Insert content, specified by the parameter, before each element in the set of matched elements.</p>
 <ul class="signatures">
-<li class="signature" id="before-content">
+<li class="signature" id="before-content-content">
 <h4 class="name">
-<span class="versionAdded">version added: <a href="/category/version/1.0/">1.0</a></span>.before( content )</h4>
-<p class="arguement"><strong>content</strong>An element, HTML string, or jQuery object to insert before each element in the set of matched elements.</p>
+<span class="versionAdded">version added: <a href="/category/version/1.0/">1.0</a></span>.before( content, [ content ] )</h4>
+<p class="arguement"><strong>content</strong>HTML string, DOM element, or jQuery object to insert before each element in the set of matched elements.</p>
+<p class="arguement"><strong>content</strong>One or more additional DOM elements, arrays of elements, HTML strings, or jQuery objects to insert before each element in the set of matched elements.</p>
 </li>
 <li class="signature" id="before-function">
 <h4 class="name">
@@ -38,7 +39,7 @@
   &lt;div class="inner"&gt;Hello&lt;/div&gt;
   &lt;div class="inner"&gt;Goodbye&lt;/div&gt;
 &lt;/div&gt;</pre>
-<p>We can create content and insert it before several elements at once:</p>
+<p>You can create content and insert it before several elements at once:</p>
 <pre>$('.inner').before('&lt;p&gt;Test&lt;/p&gt;');</pre>
 <p>Each inner <code>&lt;div&gt;</code> element gets this new content:</p>
 <pre>&lt;div class="container"&gt;
@@ -48,7 +49,7 @@
   &lt;p&gt;Test&lt;/p&gt;
   &lt;div class="inner"&gt;Goodbye&lt;/div&gt;
 &lt;/div&gt;</pre>
-<p>We can also select an element on the page and insert it before another:</p>
+<p>You can also select an element on the page and insert it before another:</p>
 <pre>$('.container').before($('h2'));</pre>
 <p>If an element selected this way is inserted elsewhere, it will be moved before the target (not cloned):</p>
 <pre>&lt;h2&gt;Greetings&lt;/h2&gt;
@@ -60,13 +61,23 @@
 <p>In jQuery 1.4, <code>.before()</code> and <code>.after()</code> will also work on disconnected DOM nodes:</p>
 <pre>$("&lt;div/&gt;").before("&lt;p&gt;&lt;/p&gt;");</pre>
 <p>The result is a jQuery set that contains a paragraph and a div (in that order).</p>
+<h4 id="additional-arguments">Additional Arguments</h4>
+<p>Similar to other content-adding methods such as <code><a href="http://api.jquery.com/prepend/">.prepend()</a></code> and <code><a href="http://api.jquery.com/after/">.after()</a></code>, <code>.before()</code> also supports passing in multiple arguments as input. Supported input includes DOM elements, jQuery objects, HTML strings, and arrays of DOM elements.</p>
+<p>For example, the following will insert two new <code>&lt;div&gt;</code>s and an existing <code>&lt;div&gt;</code> before the first paragraph:</p>
+<pre>var $newdiv1 = $('&lt;div id="object1"/&gt;'),
+    newdiv2 = document.createElement('div'),
+    existingdiv1 = document.getElementById('foo');
+
+$('p').first().before($newdiv1, [newdiv2, existingdiv1]);
+</pre>
+<p>Since <code>.before()</code> can accept any number of additional arguments, the same result can be achieved by passing in the three <code>&lt;div&gt;</code>s as three separate arguments, like so: <code>$('p').first().before($newdiv1, newdiv2, existingdiv1)</code>. The type and number of arguments will largely depend on how you collect the elements in your code.</p>
 </div>
 <h3>Examples:</h3>
 <div class="entry-examples" id="entry-examples">
 <div id="example-0">
 <h4>Example: <span class="desc">Inserts some HTML before all paragraphs.</span>
 </h4>
-<pre><code class="example demo-code">&lt;!DOCTYPE html&gt;
+<pre class="prettyprint"><code class="example demo-code">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;
   &lt;style&gt;p { background:yellow; }&lt;/style&gt;
@@ -84,7 +95,7 @@
 <div id="example-1">
 <h4>Example: <span class="desc">Inserts a DOM element before all paragraphs.</span>
 </h4>
-<pre><code class="example demo-code">&lt;!DOCTYPE html&gt;
+<pre class="prettyprint"><code class="example demo-code">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;
   &lt;style&gt;p { background:yellow; }&lt;/style&gt;
@@ -102,7 +113,7 @@
 <div id="example-2">
 <h4>Example: <span class="desc">Inserts a jQuery object (similar to an Array of DOM Elements) before all paragraphs.</span>
 </h4>
-<pre><code class="example demo-code">&lt;!DOCTYPE html&gt;
+<pre class="prettyprint"><code class="example demo-code">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;
   &lt;style&gt;p { background:yellow; }&lt;/style&gt;

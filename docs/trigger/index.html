@@ -53,7 +53,7 @@ $('#foo').trigger('custom', ['Custom', 'Event']);
 <div id="example-0">
 <h4>Example: <span class="desc">Clicks to button #2 also trigger a click for button #1.</span>
 </h4>
-<pre><code class="example demo-code">&lt;!DOCTYPE html&gt;
+<pre class="prettyprint"><code class="example demo-code">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;
   &lt;style&gt;
@@ -94,12 +94,12 @@ j.text(n + 1);
 <div id="example-1">
 <h4>Example: <span class="desc">To submit the first form without using the submit() function, try:</span>
 </h4>
-<pre><code class="example">$("form:first").trigger("submit")</code></pre>
+<pre class="prettyprint"><code class="example">$("form:first").trigger("submit")</code></pre>
 </div>
 <div id="example-2">
 <h4>Example: <span class="desc">To submit the first form without using the submit() function, try:</span>
 </h4>
-<pre><code class="example">var event = jQuery.Event("submit");
+<pre class="prettyprint"><code class="example">var event = jQuery.Event("submit");
 $("form:first").trigger(event);
 if ( event.isDefaultPrevented() ) {
 // Perform an action...
@@ -108,7 +108,7 @@ if ( event.isDefaultPrevented() ) {
 <div id="example-3">
 <h4>Example: <span class="desc">To pass arbitrary data to an event:</span>
 </h4>
-<pre><code class="example">$("p").click( function (event, a, b) {
+<pre class="prettyprint"><code class="example">$("p").click( function (event, a, b) {
 // when a normal click fires, a and b are undefined
 // for a trigger like below a refers to "foo" and b refers to "bar"
 
@@ -117,7 +117,7 @@ if ( event.isDefaultPrevented() ) {
 <div id="example-4">
 <h4>Example: <span class="desc">To pass arbitrary data through an event object:</span>
 </h4>
-<pre><code class="example">var event = jQuery.Event("logged");
+<pre class="prettyprint"><code class="example">var event = jQuery.Event("logged");
 event.user = "foo";
 event.pass = "bar";
 $("body").trigger(event);</code></pre>
@@ -125,7 +125,7 @@ $("body").trigger(event);</code></pre>
 <div id="example-5">
 <h4>Example: <span class="desc">Alternative way to pass data through an event object:</span>
 </h4>
-<pre><code class="example">$("body").trigger({
+<pre class="prettyprint"><code class="example">$("body").trigger({
 type:"logged",
 user:"foo",
 pass:"bar"

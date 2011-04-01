@@ -48,7 +48,7 @@
 <div id="example-0">
 <h4>Example: <span class="desc">Merge two objects, modifying the first.</span>
 </h4>
-<pre><code class="example">
+<pre class="prettyprint"><code class="example">
 var object1 = {
   apple: 0,
   banana: {weight: 52, price: 100},
@@ -67,7 +67,7 @@ $.extend(object1, object2);
 <div id="example-1">
 <h4>Example: <span class="desc">Merge two objects recursively, modifying the first.</span>
 </h4>
-<pre><code class="example">
+<pre class="prettyprint"><code class="example">
 var object1 = {
   apple: 0,
   banana: {weight: 52, price: 100},
@@ -86,7 +86,7 @@ $.extend(true, object1, object2);
 <div id="example-2">
 <h4>Example: <span class="desc">Merge settings and options, modifying settings.</span>
 </h4>
-<pre><code class="example">var settings = { validate: false, limit: 5, name: "foo" };
+<pre class="prettyprint"><code class="example">var settings = { validate: false, limit: 5, name: "foo" };
 var options = { validate: true, name: "bar" };
 jQuery.extend(settings, options);</code></pre>
 <h4>Result:</h4>
@@ -95,7 +95,7 @@ jQuery.extend(settings, options);</code></pre>
 <div id="example-3">
 <h4>Example: <span class="desc">Merge defaults and options, without modifying the defaults. This is a common plugin development pattern.</span>
 </h4>
-<pre><code class="example">var empty = {}
+<pre class="prettyprint"><code class="example">var empty = {}
 var defaults = { validate: false, limit: 5, name: "foo" };
 var options = { validate: true, name: "bar" };
 var settings = $.extend(empty, defaults, options);</code></pre>

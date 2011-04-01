@@ -35,11 +35,15 @@
 <code>$().ready(handler)</code> (this is not recommended)</li>
    <li><code>$(handler)</code></li>
  </ul>
-<p>There is also <code>$(document).bind("ready", handler)</code>. This behaves similarly to the ready method but with one exception: If the ready event has already fired and you try to <code>.bind("ready")</code> the bound handler will not be executed.</p>
+<p>There is also <code>$(document).bind("ready", handler)</code>. This behaves similarly to the ready method but with one exception: If the ready event has already fired and you try to <code>.bind("ready")</code> the bound handler will not be executed. Ready handlers bound this way are executed <em>after</em> any bound by the other three methods above.</p>
 <p>The <code>.ready()</code> method can only be called on a jQuery object matching the current document, so the selector can be omitted.</p>
 <p>The <code>.ready()</code> method is typically used with an anonymous function:</p>
 <pre>$(document).ready(function() {
   // Handler for .ready() called.
+});</pre>
+<p>Which is equivalent to calling:</p>
+<pre>$(function() {
+ // Handler for .ready() called.
 });</pre>
 <p>If <code>.ready()</code> is called after the DOM has been initialized, the new handler passed in will be executed immediately.</p>
 <h4>Aliasing the jQuery Namespace</h4>
@@ -51,7 +55,7 @@
 <h3>Example:</h3>
 <div class="entry-examples" id="entry-examples"><div id="example-0">
 <h4><span class="desc">Display a message when the DOM is loaded.</span></h4>
-<pre><code class="example demo-code">&lt;!DOCTYPE html&gt;
+<pre class="prettyprint"><code class="example demo-code">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;
   &lt;style&gt;p { color:red; }&lt;/style&gt;

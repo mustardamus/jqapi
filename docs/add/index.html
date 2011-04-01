@@ -22,23 +22,23 @@
 <li class="signature" id="add-selector">
 <h4 class="name">
 <span class="versionAdded">version added: <a href="/category/version/1.0/">1.0</a></span>.add( selector )</h4>
-<p class="arguement"><strong>selector</strong>A string containing a selector expression to match additional elements against.</p>
+<p class="arguement"><strong>selector</strong>A string representing a selector expression to find additional elements to add to the set of matched elements.</p>
 </li>
 <li class="signature" id="add-elements">
 <h4 class="name">
 <span class="versionAdded">version added: <a href="/category/version/1.0/">1.0</a></span>.add( elements )</h4>
-<p class="arguement"><strong>elements</strong>one or more elements to add to the set of matched elements.</p>
+<p class="arguement"><strong>elements</strong>One or more elements to add to the set of matched elements.</p>
 </li>
 <li class="signature" id="add-html">
 <h4 class="name">
 <span class="versionAdded">version added: <a href="/category/version/1.0/">1.0</a></span>.add( html )</h4>
-<p class="arguement"><strong>html</strong>An HTML fragment to add to the set of matched elements.</p>
+<p class="arguement"><strong>html</strong>A HTML fragment to add to the set of matched elements.</p>
 </li>
 <li class="signature" id="add-selector-context">
 <h4 class="name">
 <span class="versionAdded">version added: <a href="/category/version/1.4/">1.4</a></span>.add( selector, context )</h4>
-<p class="arguement"><strong>selector</strong>A string containing a selector expression to match additional elements against.</p>
-<p class="arguement"><strong>context</strong>The point in the document at which the selector should begin matching; similar to the context argument of the <code>$()</code> method.</p>
+<p class="arguement"><strong>selector</strong>A string representing a selector expression to find additional elements to add to the set of matched elements.</p>
+<p class="arguement"><strong>context</strong>The point in the document at which the selector should begin matching; similar to the context argument of the <code>$(selector, context)</code> method.</p>
 </li>
 </ul>
 <div class="longdesc">
@@ -77,7 +77,7 @@ Using an HTML snippet as the <code>.add()</code> method's argument (as in the th
 <div id="example-0">
 <h4>Example: <span class="desc">Finds all divs and makes a border.  Then adds all paragraphs to the jQuery object to set their backgrounds yellow.</span>
 </h4>
-<pre><code class="example demo-code">&lt;!DOCTYPE html&gt;
+<pre class="prettyprint"><code class="example demo-code">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;
   &lt;style&gt;
@@ -112,7 +112,7 @@ $("div").css("border", "2px solid red")
 <div id="example-1">
 <h4>Example: <span class="desc">Adds more elements, matched by the given expression, to the set of matched elements.</span>
 </h4>
-<pre><code class="example demo-code">&lt;!DOCTYPE html&gt;
+<pre class="prettyprint"><code class="example demo-code">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;
   &lt;script src="http://code.jquery.com/jquery-1.5.js"&gt;&lt;/script&gt;
@@ -129,7 +129,7 @@ $("div").css("border", "2px solid red")
 <div id="example-2">
 <h4>Example: <span class="desc">Adds more elements, created on the fly, to the set of matched elements.</span>
 </h4>
-<pre><code class="example demo-code">&lt;!DOCTYPE html&gt;
+<pre class="prettyprint"><code class="example demo-code">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;
   &lt;script src="http://code.jquery.com/jquery-1.5.js"&gt;&lt;/script&gt;
@@ -146,7 +146,7 @@ $("div").css("border", "2px solid red")
 <div id="example-3">
 <h4>Example: <span class="desc">Adds one or more Elements to the set of matched elements.</span>
 </h4>
-<pre><code class="example demo-code">&lt;!DOCTYPE html&gt;
+<pre class="prettyprint"><code class="example demo-code">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;
   &lt;script src="http://code.jquery.com/jquery-1.5.js"&gt;&lt;/script&gt;
@@ -163,7 +163,7 @@ $("div").css("border", "2px solid red")
 <div id="example-4">
 <h4>Example: <span class="desc">Demonstrates how to add (or push) elements to an existing collection</span>
 </h4>
-<pre><code class="example demo-code">&lt;!DOCTYPE html&gt;
+<pre class="prettyprint"><code class="example demo-code">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;
   &lt;script src="http://code.jquery.com/jquery-1.5.js"&gt;&lt;/script&gt;

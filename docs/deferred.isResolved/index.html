@@ -22,7 +22,7 @@
 <span class="versionAdded">version added: <a href="/category/version/1.5/">1.5</a></span>deferred.isResolved()</h4></li></ul>
 <div class="longdesc">
 <p>Returns <code>true</code> if the Deferred object is in the resolved state, meaning that either <a href="http://api.jquery.com/deferred.resolve/"><code>deferred.resolve()</code></a> or <a href="http://api.jquery.com/deferred.resolveWith/"><code>deferred.resolveWith()</code></a> has been called for the object and the doneCallbacks have been called (or are in the process of being called).</p>
-<p>Note that a Deferred object can be in one of three states: unresolved, resolved, or rejected; use <a href="http://api.jquery.com/deferred.isRejected/"><code>deferred.isRejected()</code></a> to determine whether the Deferred object is in the rejected state.</p>
+<p>Note that a Deferred object can be in one of three states: unresolved, resolved, or rejected; use <a href="http://api.jquery.com/deferred.isRejected/"><code>deferred.isRejected()</code></a> to determine whether the Deferred object is in the rejected state. These methods are primarily useful for debugging, for example to determine whether a Deferred has already been resolved even though you are inside code that intended to reject it.</p>
 </div>
 </div>
 </div>

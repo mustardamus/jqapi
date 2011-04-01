@@ -61,13 +61,19 @@
     &lt;div class="Goodbye"&gt;Goodbye&lt;/div&gt;
   &lt;/div&gt;
 &lt;/div&gt;</pre>
+<p><strong>Note:</strong> When passing a selector string to the <code>.wrapInner()</code> function, the expected input is well formed HTML with correctly closed tags. Examples of valid input include:</p>
+<pre>
+$(elem).wrapInner("&lt;div class='test' /&gt;");
+$(elem).wrapInner("&lt;div class='test'&gt;&lt;/div&gt;");
+$(elem).wrapInner("&lt;div class=\"test\"&gt;&lt;/div&gt;");
+</pre>
 </div>
 <h3>Examples:</h3>
 <div class="entry-examples" id="entry-examples">
 <div id="example-0">
 <h4>Example: <span class="desc">Selects all paragraphs and wraps a bold tag around each of its contents.</span>
 </h4>
-<pre><code class="example demo-code">&lt;!DOCTYPE html&gt;
+<pre class="prettyprint"><code class="example demo-code">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;
   &lt;style&gt;p { background:#bbf; }&lt;/style&gt;
@@ -88,7 +94,7 @@
 <div id="example-1">
 <h4>Example: <span class="desc">Wraps a newly created tree of objects around the inside of the body.</span>
 </h4>
-<pre><code class="example demo-code">&lt;!DOCTYPE html&gt;
+<pre class="prettyprint"><code class="example demo-code">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;
   &lt;style&gt;
@@ -110,7 +116,7 @@
 <div id="example-2">
 <h4>Example: <span class="desc">Selects all paragraphs and wraps a bold tag around each of its contents.</span>
 </h4>
-<pre><code class="example demo-code">&lt;!DOCTYPE html&gt;
+<pre class="prettyprint"><code class="example demo-code">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;
   &lt;style&gt;p { background:#9f9; }&lt;/style&gt;
@@ -131,7 +137,7 @@
 <div id="example-3">
 <h4>Example: <span class="desc">Selects all paragraphs and wraps a jQuery object around each of its contents.</span>
 </h4>
-<pre><code class="example demo-code">&lt;!DOCTYPE html&gt;
+<pre class="prettyprint"><code class="example demo-code">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;
   &lt;style&gt;

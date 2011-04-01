@@ -36,21 +36,21 @@
 <div id="example-0">
 <h4>Example: <span class="desc">Merges two arrays, altering the first argument.</span>
 </h4>
-<pre><code class="example">$.merge( [0,1,2], [2,3,4] )</code></pre>
+<pre class="prettyprint"><code class="example">$.merge( [0,1,2], [2,3,4] )</code></pre>
 <h4>Result:</h4>
 <pre><code class="results">[0,1,2,2,3,4] </code></pre>
 </div>
 <div id="example-1">
 <h4>Example: <span class="desc">Merges two arrays, altering the first argument.</span>
 </h4>
-<pre><code class="example">$.merge( [3,2,1], [4,3,2] )  </code></pre>
+<pre class="prettyprint"><code class="example">$.merge( [3,2,1], [4,3,2] )  </code></pre>
 <h4>Result:</h4>
 <pre><code class="results">[3,2,1,4,3,2] </code></pre>
 </div>
 <div id="example-2">
 <h4>Example: <span class="desc">Merges two arrays, but uses a copy, so the original isn't altered.</span>
 </h4>
-<pre><code class="example">var first = ['a','b','c'];
+<pre class="prettyprint"><code class="example">var first = ['a','b','c'];
 var second = ['d','e','f'];
 $.merge( $.merge([],first), second);
       </code></pre>

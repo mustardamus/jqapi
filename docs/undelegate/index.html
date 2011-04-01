@@ -34,6 +34,12 @@
 <p class="arguement"><strong>eventType</strong>A string containing a JavaScript event type, such as "click" or "keydown"</p>
 <p class="arguement"><strong>handler</strong>A function to execute at the time the event is triggered.</p>
 </li>
+<li class="signature" id="undelegate-selector-events">
+<h4 class="name">
+<span class="versionAdded">version added: <a href="/category/version/1.4.3/">1.4.3</a></span>.undelegate( selector, events )</h4>
+<p class="arguement"><strong>selector</strong>A selector which will be used to filter the event results.</p>
+<p class="arguement"><strong>events</strong>A map of one or more event types and previously bound functions to unbind from them.</p>
+</li>
 </ul>
 <div class="longdesc"><p>Undelegate is a way of removing event handlers that have been bound using <a href="/delegate">.delegate()</a>. It works virtually identically to <a href="/die">.die()</a> with the addition of a selector filter argument (which is required for delegation to work).</p></div>
 <h3>Examples:</h3>
@@ -41,7 +47,7 @@
 <div id="example-0">
 <h4>Example: <span class="desc">Can bind and unbind events to the colored button.</span>
 </h4>
-<pre><code class="example demo-code">&lt;!DOCTYPE html&gt;
+<pre class="prettyprint"><code class="example demo-code">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;
   &lt;style&gt;
@@ -77,17 +83,17 @@ $("#unbind").click(function () {
 <div id="example-1">
 <h4>Example: <span class="desc">To unbind all delegated events from all paragraphs, write:</span>
 </h4>
-<pre><code class="example">$("p").undelegate()</code></pre>
+<pre class="prettyprint"><code class="example">$("p").undelegate()</code></pre>
 </div>
 <div id="example-2">
 <h4>Example: <span class="desc">To unbind all delegated click events from all paragraphs, write:</span>
 </h4>
-<pre><code class="example">$("p").undelegate( "click" )</code></pre>
+<pre class="prettyprint"><code class="example">$("p").undelegate( "click" )</code></pre>
 </div>
 <div id="example-3">
 <h4>Example: <span class="desc">To undelegate just one previously bound handler, pass the function in as the third argument:</span>
 </h4>
-<pre><code class="example">var foo = function () {
+<pre class="prettyprint"><code class="example">var foo = function () {
 // code to handle some kind of event
 };
 

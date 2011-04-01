@@ -49,14 +49,14 @@ $('ul.first').find('.foo')
   .css('background-color', 'green')
 .end();
 </pre>
-<p>The last <code>end()</code> is unnecessary, as we are discarding the jQuery object immediately thereafter. However, when the code is written in this form, the <code>end()</code> provides visual symmetry and closure—making the program, at least to the eyes of some developers, more readable.</p>
+<p>The last <code>end()</code> is unnecessary, as we are discarding the jQuery object immediately thereafter. However, when the code is written in this form, the <code>end()</code> provides visual symmetry and a sense of completion —making the program, at least to the eyes of some developers, more readable, at the cost of a slight hit to performance as it is an additional function call.</p>
 </div>
 <h3>Examples:</h3>
 <div class="entry-examples" id="entry-examples">
 <div id="example-0">
 <h4>Example: <span class="desc">Selects all paragraphs, finds span elements inside these, and reverts the selection back to the paragraphs.</span>
 </h4>
-<pre><code class="example demo-code">&lt;!DOCTYPE html&gt;
+<pre class="prettyprint"><code class="example demo-code">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;
   &lt;style&gt;
@@ -117,7 +117,7 @@ $('ul.first').find('.foo')
 <div id="example-1">
 <h4>Example: <span class="desc">Selects all paragraphs, finds span elements inside these, and reverts the selection back to the paragraphs.</span>
 </h4>
-<pre><code class="example demo-code">&lt;!DOCTYPE html&gt;
+<pre class="prettyprint"><code class="example demo-code">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;
   &lt;style&gt;p { margin:10px; padding:10px; }&lt;/style&gt;

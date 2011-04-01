@@ -41,7 +41,7 @@
 <div id="example-0">
 <h4>Example: <span class="desc">A couple examples of using .map()</span>
 </h4>
-<pre><code class="example demo-code">&lt;!DOCTYPE html&gt;
+<pre class="prettyprint"><code class="example demo-code">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;
   &lt;style&gt;
@@ -79,7 +79,7 @@
 <div id="example-1">
 <h4>Example: <span class="desc">Maps the original array to a new one and adds 4 to each value.</span>
 </h4>
-<pre><code class="example">$.map( [0,1,2], function(n){
+<pre class="prettyprint"><code class="example">$.map( [0,1,2], function(n){
    return n + 4;
  });</code></pre>
 <h4>Result:</h4>
@@ -88,7 +88,7 @@
 <div id="example-2">
 <h4>Example: <span class="desc">Maps the original array to a new one and adds 1 to each value if it is bigger then zero, otherwise it's removed.</span>
 </h4>
-<pre><code class="example">$.map( [0,1,2], function(n){
+<pre class="prettyprint"><code class="example">$.map( [0,1,2], function(n){
    return n &gt; 0 ? n + 1 : null;
  });</code></pre>
 <h4>Result:</h4>
@@ -97,7 +97,7 @@
 <div id="example-3">
 <h4>Example: <span class="desc">Maps the original array to a new one, each element is added with it's original value and the value plus one.</span>
 </h4>
-<pre><code class="example">$.map( [0,1,2], function(n){
+<pre class="prettyprint"><code class="example">$.map( [0,1,2], function(n){
    return [ n, n + 1 ];
  });</code></pre>
 <h4>Result:</h4>
@@ -106,21 +106,21 @@
 <div id="example-4">
 <h4>Example: <span class="desc">Maps the original array to a new one, each element is squared.</span>
 </h4>
-<pre><code class="example">$.map( [0,1,2,3], function (a) { return a * a; } );</code></pre>
+<pre class="prettyprint"><code class="example">$.map( [0,1,2,3], function (a) { return a * a; } );</code></pre>
 <h4>Result:</h4>
 <pre><code class="results">[0, 1, 4, 9] </code></pre>
 </div>
 <div id="example-5">
 <h4>Example: <span class="desc">Remove items by returning null from the function. This removes any numbers less than 50, and the rest are decreased by 45.</span>
 </h4>
-<pre><code class="example">$.map( [0, 1, 52, 97], function (a) { return (a &gt; 50 ? a - 45 : null); } );</code></pre>
+<pre class="prettyprint"><code class="example">$.map( [0, 1, 52, 97], function (a) { return (a &gt; 50 ? a - 45 : null); } );</code></pre>
 <h4>Result:</h4>
 <pre><code class="results">[7, 52] </code></pre>
 </div>
 <div id="example-6">
 <h4>Example: <span class="desc">Augmenting the resulting array by returning an array inside the function.</span>
 </h4>
-<pre><code class="example">var array = [0, 1, 52, 97];
+<pre class="prettyprint"><code class="example">var array = [0, 1, 52, 97];
 array = $.map(array, function(a, index) {
   return [a - 45, index];
 }); </code></pre>

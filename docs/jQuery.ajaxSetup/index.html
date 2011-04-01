@@ -35,12 +35,12 @@
   // url not set here; uses ping.php
   data: {'name': 'Dan'}
 });</pre>
-<blockquote><p>Note: Global callback functions should be set with their respective global Ajax event handler methods—<code><a href="/ajaxStart">.ajaxStart()</a></code>, <code><a href="/ajaxStop">.ajaxStop()</a></code>, <code><a href="/ajaxComplete">.ajaxComplete()</a></code>, <code><a href="/ajaxError">.ajaxError()</a></code>, <code><a href="/ajaxSuccess">.ajaxSuccess()</a></code>, <code><a href="/ajaxSend">.ajaxSend()</a></code>—rather than within the <code>settings</code> object for <code>$.ajaxSetup()</code>.</p></blockquote>
+<blockquote><p>Note: Global callback functions should be set with their respective global Ajax event handler methods—<code><a href="/ajaxStart">.ajaxStart()</a></code>, <code><a href="/ajaxStop">.ajaxStop()</a></code>, <code><a href="/ajaxComplete">.ajaxComplete()</a></code>, <code><a href="/ajaxError">.ajaxError()</a></code>, <code><a href="/ajaxSuccess">.ajaxSuccess()</a></code>, <code><a href="/ajaxSend">.ajaxSend()</a></code>—rather than within the <code>options</code> object for <code>$.ajaxSetup()</code>.</p></blockquote>
 </div>
 <h3>Example:</h3>
 <div class="entry-examples" id="entry-examples"><div id="example-0">
 <h4><span class="desc">Sets the defaults for Ajax requests to the url "/xmlhttp/", disables global handlers and uses POST instead of GET. The following Ajax requests then sends some data without having to set anything else.</span></h4>
-<pre><code class="example">$.ajaxSetup({
+<pre class="prettyprint"><code class="example">$.ajaxSetup({
    url: "/xmlhttp/",
    global: false,
    type: "POST"
