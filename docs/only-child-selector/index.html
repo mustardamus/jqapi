@@ -22,46 +22,45 @@
 <div class="longdesc"><p>If the parent has other child elements, nothing is matched.</p></div>
 <h3>Example:</h3>
 <div class="entry-examples" id="entry-examples"><div id="example-0">
-<h4><span class="desc">Finds the button with no siblings in each matched div and modifies look.</span></h4>
+<h4><span class="desc">Change the text and add a border for each button that is the only child of its parent.</span></h4>
 <pre class="prettyprint"><code class="example demo-code">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;
   &lt;style&gt;
-
   div { width:100px; height:80px; margin:5px; float:left; background:#b9e }
-  &lt;/style&gt;
-  &lt;script src="http://code.jquery.com/jquery-1.5.js"&gt;&lt;/script&gt;
+&lt;/style&gt;
+  &lt;script src="http://code.jquery.com/jquery-git.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
   &lt;div&gt;
-    &lt;button&gt;Sibling!&lt;/button&gt;
-    &lt;button&gt;Sibling!&lt;/button&gt;
-  &lt;/div&gt;
+  &lt;button&gt;Sibling!&lt;/button&gt;
+  &lt;button&gt;Sibling!&lt;/button&gt;
+&lt;/div&gt;
 
-  &lt;div&gt;
-    &lt;button&gt;Sibling!&lt;/button&gt;
-  &lt;/div&gt;
-  &lt;div&gt;
-    None
-  &lt;/div&gt;
+&lt;div&gt;
+  &lt;button&gt;Sibling!&lt;/button&gt;
+&lt;/div&gt;
+&lt;div&gt;
+  None
+&lt;/div&gt;
 
-  &lt;div&gt;  
-    &lt;button&gt;Sibling!&lt;/button&gt;
-    &lt;button&gt;Sibling!&lt;/button&gt;
-    &lt;button&gt;Sibling!&lt;/button&gt;
+&lt;div&gt;
+  &lt;button&gt;Sibling!&lt;/button&gt;
+  &lt;button&gt;Sibling!&lt;/button&gt;
+  &lt;button&gt;Sibling!&lt;/button&gt;
 
-  &lt;/div&gt;
-  &lt;div&gt;
-    &lt;button&gt;Sibling!&lt;/button&gt;
-  &lt;/div&gt;
-&lt;script&gt;$("div button:only-child").text("Alone").css("border", "2px blue solid");&lt;/script&gt;
+&lt;/div&gt;
+&lt;div&gt;
+  &lt;button&gt;Sibling!&lt;/button&gt;
+&lt;/div&gt;
+&lt;script&gt;
+  $("div button:only-child").text("Alone").css("border", "2px blue solid");
+&lt;/script&gt;
 
 &lt;/body&gt;
 &lt;/html&gt;</code></pre>
 <h4>Demo:</h4>
 <div class="demo code-demo"></div>
-<h4>Result:</h4>
-<pre><code class="results">[ &lt;li&gt;Glen&lt;/li&gt; ] </code></pre>
 </div></div>
 </div>
 </div>

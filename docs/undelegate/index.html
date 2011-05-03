@@ -40,6 +40,11 @@
 <p class="arguement"><strong>selector</strong>A selector which will be used to filter the event results.</p>
 <p class="arguement"><strong>events</strong>A map of one or more event types and previously bound functions to unbind from them.</p>
 </li>
+<li class="signature" id="undelegate-namespace">
+<h4 class="name">
+<span class="versionAdded">version added: <a href="/category/version/1.6/">1.6</a></span>.undelegate( namespace )</h4>
+<p class="arguement"><strong>namespace</strong>A string containing a namespace to unbind all events from.</p>
+</li>
 </ul>
 <div class="longdesc"><p>Undelegate is a way of removing event handlers that have been bound using <a href="/delegate">.delegate()</a>. It works virtually identically to <a href="/die">.die()</a> with the addition of a selector filter argument (which is required for delegation to work).</p></div>
 <h3>Examples:</h3>
@@ -54,7 +59,7 @@
 button { margin:5px; }
 button#theone { color:red; background:yellow; }
 &lt;/style&gt;
-  &lt;script src="http://code.jquery.com/jquery-1.5.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-git.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
   &lt;button id="theone"&gt;Does nothing...&lt;/button&gt;
@@ -97,9 +102,28 @@ $("#unbind").click(function () {
 // code to handle some kind of event
 };
 
-$("body").delegate("p", "click", foo); // ... now foo will be called when paragraphs are clicked ...
+// ... now foo will be called when paragraphs are clicked ...
+$("body").delegate("p", "click", foo);
 
-$("body").undelegate("p", "click", foo); // ... foo will no longer be called.</code></pre>
+
+// ... foo will no longer be called.
+$("body").undelegate("p", "click", foo); </code></pre>
+</div>
+<div id="example-4">
+<h4>Example: <span class="desc">To unbind all delegated events by their namespace:</span>
+</h4>
+<pre class="prettyprint"><code class="example">var foo = function () {
+// code to handle some kind of event
+};
+
+// delegate events under the ".whatever" namespace
+$("form").delegate("click.whatever", ":button", foo);
+
+$("form").delegate("keypress.whatever", ":text", foo); 
+
+// unbind all events delegated under the ".whatever" namespace
+
+$("form").undelegate(".whatever");</code></pre>
 </div>
 </div>
 </div>

@@ -45,15 +45,13 @@
 </li></ul>
 <div class="longdesc">
 <p>The <code>.attr()</code> method gets the attribute value for only the <em>first</em> element in the matched set. To get the value for each element individually, use a looping construct such as jQuery's <code>.each()</code> or <code>.map()</code> method.</p>
+<p><strong>As of jQuery 1.6</strong>, the <code>.attr()</code> method returns <code>undefined</code> for attributes that have not been set. In addition, <code>.attr()</code> should not be used on plain objects, arrays, the window, or the document. To retrieve and change DOM properties, use the <a href="http://api.jquery.com/prop/">.prop()</a> method.</p>
 <p>Using jQuery's <code>.attr()</code> method to get the value of an element's attribute has two main benefits:</p>
-<p>The <code>.attr()</code> method returns <code>undefined</code> for the value of an attribute that has not been set.</p>
 <ol>
 <li>
 <strong>Convenience</strong>: It can be called directly on a jQuery object and chained to other jQuery methods.</li>
       <li>
-<strong>Cross-browser consistency</strong>: Some attributes have inconsistent naming from browser to browser. Furthermore, the values of some attributes are reported inconsistently across browsers, and even across versions of a single browser. The <code>.attr()</code> method reduces such inconsistencies. </li>
-<li>
-<strong>Additional Notes</strong>: For attributes which mirror properties on specific DOM elements (eg. the checked attribute on a checkbox), .attr() will return a non-undefined value. The recommended cross-browser approach to handling this is to check for a falsy value using <code>if ($(elem).attr('src'))</code> rather than checking for particular values.</li>
+<strong>Cross-browser consistency</strong>: The values of some attributes are reported inconsistently across browsers, and even across versions of a single browser. The <code>.attr()</code> method reduces such inconsistencies. </li>
     </ol>
 </div>
 <h3>Example:</h3>
@@ -66,7 +64,7 @@
   em { color:blue; font-weight;bold; }
   div { color:red; }
 &lt;/style&gt;
-  &lt;script src="http://code.jquery.com/jquery-1.5.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-git.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
   
@@ -137,6 +135,7 @@ var title = $("em").attr("title");
   return val + ' - photo by Kelly Clark'
 });</pre>
 <p>This use of a function to compute attribute values can be particularly useful when modifying the attributes of multiple elements at once.</p>
+<p><strong>Note: </strong>If nothing is returned in the setter function (ie. <code>function(index, attr){})</code>, the current value of the attribute is returned as it acts as a getter when the value is undefined. Effectively, no changes are made if the setter function does not return something.</p>
 </div>
 <h3>Examples:</h3>
 <div class="entry-examples" id="entry-examples-1">
@@ -150,7 +149,7 @@ var title = $("em").attr("title");
   img { padding:10px; }
   div { color:red; font-size:24px; }
 &lt;/style&gt;
-  &lt;script src="http://code.jquery.com/jquery-1.5.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-git.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
   
@@ -183,7 +182,7 @@ $("div").text($("img").attr("alt"));
   &lt;style&gt;
   button { margin:10px; }
 &lt;/style&gt;
-  &lt;script src="http://code.jquery.com/jquery-1.5.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-git.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
   
@@ -211,7 +210,7 @@ $("button:gt(1)").attr("disabled","disabled");
   span { color:red; }
   b { font-weight:bolder; }
         &lt;/style&gt;
-  &lt;script src="http://code.jquery.com/jquery-1.5.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-git.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
   
@@ -239,7 +238,7 @@ $("div").attr("id", function (arr) {
 <pre class="prettyprint"><code class="example demo-code">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;
-  &lt;script src="http://code.jquery.com/jquery-1.5.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-git.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
   

@@ -103,7 +103,7 @@
           </ul>
 <h5 class="option">error(jqXHR, textStatus, errorThrown)<span class="type"><a href="http://api.jquery.com/Types#Function">Function</a></span>
 </h5>
-<p>A function to be called if the request fails. The function receives three arguments: The jqXHR (in jQuery 1.4.x, XMLHttpRequest) object, a string describing the type of error that occurred and an optional exception object, if one occurred. Possible values for the second argument (besides <code>null</code>) are <code>"timeout"</code>, <code>"error"</code>, <code>"abort"</code>, and <code>"parsererror"</code>. This is an <a href="http://docs.jquery.com/Ajax_Events">Ajax Event</a>. <strong>As of jQuery 1.5</strong>, the <code>error</code> setting can accept an array of functions. Each function will be called in turn.  <strong>Note:</strong> <em>This handler is not called for cross-domain script and JSONP requests.</em> </p>
+<p>A function to be called if the request fails. The function receives three arguments: The jqXHR (in jQuery 1.4.x, XMLHttpRequest) object, a string describing the type of error that occurred and an optional exception object, if one occurred. Possible values for the second argument (besides <code>null</code>) are <code>"timeout"</code>, <code>"error"</code>, <code>"abort"</code>, and <code>"parsererror"</code>. When an HTTP error occurs, <code>errorThrown</code> receives the textual portion of the HTTP status, such as "Not Found" or "Internal Server Error."  <strong>As of jQuery 1.5</strong>, the <code>error</code> setting can accept an array of functions. Each function will be called in turn.  <strong>Note:</strong> <em>This handler is not called for cross-domain script and JSONP requests.</em> This is an <a href="http://docs.jquery.com/Ajax_Events">Ajax Event</a>. </p>
 <h5 class="option">global<span class="type"><a href="http://api.jquery.com/Types#Boolean">Boolean</a></span>
 </h5>
 <div class="default-value">
@@ -153,10 +153,10 @@
 <p>A map of numeric HTTP codes and functions to be called when the response has the corresponding code. For example, the following will alert when the response status is a 404:</p>
 <pre>$.ajax({
   statusCode: {
-		404: function() {
-    	alert('page not found');
-  	}
-	}
+    404: function() {
+      alert('page not found');
+    }
+  }
 });</pre>
             <p>If the request is successful, the status code functions take the same parameters as the success callback; if it results in an error, they take the same parameters as the <code>error</code> callback.</p>
           

@@ -22,6 +22,10 @@
               </li>
 <li>.closest( selector, [ context ] )
               </li>
+<li>.closest( jQuery object )
+              </li>
+<li>.closest( element )
+              </li>
 </ul>
 </li>
 <li>
@@ -48,44 +52,54 @@
 <p class="arguement"><strong>selector</strong>A string containing a selector expression to match elements against.</p>
 <p class="arguement"><strong>context</strong>A DOM element within which a matching element may be found. If no context is passed in then the context of the jQuery set will be used instead.</p>
 </li>
+<li class="signature" id="closest-jQuery object">
+<h4 class="name">
+<span class="versionAdded">version added: <a href="/category/version/1.6/">1.6</a></span>.closest( jQuery object )</h4>
+<p class="arguement"><strong>jQuery object</strong>A jQuery object to match elements against.</p>
+</li>
+<li class="signature" id="closest-element">
+<h4 class="name">
+<span class="versionAdded">version added: <a href="/category/version/1.6/">1.6</a></span>.closest( element )</h4>
+<p class="arguement"><strong>element</strong>An element to match elements against.</p>
+</li>
 </ul>
 <div class="longdesc">
 <p>Given a jQuery object that represents a set of DOM elements, the <code>.closest()</code> method allows us to search through these elements and their ancestors in the DOM tree and construct a new jQuery object from the matching elements. The <code>.parents()</code> and <code>.closest()</code> methods are similar in that they both traverse up the DOM tree. The differences between the two, though subtle, are significant:</p>
 <table>
 <thead><tr>
 <th>.closest()</th>
-  	  <th>.parents()</th>
-  	</tr></thead>
+        <th>.parents()</th>
+      </tr></thead>
 <tbody>
 <tr>
 <td>Begins with the current element</td>
-  	  <td>Begins with the parent element</td>
+        <td>Begins with the parent element</td>
 </tr>
 <tr>
 <td>Travels up the DOM tree until it finds a match for the supplied selector</td>
-  	  <td>Travels up the DOM tree to the document's root element, adding each ancestor element to a temporary collection; it then filters that collection based on a selector if one is supplied </td>
-  	  </tr>
+        <td>Travels up the DOM tree to the document's root element, adding each ancestor element to a temporary collection; it then filters that collection based on a selector if one is supplied </td>
+      </tr>
 <tr>
 <td>The returned jQuery object contains zero or one element</td>
-  	  <td>The returned jQuery object contains zero, one, or multiple elements</td>
-  	</tr>
+        <td>The returned jQuery object contains zero, one, or multiple elements</td>
+      </tr>
 </tbody>
 </table>
 <pre>
-  &lt;ul id="one" class="level-1"&gt;
-    &lt;li class="item-i"&gt;I&lt;/li&gt;
-    &lt;li id="ii" class="item-ii"&gt;II
-    &lt;ul class="level-2"&gt;
-      &lt;li class="item-a"&gt;A&lt;/li&gt;
-      &lt;li class="item-b"&gt;B
-        &lt;ul class="level-3"&gt;
-          &lt;li class="item-1"&gt;1&lt;/li&gt;
-          &lt;li class="item-2"&gt;2&lt;/li&gt;
-          &lt;li class="item-3"&gt;3&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-      &lt;li class="item-c"&gt;C&lt;/li&gt;
-    &lt;/ul&gt;
+&lt;ul id="one" class="level-1"&gt;
+  &lt;li class="item-i"&gt;I&lt;/li&gt;
+  &lt;li id="ii" class="item-ii"&gt;II
+  &lt;ul class="level-2"&gt;
+    &lt;li class="item-a"&gt;A&lt;/li&gt;
+    &lt;li class="item-b"&gt;B
+      &lt;ul class="level-3"&gt;
+        &lt;li class="item-1"&gt;1&lt;/li&gt;
+        &lt;li class="item-2"&gt;2&lt;/li&gt;
+        &lt;li class="item-3"&gt;3&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/li&gt;
+    &lt;li class="item-c"&gt;C&lt;/li&gt;
+  &lt;/ul&gt;
   &lt;/li&gt;
   &lt;li class="item-iii"&gt;III&lt;/li&gt;
 &lt;/ul&gt;
@@ -109,9 +123,11 @@ $('li.item-a').closest('#one', listItemII)
   .css('background-color', 'green');</pre>
 <p>This will change the color of the level-2 <code>&lt;ul&gt;</code>, because it is both the first <code>&lt;ul&gt;</code> ancestor of list item A and a descendant of list item II. It will not change the color of the level-1 <code>&lt;ul&gt;</code>, however, because it is not a descendant of list item II.</p>
 </div>
-<h3>Example:</h3>
-<div class="entry-examples" id="entry-examples"><div id="example-0">
-<h4><span class="desc">Show how event delegation can be done with closest.</span></h4>
+<h3>Examples:</h3>
+<div class="entry-examples" id="entry-examples">
+<div id="example-0">
+<h4>Example: <span class="desc">Show how event delegation can be done with closest. The closest list element toggles a yellow background when it or its descendent is clicked.</span>
+</h4>
 <pre class="prettyprint"><code class="example demo-code">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;
@@ -119,25 +135,54 @@ $('li.item-a').closest('#one', listItemII)
   li { margin: 3px; padding: 3px; background: #EEEEEE; }
   li.hilight { background: yellow; }
   &lt;/style&gt;
-  &lt;script src="http://code.jquery.com/jquery-1.5.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-git.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
   &lt;ul&gt;
-&lt;li&gt;&lt;b&gt;Click me!&lt;/b&gt;&lt;/li&gt;
-&lt;li&gt;You can also &lt;b&gt;Click me!&lt;/b&gt;&lt;/li&gt;
-&lt;/ul&gt;
+    &lt;li&gt;&lt;b&gt;Click me!&lt;/b&gt;&lt;/li&gt;
+    &lt;li&gt;You can also &lt;b&gt;Click me!&lt;/b&gt;&lt;/li&gt;
+  &lt;/ul&gt;
 &lt;script&gt;
-
-    $(document).bind("click", function (e) {
-      $(e.target).closest("li").toggleClass("hilight");
-    });
+  $( document ).bind("click", function( e ) {
+    $( e.target ).closest("li").toggleClass("hilight");
+  });
 &lt;/script&gt;
 
 &lt;/body&gt;
 &lt;/html&gt;</code></pre>
 <h4>Demo:</h4>
 <div class="demo code-demo"></div>
-</div></div>
+</div>
+<div id="example-1">
+<h4>Example: <span class="desc">Pass a jQuery object to closest. The closest list element toggles a yellow background when it or its descendent is clicked.</span>
+</h4>
+<pre class="prettyprint"><code class="example demo-code">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;style&gt;
+  li { margin: 3px; padding: 3px; background: #EEEEEE; }
+  li.hilight { background: yellow; }
+  &lt;/style&gt;
+  &lt;script src="http://code.jquery.com/jquery-git.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;ul&gt;
+    &lt;li&gt;&lt;b&gt;Click me!&lt;/b&gt;&lt;/li&gt;
+    &lt;li&gt;You can also &lt;b&gt;Click me!&lt;/b&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;script&gt;
+  var $listElements = $("li").css("color", "blue");
+  $( document ).bind("click", function( e ) {
+    $( e.target ).closest( $listElements ).toggleClass("hilight");
+  });
+&lt;/script&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+<h4>Demo:</h4>
+<div class="demo code-demo"></div>
+</div>
+</div>
 </div>
 </div>
 <div id="closest2" class="entry method">
@@ -160,14 +205,15 @@ $('li.item-a').closest('#one', listItemII)
 &lt;html&gt;
 &lt;head&gt;
   &lt;style&gt;&lt;/style&gt;
-  &lt;script src="http://code.jquery.com/jquery-1.5.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-git.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
   &lt;ul&gt;&lt;li&gt;&lt;/li&gt;&lt;li&gt;&lt;/li&gt;&lt;/ul&gt;
-&lt;script&gt;var close = $("li:first").closest(["ul", "body"]);
-        $.each(close, function(i){
+&lt;script&gt;
+  var close = $("li:first").closest(["ul", "body"]);
+  $.each(close, function(i){
   $("li").eq(i).html( this.selector + ": " + this.elem.nodeName );
-});&lt;/script&gt;
+  });&lt;/script&gt;
 
 &lt;/body&gt;
 &lt;/html&gt;</code></pre>

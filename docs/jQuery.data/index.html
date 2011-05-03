@@ -32,10 +32,10 @@
 </div>
 <div id="jQuery-data1" class="entry method">
 <h2 class="jq-clearfix roundTop section-title">
-<span class="name">jQuery.data( element, key, value )</span> <span class="returns">Returns: <a class="return" href="http://api.jquery.com/Types/#jQuery">jQuery</a></span>
+<span class="name">jQuery.data( element, key, value )</span> <span class="returns">Returns: <a class="return" href="http://api.jquery.com/Types/#Object">Object</a></span>
 </h2>
 <div class="jq-box roundBottom entry-details">
-<p class="desc"><strong>Description: </strong>Store arbitrary data associated with the specified element.</p>
+<p class="desc"><strong>Description: </strong>Store arbitrary data associated with the specified element. Returns the value that was set.</p>
 <ul class="signatures"><li class="signature" id="jQuery-data-element-key-value">
 <h4 class="name">
 <span class="versionAdded">version added: <a href="/category/version/1.2.3/">1.2.3</a></span>jQuery.data( element, key, value )</h4>
@@ -50,9 +50,8 @@
 jQuery.data(document.body, 'foo', 52);
 jQuery.data(document.body, 'bar', 'test');
 </pre>
+<p><em>Note:</em> this method currently does not provide cross-platform support for setting data on XML documents, as Internet Explorer does not allow data to be attached via expando properties.</p>
 </div>
-<h3 id="notes-0">Additional Notes:</h3>
-<div class="longdesc"><ul><li>Note that this method currently does not provide cross-platform support for setting data on XML documents, as Internet Explorer does not allow data to be attached via expando properties.</li></ul></div>
 <h3>Example:</h3>
 <div class="entry-examples" id="entry-examples"><div id="example-0">
 <h4><span class="desc">Store then retrieve a value from the div element.</span></h4>
@@ -63,7 +62,7 @@ jQuery.data(document.body, 'bar', 'test');
   div { color:blue; }
   span { color:red; }
   &lt;/style&gt;
-  &lt;script src="http://code.jquery.com/jquery-1.5.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-git.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
   &lt;div&gt;
@@ -105,14 +104,14 @@ jQuery.data(document.body, 'bar', 'test');
 </ul>
 <div class="longdesc">
 <p><strong>Note:</strong> This is a low-level method; a more convenient <code><a href="/data">.data()</a></code> is also available.</p>
+<p><strong>Regarding HTML5 data-* attributes:</strong> This low-level method does NOT retrieve the <code>data-*</code> attributes unless the more convenient <code><a href="/data">.data()</a></code> method has already retrieved them.</p>
 <p>The <code>jQuery.data()</code> method allows us to attach data of any type to DOM elements in a way that is safe from circular references and therefore from memory leaks. We can retrieve several distinct values for a single element one at a time, or as a set:</p>
 <pre>alert(jQuery.data( document.body, 'foo' ));
 alert(jQuery.data( document.body ));</pre>
 <p>The above lines alert the data values that were set on the <code>body</code> element. If nothing was set on that element, an empty string is returned.</p>
 <p>Calling <code>jQuery.data(element)</code> retrieves all of the element's associated values as a JavaScript object. Note that jQuery itself uses this method to store data for internal use, such as event handlers, so do not assume that it contains only data that your own code has stored.</p>
+<p><em>Note:</em> this method currently does not provide cross-platform support for setting data on XML documents, as Internet Explorer does not allow data to be attached via expando properties.</p>
 </div>
-<h3 id="notes-1">Additional Notes:</h3>
-<div class="longdesc"><ul><li>Note that this method currently does not provide cross-platform support for setting data on XML documents, as Internet Explorer does not allow data to be attached via expando properties.</li></ul></div>
 <h3>Example:</h3>
 <div class="entry-examples" id="entry-examples-1"><div id="example-1-0">
 <h4><span class="desc">Get the data named "blah" stored at for an element.</span></h4>
@@ -125,7 +124,7 @@ button { margin:5px; font-size:14px; }
 p { margin:5px; color:blue; }
 span { color:red; }
   &lt;/style&gt;
-  &lt;script src="http://code.jquery.com/jquery-1.5.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-git.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
   &lt;div&gt;A div&lt;/div&gt;

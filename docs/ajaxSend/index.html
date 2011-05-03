@@ -14,14 +14,14 @@
 </div>
 <div id="ajaxSend1" class="entry method">
 <h2 class="jq-clearfix roundTop section-title">
-<span class="name">.ajaxSend( handler(event, XMLHttpRequest, ajaxOptions) )</span> <span class="returns">Returns: <a class="return" href="http://api.jquery.com/Types/#jQuery">jQuery</a></span>
+<span class="name">.ajaxSend( handler(event, jqXHR, ajaxOptions) )</span> <span class="returns">Returns: <a class="return" href="http://api.jquery.com/Types/#jQuery">jQuery</a></span>
 </h2>
 <div class="jq-box roundBottom entry-details">
 <p class="desc"><strong>Description: </strong>Attach a function to be executed before an Ajax request is sent. This is an Ajax Event.</p>
-<ul class="signatures"><li class="signature" id="ajaxSend-handlerevent- XMLHttpRequest- ajaxOptions">
+<ul class="signatures"><li class="signature" id="ajaxSend-handlerevent- jqXHR- ajaxOptions">
 <h4 class="name">
-<span class="versionAdded">version added: <a href="/category/version/1.0/">1.0</a></span>.ajaxSend( handler(event, XMLHttpRequest, ajaxOptions) )</h4>
-<p class="arguement"><strong>handler(event, XMLHttpRequest, ajaxOptions)</strong>The function to be invoked.</p>
+<span class="versionAdded">version added: <a href="/category/version/1.0/">1.0</a></span>.ajaxSend( handler(event, jqXHR, ajaxOptions) )</h4>
+<p class="arguement"><strong>handler(event, jqXHR, ajaxOptions)</strong>The function to be invoked.</p>
 </li></ul>
 <div class="longdesc">
 <p>Whenever an Ajax request is about to be sent, jQuery triggers the <code>ajaxSend</code> event. Any and all handlers that have been registered with the <code>.ajaxSend()</code> method are executed at this time.</p>
@@ -39,8 +39,8 @@
 });</pre>
 <p>When the user clicks the button and the Ajax request is about to begin, the log message is displayed.</p>
 <p><strong>Note:</strong> Because <code>.ajaxSend()</code> is implemented as a method of jQuery instances, we can use the <code>this</code> keyword as we do here to refer to the selected elements within the callback function.</p>
-<p>All <code>ajaxSend</code> handlers are invoked, regardless of what Ajax request is to be sent. If we must differentiate between the requests, we can use the parameters passed to the handler. Each time an <code>ajaxSend</code> handler is executed, it is passed the event object, the <code>XMLHttpRequest</code> object, and the <a href="http://api.jquery.com/jQuery.ajax/">settings object</a> that was used in the creation of the Ajax request. For example, we can restrict our callback to only handling events dealing with a particular URL:</p>
-<pre>$('.log').ajaxSend(function(e, xhr, settings) {
+<p>All <code>ajaxSend</code> handlers are invoked, regardless of what Ajax request is to be sent. If we must differentiate between the requests, we can use the parameters passed to the handler. Each time an <code>ajaxSend</code> handler is executed, it is passed the event object, the <code>jqXHR</code> object (in version 1.4, <code>XMLHttpRequest</code>object), and the <a href="http://api.jquery.com/jQuery.ajax/">settings object</a> that was used in the creation of the Ajax request. For example, we can restrict our callback to only handling events dealing with a particular URL:</p>
+<pre>$('.log').ajaxSend(function(e, jqxhr, settings) {
   if (settings.url == 'ajax/test.html') {
     $(this).text('Triggered ajaxSend handler.');
   }

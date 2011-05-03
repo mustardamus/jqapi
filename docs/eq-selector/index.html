@@ -28,13 +28,15 @@
 <p>Note that since JavaScript arrays use <em>0-based indexing</em>, these selectors reflect that fact. This is why <code>$('.myclass:eq(1)')</code> selects the second element in the document with the class myclass, rather than the first. In contrast, <code>:nth-child(n)</code> uses <em>1-based indexing</em> to conform to the CSS specification.</p>
 <p>Unlike the <a href="http://api.jquery.com/eq/"><code>.eq(index)</code></a> method, the <code>:eq(index)</code> selector does <em>not</em> accept a negative value for <code>index</code>. For example, while <code>$('li').eq(-1)</code> selects the last <code>li</code> element, <code>$('li:eq(-1)')</code> selects nothing.</p>
 </div>
-<h3>Example:</h3>
-<div class="entry-examples" id="entry-examples"><div id="example-0">
-<h4><span class="desc">Finds the third td.</span></h4>
+<h3>Examples:</h3>
+<div class="entry-examples" id="entry-examples">
+<div id="example-0">
+<h4>Example: <span class="desc">Finds the third td.</span>
+</h4>
 <pre class="prettyprint"><code class="example demo-code">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;
-  &lt;script src="http://code.jquery.com/jquery-1.5.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-git.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
   &lt;table border="1"&gt;
@@ -48,7 +50,47 @@
 &lt;/html&gt;</code></pre>
 <h4>Demo:</h4>
 <div class="demo code-demo"></div>
-</div></div>
+</div>
+<div id="example-1">
+<h4>Example: <span class="desc">Apply three different styles to list items to demonstrate that :eq() is designed to select a single element while :nth-child() or :eq() within a looping construct such as .each() can select multiple elements.</span>
+</h4>
+<pre class="prettyprint"><code class="example demo-code">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;script src="http://code.jquery.com/jquery-git.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;ul class="nav"&gt;
+   &lt;li&gt;List 1, item 1&lt;/li&gt;
+   &lt;li&gt;List 1, item 2&lt;/li&gt;
+   &lt;li&gt;List 1, item 3&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ul class="nav"&gt;
+  &lt;li&gt;List 2, item 1&lt;/li&gt;
+  &lt;li&gt;List 2, item 2&lt;/li&gt;
+  &lt;li&gt;List 2, item 3&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;script&gt;
+// applies yellow background color to a single &lt;li&gt;
+$("ul.nav li:eq(1)").css( "backgroundColor", "#ff0" );
+
+// applies italics to text of the second &lt;li&gt; within each &lt;ul class="nav"&gt;
+$("ul.nav").each(function(index) {
+  $(this).find("li:eq(1)").css( "fontStyle", "italic" );
+});
+
+// applies red text color to descendants of &lt;ul class="nav"&gt;
+// for each &lt;li&gt; that is the second child of its parent
+$("ul.nav li:nth-child(2)").css( "color", "red" );
+&lt;/script&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+<h4>Demo:</h4>
+<div class="demo code-demo" rel="160"></div>
+</div>
+</div>
 </div>
 </div>
 

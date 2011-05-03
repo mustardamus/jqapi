@@ -61,7 +61,7 @@
 <h4 id="disconnected-dom-nodes">Inserting Disconnected DOM nodes</h4>
 <p>As of jQuery 1.4, <code>.before()</code> and <code>.after()</code> will also work on disconnected DOM nodes. For example, given the following code:</p>
 <pre>$('&lt;div/&gt;').after('&lt;p&gt;&lt;/p&gt;');</pre>
-<p>The result is a jQuery set containing a div and a paragraph, in that order. That set can be further manipulate, even before it is inserted in the document.</p>
+<p>The result is a jQuery set containing a div and a paragraph, in that order. That set can be further manipulated, even before it is inserted in the document.</p>
 <pre>$('&lt;div/&gt;').after('&lt;p&gt;&lt;/p&gt;').addClass('foo')
   .filter('p').attr('id', 'bar').html('hello')
 .end()
@@ -97,7 +97,7 @@ $('p').first().after($newdiv1, [newdiv2, existingdiv1]);
 &lt;html&gt;
 &lt;head&gt;
   &lt;style&gt;p { background:yellow; }&lt;/style&gt;
-  &lt;script src="http://code.jquery.com/jquery-1.5.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-git.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
   &lt;p&gt;I would like to say: &lt;/p&gt;
@@ -115,7 +115,7 @@ $('p').first().after($newdiv1, [newdiv2, existingdiv1]);
 &lt;html&gt;
 &lt;head&gt;
   &lt;style&gt;p { background:yellow; }&lt;/style&gt;
-  &lt;script src="http://code.jquery.com/jquery-1.5.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-git.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
   &lt;p&gt;I would like to say: &lt;/p&gt;
@@ -133,7 +133,7 @@ $('p').first().after($newdiv1, [newdiv2, existingdiv1]);
 &lt;html&gt;
 &lt;head&gt;
   &lt;style&gt;p { background:yellow; }&lt;/style&gt;
-  &lt;script src="http://code.jquery.com/jquery-1.5.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-git.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
   &lt;b&gt;Hello&lt;/b&gt;&lt;p&gt;I would like to say: &lt;/p&gt;
