@@ -240,31 +240,23 @@ jqapi = function() {
             <span class="desc">'+obj.desc+'</span>\n\
           </a>\n\
         </li>';
-    };
-    var getData = (function() {
-      var data;
-      return function() {
-        if (!data) {
-          data = {};
-          // collect searchable data on first query
-          $('.searchable', elements.list).each(function() {
-            var $el = $(this);
-            var searchableLower = $el.text().toLowerCase();
-            if (!data[searchableLower]) {
-              data[searchableLower] = {
-                href: $el.closest('a').attr('href'),
-                searchable: $el.text(),
-                searchableLower: searchableLower,
-                desc: $el.siblings('.desc').text()
-              };
-            }
-          });
-        }
-        return data;
-      }
-    })();
-    
+    }
+    var data = [];
+
     return function(term) {
+      if (!data.length) {
+        // collect searchable data on first query
+        $('.searchable', elements.list).each(function() {
+          var $el = $(this);
+          data.push({
+            href: $el.closest('a').attr('href'),
+            searchable: $el.text(),
+            searchableLower: $el.text().toLowerCase(),
+            desc: $el.siblings('.desc').text()
+          });
+        });
+      }
+      
       if(term.length) {
         elements.list.hide();
         var matches = [];
@@ -275,7 +267,7 @@ jqapi = function() {
         var termLower = term.toLowerCase();
         var highlighterFn = getHighlighter(term, true, 'highlight')
         // find term in data
-        $.each(getData(), function(i, obj) {
+        $.each(data, function(i, obj) {
           // determine winner (aka search query on top most position inside searched text)
           if ((pos = obj.searchableLower.indexOf(termLower)) !== -1) {
             matches.push(listElement(obj, highlighterFn));
