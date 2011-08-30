@@ -80,16 +80,16 @@ $('li').filter(function(index) {
 <h3>Examples:</h3>
 <div class="entry-examples" id="entry-examples">
 <div id="example-0">
-<h4>Example: <span class="desc">Change the color of all divs then put a border around only some of them.</span>
+<h4>Example: <span class="desc">Change the color of all divs; then add a border to those with a "middle" class.</span>
 </h4>
 <pre class="prettyprint"><code class="example demo-code">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;
   &lt;style&gt;
-  div { width:60px; height:60px; margin:5px; float:left; 
+  div { width:60px; height:60px; margin:5px; float:left;
         border:2px white solid;}
   &lt;/style&gt;
-  &lt;script src="http://code.jquery.com/jquery-git.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
   &lt;div&gt;&lt;/div&gt;
@@ -113,28 +113,19 @@ $('li').filter(function(index) {
 <div class="demo code-demo"></div>
 </div>
 <div id="example-1">
-<h4>Example: <span class="desc">Selects all paragraphs and removes those without a class "selected".</span>
-</h4>
-<pre class="prettyprint"><code class="example">$("p").filter(".selected")</code></pre>
-</div>
-<div id="example-2">
-<h4>Example: <span class="desc">Selects all paragraphs and removes those that aren't of class "selected" or the first one.</span>
-</h4>
-<pre class="prettyprint"><code class="example">$("p").filter(".selected, :first")</code></pre>
-</div>
-<div id="example-3">
-<h4>Example: <span class="desc">Change the color of all divs then put a border to specific ones.</span>
+<h4>Example: <span class="desc">Change the color of all divs; then add a border to the second one (index == 1) and the div with an id of "fourth."</span>
 </h4>
 <pre class="prettyprint"><code class="example demo-code">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;
   &lt;style&gt;
-  div { width:60px; height:60px; margin:5px; float:left; 
+  div { width:60px; height:60px; margin:5px; float:left;
         border:3px white solid; }
   &lt;/style&gt;
-  &lt;script src="http://code.jquery.com/jquery-git.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
+  
   &lt;div id="first"&gt;&lt;/div&gt;
   &lt;div id="second"&gt;&lt;/div&gt;
   &lt;div id="third"&gt;&lt;/div&gt;
@@ -156,12 +147,16 @@ $('li').filter(function(index) {
 <h4>Demo:</h4>
 <div class="demo code-demo"></div>
 </div>
-<div id="example-4">
-<h4>Example: <span class="desc">Remove all elements that have a descendant ol element</span>
+<div id="example-2">
+<h4>Example: <span class="desc">Select all divs and filter the selection with a DOM element, keeping only the one with an id of "unique".</span>
 </h4>
-<pre class="prettyprint"><code class="example">$("div").filter(function(index) {
-   return $("ol", this).length == 0;
- });</code></pre>
+<pre class="prettyprint"><code class="example">$("div").filter( document.getElementById("unique") )</code></pre>
+</div>
+<div id="example-3">
+<h4>Example: <span class="desc">Select all divs and filter the selection with a jQuery object, keeping only the one with an id of "unique".</span>
+</h4>
+<pre class="prettyprint"><code class="example">
+$("div").filter( $("#unique") )</code></pre>
 </div>
 </div>
 </div>

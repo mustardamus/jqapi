@@ -21,7 +21,7 @@
               </li></ul>
 </li>
 <li>
-<a href="#width2">width( value ) </a><ul>
+<a href="#width2">width( value  ) </a><ul>
 <li>.width( value )
               </li>
 <li>.width( function(index, width) )
@@ -58,7 +58,7 @@ $(document).width(); // returns width of HTML document</pre>
   p { width:150px; border:1px red solid; }
   div { color:red; font-weight:bold;  }
   &lt;/style&gt;
-  &lt;script src="http://code.jquery.com/jquery-git.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
   &lt;button id="getp"&gt;Get Paragraph Width&lt;/button&gt;
@@ -108,7 +108,7 @@ $(document).width(); // returns width of HTML document</pre>
 <li class="signature" id="width-functionindex- width">
 <h4 class="name">
 <span class="versionAdded">version added: <a href="/category/version/1.4.1/">1.4.1</a></span>.width( function(index, width) )</h4>
-<p class="arguement"><strong>function(index, width)</strong>A function returning the width to set. Receives the index position of the element in the set and the old width as arguments.</p>
+<p class="arguement"><strong>function(index, width)</strong>A function returning the width to set. Receives the index position of the element in the set and the old width as arguments. Within the function, <code>this</code> refers to the current element in the set.</p>
 </li>
 </ul>
 <div class="longdesc">
@@ -126,7 +126,7 @@ $(document).width(); // returns width of HTML document</pre>
   div { width:70px; height:50px; float:left; margin:5px;
         background:red; cursor:pointer; }
   &lt;/style&gt;
-  &lt;script src="http://code.jquery.com/jquery-git.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
   &lt;div&gt;&lt;/div&gt;

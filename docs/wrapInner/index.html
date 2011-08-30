@@ -24,10 +24,10 @@
 <span class="versionAdded">version added: <a href="/category/version/1.2/">1.2</a></span>.wrapInner( wrappingElement )</h4>
 <p class="arguement"><strong>wrappingElement</strong>An HTML snippet, selector expression, jQuery object, or DOM element specifying the structure to wrap around the content of the matched elements.</p>
 </li>
-<li class="signature" id="wrapInner-wrappingFunction">
+<li class="signature" id="wrapInner-functionindex">
 <h4 class="name">
-<span class="versionAdded">version added: <a href="/category/version/1.4/">1.4</a></span>.wrapInner( wrappingFunction )</h4>
-<p class="arguement"><strong>wrappingFunction</strong>A callback function which generates a structure to wrap around the content of the matched elements.</p>
+<span class="versionAdded">version added: <a href="/category/version/1.4/">1.4</a></span>.wrapInner( function(index) )</h4>
+<p class="arguement"><strong>function(index)</strong>A callback function which generates a structure to wrap around the content of the matched elements. Receives the index position of the element in the set as an argument. Within the function, <code>this</code> refers to the current element in the set.</p>
 </li>
 </ul>
 <div class="longdesc">
@@ -77,7 +77,7 @@ $(elem).wrapInner("&lt;div class=\"test\"&gt;&lt;/div&gt;");
 &lt;html&gt;
 &lt;head&gt;
   &lt;style&gt;p { background:#bbf; }&lt;/style&gt;
-  &lt;script src="http://code.jquery.com/jquery-git.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
   &lt;p&gt;Hello&lt;/p&gt;
@@ -102,7 +102,7 @@ $(elem).wrapInner("&lt;div class=\"test\"&gt;&lt;/div&gt;");
   div { border:2px green solid; margin:2px; padding:2px; }
   p { background:yellow; margin:2px; padding:2px; }
   &lt;/style&gt;
-  &lt;script src="http://code.jquery.com/jquery-git.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
   Plain old text, or is it?
@@ -120,7 +120,7 @@ $(elem).wrapInner("&lt;div class=\"test\"&gt;&lt;/div&gt;");
 &lt;html&gt;
 &lt;head&gt;
   &lt;style&gt;p { background:#9f9; }&lt;/style&gt;
-  &lt;script src="http://code.jquery.com/jquery-git.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
   &lt;p&gt;Hello&lt;/p&gt;
@@ -145,7 +145,7 @@ $(elem).wrapInner("&lt;div class=\"test\"&gt;&lt;/div&gt;");
   p { background:#9f9; }
   .red { color:red; }
   &lt;/style&gt;
-  &lt;script src="http://code.jquery.com/jquery-git.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
   &lt;p&gt;Hello&lt;/p&gt;

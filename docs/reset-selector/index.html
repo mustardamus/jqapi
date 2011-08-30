@@ -6,7 +6,7 @@
           <h1 class="jq-clearfix">:reset Selector</h1>
           <div class="entry-meta jq-clearfix">
                         Categories:
-            <span class="category"><a href="http://api.jquery.com/category/selectors/" title="View all posts in Selectors">Selectors</a> &gt; <a href="http://api.jquery.com/category/selectors/form-selectors/" title="View all posts in Form">Form</a></span>
+            <span class="category"><a href="http://api.jquery.com/category/selectors/" title="View all posts in Selectors">Selectors</a> &gt; <a href="http://api.jquery.com/category/selectors/form-selectors/" title="View all posts in Form">Form</a></span> | <span class="category"><a href="http://api.jquery.com/category/selectors/" title="View all posts in Selectors">Selectors</a> &gt; <a href="http://api.jquery.com/category/selectors/jquery-selector-extensions/" title="View all posts in jQuery Extensions">jQuery Extensions</a></span>
   
 
           </div>
@@ -19,6 +19,9 @@
 <h4 class="name">
 <span class="versionAdded">version added: <a href="/category/version/1.0/">1.0</a></span>jQuery(':reset')</h4>
 <p class="desc"><strong>Description: </strong>Selects all elements of type reset.</p>
+<div class="longdesc"><p><code>:reset</code> is equivalent to <code>[type="reset"]</code></p></div>
+<h3 id="notes-0">Additional Notes:</h3>
+<div class="longdesc"><ul><li>Because <code>:reset</code> is a jQuery extension and not part of the CSS specification, queries using <code>:reset</code> cannot take advantage of the performance boost provided by the native DOM <code>querySelectorAll()</code> method. For better performance in modern browsers, use <code>[type="reset"]</code> instead.</li></ul></div>
 <h3>Example:</h3>
 <div class="entry-examples" id="entry-examples"><div id="example-0">
 <h4><span class="desc">Finds all reset inputs.</span></h4>
@@ -28,7 +31,7 @@
   &lt;style&gt;
   textarea { height:45px; }
   &lt;/style&gt;
-  &lt;script src="http://code.jquery.com/jquery-git.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
   &lt;form&gt;

@@ -14,20 +14,20 @@
 </div>
 <div id="clone1" class="entry method">
 <h2 class="jq-clearfix roundTop section-title">
-<span class="name">.clone( [ withDataAndEvents ] )</span> <span class="returns">Returns: <a class="return" href="http://api.jquery.com/Types/#jQuery">jQuery</a></span>
+<span class="name">.clone(  [withDataAndEvents]  )</span> <span class="returns">Returns: <a class="return" href="http://api.jquery.com/Types/#jQuery">jQuery</a></span>
 </h2>
 <div class="jq-box roundBottom entry-details">
 <p class="desc"><strong>Description: </strong>Create a deep copy of the set of matched elements.</p>
 <ul class="signatures">
 <li class="signature" id="clone-withDataAndEvents">
 <h4 class="name">
-<span class="versionAdded">version added: <a href="/category/version/1.0/">1.0</a></span>.clone( [ withDataAndEvents ] )</h4>
+<span class="versionAdded">version added: <a href="/category/version/1.0/">1.0</a></span>.clone(  [withDataAndEvents] )</h4>
 <p class="arguement"><strong>withDataAndEvents</strong>A Boolean indicating whether event handlers should be copied along with the elements. As of jQuery 1.4, element data will be copied as well.</p>
 </li>
 <li class="signature" id="clone-withDataAndEvents-deepWithDataAndEvents">
 <h4 class="name">
-<span class="versionAdded">version added: <a href="/category/version/1.5/">1.5</a></span>.clone( [ withDataAndEvents ], [ deepWithDataAndEvents ] )</h4>
-<p class="arguement"><strong>withDataAndEvents</strong>A Boolean indicating whether event handlers and data should be copied along with the elements. The default value is <code>false</code>. <em>*For 1.5.0 the default value is incorrectly <code>true</code>. This will be changed back to <code>false</code> in 1.5.1 and up.</em></p>
+<span class="versionAdded">version added: <a href="/category/version/1.5/">1.5</a></span>.clone(  [withDataAndEvents],  [deepWithDataAndEvents] )</h4>
+<p class="arguement"><strong>withDataAndEvents</strong>A Boolean indicating whether event handlers and data should be copied along with the elements. The default value is <code>false</code>. <em>*In jQuery 1.5.0 the default value was incorrectly <code>true</code>; it was changed back to <code>false</code> in 1.5.1 and up.</em></p>
 <p class="arguement"><strong>deepWithDataAndEvents</strong>A Boolean indicating whether event handlers and data for all children of the cloned element should be copied. By default its value matches the first argument's value (which defaults to <code>false</code>).</p>
 </li>
 </ul>
@@ -65,13 +65,15 @@
 </pre>
 <p>As of jQuery 1.5, <code>withDataAndEvents</code> can be optionally enhanced with <code>deepWithDataAndEvents </code> to copy the events and data for all children of the cloned element.</p>
 </div>
-<h3>Example:</h3>
-<div class="entry-examples" id="entry-examples"><div id="example-0">
-<h4><span class="desc">Clones all b elements (and selects the clones) and prepends them to all paragraphs.</span></h4>
+<h3>Examples:</h3>
+<div class="entry-examples" id="entry-examples">
+<div id="example-0">
+<h4>Example: <span class="desc">Clones all b elements (and selects the clones) and prepends them to all paragraphs.</span>
+</h4>
 <pre class="prettyprint"><code class="example demo-code">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;
-  &lt;script src="http://code.jquery.com/jquery-git.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
   
@@ -85,7 +87,57 @@
 &lt;/html&gt;</code></pre>
 <h4>Demo:</h4>
 <div class="demo code-demo"></div>
-</div></div>
+</div>
+<div id="example-1">
+<h4>Example: <span class="desc">When using .clone() to clone a collection of elements that are not attached to the DOM, their order when inserted into the DOM is not guaranteed. However, it may be possible to preserve sort order with a workaround, as demonstrated:</span>
+</h4>
+<pre class="prettyprint"><code class="example demo-code">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;style&gt;
+  #orig, #copy, #copy-correct {
+    float: left;
+    width: 20%;
+  }
+&lt;/style&gt;
+  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  
+&lt;div id="orig"&gt;
+    &lt;div class="elem"&gt;&lt;a&gt;1&lt;/a&gt;&lt;/div&gt;
+    &lt;div class="elem"&gt;&lt;a&gt;2&lt;/a&gt;&lt;/div&gt;
+    &lt;div class="elem"&gt;&lt;a&gt;3&lt;/a&gt;&lt;/div&gt;
+    &lt;div class="elem"&gt;&lt;a&gt;4&lt;/a&gt;&lt;/div&gt;
+    &lt;div class="elem"&gt;&lt;a&gt;5&lt;/a&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id="copy"&gt;&lt;/div&gt;
+&lt;div id="copy-correct"&gt;&lt;/div&gt;
+
+&lt;script&gt;
+// sort order is not guaranteed here and may vary with browser  
+$('#copy').append($('#orig .elem')
+          .clone()
+          .children('a')
+          .prepend('foo - ')
+          .parent()
+          .clone()); 
+ 
+// correct way to approach where order is maintained
+$('#copy-correct')
+          .append($('#orig .elem')
+          .clone()
+          .children('a')
+          .prepend('bar - ')
+          .end()); 
+&lt;/script&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+<h4>Demo:</h4>
+<div class="demo code-demo"></div>
+</div>
+</div>
 </div>
 </div>
 

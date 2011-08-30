@@ -14,21 +14,22 @@
 </div>
 <div id="append1" class="entry method">
 <h2 class="jq-clearfix roundTop section-title">
-<span class="name">.append( content, [ content ] )</span> <span class="returns">Returns: <a class="return" href="http://api.jquery.com/Types/#jQuery">jQuery</a></span>
+<span class="name">.append( content, [content]  )</span> <span class="returns">Returns: <a class="return" href="http://api.jquery.com/Types/#jQuery">jQuery</a></span>
 </h2>
 <div class="jq-box roundBottom entry-details">
 <p class="desc"><strong>Description: </strong>Insert content, specified by the parameter, to the end of each element in the set of matched elements.</p>
 <ul class="signatures">
 <li class="signature" id="append-content-content">
 <h4 class="name">
-<span class="versionAdded">version added: <a href="/category/version/1.0/">1.0</a></span>.append( content, [ content ] )</h4>
+<span class="versionAdded">version added: <a href="/category/version/1.0/">1.0</a></span>.append( content,   [content] )</h4>
 <p class="arguement"><strong>content</strong>DOM element, HTML string, or jQuery object to insert at the end of each element in the set of matched elements.</p>
 <p class="arguement"><strong>content</strong>One or more additional DOM elements, arrays of elements, HTML strings, or jQuery objects to insert at the end of each element in the set of matched elements.</p>
 </li>
 <li class="signature" id="append-functionindex- html">
 <h4 class="name">
 <span class="versionAdded">version added: <a href="/category/version/1.4/">1.4</a></span>.append( function(index, html) )</h4>
-<p class="arguement"><strong>function(index, html)</strong>A function that returns an HTML string to insert at the end of each element in the set of matched elements. Receives the index position of the element in the set and the old HTML value of the element as arguments.</p>
+<p class="arguement"><strong>function(index, html)</strong>A function that returns an HTML string, DOM element(s), or jQuery object to insert at the end of each element in the set of matched elements. Receives the index position of the element in the set and the old HTML value of the element as arguments. Within the function, <code>this</code> refers to the current element in the set.
+</p>
 </li>
 </ul>
 <div class="longdesc">
@@ -90,7 +91,7 @@ $('body').append($newdiv1, [newdiv2, existingdiv1]);
   &lt;style&gt;
   p { background:yellow; }
 &lt;/style&gt;
-  &lt;script src="http://code.jquery.com/jquery-git.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
   &lt;p&gt;I would like to say: &lt;/p&gt;
@@ -112,7 +113,7 @@ $('body').append($newdiv1, [newdiv2, existingdiv1]);
   &lt;style&gt;
   p { background:yellow; }
 &lt;/style&gt;
-  &lt;script src="http://code.jquery.com/jquery-git.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
   &lt;p&gt;I would like to say: &lt;/p&gt;
@@ -135,7 +136,7 @@ $('body').append($newdiv1, [newdiv2, existingdiv1]);
   &lt;style&gt;
   p { background:yellow; }
 &lt;/style&gt;
-  &lt;script src="http://code.jquery.com/jquery-git.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
   &lt;strong&gt;Hello world!!!&lt;/strong&gt;&lt;p&gt;I would like to say: &lt;/p&gt;

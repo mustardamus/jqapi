@@ -14,14 +14,14 @@
 </div>
 <div id="animate1" class="entry method">
 <h2 class="jq-clearfix roundTop section-title">
-<span class="name">.animate( properties, [ duration ], [ easing ], [ complete ] )</span> <span class="returns">Returns: <a class="return" href="http://api.jquery.com/Types/#jQuery">jQuery</a></span>
+<span class="name">.animate( properties, [duration,]  [easing,]  [complete]  )</span> <span class="returns">Returns: <a class="return" href="http://api.jquery.com/Types/#jQuery">jQuery</a></span>
 </h2>
 <div class="jq-box roundBottom entry-details">
 <p class="desc"><strong>Description: </strong>Perform a custom animation of a set of CSS properties.</p>
 <ul class="signatures">
 <li class="signature" id="animate-properties-duration-easing-complete">
 <h4 class="name">
-<span class="versionAdded">version added: <a href="/category/version/1.0/">1.0</a></span>.animate( properties, [ duration ], [ easing ], [ complete ] )</h4>
+<span class="versionAdded">version added: <a href="/category/version/1.0/">1.0</a></span>.animate( properties,   [duration],  [easing],  [complete] )</h4>
 <p class="arguement"><strong>properties</strong>A map of CSS properties that the animation will move toward.</p>
 <p class="arguement"><strong>duration</strong>A string or number determining how long the animation will run.</p>
 <p class="arguement"><strong>easing</strong>A string indicating which easing function to use for the transition.</p>
@@ -29,7 +29,7 @@
 </li>
 <li class="signature" id="animate-properties-options">
 <h4 class="name">
-<span class="versionAdded">version added: <a href="/category/version/1.0/">1.0</a></span>.animate( properties, options )</h4>
+<span class="versionAdded">version added: <a href="/category/version/1.0/">1.0</a></span>.animate( properties,  options )</h4>
 <p class="arguement"><strong>properties</strong>A map of CSS properties that the animation will move toward.</p>
 <p class="arguement"><strong>options</strong>A map of additional options to pass to the method. Supported keys:
         </p>
@@ -57,7 +57,7 @@
 <p>Shorthand CSS properties (e.g. margin, background, border) are not supported. For example, if you want to retrieve the rendered margin, use: <code>$(elem).css('marginTop')</code> and <code>$(elem).css('marginRight')</code>, and so on.</p>
 <p>In addition to numeric values, each property can take the strings <code>'show'</code>, <code>'hide'</code>, and <code>'toggle'</code>. These shortcuts allow for custom hiding and showing animations that take into account the display type of the element.</p>
 <p>Animated properties can also be relative. If a value is supplied with a leading <code>+=</code> or <code>-=</code> sequence of characters, then the target value is computed by adding or subtracting the given number from the current value of the property.</p>
-<p>Unlike shorthand animation methods such as <code>.slideDown()</code> and <code>.fadeIn()</code>, the <code>.animate()</code> method does <em>not</em> make hidden elements visible as part of the effect. For example, given <code>$('someElement').hide().animate({height:'20px'}, 500})</code>, the animation will run, but <em>the element will remain hidden</em>.</p>
+<p>Unlike shorthand animation methods such as <code>.slideDown()</code> and <code>.fadeIn()</code>, the <code>.animate()</code> method does <em>not</em> make hidden elements visible as part of the effect. For example, given <code>$('someElement').hide().animate({height:'20px'}, 500)</code>, the animation will run, but <em>the element will remain hidden</em>.</p>
 <h4 id="duration">Duration</h4>
 <p>Durations are given in milliseconds; higher values indicate slower animations, not faster ones. The strings <code>'fast'</code> and <code>'slow'</code> can be supplied to indicate durations of <code>200</code> and <code>600</code> milliseconds, respectively.</p>
 <h4 id="complete">Complete Function</h4>
@@ -88,7 +88,8 @@
 <img src="/images/animate-2.jpg" alt=""></p>
 <p>The <code>opacity</code> of the image is already at its target value, so this property is not animated by the second click. Since the target value for <code>left</code> is a relative value, the image moves even farther to the right during this second animation.</p>
 <p>Directional properties (<code>top</code>, <code>right</code>, <code>bottom</code>, <code>left</code>) have no discernible effect on elements if their  <code>position</code> style property is <code>static</code>, which it is by default.</p>
-<blockquote><p>The <a href="http://jqueryui.com">jQuery UI</a> project extends the <code>.animate()</code> method by allowing some non-numeric styles such as colors to be animated. The project also includes mechanisms for specifying animations through CSS classes rather than individual attributes.</p></blockquote>
+<blockquote><p><strong>Note: </strong>The <a href="http://jqueryui.com">jQuery UI</a> project extends the <code>.animate()</code> method by allowing some non-numeric styles such as colors to be animated. The project also includes mechanisms for specifying animations through CSS classes rather than individual attributes.</p></blockquote>
+<blockquote><p><strong>Note:</strong> if attempting to animate an element with a height or width of 0px, where contents of the element are visible due to overflow, jQuery may clip this overflow during animation. By fixing the dimensions of the original element being hidden however, it is possible to ensure that the animation runs smoothly. A <a href="http://www.google.com/search?q=clearfix">clearfix</a> can be used to automatically fix the dimensions of your main element without the need to set this manually.</p></blockquote>
 <h4 id="step">Step Function</h4>
 <p>The second version of <code>.animate()</code> provides a <code>step</code> option — a callback function that is fired at each step of the animation. This function is useful for enabling custom animation types or altering the animation as it is occurring. It accepts two arguments (<code>now</code> and <code>fx</code>), and <code>this</code> is set to the DOM element being animated.
 </p>
@@ -142,7 +143,11 @@
 <p>As previously noted, a plugin is required for the <code>easeOutBounce</code> function.</p>
 </div>
 <h3 id="notes-0">Additional Notes:</h3>
-<div class="longdesc"><ul><li>All jQuery effects, including <code>.animate()</code>, can be turned off globally by setting  <code>jQuery.fx.off = true</code>, which effectively sets the duration to 0. For more information, see <a href="http://api.jquery.com/jquery.fx.off">jQuery.fx.off</a>.</li></ul></div>
+<div class="longdesc"><ul>
+<li>All jQuery effects, including <code>.animate()</code>, can be turned off globally by setting  <code>jQuery.fx.off = true</code>, which effectively sets the duration to 0. For more information, see <a href="http://api.jquery.com/jquery.fx.off">jQuery.fx.off</a>.</li>
+<li>Because of the nature of <a href="https://developer.mozilla.org/en/DOM/window.mozRequestAnimationFrame"><code>requestAnimationFrame()</code></a>, you should never queue animations using a <code>setInterval</code> or <code>setTimeout</code> loop. In order to preserve CPU resources, browsers that support <code>requestAnimationFrame</code> will not update animations when the window/tab is not displayed. If you continue to queue animations via <code>setInterval</code> or <code>setTimeout</code> while animation is paused, all of the queued animations will begin playing when the window/tab regains focus. To avoid this potential problem, use the callback of your last animation in the loop, or append a function to the elements <a href="http://api.jquery.com/queue"><code>.queue()</code></a> to set the timeout to start the next animation.
+</li>
+</ul></div>
 <h3>Examples:</h3>
 <div class="entry-examples" id="entry-examples">
 <div id="example-0">
@@ -158,7 +163,7 @@ width:100px;
 border:1px solid green;
 }
 &lt;/style&gt;
-  &lt;script src="http://code.jquery.com/jquery-git.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
   &lt;button id="go"&gt;&amp;raquo; Run&lt;/button&gt;
@@ -200,7 +205,7 @@ div {
   margin:5px;
 }
 &lt;/style&gt;
-  &lt;script src="http://code.jquery.com/jquery-git.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
   &lt;button id="left"&gt;&amp;laquo;&lt;/button&gt; &lt;button id="right"&gt;&amp;raquo;&lt;/button&gt;
@@ -244,7 +249,7 @@ button {
   font-size:14px;
 }
 &lt;/style&gt;
-  &lt;script src="http://code.jquery.com/jquery-git.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
   &lt;button id="go1"&gt;&amp;raquo; Animate Block1&lt;/button&gt;
@@ -299,7 +304,7 @@ div {
    margin: 5px;
 }
 &lt;/style&gt;
-  &lt;script src="http://code.jquery.com/jquery-git.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
   

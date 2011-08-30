@@ -21,7 +21,7 @@
               </li></ul>
 </li>
 <li>
-<a href="#height2">height( value ) </a><ul>
+<a href="#height2">height( value  ) </a><ul>
 <li>.height( value )
               </li>
 <li>.height( function(index, height) )
@@ -58,7 +58,7 @@ $(document).height(); // returns height of HTML document</pre>
   p { width:150px; border:1px red solid; }
   div { color:red; font-weight:bold; }
   &lt;/style&gt;
-  &lt;script src="http://code.jquery.com/jquery-git.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
   &lt;button id="getp"&gt;Get Paragraph Height&lt;/button&gt;
@@ -108,11 +108,11 @@ $(document).height(); // returns height of HTML document</pre>
 <li class="signature" id="height-functionindex- height">
 <h4 class="name">
 <span class="versionAdded">version added: <a href="/category/version/1.4.1/">1.4.1</a></span>.height( function(index, height) )</h4>
-<p class="arguement"><strong>function(index, height)</strong>A function returning the height to set. Receives the index position of the element in the set and the old height as arguments.</p>
+<p class="arguement"><strong>function(index, height)</strong>A function returning the height to set. Receives the index position of the element in the set and the old height as arguments. Within the function, <code>this</code> refers to the current element in the set.</p>
 </li>
 </ul>
 <div class="longdesc">
-<p>When calling <code>.height(value)</code>, the value can be either a string (number and unit) or a number. If only a number is provided for the value, jQuery assumes a pixel unit. If a string is provided, however, any valid CSS measurement may be used for the height (such as <code>100px</code>, <code>50%</code>, or <code>auto</code>). Note that in modern browsers, the CSS height property does not include padding, border, or margin.</p>
+<p>When calling <code>.height(value)</code>, the value can be either a string (number and unit) or a number. If only a number is provided for the value, jQuery assumes a pixel unit. If a string is provided, however, a valid CSS measurement must be provided for the height (such as <code>100px</code>, <code>50%</code>, or <code>auto</code>). Note that in modern browsers, the CSS height property does not include padding, border, or margin.</p>
 <p>If no explicit unit was specified (like 'em' or '%') then "px" is concatenated to the value.</p>
 <p>Note that <code>.height(value)</code> sets the height of the box in accordance with the CSS <code>box-sizing</code> property. Changing this property to <code>border-box</code> will cause this function to change the outerHeight of the box instead of the content height.</p>
 </div>
@@ -124,7 +124,7 @@ $(document).height(); // returns height of HTML document</pre>
 &lt;head&gt;
   &lt;style&gt;div { width:50px; height:70px; float:left; margin:5px;
         background:rgb(255,140,0); cursor:pointer; }  &lt;/style&gt;
-  &lt;script src="http://code.jquery.com/jquery-git.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
   &lt;div&gt;&lt;/div&gt;

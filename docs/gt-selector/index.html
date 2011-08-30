@@ -6,7 +6,7 @@
           <h1 class="jq-clearfix">:gt() Selector</h1>
           <div class="entry-meta jq-clearfix">
                         Categories:
-            <span class="category"><a href="http://api.jquery.com/category/selectors/" title="View all posts in Selectors">Selectors</a> &gt; <a href="http://api.jquery.com/category/selectors/basic-filter-selectors/" title="View all posts in Basic Filter">Basic Filter</a></span>
+            <span class="category"><a href="http://api.jquery.com/category/selectors/" title="View all posts in Selectors">Selectors</a> &gt; <a href="http://api.jquery.com/category/selectors/basic-filter-selectors/" title="View all posts in Basic Filter">Basic Filter</a></span> | <span class="category"><a href="http://api.jquery.com/category/selectors/" title="View all posts in Selectors">Selectors</a> &gt; <a href="http://api.jquery.com/category/selectors/jquery-selector-extensions/" title="View all posts in jQuery Extensions">jQuery Extensions</a></span>
   
 
           </div>
@@ -28,13 +28,15 @@
 <p>The index-related selector expressions (including this "greater than" selector) filter the set of elements that have matched the expressions that precede them. They narrow the set down based on the order of the elements within this matched set. For example, if elements are first selected with a class selector (<code>.myclass</code>) and four elements are returned, these elements are given indices 0 through 3 for the purposes of these selectors.</p>
 <p>Note that since JavaScript arrays use <em>0-based indexing</em>, these selectors reflect that fact. This is why <code>$('.myclass:gt(1)')</code> selects elements after the second element in the document with the class <code>myclass</code>, rather than after the first. In contrast, <code>:nth-child(n)</code> uses <em>1-based indexing</em> to conform to the CSS specification.</p>
 </div>
+<h3 id="notes-0">Additional Notes:</h3>
+<div class="longdesc"><ul><li>Because <code>:gt()</code> is a jQuery extension and not part of the CSS specification, queries using <code>:gt()</code> cannot take advantage of the performance boost provided by the native DOM <code>querySelectorAll()</code> method. For better performance in modern browsers, use <code>$("your-pure-css-selector").slice(index)</code> instead.</li></ul></div>
 <h3>Example:</h3>
 <div class="entry-examples" id="entry-examples"><div id="example-0">
 <h4><span class="desc">Finds TD #5 and higher. Reminder: the indexing starts at 0.</span></h4>
 <pre class="prettyprint"><code class="example demo-code">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;
-  &lt;script src="http://code.jquery.com/jquery-git.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
   &lt;table border="1"&gt;

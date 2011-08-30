@@ -26,7 +26,7 @@
 </li>
 <li class="signature" id="load-eventData-handlereventObject">
 <h4 class="name">
-<span class="versionAdded">version added: <a href="/category/version/1.4.3/">1.4.3</a></span>.load( [ eventData ], handler(eventObject) )</h4>
+<span class="versionAdded">version added: <a href="/category/version/1.4.3/">1.4.3</a></span>.load(  [eventData], handler(eventObject) )</h4>
 <p class="arguement"><strong>eventData</strong>A map of data that will be passed to the event handler.</p>
 <p class="arguement"><strong>handler(eventObject)</strong>A function to execute each time the event is triggered.</p>
 </li>
@@ -56,6 +56,17 @@
 <li>Can cease to fire for images that already live in the browser's cache</li>
 </ul>
 </blockquote>
+<blockquote><p><strong>Note:</strong> The <code>.live()</code> and <code>.delegate()</code> methods cannot be used to detect the <code>load</code> event of an iframe. The load event does not correctly bubble up the parent document and the event.target isn't set by Firefox, IE9 or Chrome, which is required to do event delegation.</p></blockquote>
+<blockquote><p><strong>Note:</strong> When calling <code>.load()</code> using a URL without a suffixed selector expression, the content is passed to <code>.html()</code> prior to scripts being removed. This executes the script blocks before they are discarded. If <code>.load()</code> is however called with a selector expression appended to the URL, the scripts are stripped out prior to the DOM being updated, which is why they are never executed. An example of both cases can be seen below:
+</p></blockquote>
+<p>Here, any JavaScript loaded into <code>#a</code> as a part of the document will successfully execute.</p>
+<pre>
+$('#a').load('article.html');
+</pre>
+<p>However in this case, script blocks in the document being loaded into <code>#b</code> are stripped out prior to being executed:</p>
+<pre>
+$('#b').load('article.html #target');
+</pre>
 </div>
 <h3>Examples:</h3>
 <div class="entry-examples" id="entry-examples">

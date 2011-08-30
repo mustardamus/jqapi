@@ -14,13 +14,13 @@
 </div>
 <div id="jQuery-get1" class="entry method">
 <h2 class="jq-clearfix roundTop section-title">
-<span class="name">jQuery.get( url, [ data ], [ success(data, textStatus, jqXHR) ], [ dataType ] )</span> <span class="returns">Returns: <a class="return" href="http://api.jquery.com/Types/#jqXHR">jqXHR</a></span>
+<span class="name">jQuery.get( url, [data,]  [success(data, textStatus, jqXHR),]  [dataType]  )</span> <span class="returns">Returns: <a class="return" href="http://api.jquery.com/Types/#jqXHR">jqXHR</a></span>
 </h2>
 <div class="jq-box roundBottom entry-details">
 <p class="desc"><strong>Description: </strong>Load data from the server using a HTTP GET request.</p>
 <ul class="signatures"><li class="signature" id="jQuery-get-url-data-successdata- textStatus- jqXHR-dataType">
 <h4 class="name">
-<span class="versionAdded">version added: <a href="/category/version/1.0/">1.0</a></span>jQuery.get( url, [ data ], [ success(data, textStatus, jqXHR) ], [ dataType ] )</h4>
+<span class="versionAdded">version added: <a href="/category/version/1.0/">1.0</a></span>jQuery.get( url,   [data],  [success(data, textStatus, jqXHR)],  [dataType] )</h4>
 <p class="arguement"><strong>url</strong>A string containing the URL to which the request is sent.</p>
 <p class="arguement"><strong>data</strong>A map or string that is sent to the server with the request.</p>
 <p class="arguement"><strong>success(data, textStatus, jqXHR)</strong>A callback function that is executed if the request succeeds.</p>
@@ -100,12 +100,12 @@ alert("Data Loaded: " + data);
    });</code></pre>
 </div>
 <div id="example-5">
-<h4>Example: <span class="desc"> Gets the test.php page contents which has been returned in json format (&lt;?php echo json_encode(array("name"=&gt;"John","time"=&gt;"2pm")); ?&gt;).</span>
+<h4>Example: <span class="desc"> Gets the test.php page contents, which has been returned in json format (&lt;?php echo json_encode(array("name"=&gt;"John","time"=&gt;"2pm")); ?&gt;), and adds it to the page.</span>
 </h4>
-<pre class="prettyprint"><code class="example">$.get("test.php", { "func": "getNameAndTime" },
+<pre class="prettyprint"><code class="example">$.get("test.php",
    function(data){
-     alert(data.name); // John
-     console.log(data.time); //  2pm
+     $('body').append("Name: " + data.name); // John
+              .append("Time: " + data.time); //  2pm
    }, "json");</code></pre>
 </div>
 </div>

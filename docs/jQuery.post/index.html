@@ -14,13 +14,13 @@
 </div>
 <div id="jQuery-post1" class="entry method">
 <h2 class="jq-clearfix roundTop section-title">
-<span class="name">jQuery.post( url, [ data ], [ success(data, textStatus, jqXHR) ], [ dataType ] )</span> <span class="returns">Returns: <a class="return" href="http://api.jquery.com/Types/#jqXHR">jqXHR</a></span>
+<span class="name">jQuery.post( url, [data,]  [success(data, textStatus, jqXHR),]  [dataType]  )</span> <span class="returns">Returns: <a class="return" href="http://api.jquery.com/Types/#jqXHR">jqXHR</a></span>
 </h2>
 <div class="jq-box roundBottom entry-details">
 <p class="desc"><strong>Description: </strong>Load data from the server using a HTTP POST request.</p>
 <ul class="signatures"><li class="signature" id="jQuery-post-url-data-successdata- textStatus- jqXHR-dataType">
 <h4 class="name">
-<span class="versionAdded">version added: <a href="/category/version/1.0/">1.0</a></span>jQuery.post( url, [ data ], [ success(data, textStatus, jqXHR) ], [ dataType ] )</h4>
+<span class="versionAdded">version added: <a href="/category/version/1.0/">1.0</a></span>jQuery.post( url,   [data],  [success(data, textStatus, jqXHR)],  [dataType] )</h4>
 <p class="arguement"><strong>url</strong>A string containing the URL to which the request is sent.</p>
 <p class="arguement"><strong>data</strong>A map or string that is sent to the server with the request.</p>
 <p class="arguement"><strong>success(data, textStatus, jqXHR)</strong>A callback function that is executed if the request succeeds.</p>
@@ -32,7 +32,7 @@
   type: 'POST',
   url: <em>url</em>,
   data: <em>data</em>,
-  success: <em>success</em>
+  success: <em>success</em>,
   dataType: <em>dataType</em>
 });
 </pre>
@@ -119,7 +119,7 @@
 </h4>
 <pre class="prettyprint"><code class="example">$.post("test.php", { "func": "getNameAndTime" },
  function(data){
-   alert(data.name); // John
+   console.log(data.name); // John
    console.log(data.time); //  2pm
  }, "json");</code></pre>
 </div>
@@ -129,7 +129,7 @@
 <pre class="prettyprint"><code class="example demo-code">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;
-  &lt;script src="http://code.jquery.com/jquery-git.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
   &lt;form action="/" id="searchForm"&gt;
@@ -140,22 +140,22 @@
   &lt;div id="result"&gt;&lt;/div&gt;
 
 &lt;script&gt;
-  // attach a submit handler to the form
+  /* attach a submit handler to the form */
   $("#searchForm").submit(function(event) {
 
-    // stop form from submitting normally
+    /* stop form from submitting normally */
     event.preventDefault(); 
         
-    // get some values from elements on the page:
+    /* get some values from elements on the page: */
     var $form = $( this ),
         term = $form.find( 'input[name="s"]' ).val(),
         url = $form.attr( 'action' );
 
-    // Send the data using post and put the results in a div
-    $.post( url, { s: term } ,
+    /* Send the data using post and put the results in a div */
+    $.post( url, { s: term },
       function( data ) {
           var content = $( data ).find( '#content' );
-          $( "#result" ).html( content );
+          $( "#result" ).empty().append( content );
       }
     );
   });

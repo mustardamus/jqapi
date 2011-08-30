@@ -6,7 +6,7 @@
           <h1 class="jq-clearfix">:parent Selector</h1>
           <div class="entry-meta jq-clearfix">
                         Categories:
-            <span class="category"><a href="http://api.jquery.com/category/selectors/" title="View all posts in Selectors">Selectors</a> &gt; <a href="http://api.jquery.com/category/selectors/content-filter-selector/" title="View all posts in Content Filter">Content Filter</a></span>
+            <span class="category"><a href="http://api.jquery.com/category/selectors/" title="View all posts in Selectors">Selectors</a> &gt; <a href="http://api.jquery.com/category/selectors/content-filter-selector/" title="View all posts in Content Filter">Content Filter</a></span> | <span class="category"><a href="http://api.jquery.com/category/selectors/" title="View all posts in Selectors">Selectors</a> &gt; <a href="http://api.jquery.com/category/selectors/jquery-selector-extensions/" title="View all posts in jQuery Extensions">jQuery Extensions</a></span>
   
 
           </div>
@@ -24,6 +24,8 @@
 <p>One important thing to note regarding the use of <code>:parent</code> (and <code>:empty</code>) is that child elements include text nodes.</p>
 <p>The W3C recommends that the <code>&lt;p&gt;</code> element have at least one child node, even if that child is merely text (see <a href="http://www.w3.org/TR/html401/struct/text.html#edef-P">http://www.w3.org/TR/html401/struct/text.html#edef-P</a>). Some other elements, on the other hand, are empty (i.e. have no children) by definition:<code> &lt;input&gt;</code>, <code>&lt;img&gt;</code>, <code>&lt;br&gt;</code>, and <code>&lt;hr&gt;</code>, for example.</p>
 </div>
+<h3 id="notes-0">Additional Notes:</h3>
+<div class="longdesc"><ul><li>Because <code>:parent</code> is a jQuery extension and not part of the CSS specification, queries using <code>:parent</code> cannot take advantage of the performance boost provided by the native DOM <code>querySelectorAll()</code> method. To achieve the best performance when using <code>:parent</code> to select elements, first select the elements using a pure CSS selector, then use <a href="http://api.jquery.com/filter/"><code>.filter(":parent")</code></a>.</li></ul></div>
 <h3>Example:</h3>
 <div class="entry-examples" id="entry-examples"><div id="example-0">
 <h4><span class="desc">Finds all tds with children, including text.</span></h4>
@@ -33,7 +35,7 @@
   &lt;style&gt;
   td { width:40px; background:green; }
   &lt;/style&gt;
-  &lt;script src="http://code.jquery.com/jquery-git.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
   &lt;table border="1"&gt;

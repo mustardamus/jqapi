@@ -17,14 +17,14 @@
 <h4><span>Contents:</span></h4>
 <ul class="toc-list">
 <li>
-<a href="#queue1">queue( [ queueName ] ) </a><ul><li>.queue( [ queueName ] )
+<a href="#queue1">queue( [ queueName ]  ) </a><ul><li>.queue(  [queueName]  )
               </li></ul>
 </li>
 <li>
-<a href="#queue2">queue( [ queueName ], newQueue ) </a><ul>
-<li>.queue( [ queueName ], newQueue )
+<a href="#queue2">queue( [ queueName, ] newQueue  ) </a><ul>
+<li>.queue(  [queueName,] newQueue )
               </li>
-<li>.queue( [ queueName ], callback( next ) )
+<li>.queue(  [queueName,] callback( next ) )
               </li>
 </ul>
 </li>
@@ -32,13 +32,13 @@
 </div>
 <div id="queue1" class="entry method">
 <h2 class="jq-clearfix roundTop section-title">
-<span class="name">.queue( [ queueName ] )</span> <span class="returns">Returns: <a class="return" href="http://api.jquery.com/Types/#Array">Array</a></span>
+<span class="name">.queue(  [queueName]  )</span> <span class="returns">Returns: <a class="return" href="http://api.jquery.com/Types/#Array">Array</a></span>
 </h2>
 <div class="jq-box roundBottom entry-details">
 <p class="desc"><strong>Description: </strong>Show the queue of functions to be executed on the matched elements.</p>
 <ul class="signatures"><li class="signature" id="queue-queueName">
 <h4 class="name">
-<span class="versionAdded">version added: <a href="/category/version/1.2/">1.2</a></span>.queue( [ queueName ] )</h4>
+<span class="versionAdded">version added: <a href="/category/version/1.2/">1.2</a></span>.queue(  [queueName] )</h4>
 <p class="arguement"><strong>queueName</strong>A string containing the name of the queue. Defaults to <code>fx</code>, the standard effects queue.</p>
 </li></ul>
 <h3>Example:</h3>
@@ -52,27 +52,35 @@
         background:green; display:none; }
   div.newcolor { background:blue; }
   p { color:red; }  &lt;/style&gt;
-  &lt;script src="http://code.jquery.com/jquery-git.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
-  &lt;button id="show"&gt;Show Length of Queue&lt;/button&gt;
-  &lt;p&gt;&lt;/p&gt;
+  
+  &lt;p&gt;The queue length is: &lt;span&gt;&lt;/span&gt;&lt;/p&gt;
   &lt;div&gt;&lt;/div&gt;
-&lt;script&gt;$("#show").click(function () {
-      var n = $("div").queue("fx");
-      $("p").text("Queue length is: " + n.length);
-    });
-    function runIt() {
-      $("div").show("slow");
-      $("div").animate({left:'+=200'},2000);
-      $("div").slideToggle(1000);
-      $("div").slideToggle("fast");
-      $("div").animate({left:'-=200'},1500);
-      $("div").hide("slow");
-      $("div").show(1200);
-      $("div").slideUp("normal", runIt);
-    }
-    runIt();&lt;/script&gt;
+&lt;script&gt;
+var div = $("div");
+
+function runIt() {
+  div.show("slow");
+  div.animate({left:'+=200'},2000);
+  div.slideToggle(1000);
+  div.slideToggle("fast");
+  div.animate({left:'-=200'},1500);
+  div.hide("slow");
+  div.show(1200);
+  div.slideUp("normal", runIt);
+}
+
+function showIt() {
+  var n = div.queue("fx");
+  $("span").text( n.length );      
+  setTimeout(showIt, 100);
+}
+
+runIt();
+showIt();
+&lt;/script&gt;
 
 &lt;/body&gt;
 &lt;/html&gt;</code></pre>
@@ -83,20 +91,20 @@
 </div>
 <div id="queue2" class="entry method">
 <h2 class="jq-clearfix roundTop section-title">
-<span class="name">.queue( [ queueName ], newQueue )</span> <span class="returns">Returns: <a class="return" href="http://api.jquery.com/Types/#jQuery">jQuery</a></span>
+<span class="name">.queue(  [queueName,] newQueue )</span> <span class="returns">Returns: <a class="return" href="http://api.jquery.com/Types/#jQuery">jQuery</a></span>
 </h2>
 <div class="jq-box roundBottom entry-details">
 <p class="desc"><strong>Description: </strong>Manipulate the queue of functions to be executed on the matched elements.</p>
 <ul class="signatures">
 <li class="signature" id="queue-queueName-newQueue">
 <h4 class="name">
-<span class="versionAdded">version added: <a href="/category/version/1.2/">1.2</a></span>.queue( [ queueName ], newQueue )</h4>
+<span class="versionAdded">version added: <a href="/category/version/1.2/">1.2</a></span>.queue(  [queueName], newQueue )</h4>
 <p class="arguement"><strong>queueName</strong>A string containing the name of the queue. Defaults to <code>fx</code>, the standard effects queue.</p>
 <p class="arguement"><strong>newQueue</strong>An array of functions to replace the current queue contents.</p>
 </li>
 <li class="signature" id="queue-queueName-callback next ">
 <h4 class="name">
-<span class="versionAdded">version added: <a href="/category/version/1.2/">1.2</a></span>.queue( [ queueName ], callback( next ) )</h4>
+<span class="versionAdded">version added: <a href="/category/version/1.2/">1.2</a></span>.queue(  [queueName], callback( next ) )</h4>
 <p class="arguement"><strong>queueName</strong>A string containing the name of the queue. Defaults to <code>fx</code>, the standard effects queue.</p>
 <p class="arguement"><strong>callback( next )</strong>The new function to add to the queue, with a function to call that will dequeue the next item.</p>
 </li>
@@ -137,7 +145,7 @@ $('#foo').queue(function() {
         background:green; display:none; }
   div.newcolor { background:blue; }
   &lt;/style&gt;
-  &lt;script src="http://code.jquery.com/jquery-git.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
   Click here...
@@ -174,7 +182,7 @@ $('#foo').queue(function() {
         background:green; display:none; }
   div.newcolor { background:blue; }
   &lt;/style&gt;
-  &lt;script src="http://code.jquery.com/jquery-git.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
   &lt;button id="start"&gt;Start&lt;/button&gt;

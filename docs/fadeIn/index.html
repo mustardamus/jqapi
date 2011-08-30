@@ -14,20 +14,20 @@
 </div>
 <div id="fadeIn1" class="entry method">
 <h2 class="jq-clearfix roundTop section-title">
-<span class="name">.fadeIn( [ duration ], [ callback ] )</span> <span class="returns">Returns: <a class="return" href="http://api.jquery.com/Types/#jQuery">jQuery</a></span>
+<span class="name">.fadeIn(  [duration,]  [callback]  )</span> <span class="returns">Returns: <a class="return" href="http://api.jquery.com/Types/#jQuery">jQuery</a></span>
 </h2>
 <div class="jq-box roundBottom entry-details">
 <p class="desc"><strong>Description: </strong>Display the matched elements by fading them to opaque.</p>
 <ul class="signatures">
 <li class="signature" id="fadeIn-duration-callback">
 <h4 class="name">
-<span class="versionAdded">version added: <a href="/category/version/1.0/">1.0</a></span>.fadeIn( [ duration ], [ callback ] )</h4>
+<span class="versionAdded">version added: <a href="/category/version/1.0/">1.0</a></span>.fadeIn(  [duration],  [callback] )</h4>
 <p class="arguement"><strong>duration</strong>A string or number determining how long the animation will run.</p>
 <p class="arguement"><strong>callback</strong>A function to call once the animation is complete.</p>
 </li>
 <li class="signature" id="fadeIn-duration-easing-callback">
 <h4 class="name">
-<span class="versionAdded">version added: <a href="/category/version/1.4.3/">1.4.3</a></span>.fadeIn( [ duration ], [ easing ], [ callback ] )</h4>
+<span class="versionAdded">version added: <a href="/category/version/1.4.3/">1.4.3</a></span>.fadeIn(  [duration],  [easing],  [callback] )</h4>
 <p class="arguement"><strong>duration</strong>A string or number determining how long the animation will run.</p>
 <p class="arguement"><strong>easing</strong>A string indicating which easing function to use for the transition.</p>
 <p class="arguement"><strong>callback</strong>A function to call once the animation is complete.</p>
@@ -36,8 +36,6 @@
 <div class="longdesc">
 <p>The <code>.fadeIn()</code> method animates the opacity of the matched elements.</p>
 <p>Durations are given in milliseconds; higher values indicate slower animations, not faster ones. The strings <code>'fast'</code> and <code>'slow'</code> can be supplied to indicate durations of <code>200</code> and <code>600</code> milliseconds, respectively. If any other string is supplied, or if the <code>duration</code> parameter is omitted, the default duration of  <code>400</code> milliseconds is used.</p>
-<p>As of jQuery 1.4.3, an optional string naming an easing function may be used. Easing functions specify the speed at which the animation progresses at different points within the animation. The only easing implementations in the jQuery library are the default, called <code>swing</code>, and one that progresses at a constant pace, called <code>linear</code>. More easing functions are available with the use of plug-ins, most notably the <a href="http://jqueryui.com">jQuery UI suite</a>.</p>
-<p>If supplied, the callback is fired once the animation is complete. This can be useful for stringing different animations together in sequence. The callback is not sent any arguments, but <code>this</code> is set to the DOM element being animated. If multiple elements are animated, it is important to note that the callback is executed once per matched element, not once for the animation as a whole.</p>
 <p>We can animate any element, such as a simple image:</p>
 <pre>&lt;div id="clickme"&gt;
       Click here
@@ -51,9 +49,18 @@
     });</pre>
 <p class="image four-across">
       <img src="/images/0042_06_33.png" alt=""><img src="/images/0042_06_34.png" alt=""><img src="/images/0042_06_35.png" alt=""><img src="/images/0042_06_36.png" alt=""></p>
+<h4 id="easing">Easing</h4>
+<p><strong>As of jQuery 1.4.3</strong>, an optional string naming an easing function may be used. Easing functions specify the speed at which the animation progresses at different points within the animation. The only easing implementations in the jQuery library are the default, called <code>swing</code>, and one that progresses at a constant pace, called <code>linear</code>. More easing functions are available with the use of plug-ins, most notably the <a href="http://jqueryui.com">jQuery UI suite</a>.</p>
+<h4 id="callback-function">Callback Function</h4>
+<p>If supplied, the callback is fired once the animation is complete. This can be useful for stringing different animations together in sequence. The callback is not sent any arguments, but <code>this</code> is set to the DOM element being animated. If multiple elements are animated, it is important to note that the callback is executed once per matched element, not once for the animation as a whole. </p>
+<p><strong>As of jQuery 1.6</strong>, the <code><a href="http://api.jquery.com/promise/">.promise()</a></code> method can be used in conjunction with the <code><a href="http://api.jquery.com/deferred.done/">deferred.done()</a></code> method to execute a single callback for the animation as a whole when <em>all</em> matching elements have completed their animations ( See the <a href="http://api.jquery.com/promise/#example-1">example for .promise()</a> ).  </p>
 </div>
 <h3 id="notes-0">Additional Notes:</h3>
-<div class="longdesc"><ul><li>All jQuery effects, including <code>.fadeIn()</code>, can be turned off globally by setting  <code>jQuery.fx.off = true</code>, which effectively sets the duration to 0. For more information, see <a href="http://api.jquery.com/jquery.fx.off">jQuery.fx.off</a>.</li></ul></div>
+<div class="longdesc"><ul>
+<li>All jQuery effects, including <code>.fadeIn()</code>, can be turned off globally by setting  <code>jQuery.fx.off = true</code>, which effectively sets the duration to 0. For more information, see <a href="http://api.jquery.com/jquery.fx.off">jQuery.fx.off</a>.</li>
+<li>Because of the nature of <a href="https://developer.mozilla.org/en/DOM/window.mozRequestAnimationFrame"><code>requestAnimationFrame()</code></a>, you should never queue animations using a <code>setInterval</code> or <code>setTimeout</code> loop. In order to preserve CPU resources, browsers that support <code>requestAnimationFrame</code> will not update animations when the window/tab is not displayed. If you continue to queue animations via <code>setInterval</code> or <code>setTimeout</code> while animation is paused, all of the queued animations will begin playing when the window/tab regains focus. To avoid this potential problem, use the callback of your last animation in the loop, or append a function to the elements <a href="http://api.jquery.com/queue"><code>.queue()</code></a> to set the timeout to start the next animation.
+</li>
+</ul></div>
 <h3>Examples:</h3>
 <div class="entry-examples" id="entry-examples">
 <div id="example-0">
@@ -70,7 +77,7 @@
       div#two { background:#0f0; }
       div#three { background:#00f; }
     &lt;/style&gt;
-  &lt;script src="http://code.jquery.com/jquery-git.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
   &lt;span&gt;Click here...&lt;/span&gt;
@@ -104,7 +111,7 @@
         top:0; left:0; display:none; }
         span { display:none; }
       &lt;/style&gt;
-  &lt;script src="http://code.jquery.com/jquery-git.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
   &lt;p&gt;

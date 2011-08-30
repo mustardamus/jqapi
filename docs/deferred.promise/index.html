@@ -14,13 +14,13 @@
 </div>
 <div id="deferred-promise1" class="entry method">
 <h2 class="jq-clearfix roundTop section-title">
-<span class="name">deferred.promise( [ target ] )</span> <span class="returns">Returns: <a class="return" href="http://api.jquery.com/Types/#Promise">Promise</a></span>
+<span class="name">deferred.promise(  [target]  )</span> <span class="returns">Returns: <a class="return" href="http://api.jquery.com/Types/#Promise">Promise</a></span>
 </h2>
 <div class="jq-box roundBottom entry-details">
 <p class="desc"><strong>Description: </strong> Return a Deferred's Promise object. </p>
 <ul class="signatures"><li class="signature" id="deferred-promise-target">
 <h4 class="name">
-<span class="versionAdded">version added: <a href="/category/version/1.5/">1.5</a></span>deferred.promise( [ target ] )</h4>
+<span class="versionAdded">version added: <a href="/category/version/1.5/">1.5</a></span>deferred.promise(  [target] )</h4>
 <p class="arguement"><strong>target</strong>Object onto which the promise methods have to be attached</p>
 </li></ul>
 <div class="longdesc">
@@ -78,7 +78,7 @@ defer.resolve( "John" );
 
 // Use the object as a Promise
 obj.done(function( name ) {
-  this.hello( name ); // will alert "Hello John"
+  obj.hello( name ); // will alert "Hello John"
 }).hello( "Karl" ); // will alert "Hello Karl"
 </code></pre>
 </div>

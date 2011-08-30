@@ -6,7 +6,7 @@
           <h1 class="jq-clearfix">Attribute Not Equal Selector [name!="value"]</h1>
           <div class="entry-meta jq-clearfix">
                         Categories:
-            <span class="category"><a href="http://api.jquery.com/category/selectors/" title="View all posts in Selectors">Selectors</a> &gt; <a href="http://api.jquery.com/category/selectors/attribute-selectors/" title="View all posts in Attribute">Attribute</a></span>
+            <span class="category"><a href="http://api.jquery.com/category/selectors/" title="View all posts in Selectors">Selectors</a> &gt; <a href="http://api.jquery.com/category/selectors/attribute-selectors/" title="View all posts in Attribute">Attribute</a></span> | <span class="category"><a href="http://api.jquery.com/category/selectors/" title="View all posts in Selectors">Selectors</a> &gt; <a href="http://api.jquery.com/category/selectors/jquery-selector-extensions/" title="View all posts in jQuery Extensions">jQuery Extensions</a></span>
   
 
           </div>
@@ -26,13 +26,15 @@
 </dl></li></ul>
 <p class="desc"><strong>Description: </strong>Select elements that either don't have the specified attribute, or do have the specified attribute but not with a certain value.</p>
 <div class="longdesc"><p>This selector is equivalent to <code>:not([attr="value"])</code>.</p></div>
+<h3 id="notes-0">Additional Notes:</h3>
+<div class="longdesc"><ul><li>Because <code>[name!="value"]</code> is a jQuery extension and not part of the CSS specification, queries using <code>[name!="value"]</code> cannot take advantage of the performance boost provided by the native DOM <code>querySelectorAll()</code> method. For better performance in modern browsers, use <code>$("your-pure-css-selector").not('[name="value"]')</code> instead.</li></ul></div>
 <h3>Example:</h3>
 <div class="entry-examples" id="entry-examples"><div id="example-0">
 <h4><span class="desc">Finds all inputs that don't have the name 'newsletter' and appends text to the span next to it.</span></h4>
 <pre class="prettyprint"><code class="example demo-code">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;
-  &lt;script src="http://code.jquery.com/jquery-git.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
   &lt;div&gt;

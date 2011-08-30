@@ -14,52 +14,41 @@
 </div>
 <div id="nextUntil1" class="entry method">
 <h2 class="jq-clearfix roundTop section-title">
-<span class="name">.nextUntil( [ selector ] )</span> <span class="returns">Returns: <a class="return" href="http://api.jquery.com/Types/#jQuery">jQuery</a></span>
+<span class="name">.nextUntil(  [selector,]  [filter]  )</span> <span class="returns">Returns: <a class="return" href="http://api.jquery.com/Types/#jQuery">jQuery</a></span>
 </h2>
 <div class="jq-box roundBottom entry-details">
-<p class="desc"><strong>Description: </strong>Get all following siblings of each element up to but not including the element matched by the selector.</p>
-<ul class="signatures"><li class="signature" id="nextUntil-selector">
+<p class="desc"><strong>Description: </strong>Get all following siblings of each element up to but not including the element matched by the selector, DOM node, or jQuery object passed.</p>
+<ul class="signatures">
+<li class="signature" id="nextUntil-selector-filter">
 <h4 class="name">
-<span class="versionAdded">version added: <a href="/category/version/1.4/">1.4</a></span>.nextUntil( [ selector ] )</h4>
+<span class="versionAdded">version added: <a href="/category/version/1.4/">1.4</a></span>.nextUntil(  [selector],  [filter] )</h4>
 <p class="arguement"><strong>selector</strong>A string containing a selector expression to indicate where to stop matching following sibling elements.</p>
-</li></ul>
+<p class="arguement"><strong>filter</strong>A string containing a selector expression to match elements against.</p>
+</li>
+<li class="signature" id="nextUntil-element-filter">
+<h4 class="name">
+<span class="versionAdded">version added: <a href="/category/version/1.6/">1.6</a></span>.nextUntil(  [element],  [filter] )</h4>
+<p class="arguement"><strong>element</strong>A DOM node or jQuery object indicating where to stop matching following sibling elements.</p>
+<p class="arguement"><strong>filter</strong>A string containing a selector expression to match elements against.</p>
+</li>
+</ul>
 <div class="longdesc">
-<p>Given a jQuery object that represents a set of DOM elements, the <code>.nextUntil()</code> method allows us to search through the successors of these elements in the DOM tree, stopping when it reaches an element matched by the method's argument. The new jQuery object that is returned contains all following siblings up to but not including the one matched by the <code>.nextUntil()</code> selector.</p>
+<p>Given a selector expression that represents a set of DOM elements, the <code>.nextUntil()</code> method searches through the successors of these elements in the DOM tree, stopping when it reaches an element matched by the method's argument. The new jQuery object that is returned contains all following siblings up to but not including the one matched by the <code>.nextUntil()</code> argument.</p>
 <p>If the selector is not matched or is not supplied, all following siblings will be selected; in these cases it selects the same elements as the <code>.nextAll()</code> method does when no filter selector is provided.</p>
-<p>Consider a page with a simple definition list as follows:</p>
-<pre>
-&lt;dl&gt;
-  &lt;dt&gt;term 1&lt;/dt&gt;
-  &lt;dd&gt;definition 1-a&lt;/dd&gt;
-  &lt;dd&gt;definition 1-b&lt;/dd&gt;
-  &lt;dd&gt;definition 1-c&lt;/dd&gt;
-  &lt;dd&gt;definition 1-d&lt;/dd&gt;
-
-  &lt;dt id="term-2"&gt;term 2&lt;/dt&gt;
-  &lt;dd&gt;definition 2-a&lt;/dd&gt;
-  &lt;dd&gt;definition 2-b&lt;/dd&gt;
-  &lt;dd&gt;definition 2-c&lt;/dd&gt;
-
-  &lt;dt&gt;term 3&lt;/dt&gt;
-  &lt;dd&gt;definition 3-a&lt;/dd&gt;
-  &lt;dd&gt;definition 3-b&lt;/dd&gt;
-&lt;/dl&gt;
-</pre>
-<p>If we begin at the second term, we can find the elements which come after it until a following <code>&lt;dt&gt;</code>.</p>
-<pre>$('#term-2').nextUntil('dt').css('background-color', 'red');</pre>
-<p>The result of this call is a red background behind definitions <code>2-a</code>, <code>2-b</code>, and <code>2-c</code>. </p>
+<p><strong>As of jQuery 1.6</strong>, A DOM node or jQuery object, instead of a selector, may be passed to the <code>.nextUntil()</code> method.</p>
+<p>The method optionally accepts a selector expression for its second argument. If this argument is supplied, the elements will be filtered by testing whether they match it.</p>
 </div>
 <h3>Example:</h3>
 <div class="entry-examples" id="entry-examples"><div id="example-0">
-<h4><span class="desc">Find the siblings that follow &lt;dt id="term-2"&gt; up to the next &lt;dt&gt; and give them a red background color.</span></h4>
+<h4><span class="desc">Find the siblings that follow &lt;dt id="term-2"&gt; up to the next &lt;dt&gt; and give them a red background color. Also, find &lt;dd&gt; siblings that follow &lt;dt id="term-1"&gt; up to &lt;dt id="term-3"&gt; and give them a green text color. </span></h4>
 <pre class="prettyprint"><code class="example demo-code">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;
-  &lt;script src="http://code.jquery.com/jquery-git.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
   &lt;dl&gt;
-  &lt;dt&gt;term 1&lt;/dt&gt;
+  &lt;dt id="term-1"&gt;term 1&lt;/dt&gt;
   &lt;dd&gt;definition 1-a&lt;/dd&gt;
   &lt;dd&gt;definition 1-b&lt;/dd&gt;
   &lt;dd&gt;definition 1-c&lt;/dd&gt;
@@ -70,19 +59,24 @@
   &lt;dd&gt;definition 2-b&lt;/dd&gt;
   &lt;dd&gt;definition 2-c&lt;/dd&gt;
 
-  &lt;dt&gt;term 3&lt;/dt&gt;
+  &lt;dt id="term-3"&gt;term 3&lt;/dt&gt;
   &lt;dd&gt;definition 3-a&lt;/dd&gt;
   &lt;dd&gt;definition 3-b&lt;/dd&gt;
 &lt;/dl&gt;
-&lt;script&gt;
-    $("#term-2").nextUntil("dt")
-      .css("background-color", "red")
+&lt;script&gt;  
+$("#term-2").nextUntil("dt")
+  .css("background-color", "red");
+
+var term3 = document.getElementById("term-3");
+$("#term-1").nextUntil(term3, "dd")
+  .css("color", "green");
+
 &lt;/script&gt;
 
 &lt;/body&gt;
 &lt;/html&gt;</code></pre>
 <h4>Demo:</h4>
-<div class="demo code-demo"></div>
+<div class="demo code-demo" rel="250px"></div>
 </div></div>
 </div>
 </div>

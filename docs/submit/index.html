@@ -26,7 +26,7 @@
 </li>
 <li class="signature" id="submit-eventData-handlereventObject">
 <h4 class="name">
-<span class="versionAdded">version added: <a href="/category/version/1.4.3/">1.4.3</a></span>.submit( [ eventData ], handler(eventObject) )</h4>
+<span class="versionAdded">version added: <a href="/category/version/1.4.3/">1.4.3</a></span>.submit(  [eventData], handler(eventObject) )</h4>
 <p class="arguement"><strong>eventData</strong>A map of data that will be passed to the event handler.</p>
 <p class="arguement"><strong>handler(eventObject)</strong>A function to execute each time the event is triggered.</p>
 </li>
@@ -58,7 +58,7 @@
 <p>The JavaScript <code>submit</code> event does not bubble in Internet Explorer. However, scripts that rely on event delegation with the <code>submit</code> event will work consistently across browsers as of jQuery 1.4, which has normalized the event's behavior. </p>
 </div>
 <h3 id="notes-0">Additional Notes:</h3>
-<div class="longdesc"><ul><li>Forms and their child elements should not use input names or ids that conflict with properties of a form, such as <code>submit</code>, <code>length</code>, or <code>method</code>. Name conflicts can cause confusing failures. For a complete list of rules and to check your markup for these problems, see <a href="http://yura.thinkweb2.com/domlint/">DOMLint</a>. 
+<div class="longdesc"><ul><li>Forms and their child elements should not use input names or ids that conflict with properties of a form, such as <code>submit</code>, <code>length</code>, or <code>method</code>. Name conflicts can cause confusing failures. For a complete list of rules and to check your markup for these problems, see <a href="http://kangax.github.com/domlint/">DOMLint</a>. 
 </li></ul></div>
 <h3>Examples:</h3>
 <div class="entry-examples" id="entry-examples">
@@ -74,7 +74,7 @@
   div,p { margin-left:10px; }
   span { color:red; }
   &lt;/style&gt;
-  &lt;script src="http://code.jquery.com/jquery-git.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
   &lt;p&gt;Type 'correct' to validate.&lt;/p&gt;

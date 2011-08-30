@@ -17,127 +17,167 @@
 <span class="name">jQuery.cssHooks</span> <span class="returns">Returns: <a class="return" href="http://api.jquery.com/Types/#Object">Object</a></span>
 </h2>
 <div class="jq-box roundBottom entry-details">
-<p class="desc"><strong>Description: </strong>Provides a way to hook directly into jQuery to override how particular CSS properties are retrieved or set. Amongst other uses, cssHooks can be used to create custom, browser-normalized properties for CSS3 features such as box-shadows and gradients.</p>
+<p class="desc"><strong>Description: </strong>Hook directly into jQuery to override how particular CSS properties are retrieved or set, normalize CSS property naming, or create custom properties.</p>
 <ul class="signatures"><li class="signature" id="jQuery-cssHooks"><h4 class="name">
 <span class="versionAdded">version added: <a href="/category/version/1.4.3/">1.4.3</a></span>jQuery.cssHooks</h4></li></ul>
 <div class="longdesc">
-<p>The $.cssHooks object provides a way to define functions for getting and setting particular CSS values. This can also be used to create new cssHooks for normalizing CSS3 properties - eg. Webkit-based browsers such as Google Chrome require you to use -webkit-border-radius to set the border-radius on an element, whilst Firefox require -moz-border-radius.</p>
-<p> With a cssHook this can however be normalized to something like 'border-radius'  so that only one property needs to be set. In addition to providing fine-grained control over how specific style properties are handled, $.cssHooks also extends the set of properties available to the animate() method.</p>
-</div>
-<h3>Examples:</h3>
-<div class="entry-examples" id="entry-examples">
-<div id="example-0">
-<h4>Example: <span class="desc">Defining a new cssHook: defining new cssHooks is very straight-forward and the skeleton template below can be used as a guide to creating your own. </span>
-</h4>
-<pre class="prettyprint"><code class="example"> (function($){   
-//first, check to see if cssHooks are supported
-    if ( !$.cssHooks ){
-        //if not, output an error message
-        alert("jQuery 1.4.3 or above is required for this plugin to work");
-        return;
+<p>The <code>$.cssHooks</code> object provides a way to define functions for getting and setting particular CSS values. It can also be used to create new cssHooks for normalizing CSS3 features such as box shadows and gradients. </p>
+<p>For example, some versions of Webkit-based browsers require <code>-webkit-border-radius</code> to set the <code>border-radius</code> on an element, while earlier Firefox versions require <code>-moz-border-radius</code>. A cssHook can normalize these vendor-prefixed properties to let <code>.css()</code> accept a single, standard property name (<code>border-radius</code>, or with DOM property syntax, <code>borderRadius</code>).</p>
+<p>In addition to providing fine-grained control over how specific style properties are handled, <code>$.cssHooks</code> also extends the set of properties available to the <code>.animate()</code> method.</p>
+<p>Defining a new cssHook is straight-forward. The skeleton template below can serve as a guide to creating your own. </p>
+<pre class="prettyprint">(function($) {
+  // first, check to see if cssHooks are supported
+  if ( !$.cssHooks ) {
+    // if not, output an error message
+    throw("jQuery 1.4.3 or above is required for this plugin to work");
+    return;
+  }
+
+  $.cssHooks["someCSSProp"] = {
+    get: function( elem, computed, extra ) {
+      // handle getting the CSS property
+    },
+    set: function( elem, value ) {
+      // handle setting the CSS value
     }
-    
-$.cssHooks['someCSSProperty'] = { 
-        get: function(elem, computed, extra){
-            //handle getting the CSS property
-        },
-        set: function(elem, value){
-            //handle setting the CSS value 
-        }
-};
+  };
 })(jQuery);
-  </code></pre>
-</div>
-<div id="example-1">
-<h4>Example: <span class="desc">Normalizing vendor-specific CSS properties: as mentioned, cssHooks are commonly used for normalizing vendor-specific CSS3 properties. In order to effectively cater for this, it is necessary to check that the browser supports the property before we can normalize it. We will be demonstrating this with the border-radius feature.</span>
-</h4>
-<pre class="prettyprint"><code class="example">
-//check if we can access the border radius on the element's style object. 
-//A value of "" or "undefined" will be returned if the property is not 
-//supported
+</pre>
+<h4 id="feature-testing">Feature Testing</h4>
+<p>Before normalizing a vendor-specific CSS property, first determine whether the browser supports the standard property or a vendor-prefixed variation. For example, to check for support of the <code>border-radius</code> property, see if any variation is a member of a temporary element's <code>style</code> object.</p>
+<pre class="prettyprint">(function($) {
+  function styleSupport( prop ) {
+    var vendorProp, supportedProp,
 
-var div = document.createElement( "div" );
-$.support.borderRadius =
-div.style.WebkitBorderRadius === ''? 'WebkitBorderRadius' :
-(div.style.MozBorderRadius === ''? 'MozBorderRadius' : 
-(div.style.borderRadius === ''? 'borderRadius' : false));</code></pre>
-</div>
-<div id="example-2">
-<h4>Example: <span class="desc">If the above test is now integrated into the the skeleton template provided in the first example, a complete cssHook can be defined as follows:</span>
-</h4>
-<pre class="prettyprint"><code class="example">
-(function($){
-    if ( !$.cssHooks ){
-        alert("jQuery 1.4.3+ is needed for this plugin to work");
-        return;
-    }
-    var div = document.createElement( "div" );
-    $.support.borderRadius =
-    div.style.WebkitBorderRadius === ''? 'WebkitBorderRadius' :
-    (div.style.MozBorderRadius === ''? 'MozBorderRadius' : 
-    (div.style.borderRadius === ''? 'borderRadius'  : false));
-    
-    //only set cssHooks for browsers that don't support "borderRadius" natively
-    if ( $.support.borderRadius &amp;&amp; $.support.borderRadius !== "borderRadius" ){
-        $.cssHook.borderRadius = {
-           get: function( elem, computed, extra ){
-                return $.css( elem, $.support.borderRadius );
-           },
-           set: function( elem, value){
-                elem.style[$.support.borderRadius] = value;
-           }
-        };
-    }    
-})(jQuery);</code></pre>
-</div>
-<div id="example-3">
-<h4>Example: <span class="desc">You can then set the border radius (in a supported browser) as follows:</span>
-</h4>
-<pre class="prettyprint"><code class="example"> $("#element").css("border-radius", "20px");</code></pre>
-</div>
-<div id="example-4">
-<h4>Example: <span class="desc">Creating a cssHook for normalizing border images: similar to the example where the border radius was normalized, in the below we apply the same concept to border images. As you can see, in many cases normalization is quite straight-forward to achieve.</span>
-</h4>
-<pre class="prettyprint"><code class="example"> (function($){
-    
-    if ( !$.cssHooks ){
-        alert("jQuery 1.4.3+ is needed for this plugin to work");
-        return;
-    }
-var div = document.createElement( "div" );
+        // capitalize first character of the prop to test vendor prefix
+        capProp = prop.charAt(0).toUpperCase() + prop.slice(1),
+        prefixes = [ "Moz", "Webkit", "O", "ms" ],
+        div = document.createElement( "div" );
 
-    $.support.borderImage =
-    div.style.MozBorderImage === '' ? 'MozBorderImage' :
-    (div.style.WebkitBorderImage === '' ? 'WebkitBorderImage' :
-    (div.style.borderImage === '' ? 'borderImage' : false));
-    
-    if ( $.support.borderImage &amp;&amp; $.support.borderImage !== "borderImage" ){
-        $.cssHooks.borderImage = {
-            get: function( elem, computed, extra ) {
-                return $.css(elem, $.support.borderImage);
-            },
-            set: function( elem, value ) {
-                elem.style[$.support.borderImage] = value;
-            }
-        };
-    }  
+    if ( prop in div.style ) {
+
+      // browser supports standard CSS property name
+      supportedProp = prop;
+    } else {
+
+      // otherwise test support for vendor-prefixed property names
+      for ( var i = 0; i &lt; prefixes.length; i++ ) {
+        vendorProp = prefixes[i] + capProp;
+        if ( vendorProp in div.style ) {
+          supportedProp = vendorProp;
+          break;
+        }
+      }
+    }
+
+    // avoid memory leak in IE
     div = null;
-})(jQuery); 
-  </code></pre>
-</div>
-<div id="example-5">
-<h4>Example: <span class="desc">Getting your cssHook to work with animate(): to allow your cssHook to be used with .animate() you can simply do the following:</span>
-</h4>
-<pre class="prettyprint"><code class="example"> $.fx.step['someCSSProperty'] = function(fx){
-        $.cssHooks['someCSSProperty'].set(fx.elem, fx.now + fx.unit);  
-};
+    
+    // add property to $.support so it can be accessed elsewhere
+    $.support[ prop ] = supportedProp;
+    
+    return supportedProp;
+  }
 
-//Note that the above works best for simple numeric value animations 
-//and more custom //code may be required depending on the complexity 
-//of what you're trying to achieve.
- 
-  </code></pre>
-</div>
+  // call the function, e.g. testing for "border-radius" support:
+  styleSupport( "borderRadius" );
+})(jQuery);
+</pre>
+<h4 id="defining-complete-csshook">Defining a complete cssHook</h4>
+<p>To define a complete cssHook, combine the support test with a filled-out version of the skeleton template provided in the first example:</p>
+<pre class="prettyprint">(function($) {
+  if ( !$.cssHooks ) {
+    throw("jQuery 1.4.3+ is needed for this plugin to work");
+    return;
+  }
+  
+  function styleSupport( prop ) {
+    var vendorProp, supportedProp,
+        capProp = prop.charAt(0).toUpperCase() + prop.slice(1),
+        prefixes = [ "Moz", "Webkit", "O", "ms" ],
+        div = document.createElement( "div" );
+
+    if ( prop in div.style ) {
+      supportedProp = prop;
+    } else {
+      for ( var i = 0; i &lt; prefixes.length; i++ ) {
+        vendorProp = prefixes[i] + capProp;
+        if ( vendorProp in div.style ) {
+          supportedProp = vendorProp;
+          break;
+        }
+      }
+    }
+
+    div = null;
+    $.support[ prop ] = supportedProp
+    return supportedProp;
+  }
+
+  var borderRadius = styleSupport( "borderRadius" );
+
+  // Set cssHooks only for browsers that
+  // support a vendor-prefixed border radius
+  if ( borderRadius &amp;&amp; borderRadius !== "borderRadius" ) {
+    $.cssHook.borderRadius = {
+      get: function( elem, computed, extra ) {
+        return $.css( elem, borderRadius );
+      },
+      set: function( elem, value) {
+        elem.style[ borderRadius ] = value;
+      }
+    };
+  }
+})(jQuery);
+</pre>
+<p>You can then set the border radius in a supported browser using either the DOM (camelCased) style or the CSS (hyphenated) style:</p>
+<pre class="prettyprint">
+$("#element").css("borderRadius", "10px");
+$("#another").css("border-radius", "20px");
+</pre>
+<p>If the browser lacks support for any form of the CSS property, vendor-prefixed or not, the style is not applied to the element. However, if the browser supports a proprietary alternative, it can be applied to the cssHooks instead. </p>
+<pre class="prettyprint">
+ (function($) {
+  // feature test for support of a CSS property
+  // and a proprietary alternative
+  // ...
+
+
+ if ( $.support.someCSSProp &amp;&amp; $.support.someCSSProp !== "someCSSProp" ) {
+
+    // Set cssHooks for browsers that
+    // support only a vendor-prefixed someCSSProp
+    $.cssHook.someCSSProp = {
+      get: function( elem, computed, extra ) {
+        return $.css( elem, $.support.someCSSProp );
+      },
+      set: function( elem, value) {
+        elem.style[ $.support.someCSSProp ] = value;
+      }
+    };
+  } else if ( supportsProprietaryAlternative ) {
+    $.cssHook.someCSSProp = {
+      get: function( elem, computed, extra ) {
+        // Handle crazy conversion from the proprietary alternative 
+      },
+      set: function( elem, value ) {
+        // Handle crazy conversion to the proprietary alternative
+      }
+    }
+  }
+
+})(jQuery);
+</pre>
+<h4 id="special-units">Special units</h4>
+<p>By default, jQuery adds a "px" unit to the values passed to the <code>.css()</code> method. This behavior can be prevented by adding the property to the <code>jQuery.cssNumber</code> object</p>
+<pre class="prettyprint">$.cssNumber["someCSSProp"] = true;</pre>
+<h4 id="animating">Animating with cssHooks</h4>
+<p>A cssHook can also hook into jQuery's animation mechanism by adding a property to the <code>jQuery.fx.step</code> object:</p>
+<pre class="prettyprint">$.fx.step["someCSSProp"] = function(fx){
+  $.cssHooks["someCSSProp"].set( fx.elem, fx.now + fx.unit );
+};
+</pre>
+<p>Note that this works best for simple numeric-value animations. More custom code may be required depending on the CSS property, the type of value it returns, and the animation's complexity.</p>
 </div>
 </div>
 </div>

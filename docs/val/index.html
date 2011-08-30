@@ -21,7 +21,7 @@
               </li></ul>
 </li>
 <li>
-<a href="#val2">val( value ) </a><ul>
+<a href="#val2">val( value  ) </a><ul>
 <li>.val( value )
               </li>
 <li>.val( function(index, value) )
@@ -32,7 +32,7 @@
 </div>
 <div id="val1" class="entry method">
 <h2 class="jq-clearfix roundTop section-title">
-<span class="name">.val()</span> <span class="returns">Returns: <a class="return" href="http://api.jquery.com/Types/#String,%20Array">String, Array</a></span>
+<span class="name">.val()</span> <span class="returns">Returns: <a class="return" href="http://api.jquery.com/Types/#String,%20Number,%20Array">String, Number, Array</a></span>
 </h2>
 <div class="jq-box roundBottom entry-details">
 <p class="desc"><strong>Description: </strong>Get the current value of the first element in the set of matched elements.</p>
@@ -58,7 +58,7 @@ $('input:radio[name=bar]:checked').val(); // get the value from a set of radio b
   p { color:red; margin:4px; }
   b { color:blue; }
   &lt;/style&gt;
-  &lt;script src="http://code.jquery.com/jquery-git.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
   &lt;p&gt;&lt;/p&gt;
@@ -103,7 +103,7 @@ $('input:radio[name=bar]:checked').val(); // get the value from a set of radio b
 
   p { color:blue; margin:8px; }
   &lt;/style&gt;
-  &lt;script src="http://code.jquery.com/jquery-git.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
   &lt;input type="text" value="some text"/&gt;
@@ -138,7 +138,7 @@ $('input:radio[name=bar]:checked').val(); // get the value from a set of radio b
 <li class="signature" id="val-functionindex- value">
 <h4 class="name">
 <span class="versionAdded">version added: <a href="/category/version/1.4/">1.4</a></span>.val( function(index, value) )</h4>
-<p class="arguement"><strong>function(index, value)</strong>A function returning the value to set.</p>
+<p class="arguement"><strong>function(index, value)</strong>A function returning the value to set. <code>this</code> is the current element. Receives the index position of the element in the set and the old value as arguments.</p>
 </li>
 </ul>
 <div class="longdesc">
@@ -163,7 +163,7 @@ $('input:radio[name=bar]:checked').val(); // get the value from a set of radio b
   button { margin:4px; cursor:pointer; }
   input { margin:4px; color:blue; }
   &lt;/style&gt;
-  &lt;script src="http://code.jquery.com/jquery-git.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
   &lt;div&gt;
@@ -191,7 +191,7 @@ $('input:radio[name=bar]:checked').val(); // get the value from a set of radio b
 <pre class="prettyprint"><code class="example demo-code">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;
-  &lt;script src="http://code.jquery.com/jquery-git.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
   
@@ -222,7 +222,7 @@ $('input:radio[name=bar]:checked').val(); // get the value from a set of radio b
   &lt;style&gt;
   body { color:blue; }
   &lt;/style&gt;
-  &lt;script src="http://code.jquery.com/jquery-git.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
   &lt;select id="single"&gt;

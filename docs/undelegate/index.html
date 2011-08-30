@@ -23,20 +23,20 @@
 <span class="versionAdded">version added: <a href="/category/version/1.4.2/">1.4.2</a></span>.undelegate()</h4></li>
 <li class="signature" id="undelegate-selector-eventType">
 <h4 class="name">
-<span class="versionAdded">version added: <a href="/category/version/1.4.2/">1.4.2</a></span>.undelegate( selector, eventType )</h4>
+<span class="versionAdded">version added: <a href="/category/version/1.4.2/">1.4.2</a></span>.undelegate( selector,  eventType )</h4>
 <p class="arguement"><strong>selector</strong>A selector which will be used to filter the event results.</p>
 <p class="arguement"><strong>eventType</strong>A string containing a JavaScript event type, such as "click" or "keydown"</p>
 </li>
 <li class="signature" id="undelegate-selector-eventType-handler">
 <h4 class="name">
-<span class="versionAdded">version added: <a href="/category/version/1.4.2/">1.4.2</a></span>.undelegate( selector, eventType, handler )</h4>
+<span class="versionAdded">version added: <a href="/category/version/1.4.2/">1.4.2</a></span>.undelegate( selector,  eventType,  handler )</h4>
 <p class="arguement"><strong>selector</strong>A selector which will be used to filter the event results.</p>
 <p class="arguement"><strong>eventType</strong>A string containing a JavaScript event type, such as "click" or "keydown"</p>
 <p class="arguement"><strong>handler</strong>A function to execute at the time the event is triggered.</p>
 </li>
 <li class="signature" id="undelegate-selector-events">
 <h4 class="name">
-<span class="versionAdded">version added: <a href="/category/version/1.4.3/">1.4.3</a></span>.undelegate( selector, events )</h4>
+<span class="versionAdded">version added: <a href="/category/version/1.4.3/">1.4.3</a></span>.undelegate( selector,  events )</h4>
 <p class="arguement"><strong>selector</strong>A selector which will be used to filter the event results.</p>
 <p class="arguement"><strong>events</strong>A map of one or more event types and previously bound functions to unbind from them.</p>
 </li>
@@ -59,7 +59,7 @@
 button { margin:5px; }
 button#theone { color:red; background:yellow; }
 &lt;/style&gt;
-  &lt;script src="http://code.jquery.com/jquery-git.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
   &lt;button id="theone"&gt;Does nothing...&lt;/button&gt;
@@ -99,7 +99,7 @@ $("#unbind").click(function () {
 <h4>Example: <span class="desc">To undelegate just one previously bound handler, pass the function in as the third argument:</span>
 </h4>
 <pre class="prettyprint"><code class="example">var foo = function () {
-// code to handle some kind of event
+  // code to handle some kind of event
 };
 
 // ... now foo will be called when paragraphs are clicked ...
@@ -113,13 +113,13 @@ $("body").undelegate("p", "click", foo); </code></pre>
 <h4>Example: <span class="desc">To unbind all delegated events by their namespace:</span>
 </h4>
 <pre class="prettyprint"><code class="example">var foo = function () {
-// code to handle some kind of event
+  // code to handle some kind of event
 };
 
 // delegate events under the ".whatever" namespace
-$("form").delegate("click.whatever", ":button", foo);
+$("form").delegate(":button", "click.whatever", foo);
 
-$("form").delegate("keypress.whatever", ":text", foo); 
+$("form").delegate("input[type='text']", "keypress.whatever", foo); 
 
 // unbind all events delegated under the ".whatever" namespace
 

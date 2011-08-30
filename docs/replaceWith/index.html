@@ -83,7 +83,7 @@
   div { color:red; border:2px solid blue; width:200px;
       margin:3px; text-align:center; }
   &lt;/style&gt;
-  &lt;script src="http://code.jquery.com/jquery-git.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
   
@@ -108,7 +108,7 @@ $("button").click(function () {
 <pre class="prettyprint"><code class="example demo-code">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;
-  &lt;script src="http://code.jquery.com/jquery-git.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
   
@@ -126,31 +126,6 @@ $("p").replaceWith( "&lt;b&gt;Paragraph. &lt;/b&gt;" );
 <div class="demo code-demo"></div>
 </div>
 <div id="example-2">
-<h4>Example: <span class="desc">Replace all paragraphs with empty div elements.</span>
-</h4>
-<pre class="prettyprint"><code class="example demo-code">&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-&lt;head&gt;
-  &lt;style&gt;
-  div { border:2px solid blue; margin:3px; }
-  &lt;/style&gt;
-  &lt;script src="http://code.jquery.com/jquery-git.js"&gt;&lt;/script&gt;
-&lt;/head&gt;
-&lt;body&gt;
-  
-&lt;p&gt;Hello&lt;/p&gt;
-&lt;p&gt;cruel&lt;/p&gt;
-&lt;p&gt;World&lt;/p&gt;
-
-&lt;script&gt;
-  $("p").replaceWith( document.createElement("div") );&lt;/script&gt;
-
-&lt;/body&gt;
-&lt;/html&gt;</code></pre>
-<h4>Demo:</h4>
-<div class="demo code-demo"></div>
-</div>
-<div id="example-3">
 <h4>Example: <span class="desc">On click, replace each paragraph with a div that is already in the DOM and selected with the $() function. Notice it doesn't clone the object but rather moves it to replace the paragraph.</span>
 </h4>
 <pre class="prettyprint"><code class="example demo-code">&lt;!DOCTYPE html&gt;
@@ -160,7 +135,7 @@ $("p").replaceWith( "&lt;b&gt;Paragraph. &lt;/b&gt;" );
   div { border:2px solid blue; color:red; margin:3px; }
   p { border:2px solid red; color:blue; margin:3px; cursor:pointer; }
   &lt;/style&gt;
-  &lt;script src="http://code.jquery.com/jquery-git.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
   
@@ -181,7 +156,7 @@ $("p").click(function () {
 <h4>Demo:</h4>
 <div class="demo code-demo"></div>
 </div>
-<div id="example-4">
+<div id="example-3">
 <h4>Example: <span class="desc">On button click, replace the containing div with its child divs and append the class name of the selected element to the paragraph.</span>
 </h4>
 <pre class="prettyprint"><code class="example demo-code">&lt;!DOCTYPE html&gt;
@@ -191,7 +166,7 @@ $("p").click(function () {
   .container { background-color: #991; }
   .inner { color: #911; }
   &lt;/style&gt;
-  &lt;script src="http://code.jquery.com/jquery-git.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
   

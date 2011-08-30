@@ -14,21 +14,21 @@
 </div>
 <div id="after1" class="entry method">
 <h2 class="jq-clearfix roundTop section-title">
-<span class="name">.after( content, [ content ] )</span> <span class="returns">Returns: <a class="return" href="http://api.jquery.com/Types/#jQuery">jQuery</a></span>
+<span class="name">.after( content, [content]  )</span> <span class="returns">Returns: <a class="return" href="http://api.jquery.com/Types/#jQuery">jQuery</a></span>
 </h2>
 <div class="jq-box roundBottom entry-details">
 <p class="desc"><strong>Description: </strong>Insert content, specified by the parameter, after each element in the set of matched elements.</p>
 <ul class="signatures">
 <li class="signature" id="after-content-content">
 <h4 class="name">
-<span class="versionAdded">version added: <a href="/category/version/1.0/">1.0</a></span>.after( content, [ content ] )</h4>
+<span class="versionAdded">version added: <a href="/category/version/1.0/">1.0</a></span>.after( content,   [content] )</h4>
 <p class="arguement"><strong>content</strong>HTML string, DOM element, or jQuery object to insert after each element in the set of matched elements.</p>
 <p class="arguement"><strong>content</strong>One or more additional DOM elements, arrays of elements, HTML strings, or jQuery objects to insert after each element in the set of matched elements.</p>
 </li>
 <li class="signature" id="after-functionindex">
 <h4 class="name">
 <span class="versionAdded">version added: <a href="/category/version/1.4/">1.4</a></span>.after( function(index) )</h4>
-<p class="arguement"><strong>function(index)</strong>A function that returns an HTML string to insert after each element in the set of matched elements.</p>
+<p class="arguement"><strong>function(index)</strong>A function that returns an HTML string, DOM element(s), or jQuery object to insert after each element in the set of matched elements. Receives the index position of the element in the set as an argument. Within the function, <code>this</code> refers to the current element in the set.</p>
 </li>
 </ul>
 <div class="longdesc">
@@ -97,7 +97,7 @@ $('p').first().after($newdiv1, [newdiv2, existingdiv1]);
 &lt;html&gt;
 &lt;head&gt;
   &lt;style&gt;p { background:yellow; }&lt;/style&gt;
-  &lt;script src="http://code.jquery.com/jquery-git.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
   &lt;p&gt;I would like to say: &lt;/p&gt;
@@ -115,7 +115,7 @@ $('p').first().after($newdiv1, [newdiv2, existingdiv1]);
 &lt;html&gt;
 &lt;head&gt;
   &lt;style&gt;p { background:yellow; }&lt;/style&gt;
-  &lt;script src="http://code.jquery.com/jquery-git.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
   &lt;p&gt;I would like to say: &lt;/p&gt;
@@ -133,7 +133,7 @@ $('p').first().after($newdiv1, [newdiv2, existingdiv1]);
 &lt;html&gt;
 &lt;head&gt;
   &lt;style&gt;p { background:yellow; }&lt;/style&gt;
-  &lt;script src="http://code.jquery.com/jquery-git.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
   &lt;b&gt;Hello&lt;/b&gt;&lt;p&gt;I would like to say: &lt;/p&gt;

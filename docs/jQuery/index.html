@@ -17,8 +17,8 @@
 <h4><span>Contents:</span></h4>
 <ul class="toc-list">
 <li>
-<a href="#jQuery1">jQuery( selector, [ context ] ) </a><ul>
-<li>jQuery( selector, [ context ] )
+<a href="#jQuery1">jQuery( selector, [ context ]  ) </a><ul>
+<li>jQuery( selector, [context]  )
               </li>
 <li>jQuery( element )
               </li>
@@ -31,29 +31,29 @@
 </ul>
 </li>
 <li>
-<a href="#jQuery2">jQuery( html, [ ownerDocument ] ) </a><ul>
-<li>jQuery( html, [ ownerDocument ] )
+<a href="#jQuery2">jQuery( html, [ ownerDocument ]  ) </a><ul>
+<li>jQuery( html, [ownerDocument]  )
               </li>
-<li>jQuery( html, props )
+<li>jQuery( html,props )
               </li>
 </ul>
 </li>
 <li>
-<a href="#jQuery3">jQuery( callback ) </a><ul><li>jQuery( callback )
+<a href="#jQuery3">jQuery( callback  ) </a><ul><li>jQuery( callback )
               </li></ul>
 </li>
 </ul>
 </div>
 <div id="jQuery1" class="entry method">
 <h2 class="jq-clearfix roundTop section-title">
-<span class="name">jQuery( selector, [ context ] )</span> <span class="returns">Returns: <a class="return" href="http://api.jquery.com/Types/#jQuery">jQuery</a></span>
+<span class="name">jQuery( selector, [context]  )</span> <span class="returns">Returns: <a class="return" href="http://api.jquery.com/Types/#jQuery">jQuery</a></span>
 </h2>
 <div class="jq-box roundBottom entry-details">
 <p class="desc"><strong>Description: </strong>Accepts a string containing a CSS selector which is then used to match a set of elements.</p>
 <ul class="signatures">
 <li class="signature" id="jQuery-selector-context">
 <h4 class="name">
-<span class="versionAdded">version added: <a href="/category/version/1.0/">1.0</a></span>jQuery( selector, [ context ] )</h4>
+<span class="versionAdded">version added: <a href="/category/version/1.0/">1.0</a></span>jQuery( selector,   [context] )</h4>
 <p class="arguement"><strong>selector</strong>A string containing a selector expression</p>
 <p class="arguement"><strong>context</strong>A DOM Element, Document, or jQuery to use as context</p>
 </li>
@@ -114,7 +114,7 @@ $.post('url.xml', function(data) {
 <pre class="prettyprint"><code class="example demo-code">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;
-  &lt;script src="http://code.jquery.com/jquery-git.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
   &lt;p&gt;one&lt;/p&gt; &lt;div&gt;&lt;p&gt;two&lt;/p&gt;&lt;/div&gt; &lt;p&gt;three&lt;/p&gt;
@@ -152,20 +152,20 @@ $.post('url.xml', function(data) {
 </div>
 <div id="jQuery2" class="entry method">
 <h2 class="jq-clearfix roundTop section-title">
-<span class="name">jQuery( html, [ ownerDocument ] )</span> <span class="returns">Returns: <a class="return" href="http://api.jquery.com/Types/#jQuery">jQuery</a></span>
+<span class="name">jQuery( html, [ownerDocument]  )</span> <span class="returns">Returns: <a class="return" href="http://api.jquery.com/Types/#jQuery">jQuery</a></span>
 </h2>
 <div class="jq-box roundBottom entry-details">
 <p class="desc"><strong>Description: </strong>Creates DOM elements on the fly from the provided string of raw HTML.</p>
 <ul class="signatures">
 <li class="signature" id="jQuery-html-ownerDocument">
 <h4 class="name">
-<span class="versionAdded">version added: <a href="/category/version/1.0/">1.0</a></span>jQuery( html, [ ownerDocument ] )</h4>
+<span class="versionAdded">version added: <a href="/category/version/1.0/">1.0</a></span>jQuery( html,   [ownerDocument] )</h4>
 <p class="arguement"><strong>html</strong>A string of HTML to create on the fly. Note that this parses HTML, <strong>not</strong> XML.</p>
 <p class="arguement"><strong>ownerDocument</strong>A document in which the new elements will be created</p>
 </li>
 <li class="signature" id="jQuery-html-props">
 <h4 class="name">
-<span class="versionAdded">version added: <a href="/category/version/1.4/">1.4</a></span>jQuery( html, props )</h4>
+<span class="versionAdded">version added: <a href="/category/version/1.4/">1.4</a></span>jQuery( html,  props )</h4>
 <p class="arguement"><strong>html</strong>A string defining a single, standalone, HTML element (e.g. &lt;div/&gt; or &lt;div&gt;&lt;/div&gt;).</p>
 <p class="arguement"><strong>props</strong>An map of attributes, events, and methods to call on the newly-created element.</p>
 </li>
@@ -174,8 +174,9 @@ $.post('url.xml', function(data) {
 <h4 id="creating-new-elements">Creating New Elements</h4>
 <p>If a string is passed as the parameter to <code>$()</code>, jQuery examines the string to see if it looks like HTML (i.e., it has <code>&lt;tag ... &gt;</code> somewhere within the string). If not, the string is interpreted as a selector expression, as explained above. But if the string appears to be an HTML snippet, jQuery attempts to create new DOM elements as described by the HTML. Then a jQuery object is created and returned that refers to these elements. You can perform any of the usual jQuery methods on this object:</p>
 <pre>$('&lt;p id="test"&gt;My &lt;em&gt;new&lt;/em&gt; text&lt;/p&gt;').appendTo('body');</pre>
-<p>When the HTML is more complex than a single tag without attributes, as it is in the above example, the actual creation of the elements is handled by the browser's <code>innerHTML</code> mechanism. In most cases, jQuery creates a new &lt;div&gt; element and sets the innerHTML property of the element to the HTML snippet that was passed in. When the parameter has a single tag, such as  <code>$('&lt;img /&gt;')</code> or  <code>$('&lt;a&gt;&lt;/a&gt;')</code>, jQuery creates the element using the native JavaScript <code>createElement()</code> function.</p>
-<p>When passing in complex HTML, some browsers may not generate a DOM that exactly replicates the HTML source provided. For example, Internet Explorer prior to version 8 will convert all <code>href</code> properties on links to absolute URLs, and Internet Explorer prior to version 9 will not correctly handle HTML5 elements without the addition of a separate <a href="http://code.google.com/p/html5shiv/">compatibility layer</a>.</p>
+<p>If the HTML is more complex than a single tag without attributes, as it is in the above example, the actual creation of the elements is handled by the browser's <code>innerHTML</code> mechanism. In most cases, jQuery creates a new &lt;div&gt; element and sets the innerHTML property of the element to the HTML snippet that was passed in. When the parameter has a single tag, such as  <code>$('&lt;img /&gt;')</code> or  <code>$('&lt;a&gt;&lt;/a&gt;')</code>, jQuery creates the element using the native JavaScript <code>createElement()</code> function.</p>
+<p>When passing in complex HTML, some browsers may not generate a DOM that exactly replicates the HTML source provided. As mentioned, we use the browser's <code>.innerHTML</code> property to parse the passed HTML and insert it into the current document. During this process, some  browsers filter out certain elements such as  <code>&lt;html&gt;</code>,  <code>&lt;title&gt;</code>, or  <code>&lt;head&gt;</code> elements. As a result, the  elements inserted may not be representative of the original string  passed.</p>
+<p> Filtering isn't however just limited to these tags. For example, Internet Explorer prior to version 8 will also convert all <code>href</code> properties on links to absolute URLs, and Internet Explorer prior to version 9 will not correctly handle HTML5 elements without the addition of a separate <a href="http://code.google.com/p/html5shiv/">compatibility layer</a>.</p>
 <p>To ensure cross-platform compatibility, the snippet must be well-formed. Tags that can contain other elements should be paired with a closing tag:</p>
 <pre>$('&lt;a href="http://jquery.com"&gt;&lt;/a&gt;');</pre>
 <p>Alternatively, jQuery allows XML-like tag syntax (with or without a space before the slash):</p>
@@ -184,7 +185,21 @@ $.post('url.xml', function(data) {
 <pre>$('&lt;img /&gt;');
 $('&lt;input&gt;');
 </pre>
-<p>As of jQuery 1.4, the second argument can accept a map consisting of a superset of the properties that can be passed to the <a href="/attr">.attr()</a> method. Furthermore, any <a href="/category/events/">event type</a> can be passed in, and the following jQuery methods can be called: <a href="/val">val</a>, <a href="/css">css</a>, <a href="/html">html</a>, <a href="/text">text</a>, <a href="/data">data</a>, <a href="/width">width</a>, <a href="/height">height</a>, or <a href="/offset">offset</a>. Note that Internet Explorer will not allow you to create an <code>input</code> or <code>button</code> element and change its type; you must specify the type using <code>'&lt;input type="checkbox" /&gt;'</code> for example.</p>
+<p>As of jQuery 1.4, the second argument can accept a map consisting of a superset of the properties that can be passed to the <a href="/attr">.attr()</a> method. Furthermore, any <a href="/category/events/">event type</a> can be passed in, and the following jQuery methods can be called: <a href="/val">val</a>, <a href="/css">css</a>, <a href="/html">html</a>, <a href="/text">text</a>, <a href="/data">data</a>, <a href="/width">width</a>, <a href="/height">height</a>, or <a href="/offset">offset</a>. The name <code>"class"</code> must be quoted in the map since it is a JavaScript reserved word, and <code>"className"</code> cannot be used since it is not the correct attribute name. </p>
+<p><strong>Note:</strong> Internet Explorer will not allow you to create an <code>input</code> or <code>button</code> element and change its type; you must specify the type using <code>'&lt;input type="checkbox" /&gt;'</code> for example. A demonstration of this can be seen below:</p>
+<p>Unsupported in IE:</p>
+<pre>
+$('&lt;input /&gt;', {
+    type: 'text',
+    name: 'test'
+}).appendTo("body");
+</pre>
+<p>Supported workaround:</p>
+<pre>
+$('&lt;input type="text" /&gt;').attr({
+    name: 'test'
+}).appendTo("body");
+</pre>
 </div>
 <h3>Examples:</h3>
 <div class="entry-examples" id="entry-examples-1">

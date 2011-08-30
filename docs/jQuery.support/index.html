@@ -77,7 +77,7 @@
 <li>
 <code>scriptEval()</code> is equal to true if inline scripts are automatically evaluated and executed when inserted into the document using standard DOM manipulation methods such as <code>.appendChild()</code> and <code>.createTextNode()</code>. (It is currently false in IE, it uses <code>.text</code> to insert executable scripts). 
 <div>
-<strong>Note: Prior to jQuery 1.5.1</strong>, the <code>scriptEval()</code> method was the static <code>scriptEval</code> property. The change to a method allows the test to be deferred until first use to prevent content security policy inline-script violations. </div>
+<strong>Note: No longer supported; removed in jQuery 1.6. Prior to jQuery 1.5.1</strong>, the <code>scriptEval()</code> method was the static <code>scriptEval</code> property. The change to a method allowed the test to be deferred until first use to prevent content security policy inline-script violations. </div>
 <div><a href="http://www.w3.org/TR/2008/WD-html5-20080610/tabular.html#script">HTML5 WD</a></div>
 </li>
 <li>
@@ -102,7 +102,7 @@
   p { color:blue; margin:20px; }
   span { color:red; }
   &lt;/style&gt;
-  &lt;script src="http://code.jquery.com/jquery-git.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
   &lt;p&gt;

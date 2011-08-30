@@ -14,13 +14,13 @@
 </div>
 <div id="promise1" class="entry method">
 <h2 class="jq-clearfix roundTop section-title">
-<span class="name">.promise( [ type ], [ target ] )</span> <span class="returns">Returns: <a class="return" href="http://api.jquery.com/Types/#Promise">Promise</a></span>
+<span class="name">.promise(  [type,]  [target]  )</span> <span class="returns">Returns: <a class="return" href="http://api.jquery.com/Types/#Promise">Promise</a></span>
 </h2>
 <div class="jq-box roundBottom entry-details">
 <p class="desc"><strong>Description: </strong> Return a Promise object to observe when all actions of a certain type bound to the collection, queued or not, have finished. </p>
 <ul class="signatures"><li class="signature" id="promise-type-target">
 <h4 class="name">
-<span class="versionAdded">version added: <a href="/category/version/1.6/">1.6</a></span>.promise( [ type ], [ target ] )</h4>
+<span class="versionAdded">version added: <a href="/category/version/1.6/">1.6</a></span>.promise(  [type],  [target] )</h4>
 <p class="arguement"><strong>type</strong> The type of queue that needs to be observed. </p>
 <p class="arguement"><strong>target</strong>Object onto which the promise methods have to be attached</p>
 </li></ul>
@@ -29,11 +29,12 @@
 <p> By default, <code>type</code> is <code>"fx"</code>, which means the returned Promise is resolved when all animations of the selected elements have completed.</p>
 <p> Resolve context and sole argument is the collection onto which <code>.promise()</code> has been called. </p>
 <p> If <code>target</code> is provided, <code>.promise()</code> will attach the methods onto it and then return this object rather than create a new one. This can be useful to attach the Promise behavior to an object that already exists.</p>
+<blockquote><p><strong>Note: </strong>The returned Promise is linked to a Deferred object stored on the <code>.data()</code> for an element. Since the <code>.remove()</code> method removes the element's data as well as the element itself, it will prevent any of the element's unresolved Promises from resolving. If it is necessary to remove an element from the DOM before its Promise is resolved, use <code>.detach()</code> instead and follow with <code>.removeData()</code> after resolution.</p></blockquote>
 </div>
 <h3>Examples:</h3>
 <div class="entry-examples" id="entry-examples">
 <div id="example-0">
-<h4>Example: <span class="desc">Using promise on a collection with no active animation returns a resolved Promise:</span>
+<h4>Example: <span class="desc">Using .promise() on a collection with no active animation returns a resolved Promise:</span>
 </h4>
 <pre class="prettyprint"><code class="example">
 var div = $( "&lt;div /&gt;" );
@@ -57,7 +58,7 @@ div {
   display: none; background-color: #090;
 }
 &lt;/style&gt;
-  &lt;script src="http://code.jquery.com/jquery-git.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
   
@@ -101,7 +102,7 @@ div {
   display: none; background-color: #090;
 }
 &lt;/style&gt;
-  &lt;script src="http://code.jquery.com/jquery-git.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
   

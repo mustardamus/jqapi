@@ -33,6 +33,9 @@ jqapi = function() {
       category:       null
     };
     
+    //remove plugin category because there is nothing inside
+    $('.category span:contains("Plugins")').remove();
+    
     elements.results    = jQuery('<ul>', { id: 'results' }).insertBefore(elements.list);
     elements.category   = $('.category', elements.list);
     values.searchHeight = elements.searchWrapper.innerHeight();

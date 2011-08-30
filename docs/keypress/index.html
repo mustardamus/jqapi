@@ -26,7 +26,7 @@
 </li>
 <li class="signature" id="keypress-eventData-handlereventObject">
 <h4 class="name">
-<span class="versionAdded">version added: <a href="/category/version/1.4.3/">1.4.3</a></span>.keypress( [ eventData ], handler(eventObject) )</h4>
+<span class="versionAdded">version added: <a href="/category/version/1.4.3/">1.4.3</a></span>.keypress(  [eventData], handler(eventObject) )</h4>
 <p class="arguement"><strong>eventData</strong>A map of data that will be passed to the event handler.</p>
 <p class="arguement"><strong>handler(eventObject)</strong>A function to execute each time the event is triggered.</p>
 </li>
@@ -35,27 +35,27 @@
 </ul>
 <div class="longdesc">
 <p><strong>Note:</strong> as the <code>keypress</code> event isn't covered by any official specification, the actual behavior encountered when using it may differ across browsers, browser versions, and platforms.</p>
-<p>This method is a shortcut for <code>.bind('keypress', handler)</code> in the first two variations, and <code>.trigger('keypress')</code> in the third.</p>
+<p>This method is a shortcut for <code>.bind("keypress", handler)</code> in the first two variations, and <code>.trigger("keypress")</code> in the third.</p>
 <p>The <code>keypress</code> event is sent to an element when the browser registers keyboard input. This is similar to the <code>keydown</code> event, except in the case of key repeats. If the user presses and holds a key, a <code>keydown </code>event is triggered once, but separate <code>keypress</code> events are triggered for each inserted character. In addition, modifier keys (such as Shift) trigger <code>keydown</code> events but not <code>keypress</code> events.</p>
 <p>A <code>keypress</code> event handler can be attached to any element, but the event is only sent to the element that has the focus. Focusable elements can vary between browsers, but form elements can always get focus so are reasonable candidates for this event type.</p>
 <p>For example, consider the HTML:</p>
 <pre>&lt;form&gt;
-	&lt;fieldset&gt;
-  	&lt;input id="target" type="text" value="Hello there" /&gt;
-	&lt;/fieldset&gt;
+  &lt;fieldset&gt;
+    &lt;input id="target" type="text" value="Hello there" /&gt;
+  &lt;/fieldset&gt;
 &lt;/form&gt;
 &lt;div id="other"&gt;
   Trigger the handler
 &lt;/div&gt;</pre>
 <p>The event handler can be bound to the input field:</p>
-<pre>$('#target').keypress(function() {
-  alert('Handler for .keypress() called.');
+<pre>$("#target").keypress(function() {
+  alert("Handler for .keypress() called.");
 });</pre>
 <p>Now when the insertion point is inside the field, pressing a key displays the alert:</p>
 <p><span class="output">Handler for .keypress() called.</span></p>
 <p>The message repeats if the key is held down. To trigger the event manually, apply <code>.keypress()</code> without an argument::</p>
 <pre>$('#other').click(function() {
-  $('#target').keypress();
+  $("#target").keypress();
 });</pre>
 <p>After this code executes, clicks on <span class="output">Trigger the handler</span> will also alert the message.</p>
 <p>If key presses anywhere need to be caught (for example, to implement global shortcut keys on a page), it is useful to attach this behavior to the <code>document</code> object. Because of event bubbling, all key presses will make their way up the DOM to the <code>document</code> object unless explicitly stopped.</p>
@@ -64,7 +64,7 @@
 </div>
 <h3>Example:</h3>
 <div class="entry-examples" id="entry-examples"><div id="example-0">
-<h4><span class="desc">Show the event object for the keypress handler when a key is pressed in the input.</span></h4>
+<h4><span class="desc">Show the event object when a key is pressed in the input. Note: This demo relies on a simple $.print() plugin (http://api.jquery.com/scripts/events.js) for the event object's output.</span></h4>
 <pre class="prettyprint"><code class="example demo-code">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;
@@ -82,7 +82,7 @@ input { display: block; margin-bottom: .25em; }
 }
 
 &lt;/style&gt;
-  &lt;script src="http://code.jquery.com/jquery-git.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
   &lt;form&gt;
@@ -94,21 +94,21 @@ input { display: block; margin-bottom: .25em; }
 &lt;button id="other"&gt;
   Trigger the handler
 &lt;/button&gt;
-&lt;script type="text/javascript" src="/scripts/events.js"&gt;&lt;/script&gt;
+&lt;script src="http://api.jquery.com/scripts/events.js"&gt;&lt;/script&gt;
 &lt;script&gt;
 var xTriggered = 0;
-$('#target').keypress(function(event) {
-  if (event.which == '13') {
+$("#target").keypress(function(event) {
+  if ( event.which == 13 ) {
      event.preventDefault();
    }
    xTriggered++;
-   var msg = 'Handler for .keypress() called ' + xTriggered + ' time(s).';
-  $.print(msg, 'html');
-  $.print(event);
+   var msg = "Handler for .keypress() called " + xTriggered + " time(s).";
+  $.print( msg, "html" );
+  $.print( event );
 });
 
-$('#other').click(function() {
-  $('#target').keypress();
+$("#other").click(function() {
+  $("#target").keypress();
 });&lt;/script&gt;
 
 &lt;/body&gt;

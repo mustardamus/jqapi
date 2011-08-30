@@ -14,13 +14,13 @@
 </div>
 <div id="stop1" class="entry method">
 <h2 class="jq-clearfix roundTop section-title">
-<span class="name">.stop( [ clearQueue ], [ jumpToEnd ] )</span> <span class="returns">Returns: <a class="return" href="http://api.jquery.com/Types/#jQuery">jQuery</a></span>
+<span class="name">.stop(  [clearQueue,]  [jumpToEnd]  )</span> <span class="returns">Returns: <a class="return" href="http://api.jquery.com/Types/#jQuery">jQuery</a></span>
 </h2>
 <div class="jq-box roundBottom entry-details">
 <p class="desc"><strong>Description: </strong>Stop the currently-running animation on the matched elements.</p>
 <ul class="signatures"><li class="signature" id="stop-clearQueue-jumpToEnd">
 <h4 class="name">
-<span class="versionAdded">version added: <a href="/category/version/1.2/">1.2</a></span>.stop( [ clearQueue ], [ jumpToEnd ] )</h4>
+<span class="versionAdded">version added: <a href="/category/version/1.2/">1.2</a></span>.stop(  [clearQueue],  [jumpToEnd] )</h4>
 <p class="arguement"><strong>clearQueue</strong>A Boolean indicating whether to remove queued animation as well. Defaults to <code>false</code>.</p>
 <p class="arguement"><strong>jumpToEnd</strong>A Boolean indicating whether to complete the current animation immediately. Defaults to <code>false</code>.</p>
 </li></ul>
@@ -57,7 +57,7 @@ height: 60px;
 margin: 5px; 
 }
 &lt;/style&gt;
-  &lt;script src="http://code.jquery.com/jquery-git.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
   &lt;button id="go"&gt;Go&lt;/button&gt; 
@@ -65,17 +65,17 @@ margin: 5px;
 &lt;button id="back"&gt;Back&lt;/button&gt;
 &lt;div class="block"&gt;&lt;/div&gt;
 &lt;script&gt;
-// Start animation
+/* Start animation */
 $("#go").click(function(){
 $(".block").animate({left: '+=100px'}, 2000);
 });
 
-// Stop animation when button is clicked
+/* Stop animation when button is clicked */
 $("#stop").click(function(){
 $(".block").stop();
 });
 
-// Start animation in the opposite direction
+/* Start animation in the opposite direction */
 $("#back").click(function(){
 $(".block").animate({left: '-=100px'}, 2000);
 });

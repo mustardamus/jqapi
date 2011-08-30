@@ -23,13 +23,13 @@
 <span class="versionAdded">version added: <a href="/category/version/1.0/">1.0</a></span>.hide()</h4></li>
 <li class="signature" id="hide-duration-callback">
 <h4 class="name">
-<span class="versionAdded">version added: <a href="/category/version/1.0/">1.0</a></span>.hide( duration, [ callback ] )</h4>
+<span class="versionAdded">version added: <a href="/category/version/1.0/">1.0</a></span>.hide( duration,   [callback] )</h4>
 <p class="arguement"><strong>duration</strong>A string or number determining how long the animation will run.</p>
 <p class="arguement"><strong>callback</strong>A function to call once the animation is complete.</p>
 </li>
 <li class="signature" id="hide-duration-easing-callback">
 <h4 class="name">
-<span class="versionAdded">version added: <a href="/category/version/1.4.3/">1.4.3</a></span>.hide( [ duration ], [ easing ], [ callback ] )</h4>
+<span class="versionAdded">version added: <a href="/category/version/1.4.3/">1.4.3</a></span>.hide(  [duration],  [easing],  [callback] )</h4>
 <p class="arguement"><strong>duration</strong>A string or number determining how long the animation will run.</p>
 <p class="arguement"><strong>easing</strong>A string indicating which easing function to use for the transition.</p>
 <p class="arguement"><strong>callback</strong>A function to call once the animation is complete.</p>
@@ -68,7 +68,7 @@ $('#clickme').click(function() {
 <pre class="prettyprint"><code class="example demo-code">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;
-  &lt;script src="http://code.jquery.com/jquery-git.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
   &lt;p&gt;Hello&lt;/p&gt;
@@ -77,9 +77,9 @@ $('#clickme').click(function() {
 &lt;script&gt;
 
     $("p").hide();
-    $("a").click(function () {
+    $("a").click(function ( event ) {
+      event.preventDefault();
       $(this).hide();
-      return true;
     });
 &lt;/script&gt;
 
@@ -97,7 +97,7 @@ $('#clickme').click(function() {
   &lt;style&gt;
   p { background:#dad; font-weight:bold; }
   &lt;/style&gt;
-  &lt;script src="http://code.jquery.com/jquery-git.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
   &lt;button&gt;Hide 'em&lt;/button&gt;
@@ -124,7 +124,7 @@ $('#clickme').click(function() {
   &lt;style&gt;
   span { background:#def3ca; padding:3px; float:left; }
   &lt;/style&gt;
-  &lt;script src="http://code.jquery.com/jquery-git.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
   &lt;button id="hidr"&gt;Hide&lt;/button&gt;
@@ -164,7 +164,7 @@ $('#clickme').click(function() {
   div { background:#ece023; width:30px; 
         height:40px; margin:2px; float:left; }
   &lt;/style&gt;
-  &lt;script src="http://code.jquery.com/jquery-git.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
   &lt;div&gt;&lt;/div&gt;

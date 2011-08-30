@@ -14,27 +14,39 @@
 </div>
 <div id="jQuery-map1" class="entry method">
 <h2 class="jq-clearfix roundTop section-title">
-<span class="name">jQuery.map( array, callback(elementOfArray, indexInArray) )</span> <span class="returns">Returns: <a class="return" href="http://api.jquery.com/Types/#Array">Array</a></span>
+<span class="name">jQuery.map( array,callback(elementOfArray, indexInArray) )</span> <span class="returns">Returns: <a class="return" href="http://api.jquery.com/Types/#Array">Array</a></span>
 </h2>
 <div class="jq-box roundBottom entry-details">
 <p class="desc"><strong>Description: </strong>Translate all items in an array or object to new array of items.</p>
 <ul class="signatures">
 <li class="signature" id="jQuery-map-array-callbackelementOfArray- indexInArray">
 <h4 class="name">
-<span class="versionAdded">version added: <a href="/category/version/1.0/">1.0</a></span>jQuery.map( array, callback(elementOfArray, indexInArray) )</h4>
+<span class="versionAdded">version added: <a href="/category/version/1.0/">1.0</a></span>jQuery.map( array,  callback(elementOfArray, indexInArray) )</h4>
 <p class="arguement"><strong>array</strong>The Array to translate.</p>
 <p class="arguement"><strong>callback(elementOfArray, indexInArray)</strong>The function to process each item against.  The first argument to the function is the array item, the second argument is the index in array The function can return any value. Within the function, <code>this</code> refers to the global (window) object.</p>
 </li>
 <li class="signature" id="jQuery-map-arrayOrObject-callback value- indexOrKey ">
 <h4 class="name">
-<span class="versionAdded">version added: <a href="/category/version/1.6/">1.6</a></span>jQuery.map( arrayOrObject, callback( value, indexOrKey ) )</h4>
+<span class="versionAdded">version added: <a href="/category/version/1.6/">1.6</a></span>jQuery.map( arrayOrObject,  callback( value, indexOrKey ) )</h4>
 <p class="arguement"><strong>arrayOrObject</strong>The Array or Object to translate.</p>
 <p class="arguement"><strong>callback( value, indexOrKey )</strong>The function to process each item against.  The first argument to the function is the value; the second argument is the index or key of the array or object property. The function can return any value to add to the array. A returned array will be flattened into the resulting array. Within the function, <code>this</code> refers to the global (window) object. </p>
 </li>
 </ul>
 <div class="longdesc">
-<p>The <code>$.map()</code> method applies a function to each item in an array or object and maps the results into a new array. <strong>Prior to jQuery 1.6</strong>, <code>$.map()</code> supports traversing <em>arrays and array-like objects only</em>. <strong>As of jQuery 1.6</strong> it also traverses objects.</p>
-<p>Array-like objects, such as jQuery collections, are treated as arrays. In other words, if an object has a <code>.length</code> property <em>and</em> a value on the <code>.length - 1</code> index, it is traversed as an array.</p>
+<p>The <code>$.map()</code> method applies a function to each item in an array or object and maps the results into a new array. <strong>Prior to jQuery 1.6</strong>, <code>$.map()</code> supports traversing <em>arrays only</em>. <strong>As of jQuery 1.6</strong> it also traverses objects.</p>
+<p>Array-like objects — those with a <code>.length</code> property <em>and</em> a value on the <code>.length - 1</code> index — must be converted to actual arrays before being passed to <code>$.map()</code>. The jQuery library provides <a href="http://api.jquery.com/jQuery.makeArray/">$.makeArray()</a> for such conversions.</p>
+<pre class="prettyprint">
+// The following object masquerades as an array.
+var fakeArray = {"length": 1, 0: "Addy", 1: "Subtracty"};
+
+// Therefore, convert it to a real array
+var realArray = $.makeArray( fakeArray )
+
+// Now it can be used reliably with $.map()
+$.map( realArray, function(val, i) {
+  // do something 
+});
+</pre>
 <p>The translation function that is provided to this method is called for each top-level element in the array or object and is passed two arguments: The element's value and its index or key within the array or object.</p>
 <p>The function can return:</p>
 <ul>
@@ -57,7 +69,7 @@
   p { color:green; margin:0; }
   span { color:red; }
   &lt;/style&gt;
-  &lt;script src="http://code.jquery.com/jquery-git.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
   &lt;div&gt;&lt;/div&gt;

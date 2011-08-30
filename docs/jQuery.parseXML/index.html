@@ -27,20 +27,38 @@
 <h3>Example:</h3>
 <div class="entry-examples" id="entry-examples"><div id="example-0">
 <h4><span class="desc">Create a jQuery object using an XML string and obtain the value of the title node.</span></h4>
-<pre class="prettyprint"><code class="example">var xml = '&lt;rss version="2.0"&gt;&lt;channel&gt;&lt;title&gt;RSS Title&lt;/title&gt;&lt;/channel&gt;&lt;/rss&gt;',
+<pre class="prettyprint"><code class="example demo-code">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  
+&lt;p id="someElement"&gt;&lt;/p&gt;
+&lt;p id="anotherElement"&gt;&lt;/p&gt;
+
+  
+
+&lt;script&gt;
+var xml = "&lt;rss version='2.0'&gt;&lt;channel&gt;&lt;title&gt;RSS Title&lt;/title&gt;&lt;/channel&gt;&lt;/rss&gt;",
     xmlDoc = $.parseXML( xml ),
     $xml = $( xmlDoc ),
-    $title = $xml.find( 'title' );	    
+    $title = $xml.find( "title" );
 
-// append "RSS Title" to #someElement
-$( '#someElement' ).append( $title.text() );	
+/* append "RSS Title" to #someElement */
+$( "#someElement" ).append( $title.text() );
 
-// change the title to "XML Title"
-$title.text( 'XML Title' );
+/* change the title to "XML Title" */
+$title.text( "XML Title" );
 
-// append "XML Title" to #anotherElement
-$( '#anotherElement' ).append( $title.text() );
-</code></pre>
+/* append "XML Title" to #anotherElement */
+$( "#anotherElement" ).append( $title.text() );
+&lt;/script&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+<h4>Demo:</h4>
+<div class="demo code-demo"></div>
 </div></div>
 </div>
 </div>

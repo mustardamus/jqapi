@@ -23,6 +23,7 @@
 <div class="longdesc">
 <p>This property can be manipulated to adjust the number of frames per second at which animations will run. The default is 13 milliseconds. Making this a lower number could make the animations run smoother in faster browsers (such as Chrome) but there may be performance and CPU implications of doing so.</p>
 <p>Since jQuery uses one global interval, no animation should be running or all animations should stop for the change of this property to take effect.</p>
+<p><strong>Note:</strong><code>jQuery.fx.interval</code> currently has no effect in browsers that support the <code>requestAnimationFrame</code> property, such as Google Chrome 11. This behavior is subject to change in a future release.</p>
 </div>
 <h3>Example:</h3>
 <div class="entry-examples" id="entry-examples"><div id="example-0">
@@ -34,7 +35,7 @@
     div { width:50px; height:30px; margin:5px; float:left;
           background:green; }
     &lt;/style&gt;
-  &lt;script src="http://code.jquery.com/jquery-git.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
   &lt;p&gt;&lt;input type="button" value="Run"/&gt;&lt;/p&gt;

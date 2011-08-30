@@ -26,7 +26,7 @@
 </li>
 <li class="signature" id="jQuery-param-obj-traditional">
 <h4 class="name">
-<span class="versionAdded">version added: <a href="/category/version/1.4/">1.4</a></span>jQuery.param( obj, traditional )</h4>
+<span class="versionAdded">version added: <a href="/category/version/1.4/">1.4</a></span>jQuery.param( obj,  traditional )</h4>
 <p class="arguement"><strong>obj</strong>An array or object to serialize.</p>
 <p class="arguement"><strong>traditional</strong>A Boolean indicating whether to perform a traditional "shallow" serialization.</p>
 </li>
@@ -39,8 +39,13 @@
 <pre>[{name:"first",value:"Rick"},
 {name:"last",value:"Astley"},
 {name:"job",value:"Rock Star"}]</pre>
-<p>Note: Because some frameworks have limited ability to parse serialized arrays, we should exercise caution when passing an <code>obj</code> argument that contains objects or arrays nested within another array.</p>
-<p>In jQuery 1.4 HTML5 input elements are serialized, as well.</p>
+<blockquote>
+    <p><strong>Note:</strong> Because some frameworks have limited ability to parse serialized arrays, developers should exercise caution when passing an <code>obj</code> argument that contains objects or arrays nested within another array.</p>
+</blockquote>
+<blockquote>
+<p><strong>Note:</strong> Because there is no universally agreed-upon specification for param strings, it is not possible to encode complex data structures using this method in a manner that works ideally across all languages supporting such input. Until such time that there is, the <code>$.param</code> method will remain in its current form.</p>
+</blockquote>
+<p>In jQuery 1.4, HTML5 input elements are also serialized.</p>
 <p>We can display a query string representation of an object and a URI-decoded version of the same as follows:</p>
 <pre>var myObject = {
   a: {
@@ -85,7 +90,7 @@ alert(shallowDecoded);
 &lt;html&gt;
 &lt;head&gt;
   &lt;style&gt;div { color:red; }&lt;/style&gt;
-  &lt;script src="http://code.jquery.com/jquery-git.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
   &lt;div id="results"&gt;&lt;/div&gt;

@@ -51,7 +51,7 @@
 &lt;/ul&gt;
 </pre>
 <p>You can attach a click handler to the &lt;ul&gt; element, and then limit the code to be triggered only when a list item itself, not one of its children, is clicked:</p>
-<pre>$("ul:).click(function(event) {
+<pre>$("ul").click(function(event) {
   var $target = $(event.target);
   if ( $target.is("li") ) {
     $target.css("background-color", "red");
@@ -59,6 +59,7 @@
 });</pre>
 <p>Now, when the user clicks on the word "list" in the first item or anywhere in the third item, the clicked list item will be given a red background. However, when the user clicks on item 1 in the first item or anywhere in the second item, nothing will occur, because in those cases the target of the event would be <code>&lt;strong&gt;</code> or <code>&lt;span&gt;</code>, respectively.
 </p>
+<p>Be aware that for selector strings with positional selectors such as <code>:first</code>, <code>:gt()</code>, or <code>:even</code>, the positional filtering is done against the jQuery object passed to <code>.is()</code>, <em>not</em> against the containing document. So for the HTML shown above, an expression such as <code>$("li:first").is("li:last")</code> returns <code>true</code>, but <code>$("li:first-child").is("li:last-child")</code> returns <code>false</code>.</p>
 <h4>Using a Function</h4>
 <p>The second form of this method evaluates expressions related to elements based on a function rather than a selector. For each element, if the function returns <code>true</code>, <code>.is()</code> returns <code>true</code> as well. For example, given a somewhat more involved HTML snippet:</p>
 <pre>
@@ -104,7 +105,7 @@ $("li").click(function() {
   p { color:red; font-weight:bolder; background:yellow; 
       margin:3px; clear:left; display:none; }
 &lt;/style&gt;
-  &lt;script src="http://code.jquery.com/jquery-git.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
   &lt;div&gt;&lt;/div&gt;
@@ -143,7 +144,7 @@ $("li").click(function() {
 &lt;html&gt;
 &lt;head&gt;
   &lt;style&gt;div { color:red; }&lt;/style&gt;
-  &lt;script src="http://code.jquery.com/jquery-git.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
   &lt;form&gt;&lt;input type="checkbox" /&gt;&lt;/form&gt;
@@ -165,7 +166,7 @@ $("li").click(function() {
 &lt;html&gt;
 &lt;head&gt;
   &lt;style&gt;div { color:red; }&lt;/style&gt;
-  &lt;script src="http://code.jquery.com/jquery-git.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
   &lt;form&gt;&lt;p&gt;&lt;input type="checkbox" /&gt;&lt;/p&gt;&lt;/form&gt;
@@ -187,7 +188,7 @@ $("li").click(function() {
 &lt;html&gt;
 &lt;head&gt;
   &lt;style&gt;li { cursor:pointer; }&lt;/style&gt;
-  &lt;script src="http://code.jquery.com/jquery-git.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
   
@@ -221,7 +222,7 @@ $("li").click(function() {
 &lt;html&gt;
 &lt;head&gt;
   &lt;style&gt;li { cursor:pointer; }&lt;/style&gt;
-  &lt;script src="http://code.jquery.com/jquery-git.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
   

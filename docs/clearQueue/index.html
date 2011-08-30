@@ -14,13 +14,13 @@
 </div>
 <div id="clearQueue1" class="entry method">
 <h2 class="jq-clearfix roundTop section-title">
-<span class="name">.clearQueue( [ queueName ] )</span> <span class="returns">Returns: <a class="return" href="http://api.jquery.com/Types/#jQuery">jQuery</a></span>
+<span class="name">.clearQueue(  [queueName]  )</span> <span class="returns">Returns: <a class="return" href="http://api.jquery.com/Types/#jQuery">jQuery</a></span>
 </h2>
 <div class="jq-box roundBottom entry-details">
 <p class="desc"><strong>Description: </strong>Remove from the queue all items that have not yet been run.</p>
 <ul class="signatures"><li class="signature" id="clearQueue-queueName">
 <h4 class="name">
-<span class="versionAdded">version added: <a href="/category/version/1.4/">1.4</a></span>.clearQueue( [ queueName ] )</h4>
+<span class="versionAdded">version added: <a href="/category/version/1.4/">1.4</a></span>.clearQueue(  [queueName] )</h4>
 <p class="arguement"><strong>queueName</strong>A string containing the name of the queue. Defaults to <code>fx</code>, the standard effects queue.</p>
 </li></ul>
 <div class="longdesc"><p>When the <code>.clearQueue()</code> method is called, all functions on the queue that have not been executed are removed from the queue. When used without an argument, <code>.clearQueue()</code> removes the remaining functions from <code>fx</code>, the standard effects queue. In this way it is similar to <code>.stop(true)</code>. However,  while the <code>.stop()</code> method is meant to be used only with animations, <code>.clearQueue()</code> can also be used to remove any function that has been added to a generic jQuery queue with the <code>.queue()</code> method. </p></div>
@@ -36,7 +36,7 @@ div { margin:3px; width:40px; height:40px;
     background:green; display:none; }
 div.newcolor { background:blue; }
 &lt;/style&gt;
-  &lt;script src="http://code.jquery.com/jquery-git.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
   &lt;button id="start"&gt;Start&lt;/button&gt;

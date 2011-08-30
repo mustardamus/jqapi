@@ -23,14 +23,23 @@
 <span class="versionAdded">version added: <a href="/category/version/1.0/">1.0</a></span>.removeAttr( attributeName )</h4>
 <p class="arguement"><strong>attributeName</strong>An attribute to remove.</p>
 </li></ul>
-<div class="longdesc"><p>The <code>.removeAttr()</code> method uses the JavaScript <code>removeAttribute()</code> function, but it has the advantage of being able to be called directly on a jQuery object and it accounts for different attribute naming across browsers.</p></div>
+<div class="longdesc">
+<p>The <code>.removeAttr()</code> method uses the JavaScript <code>removeAttribute()</code> function, but it has the advantage of being able to be called directly on a jQuery object and it accounts for different attribute naming across browsers.</p>
+<p><strong>Note:</strong>If attempting to remove an inline 'onclick' event handler using <code>.removeAttr()</code>, one may find that this doesn't achieve the desired effect in Internet Explorer 6,7 or 8. Instead it is recommended to opt for using <code>.prop()</code> to achieve this as follows:</p>
+<pre>
+$element.prop("onclick", null);
+console.log("onclick property: ", $element[0].onclick);
+</pre>
+<p>We may update the behavior of <code>.removeAttr()</code> at some point in the future to better handle this, however for the time being, the above should be considered the standard cross-browser approach to this problem.</p>
+<p></p>
+</div>
 <h3>Example:</h3>
 <div class="entry-examples" id="entry-examples"><div id="example-0">
 <h4><span class="desc">Clicking the button enables the input next to it.</span></h4>
 <pre class="prettyprint"><code class="example demo-code">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;
-  &lt;script src="http://code.jquery.com/jquery-git.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
   &lt;button&gt;Enable&lt;/button&gt;

@@ -26,7 +26,7 @@
 <p>Use <code><a href="http://api.jquery.com/event.isImmediatePropagationStopped">event.isImmediatePropagationStopped()</a></code> to know whether this method was ever called (on that event object).</p>
 </div>
 <h3 id="notes-0">Additional Notes:</h3>
-<div class="longdesc"><ul><li>Since the <a href="http://api.jquery.com/live"><code>.live()</code></a> method handles events once they have propagated to the top of the document, it is not possible to stop propagation of live events. Similarly, events handled by <a href="http://api.jquery.com/delegate"><code>.delegate()</code></a> will always propagate to the element to which they are delegated; event handlers on any elements below it will already have been executed by the time the delegated event handler is called.</li></ul></div>
+<div class="longdesc"><ul><li>Since the <a href="http://api.jquery.com/live"><code>.live()</code></a> method handles events once they have propagated to the top of the document, it is not possible to stop propagation of live events. Similarly, events handled by <code><a href="http://api.jquery.com/delegate/">.delegate()</a></code> will propagate to the elements to which they are delegated; event handlers bound on any elements below it in the DOM tree will already have been executed by the time the delegated event handler is called. These handlers, therefore, may prevent the delegated handler from triggering by calling <code><a href="http://api.jquery.com/event.stopPropagation/">event.stopPropagation()</a></code> or returning <code>false</code>.</li></ul></div>
 <h3>Example:</h3>
 <div class="entry-examples" id="entry-examples"><div id="example-0">
 <h4><span class="desc">Prevents other event handlers from being called.</span></h4>
@@ -37,7 +37,7 @@
 p { height: 30px; width: 150px; background-color: #ccf; }
 div {height: 30px; width: 150px; background-color: #cfc; }
 &lt;/style&gt;
-  &lt;script src="http://code.jquery.com/jquery-git.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
   &lt;p&gt;paragraph&lt;/p&gt;

@@ -20,19 +20,23 @@
 <span class="versionAdded">version added: <a href="/category/version/1.0/">1.0</a></span>jQuery(':checked')</h4>
 <p class="desc"><strong>Description: </strong>Matches all elements that are checked.</p>
 <div class="longdesc"><p>The <code>:checked</code> selector works for checkboxes and radio buttons. For select elements, use the <code>:selected</code> selector.</p></div>
-<h3>Example:</h3>
-<div class="entry-examples" id="entry-examples"><div id="example-0">
-<h4><span class="desc">Finds all input elements that are checked.</span></h4>
+<h3>Examples:</h3>
+<div class="entry-examples" id="entry-examples">
+<div id="example-0">
+<h4>Example: <span class="desc">Finds all input elements that are checked.</span>
+</h4>
 <pre class="prettyprint"><code class="example demo-code">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;
   &lt;style&gt;
   div { color:red; }
   &lt;/style&gt;
-  &lt;script src="http://code.jquery.com/jquery-git.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
-  &lt;form&gt;
+  
+&lt;form&gt;
+  &lt;p&gt;
     &lt;input type="checkbox" name="newsletter" checked="checked" value="Hourly" /&gt;
 
     &lt;input type="checkbox" name="newsletter" value="Daily" /&gt;
@@ -40,28 +44,65 @@
 
     &lt;input type="checkbox" name="newsletter" checked="checked" value="Monthly" /&gt;
     &lt;input type="checkbox" name="newsletter" value="Yearly" /&gt;
+  &lt;/p&gt;
+&lt;/form&gt;
+&lt;div&gt;&lt;/div&gt;
 
-  &lt;/form&gt;
-  &lt;div&gt;&lt;/div&gt;
 &lt;script&gt;
-
-    function countChecked() {
-      var n = $("input:checked").length;
-      $("div").text(n + (n &lt;= 1 ? " is" : " are") + " checked!");
-    }
-    countChecked();
-    $(":checkbox").click(countChecked);
-
+function countChecked() {
+  var n = $("input:checked").length;
+  $("div").text(n + (n &lt;= 1 ? " is" : " are") + " checked!");
+}
+countChecked();
+$(":checkbox").click(countChecked);
 &lt;/script&gt;
 
 &lt;/body&gt;
 &lt;/html&gt;</code></pre>
 <h4>Demo:</h4>
 <div class="demo code-demo"></div>
-<h4>Result:</h4>
-<pre><code class="results">&lt;input type="checkbox" name="newsletter" checked="checked" value="Daily" /&gt;,
-  &lt;input type="checkbox" name="newsletter" checked="checked" value="Monthly" /&gt; ]</code></pre>
-</div></div>
+</div>
+<div id="example-1">
+<h4>Example: <span class="desc"></span>
+</h4>
+<pre class="prettyprint"><code class="example demo-code">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;style&gt;
+input, label { line-height: 1.5em; }
+&lt;/style&gt;
+  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  
+&lt;form&gt;
+  &lt;div&gt;
+    &lt;input type="radio" name="fruit" value="orange" id="orange"&gt;
+    &lt;label for="orange"&gt;orange&lt;/label&gt;
+  &lt;/div&gt;
+  &lt;div&gt;
+    &lt;input type="radio" name="fruit" value="apple" id="apple"&gt;
+    &lt;label for="apple"&gt;apple&lt;/label&gt;
+  &lt;/div&gt;
+  &lt;div&gt;
+    &lt;input type="radio" name="fruit" value="banana" id="banana"&gt;
+    &lt;label for="banana"&gt;banana&lt;/label&gt;
+  &lt;/div&gt;
+  &lt;div id="log"&gt;&lt;/div&gt;
+&lt;/form&gt;
+
+&lt;script&gt;
+$("input").click(function() {
+  $("#log").html( $(":checked").val() + " is checked!" );
+});
+&lt;/script&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+<h4>Demo:</h4>
+<div class="demo code-demo"></div>
+</div>
+</div>
 </div>
 </div>
 

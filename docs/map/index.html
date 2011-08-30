@@ -66,7 +66,7 @@
   &lt;style&gt;
   p { color:red; }
   &lt;/style&gt;
-  &lt;script src="http://code.jquery.com/jquery-git.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
   &lt;p&gt;&lt;b&gt;Values: &lt;/b&gt;&lt;/p&gt;
@@ -100,7 +100,7 @@
   ul { float:left; margin:0 30px; color:blue; }
   #results { color:red; }
   &lt;/style&gt;
-  &lt;script src="http://code.jquery.com/jquery-git.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
   &lt;ul&gt;
@@ -115,26 +115,26 @@
 
   &lt;/ul&gt;
 &lt;script&gt;
-    var mappedItems = $("li").map(function (index) {
-      var replacement = $("&lt;li&gt;").text($(this).text()).get(0);
-      if (index == 0) {
-        // make the first item all caps
-        $(replacement).text($(replacement).text().toUpperCase());
-      } else if (index == 1 || index == 3) {
-        // delete the second and fourth items
-        replacement = null;
-      } else if (index == 2) {
-        // make two of the third item and add some text
-        replacement = [replacement,$("&lt;li&gt;").get(0)];
-        $(replacement[0]).append("&lt;b&gt; - A&lt;/b&gt;");
-        $(replacement[1]).append("Extra &lt;b&gt; - B&lt;/b&gt;");
-      }
+var mappedItems = $("li").map(function (index) {
+  var replacement = $("&lt;li&gt;").text($(this).text()).get(0);
+  if (index == 0) {
+    /* make the first item all caps */
+    $(replacement).text($(replacement).text().toUpperCase());
+  } else if (index == 1 || index == 3) {
+    /* delete the second and fourth items */
+    replacement = null;
+  } else if (index == 2) {
+    /* make two of the third item and add some text */
+    replacement = [replacement,$("&lt;li&gt;").get(0)];
+    $(replacement[0]).append("&lt;b&gt; - A&lt;/b&gt;");
+    $(replacement[1]).append("Extra &lt;b&gt; - B&lt;/b&gt;");
+  }
 
-      // replacement will be an dom element, null, 
-      // or an array of dom elements
-      return replacement;
-    });
-    $("#results").append(mappedItems);
+  /* replacement will be a dom element, null, 
+     or an array of dom elements */
+  return replacement;
+});
+$("#results").append(mappedItems);
 
 &lt;/script&gt;
 
@@ -153,7 +153,7 @@
 div { width: 40px; float:left; }
 input { clear:left}
   &lt;/style&gt;
-  &lt;script src="http://code.jquery.com/jquery-git.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
   
@@ -166,9 +166,14 @@ input { clear:left}
 
 
 &lt;script&gt;
-$.fn.equalizeHeights = function(){
-  return this.height( Math.max.apply(this, $(this).map(function(i,e){ return $(e).height() }).get() ) )
-}
+$.fn.equalizeHeights = function() {
+  var maxHeight = this.map(function(i,e) {
+    return $(e).height();
+  }).get();
+  
+  return this.height( Math.max.apply(this, maxHeight) );
+};
+
 $('input').click(function(){
   $('div').equalizeHeights();
 });
