@@ -14,13 +14,13 @@
 </div>
 <div id="load1" class="entry method">
 <h2 class="jq-clearfix roundTop section-title">
-<span class="name">.load( url, [data,]  [complete(responseText, textStatus, XMLHttpRequest)]  )</span> <span class="returns">Returns: <a class="return" href="http://api.jquery.com/Types/#jQuery">jQuery</a></span>
+<span class="name">.load( url [, data]  [, complete(responseText, textStatus, XMLHttpRequest)]  )</span> <span class="returns">Returns: <a class="return" href="http://api.jquery.com/Types/#jQuery">jQuery</a></span>
 </h2>
 <div class="jq-box roundBottom entry-details">
 <p class="desc"><strong>Description: </strong>Load data from the server and place the returned HTML into the matched element.</p>
 <ul class="signatures"><li class="signature" id="load-url-data-completeresponseText- textStatus- XMLHttpRequest">
 <h4 class="name">
-<span class="versionAdded">version added: <a href="/category/version/1.0/">1.0</a></span>.load( url,   [data],  [complete(responseText, textStatus, XMLHttpRequest)] )</h4>
+<span class="versionAdded">version added: <a href="/category/version/1.0/">1.0</a></span>.load( url [, data] [, complete(responseText, textStatus, XMLHttpRequest)] )</h4>
 <p class="arguement"><strong>url</strong>A string containing the URL to which the request is sent.</p>
 <p class="arguement"><strong>data</strong>A map or string that is sent to the server with the request.</p>
 <p class="arguement"><strong>complete(responseText, textStatus, XMLHttpRequest)</strong>A callback function that is executed when the request completes.</p>
@@ -41,6 +41,16 @@
 <pre>$('#result').load('ajax/test.html #container');</pre>
 <p>When this method executes, it retrieves the content of <code>ajax/test.html</code>, but then jQuery parses the returned document to find the element with an ID of <code>container</code>. This element, along with its contents, is inserted into the element with an ID of <code>result</code>, and the rest of the retrieved document is discarded.</p>
 <p>jQuery uses the browser's <code>.innerHTML</code> property to parse the retrieved document and insert it into the current document. During this process, browsers often filter elements from the document such as <code>&lt;html&gt;</code>, <code>&lt;title&gt;</code>, or <code>&lt;head&gt;</code> elements. As a result, the elements retrieved by <code>.load()</code> may not be exactly the same as if the document were retrieved directly by the browser.</p>
+<blockquote><p><strong>Note:</strong> When calling <code>.load()</code> using a URL without a suffixed selector expression, the content is passed to <code>.html()</code> prior to scripts being removed. This executes the script blocks before they are discarded. If <code>.load()</code> is however called with a selector expression appended to the URL, the scripts are stripped out prior to the DOM being updated, which is why they are never executed. An example of both cases can be seen below:
+</p></blockquote>
+<p>Here, any JavaScript loaded into <code>#a</code> as a part of the document will successfully execute.</p>
+<pre>
+$('#a').load('article.html');
+</pre>
+<p>However in this case, script blocks in the document being loaded into <code>#b</code> are stripped out prior to being executed:</p>
+<pre>
+$('#b').load('article.html #target');
+</pre>
 </div>
 <h3 id="notes-0">Additional Notes:</h3>
 <div class="longdesc"><ul><li>Due to browser security restrictions, most "Ajax" requests are subject to the <a title="Same Origin Policy on Wikipedia" href="http://en.wikipedia.org/wiki/Same_origin_policy">same origin policy</a>; the request can not successfully retrieve data from a different domain, subdomain, or protocol.</li></ul></div>
@@ -55,7 +65,7 @@
   &lt;style&gt;
  body{ font-size: 12px; font-family: Arial; }
  &lt;/style&gt;
-  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-1.7rc2.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
   
@@ -80,7 +90,7 @@
   &lt;style&gt;
   body{ font-size: 12px; font-family: Arial; }
   &lt;/style&gt;
-  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-1.7rc2.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
   

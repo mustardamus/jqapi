@@ -14,36 +14,36 @@
 </div>
 <div id="bind1" class="entry method">
 <h2 class="jq-clearfix roundTop section-title">
-<span class="name">.bind( eventType, [eventData,] handler(eventObject) )</span> <span class="returns">Returns: <a class="return" href="http://api.jquery.com/Types/#jQuery">jQuery</a></span>
+<span class="name">.bind( eventType [, eventData] , handler(eventObject) )</span> <span class="returns">Returns: <a class="return" href="http://api.jquery.com/Types/#jQuery">jQuery</a></span>
 </h2>
 <div class="jq-box roundBottom entry-details">
 <p class="desc"><strong>Description: </strong>Attach a handler to an event for the elements.</p>
 <ul class="signatures">
 <li class="signature" id="bind-eventType-eventData-handlereventObject">
 <h4 class="name">
-<span class="versionAdded">version added: <a href="/category/version/1.0/">1.0</a></span>.bind( eventType,   [eventData], handler(eventObject) )</h4>
-<p class="arguement"><strong>eventType</strong>A string containing one or more JavaScript event types, such as "click" or "submit," or custom event names.</p>
+<span class="versionAdded">version added: <a href="/category/version/1.0/">1.0</a></span>.bind( eventType [, eventData], handler(eventObject) )</h4>
+<p class="arguement"><strong>eventType</strong>A string containing one or more DOM event types, such as "click" or "submit," or custom event names.</p>
 <p class="arguement"><strong>eventData</strong>A map of data that will be passed to the event handler.</p>
 <p class="arguement"><strong>handler(eventObject)</strong>A function to execute each time the event is triggered.</p>
 </li>
 <li class="signature" id="bind-eventType-eventData-preventBubble">
 <h4 class="name">
-<span class="versionAdded">version added: <a href="/category/version/1.4.3/">1.4.3</a></span>.bind( eventType,   [eventData], preventBubble )</h4>
-<p class="arguement"><strong>eventType</strong>A string containing one or more JavaScript event types, such as "click" or "submit," or custom event names.</p>
+<span class="versionAdded">version added: <a href="/category/version/1.4.3/">1.4.3</a></span>.bind( eventType [, eventData], preventBubble )</h4>
+<p class="arguement"><strong>eventType</strong>A string containing one or more DOM event types, such as "click" or "submit," or custom event names.</p>
 <p class="arguement"><strong>eventData</strong>A map of data that will be passed to the event handler.</p>
 <p class="arguement"><strong>preventBubble</strong>Setting the third argument to false will attach a function that prevents the default action from occurring and stops the event from bubbling. The default is true.</p>
 </li>
 <li class="signature" id="bind-events">
 <h4 class="name">
 <span class="versionAdded">version added: <a href="/category/version/1.4/">1.4</a></span>.bind( events )</h4>
-<p class="arguement"><strong>events</strong>A map of one or more JavaScript event types and functions to execute for them.</p>
+<p class="arguement"><strong>events</strong>A map of one or more DOM event types and functions to execute for them.</p>
 </li>
 </ul>
 <div class="longdesc">
-<p>The <code>.bind()</code> method is the primary means of attaching behavior to a document. All JavaScript event types, such as <code>focus</code>, <code>mouseover</code>, and <code>resize</code>, are allowed for <code>eventType</code>. The <code>error</code> event on the <code>window</code> object uses nonstandard conventions and is not supported by jQuery; attach a handler directly to the <code>window</code> object instead. The <code>beforeunload</code> event is supported cross-browser in jQuery 1.5.1 and 1.6+, but is not supported in IE for jQuery 1.5.2 due to a regression.</p>
-<p>The jQuery library provides shortcut methods for binding the standard event types, such as <code>.click()</code> for <code>.bind('click')</code>. A description of each can be found in the discussion of its shortcut method: <a href="http://api.jquery.com/blur">blur</a>, <a href="http://api.jquery.com/focus">focus</a>, <a href="http://api.jquery.com/focusin">focusin</a>, <a href="http://api.jquery.com/focusout">focusout</a>, <a href="http://api.jquery.com/load-event">load</a>, <a href="http://api.jquery.com/resize">resize</a>, <a href="http://api.jquery.com/scroll">scroll</a>, <a href="http://api.jquery.com/unload">unload</a>, <a href="http://api.jquery.com/click">click</a>, <a href="http://api.jquery.com/dblclick">dblclick</a>, <a href="http://api.jquery.com/mousedown">mousedown</a>, <a href="http://api.jquery.com/mouseup">mouseup</a>, <a href="http://api.jquery.com/mousemove">mousemove</a>, <a href="http://api.jquery.com/mouseover">mouseover</a>, <a href="http://api.jquery.com/mouseout">mouseout</a>, <a href="http://api.jquery.com/mouseenter">mouseenter</a>, <a href="http://api.jquery.com/mouseleave">mouseleave</a>, <a href="http://api.jquery.com/change">change</a>, <a href="http://api.jquery.com/select">select</a>, <a href="http://api.jquery.com/submit">submit</a>, <a href="http://api.jquery.com/keydown">keydown</a>, <a href="http://api.jquery.com/keypress">keypress</a>, <a href="http://api.jquery.com/keyup">keyup</a>,  <a href="http://api.jquery.com/error">error</a></p>
-<p>Any string is legal for <code>eventType</code>; if the string is not the name of a native JavaScript event, then the handler is bound to a custom event. These events are never called by the browser, but may be triggered manually from other JavaScript code using <code>.trigger()</code> or <code>.triggerHandler()</code>.</p>
+<p>As of jQuery 1.7, the <a href="http://api.jquery.com/on"><code>.on()</code></a> method is the preferred method for attaching event handlers to a document. For earlier versions, the <code>.bind()</code> method is used for attaching an event handler directly to elements. Handlers are attached to the currently selected elements in the jQuery object, so those elements <em>must exist</em> at the point the call to <code>.bind()</code> occurs. For more flexible event binding, see the discussion of event delegation in <a href="http://api.jquery.com/on"><code>.on()</code></a> or <a href="http://api.jquery.com/delegate"><code>.delegate()</code></a>.</p>
+<p>Any string is legal for <code>eventType</code>; if the string is not the name of a native DOM event, then the handler is bound to a custom event. These events are never called by the browser, but may be triggered manually from other JavaScript code using <code>.trigger()</code> or <code>.triggerHandler()</code>.</p>
 <p>If the <code>eventType</code> string contains a period (<code>.</code>) character, then the event is namespaced. The period character separates the event from its namespace. For example, in the call <code>.bind('click.name', handler)</code>, the string <code>click</code> is the event type, and the string <code>name</code> is the namespace. Namespacing allows us to unbind or trigger some events of a type without affecting others. See the discussion of <code>.unbind()</code> for more information.</p>
+<p>There are shorthand methods for some standard browser events such as <a href="/click"><code>.click()</code></a> that can be used to attach or trigger event handlers. For a complete list of shorthand methods, see the <a href="http://api.jquery.com/category/events/">events category</a>.</p>
 <p>When an event reaches an element, all handlers bound to that event type for the element are fired. If there are multiple handlers registered, they will always execute in the order in which they were bound. After all handlers have executed, the event continues along the normal event propagation path.</p>
 <p>A basic usage of <code>.bind()</code> is:</p>
 <pre>
@@ -79,14 +79,10 @@ $('#foo').bind({
 </pre>
 <p>After this code is executed, when the user clicks inside the element with an ID of <code>foo</code>, its text contents will be shown as an alert.
 </p>
-<p>As of jQuery 1.4.2 duplicate event handlers can be bound to an element instead of being discarded. For example:</p>
-<pre>function test(){ alert("Hello"); }
-$("button").click( test );
-$("button").click( test );</pre>
-<p>The above will generate two alerts when the button is clicked.</p>
-<p>In jQuery 1.4.3 you can now pass in 'false' in place of an event handler. This will bind an event handler that's equivalent to: <code>function(){ return false; }</code>. This function can be removed at a later time by calling: <code>.unbind( eventName, false )</code>.</p>
+<p>As of jQuery 1.4.2 duplicate event handlers can be bound to an element instead of being discarded. This is useful when the event data feature is being used, or when other unique data resides in a closure around the event handler function.</p>
+<p>In jQuery 1.4.3 you can now pass in <code>false</code> in place of an event handler. This will bind an event handler equivalent to: <code>function(){ return false; }</code>. This function can be removed at a later time by calling: <code>.unbind( eventName, false )</code>.</p>
 <h4 id="event-object"><a href="http://api.jquery.com/category/events/event-object/">The Event object</a></h4>
-<p>The <code>handler</code> callback function can also take parameters. When the function is called, the JavaScript event object will be passed to the first parameter.</p>
+<p>The <code>handler</code> callback function can also take parameters. When the function is called, the event object will be passed to the first parameter.</p>
 <p>The event object is often unnecessary and the parameter omitted, as sufficient context is usually available when the handler is bound to know exactly what needs to be done when the handler is triggered. However, at times it becomes necessary to gather more information about the user's environment at the time the event was initiated. <a href="http://api.jquery.com/category/events/event-object/">View the full Event Object</a>.</p>
 <p>Returning <code>false</code> from a handler is equivalent to calling both <code>.preventDefault()</code> and <code>.stopPropagation()</code> on the event object.</p>
 <p>Using the event object in a handler looks like this:</p>
@@ -144,7 +140,7 @@ padding:5px; }
 p.over { background: #ccc; }
 span { color:red; }
 &lt;/style&gt;
-  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-1.7rc2.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
   &lt;p&gt;Click or double click here.&lt;/p&gt;
@@ -212,7 +208,7 @@ event.preventDefault();
 p { color:red; }
 span { color:blue; }
 &lt;/style&gt;
-  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-1.7rc2.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
   &lt;p&gt;Has an attached custom event.&lt;/p&gt;

@@ -49,7 +49,7 @@
 <p>This produces a standard-looking query string:</p>
 <pre>a=1&amp;b=2&amp;c=3&amp;d=4&amp;e=5</pre>
 <p><strong>Warning:</strong> selecting both the form and its children will cause duplicates in the serialized string.</p>
-<p>Note: Only <a href="http://www.w3.org/TR/html401/interact/forms.html#h-17.13.2">"successful controls"</a> are serialized to the string. No submit button value is serialized since the form was not submitted using a button. For a form element's value to be included in the serialized string, the element must have a <code>name</code> attribute. Data from file select elements is not serialized.</p>
+<p>Note: Only <a href="http://www.w3.org/TR/html401/interact/forms.html#h-17.13.2">"successful controls"</a> are serialized to the string. No submit button value is serialized since the form was not submitted using a button. For a form element's value to be included in the serialized string, the element must have a <code>name</code> attribute. Values from checkboxes and radio buttons (<code>input</code>s of type "radio" or "checkbox") are included only if they are checked. Data from file select elements is not serialized.</p>
 </div>
 <h3>Example:</h3>
 <div class="entry-examples" id="entry-examples"><div id="example-0">
@@ -63,7 +63,7 @@
   p { color:red; margin:5px; font-size:14px; }
   b { color:blue; }
   &lt;/style&gt;
-  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-1.7rc2.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
   

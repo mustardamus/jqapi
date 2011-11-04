@@ -34,7 +34,10 @@
 <p class="desc"><strong>Description: </strong>Get the current horizontal position of the scroll bar for the first element in the set of matched elements.</p>
 <ul class="signatures"><li class="signature" id="scrollLeft"><h4 class="name">
 <span class="versionAdded">version added: <a href="/category/version/1.2.6/">1.2.6</a></span>.scrollLeft()</h4></li></ul>
-<div class="longdesc"><p>The horizontal scroll position is the same as the number of pixels that are hidden from view above the scrollable area. If the scroll bar is at the very left, or if the element is not scrollable, this number will be <code>0</code>.</p></div>
+<div class="longdesc">
+<p>The horizontal scroll position is the same as the number of pixels that are hidden from view above the scrollable area. If the scroll bar is at the very left, or if the element is not scrollable, this number will be <code>0</code>.</p>
+<blockquote><p><strong>Note:</strong> <code>.scrollLeft()</code>, when called directly or animated as a property using <code>.animate()</code> will not work if the element(s) it is being applied to are hidden.</p></blockquote>
+</div>
 <h3>Example:</h3>
 <div class="entry-examples" id="entry-examples"><div id="example-0">
 <h4><span class="desc">Get the scrollLeft of a paragraph.</span></h4>
@@ -44,7 +47,7 @@
   &lt;style&gt;
     p { margin:10px;padding:5px;border:2px solid #666; }
     &lt;/style&gt;
-  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-1.7rc2.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
   &lt;p&gt;Hello&lt;/p&gt;&lt;p&gt;&lt;/p&gt;
@@ -91,7 +94,7 @@
   }
   p { margin:10px;padding:5px;border:2px solid #666;width:1000px;height:1000px; }
 	&lt;/style&gt;
-  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-1.7rc2.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
   &lt;div class="demo"&gt;&lt;h1&gt;lalala&lt;/h1&gt;&lt;p&gt;Hello&lt;/p&gt;&lt;/div&gt;

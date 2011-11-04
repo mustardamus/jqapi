@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang='en'><head><meta http-equiv='content-type' content='text/html; charset=UTF-8' /></head><body>
+<div class="entry-content">
+        <div class="entry-title roundTop">
+          
+          <h1 class="jq-clearfix">.off()</h1>
+          <div class="entry-meta jq-clearfix">
+                        Categories:
+            <span class="category"><a href="http://api.jquery.com/category/events/" title="View all posts in Events">Events</a> &gt; <a href="http://api.jquery.com/category/events/event-handler-attachment/" title="View all posts in Event Handler Attachment">Event Handler Attachment</a></span>
+  
+
+          </div>
+
+</div>
+<div id="off1" class="entry method">
+<h2 class="jq-clearfix roundTop section-title">
+<span class="name">.off( events [, selector]  [, handler]  )</span> <span class="returns">Returns: <a class="return" href="http://api.jquery.com/Types/#jQuery">jQuery</a></span>
+</h2>
+<div class="jq-box roundBottom entry-details">
+<p class="desc"><strong>Description: </strong>Remove an event handler.</p>
+<ul class="signatures">
+<li class="signature" id="off-events-selector-handler">
+<h4 class="name">
+<span class="versionAdded">version added: <a href="/category/version/1.7/">1.7</a></span>.off( events [, selector] [, handler] )</h4>
+<p class="arguement"><strong>events</strong>One or more space-separated event types and optional namespaces, or just namespaces, such as "click", "keydown.myPlugin", or ".myPlugin".</p>
+<p class="arguement"><strong>selector</strong>A selector which should match the one originally passed to <code>.on()</code> when attaching event handlers.</p>
+<p class="arguement"><strong>handler</strong>A handler function previously attached for the event(s), or the special value <code>false</code>.</p>
+</li>
+<li class="signature" id="off-events-map-selector">
+<h4 class="name">
+<span class="versionAdded">version added: <a href="/category/version/1.7/">1.7</a></span>.off( events-map [, selector] )</h4>
+<p class="arguement"><strong>events-map</strong>A map where the string keys represent one or more space-separated event types and optional namespaces, and the values represent handler functions previously attached for the event(s).</p>
+<p class="arguement"><strong>selector</strong>A selector which should match the one originally passed to <code>.on()</code> when attaching event handlers.</p>
+</li>
+</ul>
+<div class="longdesc">
+<p>The <code>off()</code> method removes event handlers that were attached with <a href="http://api.jquery.com/on"><code>.on()</code></a>. See the discussion of delegated and directly bound events on that page for more information. Specific event handlers can be removed on elements by providing combinations of event names, namespaces, selectors, or handler function names. <strong>When multiple filtering arguments are given, all of the arguments provided must match for the event handler to be removed.</strong></p>
+<p>If a simple event name such as <code>"click"</code> is provided, <em>all</em> events of that type (both direct and delegated) are removed from the elements in the jQuery set. When writing code that will be used as a plugin, or simply when working with a large code base, best practice is to attach and remove events using namespaces so that the code will not inadvertently remove event handlers attached by other code. All events of all types in a specific namespace can be removed from an element by providing just a namespace, such as <code>".myPlugin"</code>. At minimum, either a namespace or event name must be provided.</p>
+<p>To remove specific delegated event handlers, provide a <code>selector</code> argument. The selector string must exactly match the one passed to <code>.on()</code> when the event handler was attached. To remove all delegated events from an element without removing non-delegated events, use the special value <code>"**"</code>.</p>
+<p>A handler can also be removed by specifying the function name in the <code>handler</code> argument. When jQuery attaches an event handler, it assigns a unique id to the handler function. Handlers proxied by <a href="http://api.jquery.com/jQuery.proxy"><code>jQuery.proxy()</code></a> or a similar mechanism will all have the same unique id (the proxy function), so passing proxied handlers to <code>.off</code> may remove more handlers than intended. In those situations it is better to attach and remove event handlers using namespaces.</p>
+<p>As with <code>.on()</code>, you can pass an <code>events-map</code> argument instead of specifying the <code>events</code> and <code>handler</code> as separate arguments. The keys are events and/or namespaces; the values are handler functions or the special value <code>false</code>.</p>
+</div>
+<h3>Examples:</h3>
+<div class="entry-examples" id="entry-examples">
+<div id="example-0">
+<h4>Example: <span class="desc">Add and remove event handlers on the colored button.</span>
+</h4>
+<pre class="prettyprint"><code class="example demo-code">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;style&gt;
+button { margin:5px; }
+button#theone { color:red; background:yellow; }
+&lt;/style&gt;
+  &lt;script src="http://code.jquery.com/jquery-1.7rc2.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;button id="theone"&gt;Does nothing...&lt;/button&gt;
+&lt;button id="bind"&gt;Add Click&lt;/button&gt;
+&lt;button id="unbind"&gt;Remove Click&lt;/button&gt;
+&lt;div style="display:none;"&gt;Click!&lt;/div&gt;
+&lt;script&gt;
+function aClick() {
+  $("div").show().fadeOut("slow");
+}
+$("#bind").click(function () {
+  $("body").on("click", "#theone", aClick)
+    .find("#theone").text("Can Click!");
+});
+$("#unbind").click(function () {
+  $("body").off("click", "#theone", aClick)
+    .find("#theone").text("Does nothing...");
+});
+&lt;/script&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+<h4>Demo:</h4>
+<div class="demo code-demo"></div>
+</div>
+<div id="example-1">
+<h4>Example: <span class="desc">Remove all event handlers from all paragraphs:</span>
+</h4>
+<pre class="prettyprint"><code class="example">$("p").off()</code></pre>
+</div>
+<div id="example-2">
+<h4>Example: <span class="desc">Remove all delegated click handlers from all paragraphs:</span>
+</h4>
+<pre class="prettyprint"><code class="example">$("p").off( "click", "**" )</code></pre>
+</div>
+<div id="example-3">
+<h4>Example: <span class="desc">Remove just one previously bound handler by passing it as the third argument:</span>
+</h4>
+<pre class="prettyprint"><code class="example">var foo = function () {
+  // code to handle some kind of event
+};
+
+// ... now foo will be called when paragraphs are clicked ...
+$("body").on("click", "p", foo);
+
+
+// ... foo will no longer be called.
+$("body").off("click", "p", foo); </code></pre>
+</div>
+<div id="example-4">
+<h4>Example: <span class="desc">Unbind all delegated event handlers by their namespace:</span>
+</h4>
+<pre class="prettyprint"><code class="example">var validate = function () {
+  // code to validate form entries
+};
+
+// delegate events under the ".validator" namespace
+$("form").on("click.validator", "button", validate);
+
+$("form").on("keypress.validator", "input[type='text']", validate); 
+
+// remove event handlers in the ".validator" namespace
+
+$("form").off(".validator");</code></pre>
+</div>
+</div>
+</div>
+</div>
+
+        </div>
+
+</body></html>

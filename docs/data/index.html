@@ -17,8 +17,8 @@
 <h4><span>Contents:</span></h4>
 <ul class="toc-list">
 <li>
-<a href="#data1">data( key, value  ) </a><ul>
-<li>.data( key,value )
+<a href="#data1">data( key , value  ) </a><ul>
+<li>.data( key, value )
               </li>
 <li>.data( obj )
               </li>
@@ -36,14 +36,14 @@
 </div>
 <div id="data1" class="entry method">
 <h2 class="jq-clearfix roundTop section-title">
-<span class="name">.data( key,value )</span> <span class="returns">Returns: <a class="return" href="http://api.jquery.com/Types/#jQuery">jQuery</a></span>
+<span class="name">.data( key, value )</span> <span class="returns">Returns: <a class="return" href="http://api.jquery.com/Types/#jQuery">jQuery</a></span>
 </h2>
 <div class="jq-box roundBottom entry-details">
 <p class="desc"><strong>Description: </strong>Store arbitrary data associated with the matched elements.</p>
 <ul class="signatures">
 <li class="signature" id="data-key-value">
 <h4 class="name">
-<span class="versionAdded">version added: <a href="/category/version/1.2.3/">1.2.3</a></span>.data( key,  value )</h4>
+<span class="versionAdded">version added: <a href="/category/version/1.2.3/">1.2.3</a></span>.data( key, value )</h4>
 <p class="arguement"><strong>key</strong>A string naming the piece of data to set.</p>
 <p class="arguement"><strong>value</strong>The new data value; it can be any Javascript type including Array or Object.</p>
 </li>
@@ -79,7 +79,7 @@ $('body').data(); // {foo: 52, bar: { myType: 'test', count: 40 }}
   div { color:blue; }
   span { color:red; }
   &lt;/style&gt;
-  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-1.7rc2.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
   &lt;div&gt;
@@ -126,7 +126,7 @@ alert($('body').data());
 <pre>
 alert( $("body").data("foo")); //undefined
 $("body").data("bar", "foobar");
-alert( $("body").data("foobar")); //foobar
+alert( $("body").data("bar")); //foobar
 </pre>
 <p><strong>HTML 5 data- Attributes</strong></p>
 <p>As of jQuery 1.4.3 <a href="http://ejohn.org/blog/html-5-data-attributes/">HTML 5 data- attributes</a> will be automatically pulled in to jQuery's data object. The treatment of attributes with embedded dashes was changed in jQuery 1.6 to conform to the <a href="http://www.w3.org/TR/html5/elements.html#embedding-custom-non-visible-data-with-the-data-attributes">W3C HTML5 specification</a>.</p>
@@ -161,7 +161,7 @@ if ( mydata.count &lt; 9 ) {
   p { margin:5px; color:blue; }
   span { color:red; }
   &lt;/style&gt;
-  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-1.7rc2.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
   &lt;div&gt;A div&lt;/div&gt;

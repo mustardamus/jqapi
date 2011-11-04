@@ -21,10 +21,10 @@
               </li></ul>
 </li>
 <li>
-<a href="#queue2">queue( [ queueName, ] newQueue  ) </a><ul>
-<li>.queue(  [queueName,] newQueue )
+<a href="#queue2">queue( [ queueName ] , newQueue  ) </a><ul>
+<li>.queue(  [queueName] , newQueue )
               </li>
-<li>.queue(  [queueName,] callback( next ) )
+<li>.queue(  [queueName] , callback( next ) )
               </li>
 </ul>
 </li>
@@ -52,7 +52,7 @@
         background:green; display:none; }
   div.newcolor { background:blue; }
   p { color:red; }  &lt;/style&gt;
-  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-1.7rc2.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
   
@@ -91,7 +91,7 @@ showIt();
 </div>
 <div id="queue2" class="entry method">
 <h2 class="jq-clearfix roundTop section-title">
-<span class="name">.queue(  [queueName,] newQueue )</span> <span class="returns">Returns: <a class="return" href="http://api.jquery.com/Types/#jQuery">jQuery</a></span>
+<span class="name">.queue(  [queueName] , newQueue )</span> <span class="returns">Returns: <a class="return" href="http://api.jquery.com/Types/#jQuery">jQuery</a></span>
 </h2>
 <div class="jq-box roundBottom entry-details">
 <p class="desc"><strong>Description: </strong>Manipulate the queue of functions to be executed on the matched elements.</p>
@@ -145,7 +145,7 @@ $('#foo').queue(function() {
         background:green; display:none; }
   div.newcolor { background:blue; }
   &lt;/style&gt;
-  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-1.7rc2.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
   Click here...
@@ -182,7 +182,7 @@ $('#foo').queue(function() {
         background:green; display:none; }
   div.newcolor { background:blue; }
   &lt;/style&gt;
-  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-1.7rc2.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
   &lt;button id="start"&gt;Start&lt;/button&gt;

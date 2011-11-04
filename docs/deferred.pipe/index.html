@@ -14,21 +14,36 @@
 </div>
 <div id="deferred-pipe1" class="entry method">
 <h2 class="jq-clearfix roundTop section-title">
-<span class="name">deferred.pipe(  [doneFilter,]  [failFilter]  )</span> <span class="returns">Returns: <a class="return" href="http://api.jquery.com/Types/#Promise">Promise</a></span>
+<span class="name">deferred.pipe(  [doneFilter]  [, failFilter]  )</span> <span class="returns">Returns: <a class="return" href="http://api.jquery.com/Types/#Promise">Promise</a></span>
 </h2>
 <div class="jq-box roundBottom entry-details">
 <p class="desc"><strong>Description: </strong> Utility method to filter and/or chain Deferreds.  </p>
-<ul class="signatures"><li class="signature" id="deferred-pipe-doneFilter-failFilter">
+<ul class="signatures">
+<li class="signature" id="deferred-pipe-doneFilter-failFilter">
 <h4 class="name">
-<span class="versionAdded">version added: <a href="/category/version/1.6/">1.6</a></span>deferred.pipe(  [doneFilter],  [failFilter] )</h4>
+<span class="versionAdded">version added: <a href="/category/version/1.6/">1.6</a></span>deferred.pipe(  [doneFilter] [, failFilter] )</h4>
 <p class="arguement"><strong>doneFilter</strong>
         An optional function that is called when the Deferred is resolved.
       </p>
 <p class="arguement"><strong>failFilter</strong>
         An optional function that is called when the Deferred is rejected.
       </p>
-</li></ul>
-<div class="longdesc"><p>The <code>deferred.pipe()</code> method returns a new promise that filters the status and values of a deferred through a function.  The <code>doneFilter</code> and <code>failFilter</code> functions filter the original deferred's resolved / rejected status and values.  These filter functions can return a new value to be passed along to the piped promise's <code>done()</code> or <code>fail()</code> callbacks, or they can return another observable object (Deferred, Promise, etc) which will pass its resolved / rejected status and values to the piped promise's callbacks. If the filter function used is <code>null</code>, or not specified, the piped promise will be resolved or rejected with the same values as the original.</p></div>
+</li>
+<li class="signature" id="deferred-pipe-doneFilter-failFilter-progressFilter">
+<h4 class="name">
+<span class="versionAdded">version added: <a href="/category/version/1.7/">1.7</a></span>deferred.pipe(  [doneFilter] [, failFilter] [, progressFilter] )</h4>
+<p class="arguement"><strong>doneFilter</strong>
+        An optional function that is called when the Deferred is resolved.
+      </p>
+<p class="arguement"><strong>failFilter</strong>
+        An optional function that is called when the Deferred is rejected.
+      </p>
+<p class="arguement"><strong>progressFilter</strong>
+        An optional function that is called when the Deferred is rejected.
+      </p>
+</li>
+</ul>
+<div class="longdesc"><p>The <code>deferred.pipe()</code> method returns a new promise that filters the status and values of a deferred through a function.  The <code>doneFilter</code> and <code>failFilter</code> functions filter the original deferred's resolved / rejected status and values. <strong>As of jQuery 1.7</strong>, the method also accepts a <code>progressFilter</code> function to filter any calls to the original deferred's <code>notify</code> or <code>notifyWith</code> methods. These filter functions can return a new value to be passed along to the piped promise's <code>done()</code> or <code>fail()</code> callbacks, or they can return another observable object (Deferred, Promise, etc) which will pass its resolved / rejected status and values to the piped promise's callbacks. If the filter function used is <code>null</code>, or not specified, the piped promise will be resolved or rejected with the same values as the original.</p></div>
 <h3>Examples:</h3>
 <div class="entry-examples" id="entry-examples">
 <div id="example-0">

@@ -41,7 +41,7 @@
 </li>
 <li class="signature" id="add-selector-context">
 <h4 class="name">
-<span class="versionAdded">version added: <a href="/category/version/1.4/">1.4</a></span>.add( selector,  context )</h4>
+<span class="versionAdded">version added: <a href="/category/version/1.4/">1.4</a></span>.add( selector, context )</h4>
 <p class="arguement"><strong>selector</strong>A string representing a selector expression to find additional elements to add to the set of matched elements.</p>
 <p class="arguement"><strong>context</strong>The point in the document at which the selector should begin matching; similar to the context argument of the <code>$(selector, context)</code> method.</p>
 </li>
@@ -76,6 +76,7 @@ Using an HTML snippet as the <code>.add()</code> method's argument (as in the th
   .css('background-color', 'red');</pre>
 <p>Although the new paragraph has been created and its background color changed, it still does not appear on the page. To place it on the page, we could add one of the insertion methods to the chain.</p>
 <p>As of jQuery 1.4 the results from .add() will always be returned in document order (rather than a simple concatenation).</p>
+<p><strong>Note:</strong> To reverse the <code>.add()</code> you can use <a href="http://api.jquery.com/not"><code>.not( elements | selector )</code></a> to remove elements from the jQuery results, or <a href="http://api.jquery.com/end"><code>.end()</code></a> to return to the selection before you added.</p>
 </div>
 <h3>Examples:</h3>
 <div class="entry-examples" id="entry-examples">
@@ -90,7 +91,7 @@ Using an HTML snippet as the <code>.add()</code> method's argument (as in the th
  p { clear:left; font-weight:bold; font-size:16px; 
      color:blue; margin:0 10px; padding:2px; }
  &lt;/style&gt;
-  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-1.7rc2.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
   &lt;div&gt;&lt;/div&gt;
@@ -120,7 +121,7 @@ $("div").css("border", "2px solid red")
 <pre class="prettyprint"><code class="example demo-code">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;
-  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-1.7rc2.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
   &lt;p&gt;Hello&lt;/p&gt;&lt;span&gt;Hello Again&lt;/span&gt;
@@ -137,7 +138,7 @@ $("div").css("border", "2px solid red")
 <pre class="prettyprint"><code class="example demo-code">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;
-  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-1.7rc2.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
   &lt;p&gt;Hello&lt;/p&gt;
@@ -154,7 +155,7 @@ $("div").css("border", "2px solid red")
 <pre class="prettyprint"><code class="example demo-code">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;
-  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-1.7rc2.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
   &lt;p&gt;Hello&lt;/p&gt;&lt;span id="a"&gt;Hello Again&lt;/span&gt;
@@ -171,7 +172,7 @@ $("div").css("border", "2px solid red")
 <pre class="prettyprint"><code class="example demo-code">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;
-  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-1.7rc2.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
   &lt;p&gt;Hello&lt;/p&gt;&lt;span id="a"&gt;Hello Again&lt;/span&gt;

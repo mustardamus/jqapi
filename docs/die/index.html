@@ -21,8 +21,8 @@
               </li></ul>
 </li>
 <li>
-<a href="#die2">die( eventType, [ handler ]  ) </a><ul>
-<li>.die( eventType, [handler]  )
+<a href="#die2">die( eventType [ , handler ]  ) </a><ul>
+<li>.die( eventType [, handler]  )
               </li>
 <li>.die( eventTypes )
               </li>
@@ -41,20 +41,21 @@
 <div class="longdesc">
 <p>Any handler that has been attached with <code>.live()</code> can be removed with <code>.die()</code>. This method is analogous to calling <code>.unbind()</code> with no arguments, which is used to remove all handlers attached with <code>.bind()</code>.
 See the discussions of <code>.live()</code> and <code>.unbind()</code> for further details.</p>
+<p><strong>As of jQuery 1.7</strong>, use of <code>.die()</code> (and its complementary method, <code>.live()</code>) is not recommended. Instead, use <a href="http://api.jquery.com/off/"><code>.off()</code></a> to remove event handlers bound with <a href="http://api.jquery.com/on/"><code>.on()</code></a></p>
 <p><strong>Note:</strong> In order for .die() to function correctly, the selector used with it must match exactly the selector initially used with .live().</p>
 </div>
 </div>
 </div>
 <div id="die2" class="entry method">
 <h2 class="jq-clearfix roundTop section-title">
-<span class="name">.die( eventType, [handler]  )</span> <span class="returns">Returns: <a class="return" href="http://api.jquery.com/Types/#jQuery">jQuery</a></span>
+<span class="name">.die( eventType [, handler]  )</span> <span class="returns">Returns: <a class="return" href="http://api.jquery.com/Types/#jQuery">jQuery</a></span>
 </h2>
 <div class="jq-box roundBottom entry-details">
 <p class="desc"><strong>Description: </strong>Remove an event handler previously attached using .live() from the elements.</p>
 <ul class="signatures">
 <li class="signature" id="die-eventType-handler">
 <h4 class="name">
-<span class="versionAdded">version added: <a href="/category/version/1.3/">1.3</a></span>.die( eventType,   [handler] )</h4>
+<span class="versionAdded">version added: <a href="/category/version/1.3/">1.3</a></span>.die( eventType [, handler] )</h4>
 <p class="arguement"><strong>eventType</strong>A string containing a JavaScript event type, such as <code>click</code> or <code>keydown</code>.</p>
 <p class="arguement"><strong>handler</strong>The function that is no longer to be executed.</p>
 </li>
@@ -81,7 +82,7 @@ See the discussions of <code>.live()</code> and <code>.unbind()</code> for furth
 button { margin:5px; }
 button#theone { color:red; background:yellow; }
 &lt;/style&gt;
-  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-1.7rc2.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
   &lt;button id="theone"&gt;Does nothing...&lt;/button&gt;

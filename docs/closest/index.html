@@ -20,7 +20,7 @@
 <a href="#closest1">closest( selector  ) </a><ul>
 <li>.closest( selector )
               </li>
-<li>.closest( selector, [context]  )
+<li>.closest( selector [, context]  )
               </li>
 <li>.closest( jQuery object )
               </li>
@@ -29,7 +29,7 @@
 </ul>
 </li>
 <li>
-<a href="#closest2">closest( selectors, [ context ]  ) </a><ul><li>.closest( selectors, [context]  )
+<a href="#closest2">closest( selectors [ , context ]  ) </a><ul><li>.closest( selectors [, context]  )
               </li></ul>
 </li>
 </ul>
@@ -39,7 +39,7 @@
 <span class="name">.closest( selector )</span> <span class="returns">Returns: <a class="return" href="http://api.jquery.com/Types/#jQuery">jQuery</a></span>
 </h2>
 <div class="jq-box roundBottom entry-details">
-<p class="desc"><strong>Description: </strong>Get the first ancestor element that matches the selector, beginning at the current element and progressing up through the DOM tree.</p>
+<p class="desc"><strong>Description: </strong>Get the first element that matches the selector, beginning at the current element and progressing up through the DOM tree.</p>
 <ul class="signatures">
 <li class="signature" id="closest-selector">
 <h4 class="name">
@@ -48,7 +48,7 @@
 </li>
 <li class="signature" id="closest-selector-context">
 <h4 class="name">
-<span class="versionAdded">version added: <a href="/category/version/1.4/">1.4</a></span>.closest( selector,   [context] )</h4>
+<span class="versionAdded">version added: <a href="/category/version/1.4/">1.4</a></span>.closest( selector [, context] )</h4>
 <p class="arguement"><strong>selector</strong>A string containing a selector expression to match elements against.</p>
 <p class="arguement"><strong>context</strong>A DOM element within which a matching element may be found. If no context is passed in then the context of the jQuery set will be used instead.</p>
 </li>
@@ -64,7 +64,7 @@
 </li>
 </ul>
 <div class="longdesc">
-<p>Given a jQuery object that represents a set of DOM elements, the <code>.closest()</code> method allows us to search through these elements and their ancestors in the DOM tree and construct a new jQuery object from the matching elements. The <code>.parents()</code> and <code>.closest()</code> methods are similar in that they both traverse up the DOM tree. The differences between the two, though subtle, are significant:</p>
+<p>Given a jQuery object that represents a set of DOM elements, the <code>.closest()</code> method searches through these elements and their ancestors in the DOM tree and constructs a new jQuery object from the matching elements. The <code>.parents()</code> and <code>.closest()</code> methods are similar in that they both traverse up the DOM tree. The differences between the two, though subtle, are significant:</p>
 <table>
 <thead><tr>
 <th>.closest()</th>
@@ -114,7 +114,7 @@ $('li.item-a').closest('ul')
 <pre>$('li.item-a').closest('li')
   .css('background-color', 'red');
 </pre>
-<p>This will change the color of list item A. The <code>.closest()</code> method begins its search with the element itself before progressing up the DOM tree, and stops when item A matches the selector.</p>
+<p>This will change the color of list item A. The <code>.closest()</code> method begins its search <em>with the element itself</em> before progressing up the DOM tree, and stops when item A matches the selector.</p>
 <p>We can pass in a DOM element as the context within which to search for the closest element.</p>
 <pre>var listItemII = document.getElementById('ii');
 $('li.item-a').closest('ul', listItemII)
@@ -135,7 +135,7 @@ $('li.item-a').closest('#one', listItemII)
   li { margin: 3px; padding: 3px; background: #EEEEEE; }
   li.hilight { background: yellow; }
   &lt;/style&gt;
-  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-1.7rc2.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
   &lt;ul&gt;
@@ -163,7 +163,7 @@ $('li.item-a').closest('#one', listItemII)
   li { margin: 3px; padding: 3px; background: #EEEEEE; }
   li.hilight { background: yellow; }
   &lt;/style&gt;
-  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-1.7rc2.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
   &lt;ul&gt;
@@ -187,13 +187,13 @@ $('li.item-a').closest('#one', listItemII)
 </div>
 <div id="closest2" class="entry method">
 <h2 class="jq-clearfix roundTop section-title">
-<span class="name">.closest( selectors, [context]  )</span> <span class="returns">Returns: <a class="return" href="http://api.jquery.com/Types/#Array">Array</a></span>
+<span class="name">.closest( selectors [, context]  )</span> <span class="returns">Returns: <a class="return" href="http://api.jquery.com/Types/#Array">Array</a></span>
 </h2>
 <div class="jq-box roundBottom entry-details">
 <p class="desc"><strong>Description: </strong>Gets an array of all the elements and selectors matched against the current element up through the DOM tree.</p>
 <ul class="signatures"><li class="signature" id="closest-selectors-context">
 <h4 class="name">
-<span class="versionAdded">version added: <a href="/category/version/1.4/">1.4</a></span>.closest( selectors,   [context] )</h4>
+<span class="versionAdded">version added: <a href="/category/version/1.4/">1.4</a></span>.closest( selectors [, context] )</h4>
 <p class="arguement"><strong>selectors</strong>An array or string containing a selector expression to match elements against (can also be a jQuery object).</p>
 <p class="arguement"><strong>context</strong>A DOM element within which a matching element may be found. If no context is passed in then the context of the jQuery set will be used instead.</p>
 </li></ul>
@@ -205,7 +205,7 @@ $('li.item-a').closest('#one', listItemII)
 &lt;html&gt;
 &lt;head&gt;
   &lt;style&gt;&lt;/style&gt;
-  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-1.7rc2.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
   &lt;ul&gt;&lt;li&gt;&lt;/li&gt;&lt;li&gt;&lt;/li&gt;&lt;/ul&gt;

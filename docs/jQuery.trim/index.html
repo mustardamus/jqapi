@@ -32,20 +32,17 @@
 <pre class="prettyprint"><code class="example demo-code">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;
-  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-1.7rc2.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
-  &lt;button&gt;Show Trim Example&lt;/button&gt;
+  
+        &lt;pre id="original"&gt;&lt;/pre&gt;
+        &lt;pre id="trimmed"&gt;&lt;/pre&gt;
+      
 &lt;script&gt;
-
-$("button").click(function () {
-var str = "     lots of spaces before and after     ";
-alert("'" + str + "'");
-
-str = jQuery.trim(str);
-alert("'" + str + "' - no longer");
-});
-
+  var str = "         lots of spaces before and after         ";
+  $("#original").html("Original String: '" + str + "'");
+  $("#trimmed").html("$.trim()'ed: '" + $.trim(str) + "'");
 &lt;/script&gt;
 
 &lt;/body&gt;
@@ -56,7 +53,7 @@ alert("'" + str + "' - no longer");
 <div id="example-1">
 <h4>Example: <span class="desc">Remove the two white spaces at the start and at the end of the string.</span>
 </h4>
-<pre class="prettyprint"><code class="example">$.trim("  hello, how are you?  ");</code></pre>
+<pre class="prettyprint"><code class="example">$.trim("    hello, how are you?    ");</code></pre>
 <h4>Result:</h4>
 <pre><code class="results">"hello, how are you?"</code></pre>
 </div>

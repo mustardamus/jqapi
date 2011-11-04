@@ -25,12 +25,12 @@
 </li></ul>
 <div class="longdesc">
 <p>The <code>.removeAttr()</code> method uses the JavaScript <code>removeAttribute()</code> function, but it has the advantage of being able to be called directly on a jQuery object and it accounts for different attribute naming across browsers.</p>
-<p><strong>Note:</strong>If attempting to remove an inline 'onclick' event handler using <code>.removeAttr()</code>, one may find that this doesn't achieve the desired effect in Internet Explorer 6,7 or 8. Instead it is recommended to opt for using <code>.prop()</code> to achieve this as follows:</p>
+<p><strong>Note:</strong> Removing an inline <code>onclick</code> event handler using <code>.removeAttr()</code> doesn't achieve the desired effect in Internet Explorer 6, 7, or 8. To avoid potential problems, use <code>.prop()</code> instead:</p>
 <pre>
 $element.prop("onclick", null);
 console.log("onclick property: ", $element[0].onclick);
 </pre>
-<p>We may update the behavior of <code>.removeAttr()</code> at some point in the future to better handle this, however for the time being, the above should be considered the standard cross-browser approach to this problem.</p>
+<p>The behavior of <code>.removeAttr()</code> may be updated to better handle this in the future. For the time being, however, setting <code>.prop("onclick", null)</code> should be considered the standard cross-browser solution.</p>
 <p></p>
 </div>
 <h3>Example:</h3>
@@ -39,17 +39,28 @@ console.log("onclick property: ", $element[0].onclick);
 <pre class="prettyprint"><code class="example demo-code">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;
-  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-1.7rc2.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
   &lt;button&gt;Enable&lt;/button&gt;
-&lt;input type="text" disabled="disabled" value="can't edit this" /&gt;
+&lt;input type="text" title="hello there" /&gt;
+&lt;div id="log"&gt;&lt;/div&gt;
+
 &lt;script&gt;
-$("button").click(function () {
-  $(this).next().removeAttr("disabled")
-  .focus()
-  .val("editable now");
-});
+(function() {
+  var inputTitle = $("input").attr("title");
+  $("button").click(function () {
+    var input = $(this).next();
+
+    if ( input.attr("title") == inputTitle ) {
+      input.removeAttr("title")
+    } else {
+      input.attr("title", inputTitle);
+    }
+
+    $("#log").html( "input title is now " + input.attr("title") );
+  });
+})();
 &lt;/script&gt;
 
 &lt;/body&gt;

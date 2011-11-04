@@ -31,24 +31,26 @@
     background: #abcdef;
 }
 &lt;/style&gt;
-  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-1.7rc2.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
   
-&lt;input tabIndex="1"&gt;
-&lt;input tabIndex="2"&gt;
-&lt;select tabIndex="3"&gt;
-    &lt;option&gt;select menu&lt;/option&gt;
-&lt;/select&gt;
-&lt;div tabIndex="4"&gt;
-    a div
+&lt;div id="content"&gt;
+    &lt;input tabIndex="1"&gt;
+    &lt;input tabIndex="2"&gt;
+    &lt;select tabIndex="3"&gt;
+        &lt;option&gt;select menu&lt;/option&gt;
+    &lt;/select&gt;
+    &lt;div tabIndex="4"&gt;
+        a div
+    &lt;/div&gt;
 &lt;/div&gt;
 
 &lt;script&gt;
-$("*").live("focus blur", function(e) {
-    var el = $(this);
+$( "#content" ).delegate( "*", "focus blur", function( event ) {
+    var elem = $( this );
     setTimeout(function() {
-       el.toggleClass("focused", el.is(":focus"));
+       elem.toggleClass( "focused", elem.is( ":focus" ) );
     }, 0);
 });
 &lt;/script&gt;

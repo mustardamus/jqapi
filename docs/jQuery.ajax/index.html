@@ -14,14 +14,14 @@
 </div>
 <div id="jQuery-ajax1" class="entry method">
 <h2 class="jq-clearfix roundTop section-title">
-<span class="name">jQuery.ajax( url, [settings]  )</span> <span class="returns">Returns: <a class="return" href="http://api.jquery.com/Types/#jqXHR">jqXHR</a></span>
+<span class="name">jQuery.ajax( url [, settings]  )</span> <span class="returns">Returns: <a class="return" href="http://api.jquery.com/Types/#jqXHR">jqXHR</a></span>
 </h2>
 <div class="jq-box roundBottom entry-details">
 <p class="desc"><strong>Description: </strong>Perform an asynchronous HTTP (Ajax) request.</p>
 <ul class="signatures">
 <li class="signature" id="jQuery-ajax-url-settings">
 <h4 class="name">
-<span class="versionAdded">version added: <a href="/category/version/1.5/">1.5</a></span>jQuery.ajax( url,   [settings] )</h4>
+<span class="versionAdded">version added: <a href="/category/version/1.5/">1.5</a></span>jQuery.ajax( url [, settings] )</h4>
 <p class="arguement"><strong>url</strong>A string containing the URL to which the request is sent.</p>
 <p class="arguement"><strong>settings</strong>A set of key/value pairs that configure the Ajax request. All settings are optional. A default can be set for any option with <a href="/jQuery.ajaxSetup">$.ajaxSetup()</a>. See <a href="#jQuery-ajax-settings">jQuery.ajax( settings )</a> below for a complete list of all settings. </p>
 </li>
@@ -165,7 +165,7 @@
 <p>A function to be called if the request succeeds. The function gets passed three arguments: The data returned from the server, formatted according to the <code>dataType</code> parameter; a string describing the status; and the <code>jqXHR</code> (in jQuery 1.4.x, XMLHttpRequest) object. <strong>As of jQuery 1.5</strong>, <em>the success setting can accept an array of functions. Each function will be called in turn.</em> This is an <a href="http://docs.jquery.com/Ajax_Events">Ajax Event</a>.</p>
 <h5 class="option">timeout<span class="type"><a href="http://api.jquery.com/Types#Number">Number</a></span>
 </h5>
-<p>Set a local timeout (in milliseconds) for the request. This will override the global timeout, if one is set with <a href="http://api.jquery.com/jQuery.ajaxSetup">$.ajaxSetup()</a>. For example, you could use this property to give a single request a longer timeout than all other requests that you've set to time out in one second. See <code><a href="http://api.jquery.com/jQuery.ajaxSetup">$.ajaxSetup()</a></code> for global timeouts. <strong>In jQuery 1.4.x and below,</strong> please note that the XMLHttpRequest object will be in an invalid state should the request time out. Where this is the case, accessing any object members may result in an exception being thrown. <strong>In jQuery 1.5.2 and above,</strong><code>$.ajax()</code> does not handle JSONP requests as expected should the request fail due to a timeout in Firefox 3.0+. This is a browser-based issue due to FF currently not providing a way to abort cross-domain requests once the script tag has been appended. This issue does not currently affect other browsers.</p>
+<p>Set a timeout (in milliseconds) for the request. This will override any global timeout set with <a href="http://api.jquery.com/jQuery.ajaxSetup">$.ajaxSetup()</a>. The timeout period starts at the point the <code>$.ajax</code> call is made; if several other requests are in progress and the browser has no connections available, it is possible for a request to time out before it can be sent. <strong>In jQuery 1.4.x and below,</strong> the XMLHttpRequest object will be in an invalid state if the request times out; accessing any object members may throw an exception. <strong>In Firefox 3.0+ only,</strong> script and JSONP requests cannot be cancelled by a timeout; the script will run even if it arrives after the timeout period.</p>
 <h5 class="option">traditional<span class="type"><a href="http://api.jquery.com/Types#Boolean">Boolean</a></span>
 </h5>
 <p>Set this to <code>true</code> if you wish to use the traditional style of <a href="/jQuery.param">param serialization</a>.</p>
@@ -233,15 +233,15 @@ $.ajax({
     </blockquote>
 <pre>// Assign handlers immediately after making the request,
 // and remember the jqxhr object for this request
-var jqxhr = $.ajax({ url: "example.php" })
-    .success(function() { alert("success"); })
-    .error(function() { alert("error"); })
-    .complete(function() { alert("complete"); });
+var jqxhr = $.ajax( "example.php" )
+    .done(function() { alert("success"); })
+    .fail(function() { alert("error"); })
+    .always(function() { alert("complete"); });
 
 // perform other work here ...
 
 // Set another completion function for the request above
-jqxhr.complete(function(){ alert("second complete"); });</pre>
+jqxhr.always(function() { alert("second complete"); });</pre>
 <p>For backward compatibility with <code>XMLHttpRequest</code>, a <code>jqXHR</code> object will expose the following properties and methods:</p>
 <ul>
 <li><code>readyState</code></li>
@@ -303,6 +303,31 @@ jqxhr.complete(function(){ alert("second complete"); });</pre>
 <p>The <code>scriptCharset</code> allows the character set to be explicitly specified for requests that use a <code>&lt;script&gt;</code> tag (that is, a type of <code>script</code> or <code>jsonp</code>). This is useful if the script and host page have differing character sets.</p>
 <p>The first letter in Ajax stands for "asynchronous," meaning that the operation occurs in parallel and the order of completion is not guaranteed. The <code>async</code> option to <code>$.ajax()</code> defaults to <code>true</code>, indicating that code execution can continue after the request is made. Setting this option to <code>false</code> (and thus making the call no longer asynchronous) is strongly discouraged, as it can cause the browser to become unresponsive.</p>
 <p>The <code>$.ajax()</code> function returns the <code>XMLHttpRequest</code> object that it creates. Normally jQuery handles the creation of this object internally, but a custom function for manufacturing one can be specified using the <code>xhr</code> option. The returned object can generally be discarded, but does provide a lower-level interface for observing and manipulating the request. In particular, calling <code>.abort()</code> on the object will halt the request before it completes.</p>
+<p><strong>At present</strong>, due to a bug in Firefox where <code>.getAllResponseHeaders()</code> returns the empty string although <code>.getResponseHeader('Content-Type')</code> returns a non-empty string, automatically decoding JSON CORS responses in Firefox with jQuery is not supported.</p>
+<p>A workaround to this is possible by overriding <code>jQuery.ajaxSettings.xhr</code> as follows:</p>
+<pre>
+var _super = jQuery.ajaxSettings.xhr;
+jQuery.ajaxSettings.xhr = function () {
+    var xhr = _super(),
+        getAllResponseHeaders = xhr.getAllResponseHeaders;
+
+    xhr.getAllResponseHeaders = function () {
+        if ( getAllResponseHeaders() ) {
+            return getAllResponseHeaders();
+        }
+        var allHeaders = "";
+        $( ["Cache-Control", "Content-Language", "Content-Type",
+                "Expires", "Last-Modified", "Pragma"] ).each(function (i, header_name) {
+
+            if ( xhr.getResponseHeader( header_name ) ) {
+                allHeaders += header_name + ": " + xhr.getResponseHeader( header_name ) + "\n";
+            }
+            return allHeaders;
+        });
+    };
+    return xhr;
+};
+</pre>
 <h4>Extending Ajax</h4>
 <p><strong>As of jQuery 1.5</strong>, jQuery's Ajax implementation includes prefilters, converters, and transports that allow you to extend Ajax with a great deal of flexibility. For more information about these advanced features, see the <a href="http://api.jquery.com/extending-ajax/">Extending Ajax</a> page.</p>
 </div>
@@ -314,27 +339,17 @@ jqxhr.complete(function(){ alert("second complete"); });</pre>
 <h3>Examples:</h3>
 <div class="entry-examples" id="entry-examples">
 <div id="example-0">
-<h4>Example: <span class="desc">Load and execute a JavaScript file.</span>
-</h4>
-<pre class="prettyprint"><code class="example">$.ajax({
-   type: "GET",
-   url: "test.js",
-   dataType: "script"
- });</code></pre>
-</div>
-<div id="example-1">
 <h4>Example: <span class="desc">Save some data to the server and notify the user once it's complete.</span>
 </h4>
 <pre class="prettyprint"><code class="example">$.ajax({
-   type: "POST",
-   url: "some.php",
-   data: "name=John&amp;location=Boston",
-   success: function(msg){
-     alert( "Data Saved: " + msg );
-   }
- });</code></pre>
+  type: "POST",
+  url: "some.php",
+  data: "name=John&amp;location=Boston",
+}).done(function( msg ) {
+  alert( "Data Saved: " + msg );
+});</code></pre>
 </div>
-<div id="example-2">
+<div id="example-1">
 <h4>Example: <span class="desc">Retrieve the latest version of an HTML page.</span>
 </h4>
 <pre class="prettyprint"><code class="example">$.ajax({
@@ -345,43 +360,46 @@ jqxhr.complete(function(){ alert("second complete"); });</pre>
   }
 });</code></pre>
 </div>
-<div id="example-3">
-<h4>Example: <span class="desc">Loads data synchronously. Blocks the browser while the requests is active.
-It is better to block user interaction by other means when synchronization is
-necessary.</span>
-</h4>
-<pre class="prettyprint"><code class="example">var html = $.ajax({
-  url: "some.php",
-  async: false
- }).responseText;</code></pre>
-</div>
-<div id="example-4">
-<h4>Example: <span class="desc">Sends an xml document as data to the server. By setting the processData
-option to false, the automatic conversion of data to strings is prevented.</span>
+<div id="example-2">
+<h4>Example: <span class="desc">Send an xml document as data to the server. By setting the processData
+    option to false, the automatic conversion of data to strings is prevented.</span>
 </h4>
 <pre class="prettyprint"><code class="example">var xmlDocument = [create xml document];
- $.ajax({
-   url: "page.php",
-   processData: false,
-   data: xmlDocument,
-   success: handleResponse
- });</code></pre>
+var xmlRequest = $.ajax({
+  url: "page.php",
+  processData: false,
+  data: xmlDocument
+});
+
+xmlRequest.done(handleResponse);</code></pre>
 </div>
-<div id="example-5">
-<h4>Example: <span class="desc">Sends an id as data to the server, save some data to the server and notify the user once it's complete.  Note that this usage - returning the result of the call into a variable - requires a synchronous (blocking) request! (async:false)</span>
+<div id="example-3">
+<h4>Example: <span class="desc">Send an id as data to the server, save some data to the server, and notify the user once it's complete. If the request fails, alert the user.</span>
 </h4>
-<pre class="prettyprint"><code class="example">var bodyContent = $.ajax({
-      url: "script.php",
-      global: false,
-      type: "POST",
-      data: {id : this.getAttribute('id')},
-      dataType: "html",
-      async:false,
-      success: function(msg){
-         alert(msg);
-      }
-   }
-).responseText;</code></pre>
+<pre class="prettyprint"><code class="example">var menuId = $("ul.nav").first().attr("id");
+var request = $.ajax({
+  url: "script.php",
+  type: "POST",
+  data: {id : menuId},
+  dataType: "html"
+});
+
+request.done(function(msg) {
+  $("#log").html( msg );
+});
+
+request.fail(function(jqXHR, textStatus) {
+  alert( "Request failed: " + textStatus );
+});</code></pre>
+</div>
+<div id="example-4">
+<h4>Example: <span class="desc">Load and execute a JavaScript file.</span>
+</h4>
+<pre class="prettyprint"><code class="example">$.ajax({
+  type: "GET",
+  url: "test.js",
+  dataType: "script"
+});</code></pre>
 </div>
 </div>
 </div>

@@ -36,29 +36,38 @@ div { margin:3px; width:40px; height:40px;
     background:green; display:none; }
 div.newcolor { background:blue; }
 &lt;/style&gt;
-  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-1.7rc2.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
   &lt;button id="start"&gt;Start&lt;/button&gt;
 &lt;button id="stop"&gt;Stop&lt;/button&gt;
 &lt;div&gt;&lt;/div&gt;
-&lt;script&gt;$("#start").click(function () {
-  $("div").show("slow");
-  $("div").animate({left:'+=200'},5000);
-  $("div").queue(function () {
-    $(this).addClass("newcolor");
-    $(this).dequeue();
+&lt;script&gt;
+$("#start").click(function () {
+    
+  var myDiv = $("div");
+  myDiv.show("slow");
+  myDiv.animate({left:'+=200'},5000);
+  myDiv.queue(function () {
+    var _this = $(this);
+    _this.addClass("newcolor");
+    _this.dequeue();
   });
-  $("div").animate({left:'-=200'},1500);
-  $("div").queue(function () {
-    $(this).removeClass("newcolor");
-    $(this).dequeue();
+
+  myDiv.animate({left:'-=200'},1500);
+  myDiv.queue(function () {
+    var _this = $(this);
+    _this.removeClass("newcolor");
+    _this.dequeue();
   });
-  $("div").slideUp();
+  myDiv.slideUp();
+  
 });
+
 $("#stop").click(function () {
-  $("div").clearQueue();
-  $("div").stop();
+  var myDiv = $("div");
+  myDiv.clearQueue();
+  myDiv.stop();
 });&lt;/script&gt;
 
 &lt;/body&gt;

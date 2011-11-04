@@ -60,7 +60,7 @@
 </div>
 <h3>Example:</h3>
 <div class="entry-examples" id="entry-examples"><div id="example-0">
-<h4><span class="desc">Show the event object for the keyup handler when a key is released in the input.</span></h4>
+<h4><span class="desc">Show the event object for the keyup handler (using a simple $.print plugin) when a key is released in the input.</span></h4>
 <pre class="prettyprint"><code class="example demo-code">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;
@@ -78,7 +78,7 @@ input { display: block; margin-bottom: .25em; }
 }
 
 &lt;/style&gt;
-  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-1.7rc2.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
   &lt;form&gt;
@@ -94,13 +94,14 @@ input { display: block; margin-bottom: .25em; }
 &lt;script&gt;
 var xTriggered = 0;
 $('#target').keyup(function(event) {
-  if (event.keyCode == '13') {
-     event.preventDefault();
-   }
    xTriggered++;
    var msg = 'Handler for .keyup() called ' + xTriggered + ' time(s).';
   $.print(msg, 'html');
   $.print(event);
+}).keydown(function(event) {
+  if (event.which == 13) {
+    event.preventDefault();
+  }  
 });
 
 $('#other').click(function() {

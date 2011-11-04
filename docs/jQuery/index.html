@@ -17,10 +17,12 @@
 <h4><span>Contents:</span></h4>
 <ul class="toc-list">
 <li>
-<a href="#jQuery1">jQuery( selector, [ context ]  ) </a><ul>
-<li>jQuery( selector, [context]  )
+<a href="#jQuery1">jQuery( selector [ , context ]  ) </a><ul>
+<li>jQuery( selector [, context]  )
               </li>
 <li>jQuery( element )
+              </li>
+<li>jQuery( object )
               </li>
 <li>jQuery( elementArray )
               </li>
@@ -31,10 +33,10 @@
 </ul>
 </li>
 <li>
-<a href="#jQuery2">jQuery( html, [ ownerDocument ]  ) </a><ul>
-<li>jQuery( html, [ownerDocument]  )
+<a href="#jQuery2">jQuery( html [ , ownerDocument ]  ) </a><ul>
+<li>jQuery( html [, ownerDocument]  )
               </li>
-<li>jQuery( html,props )
+<li>jQuery( html, props )
               </li>
 </ul>
 </li>
@@ -46,14 +48,14 @@
 </div>
 <div id="jQuery1" class="entry method">
 <h2 class="jq-clearfix roundTop section-title">
-<span class="name">jQuery( selector, [context]  )</span> <span class="returns">Returns: <a class="return" href="http://api.jquery.com/Types/#jQuery">jQuery</a></span>
+<span class="name">jQuery( selector [, context]  )</span> <span class="returns">Returns: <a class="return" href="http://api.jquery.com/Types/#jQuery">jQuery</a></span>
 </h2>
 <div class="jq-box roundBottom entry-details">
 <p class="desc"><strong>Description: </strong>Accepts a string containing a CSS selector which is then used to match a set of elements.</p>
 <ul class="signatures">
 <li class="signature" id="jQuery-selector-context">
 <h4 class="name">
-<span class="versionAdded">version added: <a href="/category/version/1.0/">1.0</a></span>jQuery( selector,   [context] )</h4>
+<span class="versionAdded">version added: <a href="/category/version/1.0/">1.0</a></span>jQuery( selector [, context] )</h4>
 <p class="arguement"><strong>selector</strong>A string containing a selector expression</p>
 <p class="arguement"><strong>context</strong>A DOM Element, Document, or jQuery to use as context</p>
 </li>
@@ -61,6 +63,11 @@
 <h4 class="name">
 <span class="versionAdded">version added: <a href="/category/version/1.0/">1.0</a></span>jQuery( element )</h4>
 <p class="arguement"><strong>element</strong>A DOM element to wrap in a jQuery object.</p>
+</li>
+<li class="signature" id="jQuery-object">
+<h4 class="name">
+<span class="versionAdded">version added: <a href="/category/version/1.0/">1.0</a></span>jQuery( object )</h4>
+<p class="arguement"><strong>object</strong>A plain object to wrap in a jQuery object.</p>
 </li>
 <li class="signature" id="jQuery-elementArray">
 <h4 class="name">
@@ -105,6 +112,37 @@ $.post('url.xml', function(data) {
 <p>When a jQuery object is passed to the <code>$()</code> function, a clone of the object is created. This new jQuery object references the same DOM elements as the initial one.</p>
 <h4 id="returning-empty-set">Returning an Empty Set</h4>
 <p>As of jQuery 1.4, calling the <code>jQuery()</code> method with <em>no arguments</em> returns an empty jQuery set (with a <code><a href="http://api.jquery.com/length/">.length</a></code> property of 0). In previous versions of jQuery, this would return a set containing the document node.</p>
+<h4 id="working-with-plain-objects">Working With Plain Objects</h4>
+<p>At present, the only operations supported on plain JavaScript objects wrapped in jQuery are: <code>.data()</code>,<code>.prop()</code>,<code>.bind()</code>, <code>.unbind()</code>,<code>.trigger()</code> and <code>.triggerHandler()</code>. The use of <code>.data()</code> (or any method requiring <code>.data()</code>) on a plain object will result in a new property on the object called jQuery{randomNumber} (eg. jQuery123456789).</p>
+<pre>
+// define a plain object
+var foo = {foo:'bar', hello:'world'};
+
+// wrap this with jQuery
+var $foo = $(foo);
+
+// test accessing property values
+var test1 = $foo.prop('foo'); // bar
+
+// test setting property values
+$foo.prop('foo', 'foobar');
+var test2 = $foo.prop('foo'); // foobar
+
+// test using .data() as summarized above
+$foo.data('keyName', 'someValue');
+console.log($foo); // will now contain a jQuery{randomNumber} property
+
+// test binding an event name and triggering
+$foo.bind('eventName', function (){
+        console.log('eventName was called');
+});
+
+$foo.trigger('eventName'); // logs 'eventName was called'
+</pre>
+<p>Should <code>.trigger('eventName')</code> be used, it will search for an 'eventName' property on the object and attempt to execute it after any attached jQuery handlers are executed. It does not check whether the property is a function or not. To avoid this behavior, <code>.triggerHandler('eventName')</code> should be used instead.</p>
+<pre>
+$foo.triggerHandler('eventName'); // also logs 'eventName was called'
+</pre>
 </div>
 <h3>Examples:</h3>
 <div class="entry-examples" id="entry-examples">
@@ -114,7 +152,7 @@ $.post('url.xml', function(data) {
 <pre class="prettyprint"><code class="example demo-code">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;
-  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
+  &lt;script src="http://code.jquery.com/jquery-1.7rc2.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
   &lt;p&gt;one&lt;/p&gt; &lt;div&gt;&lt;p&gt;two&lt;/p&gt;&lt;/div&gt; &lt;p&gt;three&lt;/p&gt;
@@ -152,20 +190,20 @@ $.post('url.xml', function(data) {
 </div>
 <div id="jQuery2" class="entry method">
 <h2 class="jq-clearfix roundTop section-title">
-<span class="name">jQuery( html, [ownerDocument]  )</span> <span class="returns">Returns: <a class="return" href="http://api.jquery.com/Types/#jQuery">jQuery</a></span>
+<span class="name">jQuery( html [, ownerDocument]  )</span> <span class="returns">Returns: <a class="return" href="http://api.jquery.com/Types/#jQuery">jQuery</a></span>
 </h2>
 <div class="jq-box roundBottom entry-details">
 <p class="desc"><strong>Description: </strong>Creates DOM elements on the fly from the provided string of raw HTML.</p>
 <ul class="signatures">
 <li class="signature" id="jQuery-html-ownerDocument">
 <h4 class="name">
-<span class="versionAdded">version added: <a href="/category/version/1.0/">1.0</a></span>jQuery( html,   [ownerDocument] )</h4>
+<span class="versionAdded">version added: <a href="/category/version/1.0/">1.0</a></span>jQuery( html [, ownerDocument] )</h4>
 <p class="arguement"><strong>html</strong>A string of HTML to create on the fly. Note that this parses HTML, <strong>not</strong> XML.</p>
 <p class="arguement"><strong>ownerDocument</strong>A document in which the new elements will be created</p>
 </li>
 <li class="signature" id="jQuery-html-props">
 <h4 class="name">
-<span class="versionAdded">version added: <a href="/category/version/1.4/">1.4</a></span>jQuery( html,  props )</h4>
+<span class="versionAdded">version added: <a href="/category/version/1.4/">1.4</a></span>jQuery( html, props )</h4>
 <p class="arguement"><strong>html</strong>A string defining a single, standalone, HTML element (e.g. &lt;div/&gt; or &lt;div&gt;&lt;/div&gt;).</p>
 <p class="arguement"><strong>props</strong>An map of attributes, events, and methods to call on the newly-created element.</p>
 </li>
@@ -185,7 +223,13 @@ $.post('url.xml', function(data) {
 <pre>$('&lt;img /&gt;');
 $('&lt;input&gt;');
 </pre>
-<p>As of jQuery 1.4, the second argument can accept a map consisting of a superset of the properties that can be passed to the <a href="/attr">.attr()</a> method. Furthermore, any <a href="/category/events/">event type</a> can be passed in, and the following jQuery methods can be called: <a href="/val">val</a>, <a href="/css">css</a>, <a href="/html">html</a>, <a href="/text">text</a>, <a href="/data">data</a>, <a href="/width">width</a>, <a href="/height">height</a>, or <a href="/offset">offset</a>. The name <code>"class"</code> must be quoted in the map since it is a JavaScript reserved word, and <code>"className"</code> cannot be used since it is not the correct attribute name. </p>
+<p>When passing HTML to <code>jQuery()</code>, please also note that text nodes are not treated as DOM elements. With the exception of a few methods (such as <code>.content()</code>), they are generally otherwise ignored or removed. E.g:</p>
+<pre>
+var el = $('1&lt;br/&gt;2&lt;br/&gt;3'); // returns [&lt;br&gt;, "2", &lt;br&gt;] 
+el  = $('1&lt;br/&gt;2&lt;br/&gt;3 &gt;'); // returns [&lt;br&gt;, "2", &lt;br&gt;, "3 &amp;gt;"]
+</pre>
+<p>This behaviour is expected. </p>
+<p>As of jQuery 1.4, the second argument to <code>jQuery()</code> can accept a map consisting of a superset of the properties that can be passed to the <a href="/attr">.attr()</a> method. Furthermore, any <a href="/category/events/">event type</a> can be passed in, and the following jQuery methods can be called: <a href="/val">val</a>, <a href="/css">css</a>, <a href="/html">html</a>, <a href="/text">text</a>, <a href="/data">data</a>, <a href="/width">width</a>, <a href="/height">height</a>, or <a href="/offset">offset</a>. The name <code>"class"</code> must be quoted in the map since it is a JavaScript reserved word, and <code>"className"</code> cannot be used since it is not the correct attribute name. </p>
 <p><strong>Note:</strong> Internet Explorer will not allow you to create an <code>input</code> or <code>button</code> element and change its type; you must specify the type using <code>'&lt;input type="checkbox" /&gt;'</code> for example. A demonstration of this can be seen below:</p>
 <p>Unsupported in IE:</p>
 <pre>
