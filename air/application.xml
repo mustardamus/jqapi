@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
-<application xmlns="http://ns.adobe.com/air/application/1.5">
+<application xmlns="http://ns.adobe.com/air/application/2.5">
     <id>com.erikzaadi.com.mustardamus.jQAPI</id>
     <filename>jQAPI</filename>
     <name>jQAPI</name>
-    <version>1.6</version>
+    <versionNumber>1.7</versionNumber>
     <description>
         jQAPI - Alternative jQuery Documentation
         http://jqapi.com/
