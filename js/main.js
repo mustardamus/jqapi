@@ -98,9 +98,15 @@ jqapi = function() {
     });
     
     $(window).bind('hashchange', function(event) {
-      var state = event.getState();
+      var state     = event.getState(),
+          hasMarkup = /(<([^>]+)>)/ig.test(state.p);
       
-      if(state.p) loadPage($('.sub a[href*="/' + state.p + '/"]:first'));
+      //defeat html xss insertion like #p=<img src%3D/%20onerror%3Dalert(1)>
+      //see https://twitter.com/#!/bulkneets/status/156620076160786432
+      
+      if(state.p && !hasMarkup) {
+        loadPage($('.sub a[href*="/' + state.p + '/"]:first'));
+      }
     }).trigger('hashchange');
     
     zebraItems(elements.list); //zebra the items in the static list
