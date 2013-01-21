@@ -90,7 +90,7 @@ jqapi = function() {
       var el = $(this);
       
       clearSelected();
-      searchFocus();
+      setTimeout(searchFocus, 0);
       el.parent().addClass(values.selected);
       $.bbq.pushState({ p: urlMethodName(el) });
       
