@@ -61,12 +61,13 @@ jqapi = function() {
     })
     .trigger('resize'); //trigger resize event to initially set sizes
     
-    elements.search.keyup(function(event) {
+    elements.search.keydown(function(event) {
       if($.inArray(event.keyCode, keys.array) != -1) { //it is an event key
         handleKey(event.keyCode);
-      } else { //it is a character
-        startSearch();
       }
+    })
+    .onChangeValue(function(val) {
+      startSearch(val);
     })
     .focus(function() {
       values.hasFocus = true;
@@ -231,43 +232,83 @@ jqapi = function() {
   } //-buildDemos
   
   
-  function startSearch() {
-    elements.search.doTimeout('text-type', 300, function() {
-      var term = elements.search.val();
-      
+  var startSearch = (function () {
+    var getHighlighter = function(search, insensitive, klass) {
+      var regex = new RegExp('(<[^>]*>)|(\\b|[a-z])('+ search.replace(/([-.*+?^$\{\}\(\)\|\[\]\/\\])/g,"\\$1") +')', insensitive ? 'ig' : 'g');
+      return function(html) {
+        return html.replace(regex, function(a, b, border, c){
+          return (a.charAt(0) == '<') ? a : border + '<strong class="'+ klass +'">' + c + '</strong>'; 
+        });
+      }
+    };
+    var listElement = function(obj, highlighterFn) {
+      return '\
+        <li class="sub">\n\
+          <a href="'+obj.href+'">\n\
+            <span class="searchable">'+highlighterFn(obj.searchable)+'</span>\n\
+            <span class="desc">'+obj.desc+'</span>\n\
+          </a>\n\
+        </li>';
+    };
+    var getData = (function() {
+      var data;
+      return function() {
+        if (!data) {
+          data = {};
+          // collect searchable data on first query
+          $('.searchable', elements.list).each(function() {
+            var $el = $(this);
+            var searchableLower = $el.text().toLowerCase();
+            if (!data[searchableLower]) {
+              data[searchableLower] = {
+                href: $el.closest('a').attr('href'),
+                searchable: $el.text(),
+                searchableLower: searchableLower,
+                desc: $el.siblings('.desc').text()
+              };
+            }
+          });
+        }
+        return data;
+      }
+    })();
+    
+    return function(term) {
       if(term.length) {
-        elements.results.html('').show();
         elements.list.hide();
-        
-        var lastPos = 100;
-        var winner = $;
-        
-        $('.searchable', elements.list).each(function() {
-          var el = $(this);
-          var name = el.text();
-          var pos = name.toLowerCase().indexOf(term.toLowerCase());
-          
-          if(pos != -1 && elements.results.text().indexOf(name) == -1) {
-            var lastLi = jQuery('<li>', {
-              'class':  'sub',
-              html:     el.parent().parent().html()
-            }).appendTo(elements.results);
-            
-            if(pos < lastPos) {
-              lastPos = pos;
-              winner = lastLi;
+        var matches = [];
+        var winner = '';
+        var winnerIndex = false;
+        var winnerPos = 999;
+        var pos = 0;
+        var termLower = term.toLowerCase();
+        var highlighterFn = getHighlighter(term, true, 'highlight')
+        // find term in data
+        $.each(getData(), function(i, obj) {
+          // determine winner (aka search query on top most position inside searched text)
+          if ((pos = obj.searchableLower.indexOf(termLower)) !== -1) {
+            matches.push(listElement(obj, highlighterFn));
+            if (pos < winnerPos) {
+              winnerIndex = matches.length - 1;
+              winnerPos = pos;
             }
           }
         });
-        
-        elements.results.prepend(winner).highlight(term, true, 'highlight').children('li:first').addClass(values.selected);
+        // if winner determined, remove from matches
+        if (winnerIndex !== false) {
+          winner = matches[winnerIndex];
+          matches.splice(winnerIndex, 1);
+        }
+        // show results
+        elements.results.html(winner + matches.join('')).show();
+        elements.results.children('li:first').addClass(values.selected);
         zebraItems(elements.results);
       } else {
         elements.results.hide();
         elements.list.show();
       }
-    });
-  } //-startSearch
+    }
+  })(); //-startSearch
   
   
   return {
@@ -342,3 +383,27 @@ $(document).ready(function() {
     }
   });
 });
+
+/**
+ * special event that catches value changes as soon as possible
+ * inside an input field
+ *
+ * Example:
+ * $('input').onChangeValue(function(val) {
+ *   alert(val);
+ * });
+ */
+jQuery.fn.onChangeValue = function(fn) {
+  var $this = this, val;
+  $this.bind('keypress keyup keydown', function(e) {
+    $this.stop(true).delay(30).queue(function() {
+      if (val === $this.val()) {
+        return;
+      } else {
+        val = $this.val();
+        fn && fn(val);
+      }
+    });
+  });
+  return this;
+};
