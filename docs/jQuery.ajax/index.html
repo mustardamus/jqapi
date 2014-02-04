@@ -2,12 +2,12 @@
 <html lang='en'><head><meta http-equiv='content-type' content='text/html; charset=UTF-8' /></head><body>
 <div class="entry-content">
         <div class="entry-title roundTop">
-          
+
           <h1 class="jq-clearfix">jQuery.ajax()</h1>
           <div class="entry-meta jq-clearfix">
                         Categories:
             <span class="category"><a href="http://api.jquery.com/category/ajax/" title="View all posts in Ajax">Ajax</a> &gt; <a href="http://api.jquery.com/category/ajax/low-level-interface/" title="View all posts in Low-Level Interface">Low-Level Interface</a></span>
-  
+
 
           </div>
 
@@ -23,12 +23,12 @@
 <h4 class="name">
 <span class="versionAdded">version added: <a href="/category/version/1.5/">1.5</a></span>jQuery.ajax( url [, settings] )</h4>
 <p class="arguement"><strong>url</strong>A string containing the URL to which the request is sent.</p>
-<p class="arguement"><strong>settings</strong>A set of key/value pairs that configure the Ajax request. All settings are optional. A default can be set for any option with <a href="/jQuery.ajaxSetup">$.ajaxSetup()</a>. See <a href="#jQuery-ajax-settings">jQuery.ajax( settings )</a> below for a complete list of all settings. </p>
+<p class="arguement"><strong>settings</strong>A set of key/value pairs that configure the Ajax request. All settings are optional. A default can be set for any option with <a href="/#p=jQuery.ajaxSetup">$.ajaxSetup()</a>. See <a href="#jQuery-ajax-settings">jQuery.ajax( settings )</a> below for a complete list of all settings. </p>
 </li>
 <li class="signature" id="jQuery-ajax-settings">
 <h4 class="name">
 <span class="versionAdded">version added: <a href="/category/version/1.0/">1.0</a></span>jQuery.ajax( settings )</h4>
-<p class="arguement"><strong>settings</strong>A set of key/value pairs that configure the Ajax request. All settings are optional. A default can be set for any option with <a href="/jQuery.ajaxSetup">$.ajaxSetup()</a>.</p>
+<p class="arguement"><strong>settings</strong>A set of key/value pairs that configure the Ajax request. All settings are optional. A default can be set for any option with <a href="/#p=jQuery.ajaxSetup">$.ajaxSetup()</a>.</p>
 <div class="options">
 <h5 class="option">accepts<span class="type"><a href="http://api.jquery.com/Types#Map">Map</a></span>
 </h5>
@@ -159,7 +159,7 @@
   }
 });</pre>
             <p>If the request is successful, the status code functions take the same parameters as the success callback; if it results in an error, they take the same parameters as the <code>error</code> callback.</p>
-          
+
 <h5 class="option">success(data, textStatus, jqXHR)<span class="type"><a href="http://api.jquery.com/Types#Function,%20Array">Function, Array</a></span>
 </h5>
 <p>A function to be called if the request succeeds. The function gets passed three arguments: The data returned from the server, formatted according to the <code>dataType</code> parameter; a string describing the status; and the <code>jqXHR</code> (in jQuery 1.4.x, XMLHttpRequest) object. <strong>As of jQuery 1.5</strong>, <em>the success setting can accept an array of functions. Each function will be called in turn.</em> This is an <a href="http://docs.jquery.com/Ajax_Events">Ajax Event</a>.</p>
@@ -168,7 +168,7 @@
 <p>Set a timeout (in milliseconds) for the request. This will override any global timeout set with <a href="http://api.jquery.com/jQuery.ajaxSetup">$.ajaxSetup()</a>. The timeout period starts at the point the <code>$.ajax</code> call is made; if several other requests are in progress and the browser has no connections available, it is possible for a request to time out before it can be sent. <strong>In jQuery 1.4.x and below,</strong> the XMLHttpRequest object will be in an invalid state if the request times out; accessing any object members may throw an exception. <strong>In Firefox 3.0+ only,</strong> script and JSONP requests cannot be cancelled by a timeout; the script will run even if it arrives after the timeout period.</p>
 <h5 class="option">traditional<span class="type"><a href="http://api.jquery.com/Types#Boolean">Boolean</a></span>
 </h5>
-<p>Set this to <code>true</code> if you wish to use the traditional style of <a href="/jQuery.param">param serialization</a>.</p>
+<p>Set this to <code>true</code> if you wish to use the traditional style of <a href="/#p=jQuery.param">param serialization</a>.</p>
 <h5 class="option">type<span class="type"><a href="http://api.jquery.com/Types#String">String</a></span>
 </h5>
 <div class="default-value">
@@ -206,10 +206,10 @@
 </li>
 </ul>
 <div class="longdesc">
-<p>The <code>$.ajax()</code> function underlies all Ajax requests sent by jQuery.  It is often unnecessary to directly call this function, as several higher-level alternatives like <code><a href="/jQuery.get">$.get()</a></code> and <code><a href="/load">.load()</a></code> are available and are easier to use. If less common options are required, though, <code>$.ajax()</code> can be used more flexibly.</p>
+<p>The <code>$.ajax()</code> function underlies all Ajax requests sent by jQuery.  It is often unnecessary to directly call this function, as several higher-level alternatives like <code><a href="/#p=jQuery.get">$.get()</a></code> and <code><a href="/#p=load">.load()</a></code> are available and are easier to use. If less common options are required, though, <code>$.ajax()</code> can be used more flexibly.</p>
 <p>At its simplest, the <code>$.ajax()</code> function can be called with no arguments:</p>
 <pre>$.ajax();</pre>
-<p><strong>Note:</strong> Default settings can be set globally by using the <code><a href="/jQuery.ajaxSetup">$.ajaxSetup()</a></code> function.</p>
+<p><strong>Note:</strong> Default settings can be set globally by using the <code><a href="/#p=jQuery.ajaxSetup">$.ajaxSetup()</a></code> function.</p>
 <p>This example, using no options, loads the contents of the current page, but does nothing with the result. To use the result, we can implement one of the callback functions.</p>
 <h4 id="jqXHR">The jqXHR Object</h4>
 <p>The jQuery XMLHttpRequest (jqXHR) object returned by <code>$.ajax()</code> <strong>as of jQuery 1.5</strong> is a superset of the browser's native XMLHttpRequest object. For example, it contains <code>responseText</code> and <code>responseXML</code> properties, as well as a <code>getResponseHeader()</code> method. When the transport mechanism is something other than XMLHttpRequest (for example, a script tag for a JSONP request) the <code>jqXHR</code> object simulates native XHR functionality where possible. </p>
@@ -296,9 +296,9 @@ jqxhr.always(function() { alert("second complete"); });</pre>
 <p>By default, Ajax requests are sent using the GET HTTP method. If the POST method is required, the method can be specified by setting a value for the <code>type</code> option. This option affects how the contents of the <code>data</code> option are sent to the server. POST data will always be transmitted to the server using UTF-8 charset, per the W3C XMLHTTPRequest standard.</p>
 <p>The <code>data</code> option can contain either a query string of the form <code>key1=value1&amp;key2=value2</code>, or a map of the form <code>{key1: 'value1', key2: 'value2'}</code>. If the latter form is used, the data is converted into a query string using <code><a href="http://api.jquery.com/jQuery.param/">jQuery.param()</a></code> before it is sent. This processing can be circumvented by setting <code>processData</code> to <code>false</code>.  The processing might be undesirable if you wish to send an XML object to the server; in this case, change the <code>contentType</code> option from <code>application/x-www-form-urlencoded</code> to a more appropriate MIME type.</p>
 <h4 id="advanced-options">Advanced Options</h4>
-<p>The <code>global</code> option prevents handlers registered using <code><a href="/ajaxSend">.ajaxSend()</a></code>, <code><a href="/ajaxError">.ajaxError()</a></code>, and similar methods from firing when this request would trigger them. This can be useful to, for example, suppress a loading indicator that was implemented with <code><a href="/ajaxSend">.ajaxSend()</a></code> if the requests are frequent and brief. With cross-domain script and JSONP requests, the global option is automatically set to <code>false</code>. See the descriptions of these methods below for more details.  See the descriptions of these methods below for more details.</p>
+<p>The <code>global</code> option prevents handlers registered using <code><a href="/#p=ajaxSend">.ajaxSend()</a></code>, <code><a href="/#p=ajaxError">.ajaxError()</a></code>, and similar methods from firing when this request would trigger them. This can be useful to, for example, suppress a loading indicator that was implemented with <code><a href="/#p=ajaxSend">.ajaxSend()</a></code> if the requests are frequent and brief. With cross-domain script and JSONP requests, the global option is automatically set to <code>false</code>. See the descriptions of these methods below for more details.  See the descriptions of these methods below for more details.</p>
 <p>If the server performs HTTP authentication before providing a response, the user name and password pair can be sent via the <code>username</code> and <code>password</code> options.</p>
-<p>Ajax requests are time-limited, so errors can be caught and handled to provide a better user experience. Request timeouts are usually either left at their default or set as a global default using <code><a href="/jQuery.ajaxSetup">$.ajaxSetup()</a></code> rather than being overridden for specific requests with the <code>timeout</code> option.</p>
+<p>Ajax requests are time-limited, so errors can be caught and handled to provide a better user experience. Request timeouts are usually either left at their default or set as a global default using <code><a href="/#p=jQuery.ajaxSetup">$.ajaxSetup()</a></code> rather than being overridden for specific requests with the <code>timeout</code> option.</p>
 <p>By default, requests are always issued, but the browser may serve results out of its cache. To disallow use of the cached results, set <code>cache</code> to <code>false</code>. To cause the request to report failure if the asset has not been modified since the last request, set <code>ifModified</code> to <code>true</code>.</p>
 <p>The <code>scriptCharset</code> allows the character set to be explicitly specified for requests that use a <code>&lt;script&gt;</code> tag (that is, a type of <code>script</code> or <code>jsonp</code>). This is useful if the script and host page have differing character sets.</p>
 <p>The first letter in Ajax stands for "asynchronous," meaning that the operation occurs in parallel and the order of completion is not guaranteed. The <code>async</code> option to <code>$.ajax()</code> defaults to <code>true</code>, indicating that code execution can continue after the request is made. Setting this option to <code>false</code> (and thus making the call no longer asynchronous) is strongly discouraged, as it can cause the browser to become unresponsive.</p>
