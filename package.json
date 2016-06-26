@@ -4,7 +4,8 @@
   "description": "Alternative jQuery Documentaion Browser",
   "main": "index.js",
   "scripts": {
-    "test": "mocha test/**"
+    "test": "mocha test/**",
+    "lint": "standard"
   },
   "repository": {
     "type": "git",
@@ -23,6 +24,7 @@
   },
   "homepage": "https://github.com/mustardamus/jqapi#readme",
   "devDependencies": {
-    "mocha": "^2.5.3"
+    "mocha": "^2.5.3",
+    "standard": "^7.1.2"
   }
 }
