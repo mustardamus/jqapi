@@ -15,8 +15,6 @@ const opt = {
 }
 const git = new Git(opt)
 
-// 4. on update() and the local repo exists, pull() should be called
-
 describe('Git Class', function () {
   this.timeout(10000)
 
