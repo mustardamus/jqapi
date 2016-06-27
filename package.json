@@ -25,6 +25,12 @@
   "homepage": "https://github.com/mustardamus/jqapi#readme",
   "devDependencies": {
     "mocha": "^2.5.3",
+    "sinon": "^1.17.4",
     "standard": "^7.1.2"
+  },
+  "dependencies": {
+    "fs-extra": "^0.30.0",
+    "lodash": "^4.13.1",
+    "shelljs": "^0.7.0"
   }
 }
