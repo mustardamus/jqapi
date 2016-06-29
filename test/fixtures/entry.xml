@@ -1,0 +1,117 @@
+<?xml version="1.0"?>
+<entries>
+  <desc>top desc</desc>
+
+  <entry type="method" name="test" return="String">
+    <title>.test() a</title>
+    <signature>
+      <added>1.0</added>
+      <argument name="propertyName" type="String">
+        <desc>property 1a desc</desc>
+      </argument>
+    </signature>
+    <signature>
+      <added>1.9</added>
+      <argument name="propertyNames" type="Array">
+        <desc>property 1b desc</desc>
+      </argument>
+    </signature>
+    <desc>.test() a desc</desc>
+    <longdesc>.test() a longdesc</longdesc>
+    <category slug="category 1"/>
+    <category slug="category 2"/>
+    <category slug="version/1.0"/>
+    <category slug="version/1.4"/>
+    <example>
+      <desc>example 1 desc</desc>
+      <code><![CDATA[
+example 1 code
+]]></code>
+      <css><![CDATA[
+example 1 css
+]]></css>
+      <html><![CDATA[
+example 1 html
+]]></html>
+    </example>
+    <example>
+      <desc>example 2 desc</desc>
+      <code><![CDATA[
+example 2 code
+]]></code>
+      <css><![CDATA[
+example 2 css
+]]></css>
+      <html><![CDATA[
+example 2 html
+]]></html>
+    </example>
+  </entry>
+
+  <entry type="method" name="test" return="jQuery">
+    <signature>
+      <added>1.0</added>
+      <argument name="propertyName" type="String">
+        <desc>property 1a desc</desc>
+      </argument>
+      <argument name="value">
+        <desc>property 2a desc</desc>
+        <type name="String"/>
+        <type name="Number"/>
+      </argument>
+    </signature>
+    <signature>
+      <added>1.4</added>
+      <argument name="propertyName" type="String">
+        <desc>property 1b desc</desc>
+      </argument>
+      <argument name="function" type="Function">
+        <desc>property 2b desc</desc>
+        <argument name="index" type="Integer" />
+        <argument name="value" type="String" />
+        <return>
+          <type name="String"/>
+          <type name="Number"/>
+        </return>
+      </argument>
+    </signature>
+    <signature>
+      <added>1.0</added>
+      <argument name="properties" type="PlainObject">
+        <desc>property 3a desc</desc>
+      </argument>
+    </signature>
+    <desc>.test() b desc</desc>
+    <longdesc>.test() b longdesc</longdesc>
+    <category slug="category 1"/>
+    <category slug="category 2"/>
+    <category slug="category 3"/>
+    <category slug="version/1.0"/>
+    <category slug="version/1.4"/>
+    <category slug="version/3"/>
+    <example>
+      <desc>example 1 desc</desc>
+      <code><![CDATA[
+example 1 code
+]]></code>
+      <css><![CDATA[
+example 1 css
+]]></css>
+      <html><![CDATA[
+example 1 html
+]]></html>
+    </example>
+    <example>
+      <desc>example 2 desc</desc>
+      <code><![CDATA[
+example 2 code
+]]></code>
+      <css><![CDATA[
+example 2 css
+]]></css>
+      <html><![CDATA[
+example 2 html
+]]></html>
+    </example>
+  </entry>
+</entries>

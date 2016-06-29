@@ -1,0 +1,129 @@
+{
+  "title": ".test() a",
+  "desc": "top desc",
+  "entries": [
+    {
+      "name": "test",
+      "type": "method",
+      "return": "String",
+      "versions": ["1.0", "1.4"],
+      "categories": ["category 1", "category 2"],
+      "desc": ".test() a desc",
+      "longdesc": ".test() a longdesc",
+      "signatures": [
+        {
+          "added": "1.0",
+          "arguments": [
+            {
+              "name": "propertyName",
+              "types": ["String"],
+              "desc": "property 1a desc"
+            }
+          ]
+        },
+        {
+          "added": "1.9",
+          "arguments": [
+            {
+              "name": "propertyNames",
+              "types": ["Array"],
+              "desc": "property 1b desc"
+            }
+          ]
+        }
+      ],
+      "examples": [
+        {
+          "desc": "example 1 desc",
+          "code": "example 1 code",
+          "css": "example 1 css",
+          "html": "example 1 html"
+        },
+        {
+          "desc": "example 2 desc",
+          "code": "example 2 code",
+          "css": "example 2 css",
+          "html": "example 2 html"
+        }
+      ]
+    },
+    {
+      "name": "test",
+      "type": "method",
+      "return": "jQuery",
+      "versions": ["1.0", "1.4", "3"],
+      "categories": ["category 1", "category 2", "category 3"],
+      "desc": ".test() b desc",
+      "longdesc": ".test() b longdesc",
+      "signatures": [
+        {
+          "added": "1.0",
+          "arguments": [
+            {
+              "name": "propertyName",
+              "types": ["String"],
+              "desc": "property 1a desc"
+            },
+            {
+              "name": "value",
+              "types": ["String", "Number"],
+              "desc": "property 2a desc"
+            }
+          ]
+        },
+        {
+          "added": "1.4",
+          "arguments": [
+            {
+              "name": "propertyName",
+              "types": ["String"],
+              "desc": "property 1b desc"
+            },
+            {
+              "name": "function",
+              "types": ["Function"],
+              "desc": "property 2b desc",
+              "callback": {
+                "arguments": [
+                  {
+                    "name": "index",
+                    "type": "Integer"
+                  },
+                  {
+                    "name": "value",
+                    "type": "String"
+                  }
+                ],
+                "returns": ["String", "Number"]
+              }
+            }
+          ]
+        },
+        {
+          "added": "1.0",
+          "arguments": [
+            {
+              "name": "properties",
+              "types": ["PlainObject"],
+              "desc": "property 3a desc"
+            }
+          ]
+        }
+      ],
+      "examples": [
+        {
+          "desc": "example 1 desc",
+          "code": "example 1 code",
+          "css": "example 1 css",
+          "html": "example 1 html"
+        },
+        {
+          "desc": "example 2 desc",
+          "code": "example 2 code",
+          "css": "example 2 css",
+          "html": "example 2 html"
+        }
+      ]
+    }
+  ]
+}
