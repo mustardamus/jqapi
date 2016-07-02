@@ -7,7 +7,7 @@
       "type": "method",
       "return": "String",
       "versions": ["1.0", "1.4"],
-      "categories": ["category 1", "category 2"],
+      "categories": ["category 1", "category 2", "sub"],
       "desc": ".test() a desc",
       "longdesc": ".test() a longdesc",
       "signatures": [
@@ -28,6 +28,12 @@
               "name": "propertyNames",
               "types": ["Array"],
               "desc": "property 1b desc"
+            },
+            {
+              "name": "propertyNames",
+              "types": ["Array"],
+              "desc": "property 1c desc",
+              "optional": true
             }
           ]
         }

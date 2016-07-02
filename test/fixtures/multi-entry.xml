@@ -15,11 +15,14 @@
       <argument name="propertyNames" type="Array">
         <desc>property 1b desc</desc>
       </argument>
+      <argument name="propertyNames" type="Array" optional="true">
+        <desc>property 1c desc</desc>
+      </argument>
     </signature>
     <desc>.test() a desc</desc>
     <longdesc>.test() a longdesc</longdesc>
     <category slug="category 1"/>
-    <category slug="category 2"/>
+    <category slug="category 2/sub"/>
     <category slug="version/1.0"/>
     <category slug="version/1.4"/>
     <example>

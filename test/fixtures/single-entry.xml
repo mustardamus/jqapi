@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<entry type="method" name="test" return="String">
+  <title>.test() a</title>
+  <signature>
+    <added>1.0</added>
+    <argument name="propertyName" type="String">
+      <desc>property 1a desc</desc>
+    </argument>
+  </signature>
+  <signature>
+    <added>1.9</added>
+    <argument name="propertyNames" type="Array">
+      <desc>property 1b desc</desc>
+    </argument>
+  </signature>
+  <desc>.test() a desc</desc>
+  <longdesc>.test() a longdesc</longdesc>
+  <category slug="category 1"/>
+  <category slug="category 2"/>
+  <category slug="version/1.0"/>
+  <category slug="version/1.4"/>
+  <example>
+    <desc>example 1 desc</desc>
+    <code><![CDATA[
+example 1 code
+]]></code>
+    <css><![CDATA[
+example 1 css
+]]></css>
+    <html><![CDATA[
+example 1 html
+]]></html>
+  </example>
+  <example>
+    <desc>example 2 desc</desc>
+    <code><![CDATA[
+example 2 code
+]]></code>
+    <css><![CDATA[
+example 2 css
+]]></css>
+    <html><![CDATA[
+example 2 html
+]]></html>
+  </example>
+</entry>

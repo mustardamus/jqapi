@@ -7,14 +7,13 @@ const path = require('path')
 const assert = require('assert')
 const Transform = require('../lib/transform')
 
-const xmlPath = path.join(__dirname, 'fixtures/entry.xml')
-const xmlFixture = fs.readFileSync(xmlPath, 'utf8')
-const jsonPath = path.join(__dirname, 'fixtures/entry.json')
-const jsonFixture = require(jsonPath)
+describe('Transform Class for multiple entries', () => {
+  const xmlPath = path.join(__dirname, 'fixtures/multi-entry.xml')
+  const xmlFixture = fs.readFileSync(xmlPath, 'utf8')
+  const jsonPath = path.join(__dirname, 'fixtures/multi-entry.json')
+  const jsonFixture = require(jsonPath)
+  const transform = new Transform(xmlFixture)
 
-const transform = new Transform(xmlFixture)
-
-describe('Transform Class', () => {
   it('should have created a cheerio function', () => {
     assert.equal(typeof transform.$, 'function')
   })
@@ -51,7 +50,7 @@ describe('Transform Class', () => {
   it('should get single entry slugs', () => {
     let entry = transform.getEntry(0)
     let slugs = transform.getEntrySlugs(entry)
-    let checkArr = ['category 1', 'category 2', 'version/1.0', 'version/1.4']
+    let checkArr = ['category 1', 'category 2/sub', 'version/1.0', 'version/1.4']
 
     assert.deepEqual(slugs, checkArr)
   })
@@ -105,6 +104,18 @@ describe('Transform Class', () => {
 
     assert.deepEqual(examples, jsonFixture.entries[0].examples)
   })
+
+  it('should return the whole transform in json', () => {
+    assert.deepEqual(transform.toJSON(), jsonFixture)
+  })
+})
+
+describe('Transform Class for a single entry', () => {
+  const xmlPath = path.join(__dirname, 'fixtures/single-entry.xml')
+  const xmlFixture = fs.readFileSync(xmlPath, 'utf8')
+  const jsonPath = path.join(__dirname, 'fixtures/single-entry.json')
+  const jsonFixture = require(jsonPath)
+  const transform = new Transform(xmlFixture)
 
   it('should return the whole transform in json', () => {
     assert.deepEqual(transform.toJSON(), jsonFixture)
