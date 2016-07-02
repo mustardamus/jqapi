@@ -79,6 +79,16 @@ describe('Transform Class for multiple entries', () => {
     assert.deepEqual(metas, fixture.callback)
   })
 
+  it('should get properties metas from a object argument', () => {
+    let entry = transform.getEntry(0)
+    let signature = entry.find('signature').get(2)
+    let argument = transform.$(signature).find('> argument').get(0)
+    let metas = transform.getArgumentPropertiesMetas(transform.$(argument))
+    let fixture = jsonFixture.entries[0].signatures[2].arguments[0]
+
+    assert.deepEqual(metas, fixture.properties)
+  })
+
   it('should get arguments from a entry signature', () => {
     let entry = transform.getEntry(1)
     let signature1 = entry.find('signature').get(0)

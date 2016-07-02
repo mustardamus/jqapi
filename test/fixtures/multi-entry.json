@@ -36,6 +36,47 @@
               "optional": true
             }
           ]
+        },
+        {
+          "added": "3",
+          "arguments": [
+            {
+              "name": "propertyObject",
+              "types": ["PlainObject"],
+              "desc": "property 1c desc",
+              "properties": [
+                {
+                  "name": "accepts",
+                  "default": "depends on DataType",
+                  "desc": "property 1c property 1 desc",
+                  "types": ["PlainObject"]
+                },
+                {
+                  "name": "beforeSend",
+                  "desc": "property 1c property 2 desc",
+                  "types": ["Function"],
+                  "callback": {
+                    "arguments": [
+                      {
+                        "name": "jqXHR",
+                        "type": "jqXHR"
+                      },
+                      {
+                        "name": "settings",
+                        "type": "PlainObject"
+                      }
+                    ],
+                    "returns": []
+                  }
+                },
+                {
+                  "name": "data",
+                  "desc": "property 1c property 3 desc",
+                  "types": ["PlainObject", "String", "Array"]
+                }
+              ]
+            }
+          ]
         }
       ],
       "examples": [
