@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "mocha test/**/*_spec.js",
-    "lint": "standard"
+    "lint": "standard",
+    "update": "node tasks/update.js",
+    "update-daemon": "node tasks/update.js --daemon"
   },
   "repository": {
     "type": "git",
