@@ -3,6 +3,7 @@
 const Git = require('../lib/git')
 const Transform = require('../lib/transform')
 const Traverse = require('../lib/traverse')
+const Navigation = require('../lib/navigation')
 const config = require('../config')
 
 const transformCallback = function (path, val) {
@@ -13,6 +14,7 @@ const transformCallback = function (path, val) {
 
 const git = new Git()
 const traverse = new Traverse(transformCallback)
+const navigation = new Navigation()
 
 const update = function () {
   console.log('Updating the repo...')
@@ -21,6 +23,10 @@ const update = function () {
 
   console.log('Traversing and transform files...')
   traverse.processFiles()
+  console.log('Done.')
+
+  console.log('Create navigation...')
+  navigation.create()
   console.log('Done.')
 }
 

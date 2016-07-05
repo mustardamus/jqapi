@@ -10,6 +10,9 @@ const repoUrl = 'https://github.com/jquery/api.jquery.com.git'
 const entriesXmlGlob = path.join(repoDir, 'entries/*.xml')
 const entriesJsonDir = path.join(publicDir, 'entries')
 const updateIntervalMs = 1000 * 60 * 60 * 3
+const entriesJsonGlob = path.join(entriesJsonDir, '*.json')
+const navigationJsonPath = path.join(publicDir, 'entries.json')
+const navigationDescTrim = 100
 
 module.exports = {
   baseDir,
@@ -19,5 +22,8 @@ module.exports = {
   repoUrl,
   entriesXmlGlob,
   entriesJsonDir,
-  updateIntervalMs
+  updateIntervalMs,
+  entriesJsonGlob,
+  navigationJsonPath,
+  navigationDescTrim
 }
