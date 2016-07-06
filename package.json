@@ -7,7 +7,18 @@
     "test": "mocha test/**/*_spec.js",
     "lint": "standard",
     "update": "node tasks/update.js",
-    "update-daemon": "node tasks/update.js --daemon"
+    "update-daemon": "node tasks/update.js --daemon",
+    "copy-html": "cp src/*.html public",
+    "dev-server": "browser-sync start --serveStatic public --files public/build.*",
+    "watch-js": "watchify src/index.js -v -o public/build.js",
+    "watch-css": "node-sass --watch=src/**/*.sass src/index.sass public/build.css",
+    "start": "npm run copy-html & npm run dev-server & npm run watch-js & npm run watch-css"
+  },
+  "browserify": {
+    "transform": ["babelify"]
+  },
+  "babel": {
+    "presets": ["es2015"]
   },
   "repository": {
     "type": "git",
@@ -26,6 +37,8 @@
   },
   "homepage": "https://github.com/mustardamus/jqapi#readme",
   "devDependencies": {
+    "babel-preset-es2015": "^6.9.0",
+    "babelify": "^7.3.0",
     "mocha": "^2.5.3",
     "sinon": "^1.17.4",
     "standard": "^7.1.2"
