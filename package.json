@@ -4,21 +4,28 @@
   "description": "Alternative jQuery Documentaion Browser",
   "main": "index.js",
   "scripts": {
-    "test": "mocha test/**/*_spec.js",
-    "lint": "standard",
     "update": "node tasks/update.js",
     "update-daemon": "node tasks/update.js --daemon",
     "copy-html": "cp src/*.html public",
     "dev-server": "browser-sync start --serveStatic public --files public/build.*",
     "watch-js": "watchify src/index.js -v -o public/build.js",
     "watch-css": "node-sass --watch=src/**/*.sass src/index.sass public/build.css",
-    "start": "npm run copy-html & npm run dev-server & npm run watch-js & npm run watch-css"
+    "lib-test": "mocha test/lib/**/*_spec.js",
+    "frontend-test": "karma start karma.conf.js",
+    "frontend-test-single-run": "karma start karma.conf.js --single-run",
+    "start": "npm run copy-html & npm run dev-server & npm run watch-js & npm run watch-css",
+    "test": "npm run lib-test && npm run frontend-test-single-run",
+    "lint": "standard"
   },
   "browserify": {
-    "transform": ["babelify"]
+    "transform": [
+      "babelify"
+    ]
   },
   "babel": {
-    "presets": ["es2015"]
+    "presets": [
+      "es2015"
+    ]
   },
   "repository": {
     "type": "git",
@@ -39,6 +46,11 @@
   "devDependencies": {
     "babel-preset-es2015": "^6.9.0",
     "babelify": "^7.3.0",
+    "karma": "^1.1.0",
+    "karma-browserify": "^5.0.5",
+    "karma-mocha": "^1.1.1",
+    "karma-phantomjs-launcher": "^1.0.1",
+    "karma-spec-reporter": "0.0.26",
     "mocha": "^2.5.3",
     "sinon": "^1.17.4",
     "standard": "^7.1.2"
