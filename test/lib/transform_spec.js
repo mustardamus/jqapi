@@ -5,12 +5,12 @@
 const fs = require('fs-extra')
 const path = require('path')
 const assert = require('assert')
-const Transform = require('../lib/transform')
+const Transform = require('../../lib/transform')
 
 describe('Transform Class for multiple entries', () => {
-  const xmlPath = path.join(__dirname, 'fixtures/multi-entry.xml')
+  const xmlPath = path.join(__dirname, '../fixtures/multi-entry.xml')
   const xmlFixture = fs.readFileSync(xmlPath, 'utf8')
-  const jsonPath = path.join(__dirname, 'fixtures/multi-entry.json')
+  const jsonPath = path.join(__dirname, '../fixtures/multi-entry.json')
   const jsonFixture = require(jsonPath)
   const transform = new Transform(xmlFixture)
 
@@ -121,9 +121,9 @@ describe('Transform Class for multiple entries', () => {
 })
 
 describe('Transform Class for a single entry', () => {
-  const xmlPath = path.join(__dirname, 'fixtures/single-entry.xml')
+  const xmlPath = path.join(__dirname, '../fixtures/single-entry.xml')
   const xmlFixture = fs.readFileSync(xmlPath, 'utf8')
-  const jsonPath = path.join(__dirname, 'fixtures/single-entry.json')
+  const jsonPath = path.join(__dirname, '../fixtures/single-entry.json')
   const jsonFixture = require(jsonPath)
   const transform = new Transform(xmlFixture)
 

@@ -6,11 +6,11 @@ const assert = require('assert')
 const fs = require('fs-extra')
 const path = require('path')
 const sinon = require('sinon')
-const Traverse = require('../lib/traverse')
+const Traverse = require('../../lib/traverse')
 
 const opt = {
-  entriesXmlGlob: path.join(__dirname, 'fixtures/*.xml'),
-  entriesJsonDir: path.join(__dirname, '../temp/test-entries')
+  entriesXmlGlob: path.join(__dirname, '../fixtures/*.xml'),
+  entriesJsonDir: path.join(__dirname, '../../temp/test-entries')
 }
 const transformCallback = function (xmlPath, val) { return 'success' }
 const transformSpy = sinon.spy(transformCallback)

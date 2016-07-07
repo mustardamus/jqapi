@@ -6,11 +6,11 @@ const _ = require('lodash')
 const assert = require('assert')
 const fs = require('fs-extra')
 const path = require('path')
-const Navigation = require('../lib/navigation')
+const Navigation = require('../../lib/navigation')
 
 const opt = {
-  entriesJsonGlob: path.join(__dirname, 'fixtures/*.json'),
-  navigationJsonPath: path.join(__dirname, '../temp/test-navigation.json'),
+  entriesJsonGlob: path.join(__dirname, '../fixtures/*.json'),
+  navigationJsonPath: path.join(__dirname, '../../temp/test-navigation.json'),
   navigationDescTrim: 10
 }
 
@@ -45,7 +45,7 @@ describe('Navigation Class', function () {
 
   it('should have the correct metas on the entries', () => {
     let entry = navigation.generate().sub[0]
-    let jsonPath = path.join(__dirname, 'fixtures/multi-entry.json')
+    let jsonPath = path.join(__dirname, '../fixtures/multi-entry.json')
     let json = require(jsonPath)
 
     assert.equal(entry.name, path.basename(jsonPath, '.json'))

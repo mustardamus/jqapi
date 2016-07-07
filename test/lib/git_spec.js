@@ -6,11 +6,11 @@ const path = require('path')
 const assert = require('assert')
 const fs = require('fs-extra')
 const sinon = require('sinon')
-const Git = require('../lib/git.js')
+const Git = require('../../lib/git.js')
 
 const opt = {
-  tempDir: path.join(__dirname, '../temp'),
-  repoDir: path.join(__dirname, '../temp/test'),
+  tempDir: path.join(__dirname, '../../temp'),
+  repoDir: path.join(__dirname, '../../temp/test'),
   repoUrl: 'https://github.com/mustardamus/test.git'
 }
 const git = new Git(opt)
