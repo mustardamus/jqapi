@@ -50,7 +50,13 @@ describe('Transform Class for multiple entries', () => {
   it('should get single entry slugs', () => {
     let entry = transform.getEntry(0)
     let slugs = transform.getEntrySlugs(entry)
-    let checkArr = ['category 1', 'category 2/sub', 'version/1.0', 'version/1.4']
+    let checkArr = [
+      'category 1',
+      'category 2',
+      'category 2/sub',
+      'version/1.0',
+      'version/1.4'
+    ]
 
     assert.deepEqual(slugs, checkArr)
   })

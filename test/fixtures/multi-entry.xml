@@ -42,6 +42,7 @@
     <desc>.test() a desc</desc>
     <longdesc>.test() a longdesc</longdesc>
     <category slug="category 1"/>
+    <category slug="category 2"/>
     <category slug="category 2/sub"/>
     <category slug="version/1.0"/>
     <category slug="version/1.4"/>
