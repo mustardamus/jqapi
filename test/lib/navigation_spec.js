@@ -38,7 +38,7 @@ describe('Navigation Class', function () {
     let entries = navigation.generate()
 
     assert.equal(_.isArray(entries['category 2']), true)
-    assert.equal(entries['category 2'].length, 3)
+    assert.equal(entries['category 2'].length, 2)
     assert.equal(_.isArray(entries['sub']), true)
     assert.equal(entries['sub'].length, 1)
   })
