@@ -9,7 +9,7 @@ const sinon = require('sinon')
 const Traverse = require('../../lib/traverse')
 
 const opt = {
-  entriesXmlGlob: path.join(__dirname, '../fixtures/*.xml'),
+  entriesXmlGlob: path.join(__dirname, '../fixtures/*-entry.xml'),
   entriesJsonDir: path.join(__dirname, '../../temp/test-entries')
 }
 const transformCallback = function (xmlPath, val) { return 'success' }

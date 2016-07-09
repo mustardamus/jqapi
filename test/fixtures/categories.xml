@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<categories>
+  <category name="Category 1" slug="category-1">
+    <desc><![CDATA[Category 1 Desc]]></desc>
+    <category name="Category 1-1" slug="category-1-1">
+      <desc><![CDATA[Category 1-1 Desc]]></desc>
+    </category>
+    <category name="Category 1-2" slug="category-1-2">
+      <desc><![CDATA[Category 1-2 Desc]]></desc>
+    </category>
+  </category>
+  <category name="Category 2" slug="category-2">
+    <desc><![CDATA[Category 2 Desc]]></desc>
+  </category>
+  <category name="Category 3" slug="category-3">
+    <desc/>
+  </category>
+</categories>

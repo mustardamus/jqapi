@@ -13,6 +13,7 @@ const updateIntervalMs = 1000 * 60 * 60 * 3
 const entriesJsonGlob = path.join(entriesJsonDir, '*.json')
 const navigationJsonPath = path.join(publicDir, 'entries.json')
 const navigationDescTrim = 100
+const categoriesXmlPath = path.join(repoDir, 'categories.xml')
 
 module.exports = {
   baseDir,
@@ -25,5 +26,6 @@ module.exports = {
   updateIntervalMs,
   entriesJsonGlob,
   navigationJsonPath,
-  navigationDescTrim
+  navigationDescTrim,
+  categoriesXmlPath
 }
