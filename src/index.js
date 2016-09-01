@@ -1,5 +1,9 @@
 const $ = require('jquery')
+const actions = require('./js/actions')
 const Navigation = require('./js/navigation')
 
-const entries = require('../test/fixtures/entries.json')
-const navigation = new Navigation($('body'), entries)
+actions.events.on('navigation:data', (e, entries) => {
+  const navigation = new Navigation($('body'), entries)
+})
+
+actions.loadNavigation()

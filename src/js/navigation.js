@@ -16,9 +16,14 @@ module.exports = class Navigation {
     let listTemplate = templates.categoriesList
     let $categoryList = $(listTemplate)
 
-    for (let category of this.categories) {
+    for (let category of categories) {
       let itemTemplate = templates.categoriesItem(category)
       let $categoryItem = $(itemTemplate)
+
+      if (category.categories) {
+        let $subList = this.generateCategoriesList(category.categories)
+        $subList.appendTo($categoryItem)
+      }
 
       $categoryItem.appendTo($categoryList) 
     }
