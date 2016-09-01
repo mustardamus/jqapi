@@ -22,7 +22,11 @@ describe('Navigation Class', () => {
 
   it('should have generated a list of categories', () => {
     let $cats = $('ul.categories', $el)
+    let first = entries.categories[0]
+    let $first = $cats.children().eq(0)
 
     assert.equal($cats.children().length, entries.categories.length)
+    assert.equal($first.find('.category-name').text(), first.name)
+    assert.equal($first.find('.category-desc').text(), first.desc)
   })
 })

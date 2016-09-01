@@ -1,4 +1,5 @@
 const $ = require('jquery')
+const templates = require('../templates/navigation')
 
 module.exports = class Navigation {
   constructor ($el, entries) {
@@ -6,18 +7,22 @@ module.exports = class Navigation {
     this.entries = entries.entries
     this.categories = entries.categories
 
-    let $categories = this.generateCategoriesList()
+    let $categories = this.generateCategoriesList(this.categories)
 
     $categories.appendTo(this.$el)
   }
 
-  generateCategoriesList () {
-    let $list = $('<ul class="categories"/>')
+  generateCategoriesList (categories) {
+    let listTemplate = templates.categoriesList
+    let $categoryList = $(listTemplate)
 
     for (let category of this.categories) {
-      $list.append(`<li>need templates</li>`)
+      let itemTemplate = templates.categoriesItem(category)
+      let $categoryItem = $(itemTemplate)
+
+      $categoryItem.appendTo($categoryList) 
     }
 
-    return $list
+    return $categoryList
   }
 }
