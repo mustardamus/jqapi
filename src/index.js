@@ -1,5 +1,5 @@
+const $ = require('jquery')
 const Navigation = require('./js/navigation')
 
-const navigation = new Navigation()
-
-console.log(navigation, navigation.works())
+const entries = require('../test/fixtures/entries.json')
+const navigation = new Navigation($('body'), entries)

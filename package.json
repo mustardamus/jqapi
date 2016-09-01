@@ -22,11 +22,6 @@
       "babelify"
     ]
   },
-  "babel": {
-    "presets": [
-      "es2015"
-    ]
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/mustardamus/jqapi.git"
@@ -44,6 +39,7 @@
   },
   "homepage": "https://github.com/mustardamus/jqapi#readme",
   "devDependencies": {
+    "babel-polyfill": "^6.13.0",
     "babel-preset-es2015": "^6.9.0",
     "babelify": "^7.3.0",
     "karma": "^1.1.0",

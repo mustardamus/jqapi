@@ -1,0 +1,91 @@
+{
+  "entries": {
+    "traversing": [
+      {
+        "name": "add",
+        "title": ".add()",
+        "desc": "Create a new jQuery object with elements added to the set of matched elements."
+      },
+      {
+        "name": "addBack",
+        "title": ".addBack()",
+        "desc": "Add the previous set of elements on the stack to the current set, optionally filtered by a selector."
+      },
+      {
+        "name": "andSelf",
+        "title": ".andSelf()",
+        "desc": "Add the previous set of elements on the stack to the current set."
+      }
+    ],
+    "miscellaneous-traversal": [
+      {
+        "name": "add",
+        "title": ".add()",
+        "desc": "Create a new jQuery object with elements added to the set of matched elements."
+      },
+      {
+        "name": "addBack",
+        "title": ".addBack()",
+        "desc": "Add the previous set of elements on the stack to the current set, optionally filtered by a selector."
+      }
+    ],
+    "attributes": [
+      {
+        "name": "addClass",
+        "title": ".addClass()",
+        "desc": "Adds the specified class(es) to each element in the set of matched elements."
+      },
+      {
+        "name": "attr",
+        "title": ".attr()",
+        "desc": "Get the value of an attribute for the first element in the set of matched elements or set one or mor..."
+      },
+      {
+        "name": "hasClass",
+        "title": ".hasClass()",
+        "desc": "Determine whether any of the matched elements are assigned the given class."
+      },
+      {
+        "name": "html",
+        "title": ".html()",
+        "desc": "Get the HTML contents of the first element in the set of matched elements or set the HTML contents o..."
+      }
+    ],
+    "manipulation": [
+      {
+        "name": "addClass",
+        "title": ".addClass()",
+        "desc": "Adds the specified class(es) to each element in the set of matched elements."
+      },
+      {
+        "name": "after",
+        "title": ".after()",
+        "desc": "Insert content, specified by the parameter, after each element in the set of matched elements."
+      }
+    ]
+  },
+  "categories": [
+    {
+      "slug": "traversing",
+      "name": "Traversing",
+      "desc": "Some traveling, maybe",
+      "categories": [
+        {
+          "slug": "miscellaneous-traversal",
+          "name": "Miscellaneous Traversal",
+          "desc": "miscellaneous-traversal desc"
+        },
+        {
+          "slug": "manipulation",
+          "name": "Manipulation",
+          "desc": "manipulation desc"
+        }
+      ]
+    },
+    {
+      "slug": "attributes",
+      "name": "Attributes",
+      "desc": "These methods get and set DOM attributes of elements."
+    }
+  ]
+}
