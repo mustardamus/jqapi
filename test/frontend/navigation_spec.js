@@ -22,15 +22,17 @@ describe('Navigation Class', () => {
 
   it('should have generated a list of categories', () => {
     let $cats = $el.children('ul.categories')
-    let first = entries.categories[0]
-    let $first = $cats.children().eq(0)
-    let $firstSub = $first.children('ul.categories')
+    let firstCat = entries.categories[0]
+    let $firstCat = $cats.children().eq(0)
+    let $firstCatSub = $firstCat.children('ul.categories')
+    let $firstCatSubFirst = $firstCatSub.children().eq(0)
 
     assert.equal($cats.children().length, entries.categories.length)
-    assert.equal($first.children('.category-name').text(), first.name)
-    assert.equal($first.children('.category-desc').text(), first.desc)
-    assert.equal($firstSub.length, 1)
-    assert.equal($firstSub.children().eq(0).children('.category-name').text(), first.categories[0].name)
-    assert.equal($firstSub.children().eq(0).children('.category-desc').text(), first.categories[0].desc)
+    assert.equal($firstCat.children('.category-name').text(), firstCat.name)
+    assert.equal($firstCat.children('.category-desc').text(), firstCat.desc)
+    assert.equal($firstCatSub.length, 1)
+    assert.equal($firstCatSubFirst.children('.category-name').text(), firstCat.categories[0].name)
+    assert.equal($firstCatSubFirst.children('.category-desc').text(), firstCat.categories[0].desc)
+    assert.equal($firstCatSubFirst.children('.entries').length, 1)
   })
 })

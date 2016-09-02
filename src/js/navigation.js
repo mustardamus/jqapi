@@ -25,9 +25,33 @@ module.exports = class Navigation {
         $subList.appendTo($categoryItem)
       }
 
-      $categoryItem.appendTo($categoryList) 
+      let $entriesList = this.generateEntriesList(category.slug)
+
+      if ($entriesList) {
+        $entriesList.appendTo($categoryItem)
+        $categoryItem.appendTo($categoryList)
+      }
     }
 
     return $categoryList
+  }
+
+  generateEntriesList (categorySlug) {
+    let entries = this.entries[categorySlug]
+
+    if (!entries) {
+      console.log('Can not find entries of category', categorySlug)
+      return false
+    }
+
+    let listTemplate = templates.entriesList
+    let $entriesList = $(listTemplate)
+
+    for (let entry of entries) {
+      let itemTemplate = templates.entriesItem(entry)
+      $(itemTemplate).appendTo($entriesList)
+    }
+
+    return $entriesList
   }
 }
