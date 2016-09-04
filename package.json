@@ -12,9 +12,9 @@
     "watch-js": "watchify src/index.js -v -o public/build.js",
     "build-css": "stylus -u autoprefixer-stylus --include-css --include src < src/index.styl > public/build.css",
     "watch-css": "chokidar src/**/*.styl -c 'npm run build-css'",
-    "lib-test": "mocha test/lib/**/*_spec.js",
-    "frontend-test": "karma start karma.conf.js",
-    "frontend-test-single-run": "karma start karma.conf.js --single-run",
+    "test-lib": "mocha test/lib/**/*_spec.js",
+    "test-frontend": "karma start karma.conf.js",
+    "test-frontend-single-run": "karma start karma.conf.js --single-run",
     "start": "npm run copy-html & npm run dev-server & npm run watch-js & npm run watch-css",
     "test": "npm run lib-test && npm run frontend-test-single-run",
     "lint": "standard"
