@@ -7,8 +7,10 @@ const assert = require('assert')
 
 const $el = $('<div/>')
 const Navigation = require('../../src/js/navigation')
-const entries = require('../fixtures/entries.json')
-const navigation = new Navigation($el, entries)
+const fixture = require('../fixtures/entries.json')
+const entries = fixture.entries
+const categories = fixture.categories
+const navigation = new Navigation($el, fixture)
 
 describe('Navigation Class', () => {
   it('should have set the output element', () => {
@@ -16,23 +18,24 @@ describe('Navigation Class', () => {
   })
 
   it('should have set the entries and categories', () => {
-    assert.deepEqual(navigation.entries, entries.entries)
-    assert.deepEqual(navigation.categories, entries.categories)
+    assert.deepEqual(navigation.entries, entries)
+    assert.deepEqual(navigation.categories, categories)
   })
 
-  it('should have generated a list of categories', () => {
-    let $cats = $el.children('ul.categories')
-    let firstCat = entries.categories[0]
-    let $firstCat = $cats.children().eq(0)
-    let $firstCatSub = $firstCat.children('ul.categories')
-    let $firstCatSubFirst = $firstCatSub.children().eq(0)
+  it('should have generated a list of categories, sub-categories and entries', () => {
+    let $ul = $el.children('ul.categories')
+    let $li1 = $ul.children().eq(0)
+    let $li1Ul = $li1.children('ul.categories')
+    let $li1UlLi1 = $li1Ul.children().eq(0)
+    let slug = categories[0].categories[0].slug
 
-    assert.equal($cats.children().length, entries.categories.length)
-    assert.equal($firstCat.children('.category-name').text(), firstCat.name)
-    assert.equal($firstCat.children('.category-desc').text(), firstCat.desc)
-    assert.equal($firstCatSub.length, 1)
-    assert.equal($firstCatSubFirst.children('.category-name').text(), firstCat.categories[0].name)
-    assert.equal($firstCatSubFirst.children('.category-desc').text(), firstCat.categories[0].desc)
-    assert.equal($firstCatSubFirst.children('.entries').length, 1)
+    assert.equal($ul.children().length, categories.length)
+    assert.equal($li1.children('.category-name').text(), categories[0].name)
+    assert.equal($li1.children('.category-desc').text(), categories[0].desc)
+    assert.equal($li1Ul.length, 1)
+    assert.equal($li1UlLi1.children('.category-name').text(), categories[0].categories[0].name)
+    assert.equal($li1UlLi1.children('.category-desc').text(), categories[0].categories[0].desc)
+    assert.equal($li1UlLi1.children('.entries').length, 1)
+    assert.equal($li1UlLi1.children('.entries').children().length, entries[slug].length)
   })
 })
