@@ -39,4 +39,10 @@ describe('Navigation Class', () => {
     assert.equal($li1Entries.length, 1)
     assert.equal($li1Entries.children().length, entries[slug].length)
   })
+
+  it('should initially hide sub-categories and entries', () => {
+    assert.equal($el.children('ul.categories').hasClass('hidden'), false)
+    assert.equal($el.find('ul.categories li:eq(0) > ul.categories').hasClass('hidden'), true)
+    assert.equal($el.find('ul.entries').hasClass('hidden'), true)
+  })
 })

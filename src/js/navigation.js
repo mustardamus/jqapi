@@ -6,10 +6,11 @@ module.exports = class Navigation {
     this.$el = $el
     this.entries = entries.entries
     this.categories = entries.categories
+    this.hiddenClass = 'hidden'
 
     let $categories = this.generateCategoriesList(this.categories)
 
-    $categories.appendTo(this.$el)
+    $categories.removeClass(this.hiddenClass).appendTo(this.$el)
   }
 
   generateCategoriesList (categories) {
@@ -28,12 +29,12 @@ module.exports = class Navigation {
       let $entriesList = this.generateEntriesList(category.slug)
 
       if ($entriesList) {
-        $entriesList.appendTo($categoryItem)
+        $entriesList.addClass(this.hiddenClass).appendTo($categoryItem)
         $categoryItem.appendTo($categoryList)
       }
     }
 
-    return $categoryList
+    return $categoryList.addClass(this.hiddenClass)
   }
 
   generateEntriesList (categorySlug) {
