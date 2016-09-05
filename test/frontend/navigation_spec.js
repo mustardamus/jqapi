@@ -41,8 +41,16 @@ describe('Navigation Class', () => {
   })
 
   it('should initially hide sub-categories and entries', () => {
-    assert.equal($el.children('ul.categories').hasClass('hidden'), false)
-    assert.equal($el.find('ul.categories li:eq(0) > ul.categories').hasClass('hidden'), true)
-    assert.equal($el.find('ul.entries').hasClass('hidden'), true)
+    assert.equal($el.children('ul.categories').hasClass('active'), false)
+    assert.equal($el.find('ul.categories li:eq(0) > ul.categories').hasClass('active'), false)
+    assert.equal($el.find('ul.entries').hasClass('active'), false)
+  })
+
+  it('should show entries and sub-categories when clicking on a category', () => {
+    let $li1 = $el.children('ul.categories').children().eq(0)
+
+    assert.equal($li1.hasClass('active'), false)
+    $li1.trigger('click')
+    assert.equal($li1.hasClass('active'), true)
   })
 })

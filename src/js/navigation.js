@@ -6,11 +6,15 @@ module.exports = class Navigation {
     this.$el = $el
     this.entries = entries.entries
     this.categories = entries.categories
-    this.hiddenClass = 'hidden'
+    this.activeClass = 'active'
+    this.categoriesClass = 'categories'
+    this.categoryClass = 'category'
+    this.entriesClass = 'entries'
+    this.entryClass = 'entry'
 
     let $categories = this.generateCategoriesList(this.categories)
 
-    $categories.removeClass(this.hiddenClass).appendTo(this.$el)
+    $categories.appendTo(this.$el)
   }
 
   generateCategoriesList (categories) {
@@ -21,6 +25,11 @@ module.exports = class Navigation {
       let itemTemplate = templates.categoriesItem(category)
       let $categoryItem = $(itemTemplate)
 
+      $categoryItem.on('click', (e) => {
+        this.onCategoryItemClick($categoryItem)
+        e.stopPropagation()
+      })
+
       if (category.categories) {
         let $subList = this.generateCategoriesList(category.categories)
         $subList.appendTo($categoryItem)
@@ -29,12 +38,12 @@ module.exports = class Navigation {
       let $entriesList = this.generateEntriesList(category.slug)
 
       if ($entriesList) {
-        $entriesList.addClass(this.hiddenClass).appendTo($categoryItem)
+        $entriesList.appendTo($categoryItem)
         $categoryItem.appendTo($categoryList)
       }
     }
 
-    return $categoryList.addClass(this.hiddenClass)
+    return $categoryList
   }
 
   generateEntriesList (categorySlug) {
@@ -54,5 +63,9 @@ module.exports = class Navigation {
     }
 
     return $entriesList
+  }
+
+  onCategoryItemClick ($categoryItem) {
+    $categoryItem.toggleClass(this.activeClass)
   }
 }

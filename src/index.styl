@@ -3,5 +3,13 @@ body
   background: yellow
   display: flex
 
-.hidden
-  display: none
+ul.categories
+  li.category
+    cursor: pointer
+    
+    > ul.categories, > ul.entries
+      display: none
+    
+    &.active
+      > ul.categories, > ul.entries
+        display: block
