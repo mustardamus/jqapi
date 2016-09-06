@@ -4,13 +4,17 @@ require('babel-polyfill') // needed with PhantomJS+ES2015
 
 const $ = require('jquery')
 const assert = require('assert')
+const sinon = require('sinon')
+const actions = require('../../src/js/actions')
+
+sinon.spy(actions, 'loadEntry')
 
 const $el = $('<div/>')
 const Navigation = require('../../src/js/navigation')
 const fixture = require('../fixtures/entries.json')
 const entries = fixture.entries
 const categories = fixture.categories
-const navigation = new Navigation($el, fixture)
+const navigation = new Navigation(actions, $el, fixture)
 
 describe('Navigation Class', () => {
   it('should have set the output element', () => {
@@ -66,5 +70,18 @@ describe('Navigation Class', () => {
     $li2.trigger('click')
     assert.equal($el.find('.entry.active').length, 1)
     assert.equal($li2.hasClass('active'), true)
+  })
+
+  it('should trigger a load action on entry click', () => {
+    let $li = $el.find('ul.categories > li:eq(1) > ul.entries > li:eq(0)')
+
+    $li.trigger('click')
+
+    let entryData = actions.loadEntry.getCall(0).args[0]
+
+    assert.equal(actions.loadEntry.callCount, 3) // with previous test
+    assert.ok(entryData.name)
+    assert.ok(entryData.title)
+    assert.ok(entryData.desc)
   })
 })

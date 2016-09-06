@@ -10,6 +10,10 @@ class Actions {
       this.events.trigger('navigation:data', res)
     })
   }
+
+  loadEntry (entryData) {
+    console.log(entryData)
+  }
 }
 
 module.exports = new Actions()
