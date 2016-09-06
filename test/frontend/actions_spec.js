@@ -41,7 +41,6 @@ describe('Actions', function () {
   })
 
   it('should load a requested entry', function () {
-    return
     let fixture = {
       name: 'entry',
       title: 'Entry',
@@ -50,14 +49,14 @@ describe('Actions', function () {
 
     actions.loadEntry(fixture)
 
-    assert.equal(this.requests.length, 1)
-    assert.equal(this.requests[0].url, '/entries/entry.json')
+    assert.equal(this.requests.length, 2)
+    assert.equal(this.requests[1].url, '/entries/entry.json')
 
-    this.requests[0].respond(200, { 'Content-Type': 'application/json' }, JSON.stringify(fixture))
+    this.requests[1].respond(200, { 'Content-Type': 'application/json' }, JSON.stringify(fixture))
 
-    let args = actions.events.trigger.getCall(0).args
+    let args = actions.events.trigger.getCall(1).args
 
-    assert.equal(actions.events.trigger.calledOnce, true)
+    assert.equal(actions.events.trigger.callCount, 2)
     assert.equal(args[0], 'entry:data')
     assert.deepEqual(args[1], fixture)
   })
