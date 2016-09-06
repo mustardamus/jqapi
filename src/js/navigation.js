@@ -1,6 +1,5 @@
 const $ = require('jquery')
 const templates = require('../templates/navigation')
-const actions = require('./actions')
 
 module.exports = class Navigation {
   constructor (actions, $el, entries) {
@@ -81,6 +80,6 @@ module.exports = class Navigation {
   onEntryItemClick ($entryItem, entryData) {
     $(`.${this.entryClass}.${this.activeClass}`, this.$el).removeClass(this.activeClass)
     $entryItem.addClass(this.activeClass)
-    actions.loadEntry(entryData)
+    this.actions.loadEntry(entryData)
   }
 }

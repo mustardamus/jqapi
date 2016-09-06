@@ -12,7 +12,9 @@ class Actions {
   }
 
   loadEntry (entryData) {
-    console.log(entryData)
+    $.getJSON(`/entries/${entryData.name}.json`, (res) => {
+      this.events.trigger('entry:data', res)
+    })
   }
 }
 
