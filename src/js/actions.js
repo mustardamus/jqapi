@@ -13,7 +13,8 @@ class Actions {
 
   loadEntry (entryData) {
     $.getJSON(`/entries/${entryData.name}.json`, (res) => {
-      this.events.trigger('entry:data', res)
+      let data = Object.assign(entryData, res)
+      this.events.trigger('entry:data', data)
     })
   }
 }
