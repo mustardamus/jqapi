@@ -16,7 +16,7 @@
     "test-frontend": "karma start karma.conf.js",
     "test-frontend-single-run": "karma start karma.conf.js --single-run",
     "start": "npm run copy-html & npm run dev-server & npm run watch-js & npm run watch-css",
-    "test": "npm run lib-test && npm run frontend-test-single-run",
+    "test": "npm run test-lib && npm run test-frontend-single-run",
     "lint": "standard"
   },
   "browserify": {
