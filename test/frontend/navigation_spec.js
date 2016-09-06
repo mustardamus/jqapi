@@ -52,5 +52,19 @@ describe('Navigation Class', () => {
     assert.equal($li1.hasClass('active'), false)
     $li1.trigger('click')
     assert.equal($li1.hasClass('active'), true)
+    $li1.trigger('click')
+    assert.equal($li1.hasClass('active'), false)
+  })
+
+  it('should set a entry to active if clicked', () => {
+    let $li1 = $el.find('ul.categories > li:eq(0) > ul.categories > li:eq(0) > ul.entries > li:eq(0)')
+    let $li2 = $el.find('ul.categories > li:eq(1) > ul.entries > li:eq(0)')
+
+    assert.equal($li1.hasClass('active'), false)
+    $li1.trigger('click')
+    assert.equal($li1.hasClass('active'), true)
+    $li2.trigger('click')
+    assert.equal($el.find('.entry.active').length, 1)
+    assert.equal($li2.hasClass('active'), true)
   })
 })

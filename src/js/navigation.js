@@ -26,7 +26,7 @@ module.exports = class Navigation {
       let $categoryItem = $(itemTemplate)
 
       $categoryItem.on('click', (e) => {
-        this.onCategoryItemClick($categoryItem)
+        this.onCategoryItemClick($categoryItem, category)
         e.stopPropagation()
       })
 
@@ -59,13 +59,25 @@ module.exports = class Navigation {
 
     for (let entry of entries) {
       let itemTemplate = templates.entriesItem(entry)
-      $(itemTemplate).appendTo($entriesList)
+      let $entryItem = $(itemTemplate)
+
+      $entryItem.on('click', (e) => {
+        this.onEntryItemClick($entryItem, entry)
+        e.stopPropagation()
+      })
+
+      $entryItem.appendTo($entriesList)
     }
 
     return $entriesList
   }
 
-  onCategoryItemClick ($categoryItem) {
+  onCategoryItemClick ($categoryItem, categoryData) {
     $categoryItem.toggleClass(this.activeClass)
+  }
+
+  onEntryItemClick ($entryItem, entryData) {
+    $(`.${this.entryClass}.${this.activeClass}`, this.$el).removeClass(this.activeClass)
+    $entryItem.addClass(this.activeClass)
   }
 }
