@@ -15,6 +15,10 @@ const categories = fixture.categories
 const navigation = new Navigation(actions, $el, fixture)
 
 describe('Navigation Class', () => {
+  it('should have set the actions', () => {
+    assert.deepEqual(navigation.actions, actions)
+  })
+
   it('should have set the output element', () => {
     assert.deepEqual(navigation.$el, $el)
   })

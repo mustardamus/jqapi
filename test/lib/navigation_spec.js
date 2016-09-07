@@ -17,7 +17,7 @@ const opt = {
 
 const navigation = new Navigation(opt)
 
-describe('Navigation Class', function () {
+describe('Navigation Class', () => {
   it('should have initialized with options', () => {
     assert.equal(navigation.options.entriesJsonGlob, opt.entriesJsonGlob)
     assert.equal(navigation.options.navigationJsonPath, opt.navigationJsonPath)
