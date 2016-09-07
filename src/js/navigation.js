@@ -2,20 +2,25 @@ const $ = require('jquery')
 const templates = require('../templates/navigation')
 
 module.exports = class Navigation {
-  constructor (actions, $el, entries) {
+  constructor (actions, $el) {
     this.actions = actions
     this.$el = $el
-    this.entries = entries.entries
-    this.categories = entries.categories
+    this.categories = []
+    this.entries = []
     this.activeClass = 'active'
     this.categoriesClass = 'categories'
     this.categoryClass = 'category'
     this.entriesClass = 'entries'
-    this.entryClass = 'entry'
+    this.entryClass = 'entry'    
+  }
+
+  render (entries) {
+    this.categories = entries.categories
+    this.entries = entries.entries
 
     let $categories = this.generateCategoriesList(this.categories)
 
-    $categories.appendTo(this.$el)
+    this.$el.html('').append($categories)
   }
 
   generateCategoriesList (categories) {

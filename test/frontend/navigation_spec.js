@@ -12,7 +12,7 @@ const Navigation = require('../../src/js/navigation')
 const fixture = require('../fixtures/entries.json')
 const entries = fixture.entries
 const categories = fixture.categories
-const navigation = new Navigation(actions, $el, fixture)
+const navigation = new Navigation(actions, $el)
 
 describe('Navigation Class', () => {
   it('should have set the actions', () => {
@@ -23,12 +23,15 @@ describe('Navigation Class', () => {
     assert.deepEqual(navigation.$el, $el)
   })
 
-  it('should have set the entries and categories', () => {
+  it('should have generated a list of categories, sub-categories and entries', () => {
+    assert.equal(typeof navigation.render, 'function')
+    assert.equal($el.html(), '')
+
+    navigation.render(fixture)
+
     assert.deepEqual(navigation.entries, entries)
     assert.deepEqual(navigation.categories, categories)
-  })
 
-  it('should have generated a list of categories, sub-categories and entries', () => {
     let $ul = $el.children('ul.categories')
     let $li1 = $ul.children().eq(0)
     let $li1Ul = $li1.children('ul.categories')
