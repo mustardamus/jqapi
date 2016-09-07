@@ -1,15 +1,22 @@
 body
   height: 100%
-  background: yellow
   display: flex
 
-ul.categories
-  li.category
-    cursor: pointer
-    
-    > ul.categories, > ul.entries
-      display: none
-    
-    &.active
+#navigation
+  width: 20%
+  float: left
+
+  ul.categories
+    li.category
+      cursor: pointer
+      
       > ul.categories, > ul.entries
-        display: block
+        display: none
+      
+      &.active
+        > ul.categories, > ul.entries
+          display: block
+
+#content
+  width: 80%
+  float: left
