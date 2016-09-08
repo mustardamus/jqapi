@@ -25,4 +25,45 @@ module.exports = class Content {
 
     return $entry
   }
+
+  generateSignatureHeading (entry, signature) {
+    let args = []
+
+    for (let argument of signature.arguments) {
+      let argStr = ''
+
+      switch (argument.types[0]) {
+        case 'PlainObject':
+          let props = []
+
+          for (let prop of argument.properties) {
+            if (prop.types[0] === 'Function') {
+              let funcArgs = []
+
+              for (let arg of prop.callback.arguments) {
+                funcArgs.push(arg.name)
+              }
+
+              props.push(`${prop.name}: Function(${funcArgs.join(', ')})`)
+            } else {
+              props.push(`${prop.name}: ${prop.types.join('|')}`)
+            }
+          }
+
+          argStr = `{ ${props.join(', ')} }`
+          break
+
+        default:
+          argStr = argument.name
+      }
+
+      if (argument.optional) {
+        args.push(`[${argStr}]`)
+      } else {
+        args.push(argStr)
+      }
+    }
+
+    return templates.signatureHeader(entry.type, entry.name, args, entry.return) 
+  }
 }

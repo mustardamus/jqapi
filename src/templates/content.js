@@ -7,5 +7,11 @@ module.exports = {
         <div class="entry-longdesc">${entry.longdesc}</div>
       </li>
     `
+  },
+
+  signatureHeader: (type, name, args, ret) => {
+    if (type === 'method') {
+      return `${name}(${args.join(', ')}) -> ${ret}`
+    }
   }
 }

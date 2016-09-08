@@ -11,6 +11,7 @@ const $el = $('<div/>')
 const Content = require('../../src/js/content')
 const content = new Content(actions, $el)
 const fixture = require('../fixtures/multi-entry.json')
+const entries = fixture.entries
 
 describe('Content Class', () => {
   it('should have set the actions', () => {
@@ -28,10 +29,16 @@ describe('Content Class', () => {
     content.render(fixture)
 
     let $entries = $el.children('ul.entries')
-    let entries = fixture.entries
 
     assert.equal($entries.length, 1)
     assert.equal($entries.children().length, entries.length)
     assert.equal($entries.find('li:eq(0) > .entry-longdesc').html(), entries[0].longdesc)
+  })
+
+  it('should generate a signature heading', () => {
+    assert.equal(typeof content.generateSignatureHeading, 'function')
+    assert.equal(content.generateSignatureHeading(entries[0], entries[0].signatures[0]), 'test(propertyName) -> String')
+    assert.equal(content.generateSignatureHeading(entries[0], entries[0].signatures[1]), 'test(propertyNames, [propertyNames]) -> String')
+    assert.equal(content.generateSignatureHeading(entries[0], entries[0].signatures[2]), 'test({ accepts: PlainObject, beforeSend: Function(jqXHR, settings), data: PlainObject|String|Array }) -> String')
   })
 })
