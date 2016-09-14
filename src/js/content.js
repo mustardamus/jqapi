@@ -66,4 +66,27 @@ module.exports = class Content {
 
     return templates.signatureHeader(entry.type, entry.name, args, entry.return) 
   }
+
+  getArgumentTemplate (argument) {
+    let retTypes = []
+
+    for (let argType of argument.types) {
+      switch (argType.toLowerCase()) {
+        case 'plainobject':
+          if (argument.properties) {
+
+          } else {
+            retTypes.push(argType)
+          }
+
+          break
+        case 'function':
+          break
+        default:
+          retTypes.push(argType)
+      }
+    }
+
+    return templates.argumentShort(argument.name, retTypes)
+  }
 }

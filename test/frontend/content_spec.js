@@ -22,6 +22,17 @@ describe('Content Class', () => {
     assert.deepEqual(content.$el, $el)
   })
 
+  it('should create a argument template', () => {
+    let stringArg = { name: 'stringArg', types: ['String'] }
+    let $string = $(content.getArgumentTemplate(stringArg))
+    let multiArg = { name: 'multiArg', types: ['Number', 'PlainObject'] }
+    let $multi = $(content.getArgumentTemplate(multiArg))
+
+    assert.equal($string.children('.argument-name').text(), 'stringArg')
+    assert.equal($string.children('.argument-types').text(), 'String')
+    assert.equal($multi.children('.argument-types').text(), 'Number, PlainObject')
+  })
+
   it('should render a entry', () => {
     assert.equal(typeof content.render, 'function')
     assert.equal($el.html(), '')
