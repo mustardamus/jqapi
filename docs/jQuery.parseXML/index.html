@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang='en'><head><meta http-equiv='content-type' content='text/html; charset=UTF-8' /></head><body>
+<div class="entry-content">
+        <div class="entry-title roundTop">
+          
+          <h1 class="jq-clearfix">jQuery.parseXML()</h1>
+          <div class="entry-meta jq-clearfix">
+                        Categories:
+            <span class="category"><a href="http://api.jquery.com/category/utilities/" title="View all posts in Utilities">Utilities</a></span>
+  
+
+          </div>
+
+</div>
+<div id="jQuery-parseXML1" class="entry method">
+<h2 class="jq-clearfix roundTop section-title">
+<span class="name">jQuery.parseXML( data )</span> <span class="returns">Returns: <a class="return" href="http://api.jquery.com/Types/#XMLDocument">XMLDocument</a></span>
+</h2>
+<div class="jq-box roundBottom entry-details">
+<p class="desc"><strong>Description: </strong>Parses a string into an XML document.</p>
+<ul class="signatures"><li class="signature" id="jQuery-parseXML-data">
+<h4 class="name">
+<span class="versionAdded">version added: <a href="/category/version/1.5/">1.5</a></span>jQuery.parseXML( data )</h4>
+<p class="arguement"><strong>data</strong>a well-formed XML string to be parsed</p>
+</li></ul>
+<div class="longdesc"><p><code>jQuery.parseXML</code> uses the native parsing function of the browser to create a valid XML Document. This document can then be passed to <code>jQuery</code> to create a typical jQuery object that can be traversed and manipulated.</p></div>
+<h3>Example:</h3>
+<div class="entry-examples" id="entry-examples"><div id="example-0">
+<h4><span class="desc">Create a jQuery object using an XML string and obtain the value of the title node.</span></h4>
+<pre class="prettyprint"><code class="example demo-code">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;script src="http://code.jquery.com/jquery-1.7rc2.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  
+&lt;p id="someElement"&gt;&lt;/p&gt;
+&lt;p id="anotherElement"&gt;&lt;/p&gt;
+
+  
+
+&lt;script&gt;
+var xml = "&lt;rss version='2.0'&gt;&lt;channel&gt;&lt;title&gt;RSS Title&lt;/title&gt;&lt;/channel&gt;&lt;/rss&gt;",
+    xmlDoc = $.parseXML( xml ),
+    $xml = $( xmlDoc ),
+    $title = $xml.find( "title" );
+
+/* append "RSS Title" to #someElement */
+$( "#someElement" ).append( $title.text() );
+
+/* change the title to "XML Title" */
+$title.text( "XML Title" );
+
+/* append "XML Title" to #anotherElement */
+$( "#anotherElement" ).append( $title.text() );
+&lt;/script&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+<h4>Demo:</h4>
+<div class="demo code-demo"></div>
+</div></div>
+</div>
+</div>
+
+        </div>
+
+</body></html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang='en'><head><meta http-equiv='content-type' content='text/html; charset=UTF-8' /></head><body>
+<div class="entry-content">
+        <div class="entry-title roundTop">
+          
+          <h1 class="jq-clearfix">jQuery.getScript()</h1>
+          <div class="entry-meta jq-clearfix">
+                        Categories:
+            <span class="category"><a href="http://api.jquery.com/category/ajax/" title="View all posts in Ajax">Ajax</a> &gt; <a href="http://api.jquery.com/category/ajax/shorthand-methods/" title="View all posts in Shorthand Methods">Shorthand Methods</a></span>
+  
+
+          </div>
+
+</div>
+<div id="jQuery-getScript1" class="entry method">
+<h2 class="jq-clearfix roundTop section-title">
+<span class="name">jQuery.getScript( url [, success(data, textStatus)]  )</span> <span class="returns">Returns: <a class="return" href="http://api.jquery.com/Types/#jqXHR">jqXHR</a></span>
+</h2>
+<div class="jq-box roundBottom entry-details">
+<p class="desc"><strong>Description: </strong>Load a JavaScript file from the server using a GET HTTP request, then execute it.</p>
+<ul class="signatures"><li class="signature" id="jQuery-getScript-url-successdata- textStatus">
+<h4 class="name">
+<span class="versionAdded">version added: <a href="/category/version/1.0/">1.0</a></span>jQuery.getScript( url [, success(data, textStatus)] )</h4>
+<p class="arguement"><strong>url</strong>A string containing the URL to which the request is sent.</p>
+<p class="arguement"><strong>success(data, textStatus)</strong>A callback function that is executed if the request succeeds.</p>
+</li></ul>
+<div class="longdesc">
+<p>This is a shorthand Ajax function, which is equivalent to:</p>
+<pre>$.ajax({
+  url: <em>url</em>,
+  dataType: "script",
+  success: <em>success</em>
+});
+</pre>
+<p>The callback is passed the returned JavaScript file. This is generally not useful as the script will already have run at this point.</p>
+<p>The script is executed in the global context, so it can refer to other variables and use jQuery functions. Included scripts can have some impact on the current page:</p>
+<pre>$(".result").html("&lt;p&gt;Lorem ipsum dolor sit amet.&lt;/p&gt;");</pre>
+<p>Scripts are included and run by referencing the file name:</p>
+<pre>$.getScript('ajax/test.js', function(data, textStatus){
+   console.log(data); //data returned
+   console.log(textStatus); //success
+   console.log('Load was performed.');
+});</pre>
+<p><strong>Note:</strong> Should you require an additional callback for errors when using the <code>getScript()</code> method, the global <code>ajaxError()</code> callback event may be used to achieve this as follows:</p>
+<pre>
+$( "div.log" ).ajaxError(function(e, jqxhr, settings, exception) {
+  if (settings.dataType=='script') {
+    $(this).text( "Triggered ajaxError handler." );
+  }
+});
+</pre>
+</div>
+<h3>Example:</h3>
+<div class="entry-examples" id="entry-examples"><div id="example-0">
+<h4><span class="desc">Load the official jQuery Color Animation plugin dynamically and bind some color animations to occur once the new functionality is loaded.</span></h4>
+<pre class="prettyprint"><code class="example demo-code">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;style&gt;
+.block {
+   background-color: blue;
+   width: 150px;
+   height: 70px;
+   margin: 10px;
+}&lt;/style&gt;
+  &lt;script src="http://code.jquery.com/jquery-1.7rc2.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  
+&lt;button id="go"&gt;&amp;raquo; Run&lt;/button&gt;
+
+&lt;div class="block"&gt;&lt;/div&gt;
+
+&lt;script&gt;
+$.getScript("http://dev.jquery.com/view/trunk/plugins/color/jquery.color.js", function() {
+  $("#go").click(function(){
+    $(".block").animate( { backgroundColor: "pink" }, 1000)
+      .delay(500)
+      .animate( { backgroundColor: "blue" }, 1000);
+  });
+});
+&lt;/script&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+<h4>Demo:</h4>
+<div class="demo code-demo"></div>
+</div></div>
+</div>
+</div>
+
+        </div>
+
+</body></html>

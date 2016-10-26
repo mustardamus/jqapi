@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang='en'><head><meta http-equiv='content-type' content='text/html; charset=UTF-8' /></head><body>
+<div class="entry-content">
+        <div class="entry-title roundTop">
+          
+          <h1 class="jq-clearfix">.resize()</h1>
+          <div class="entry-meta jq-clearfix">
+                        Categories:
+            <span class="category"><a href="http://api.jquery.com/category/events/" title="View all posts in Events">Events</a> &gt; <a href="http://api.jquery.com/category/events/browser-events/" title="View all posts in Browser Events">Browser Events</a></span>
+  
+
+          </div>
+
+</div>
+<div id="resize1" class="entry method">
+<h2 class="jq-clearfix roundTop section-title">
+<span class="name">.resize( handler(eventObject) )</span> <span class="returns">Returns: <a class="return" href="http://api.jquery.com/Types/#jQuery">jQuery</a></span>
+</h2>
+<div class="jq-box roundBottom entry-details">
+<p class="desc"><strong>Description: </strong>Bind an event handler to the "resize" JavaScript event, or trigger that event on an element.</p>
+<ul class="signatures">
+<li class="signature" id="resize-handlereventObject">
+<h4 class="name">
+<span class="versionAdded">version added: <a href="/category/version/1.0/">1.0</a></span>.resize( handler(eventObject) )</h4>
+<p class="arguement"><strong>handler(eventObject)</strong>A function to execute each time the event is triggered.</p>
+</li>
+<li class="signature" id="resize-eventData-handlereventObject">
+<h4 class="name">
+<span class="versionAdded">version added: <a href="/category/version/1.4.3/">1.4.3</a></span>.resize(  [eventData], handler(eventObject) )</h4>
+<p class="arguement"><strong>eventData</strong>A map of data that will be passed to the event handler.</p>
+<p class="arguement"><strong>handler(eventObject)</strong>A function to execute each time the event is triggered.</p>
+</li>
+<li class="signature" id="resize"><h4 class="name">
+<span class="versionAdded">version added: <a href="/category/version/1.0/">1.0</a></span>.resize()</h4></li>
+</ul>
+<div class="longdesc">
+<p>This method is a shortcut for <code>.bind('resize', handler)</code> in the first and second variations, and <code>.trigger('resize')</code> in the third.</p>
+<p>The <code>resize</code> event is sent to the <code>window</code> element when the size of the browser window changes:</p>
+<pre>$(window).resize(function() {
+  $('#log').append('&lt;div&gt;Handler for .resize() called.&lt;/div&gt;');
+});
+</pre>
+<p>Now whenever the browser window's size is changed, the message is appended to &lt;div id="log"&gt; one or more times, depending on the browser.</p>
+<p>Code in a <code>resize</code> handler should never rely on the number of times the handler is called. Depending on implementation, <code>resize</code> events can be sent continuously as the resizing is in progress (the typical behavior in Internet Explorer and WebKit-based browsers such as Safari and Chrome), or only once at the end of the resize operation (the typical behavior in some other browsers such as Opera).</p>
+</div>
+<h3>Example:</h3>
+<div class="entry-examples" id="entry-examples"><div id="example-0">
+<h4><span class="desc">To see the window width while (or after) it is resized, try:</span></h4>
+<pre class="prettyprint"><code class="example">
+$(window).resize(function() {
+  $('body').prepend('&lt;div&gt;' + $(window).width() + '&lt;/div&gt;');
+});
+  </code></pre>
+</div></div>
+</div>
+</div>
+
+        </div>
+
+</body></html>

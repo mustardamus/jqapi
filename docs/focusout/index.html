@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang='en'><head><meta http-equiv='content-type' content='text/html; charset=UTF-8' /></head><body>
+<div class="entry-content">
+        <div class="entry-title roundTop">
+          
+          <h1 class="jq-clearfix">.focusout()</h1>
+          <div class="entry-meta jq-clearfix">
+                        Categories:
+            <span class="category"><a href="http://api.jquery.com/category/events/" title="View all posts in Events">Events</a> &gt; <a href="http://api.jquery.com/category/events/keyboard-events/" title="View all posts in Keyboard Events">Keyboard Events</a></span> | <span class="category"><a href="http://api.jquery.com/category/events/" title="View all posts in Events">Events</a> &gt; <a href="http://api.jquery.com/category/events/mouse-events/" title="View all posts in Mouse Events">Mouse Events</a></span>
+  
+
+          </div>
+
+</div>
+<div id="focusout1" class="entry method">
+<h2 class="jq-clearfix roundTop section-title">
+<span class="name">.focusout( handler(eventObject) )</span> <span class="returns">Returns: <a class="return" href="http://api.jquery.com/Types/#jQuery">jQuery</a></span>
+</h2>
+<div class="jq-box roundBottom entry-details">
+<p class="desc"><strong>Description: </strong>Bind an event handler to the "focusout" JavaScript event.</p>
+<ul class="signatures">
+<li class="signature" id="focusout-handlereventObject">
+<h4 class="name">
+<span class="versionAdded">version added: <a href="/category/version/1.4/">1.4</a></span>.focusout( handler(eventObject) )</h4>
+<p class="arguement"><strong>handler(eventObject)</strong>A function to execute each time the event is triggered.</p>
+</li>
+<li class="signature" id="focusout-eventData-handlereventObject">
+<h4 class="name">
+<span class="versionAdded">version added: <a href="/category/version/1.4.3/">1.4.3</a></span>.focusout(  [eventData], handler(eventObject) )</h4>
+<p class="arguement"><strong>eventData</strong>A map of data that will be passed to the event handler.</p>
+<p class="arguement"><strong>handler(eventObject)</strong>A function to execute each time the event is triggered.</p>
+</li>
+</ul>
+<div class="longdesc">
+<p>This method is a shortcut for <code>.bind('focusout', handler)</code>.</p>
+<p>The <code>focusout</code> event is sent to an element when it, or any element inside of it, loses focus. This is distinct from the <a href="/blur">blur</a> event in that it supports detecting the loss of focus from parent elements (in other words, it supports event bubbling).</p>
+<p>This event will likely be used together with the <a href="/focusin">focusin</a> event.</p>
+</div>
+<h3>Example:</h3>
+<div class="entry-examples" id="entry-examples"><div id="example-0">
+<h4><span class="desc">Watch for a loss of focus to occur inside paragraphs and note the difference between the focusout count and the blur count.</span></h4>
+<pre class="prettyprint"><code class="example demo-code">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;style&gt;
+.inputs { float: left; margin-right: 1em; }
+.inputs p { margin-top: 0; }
+&lt;/style&gt;
+  &lt;script src="http://code.jquery.com/jquery-1.7rc2.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  
+&lt;div class="inputs"&gt;
+  &lt;p&gt;
+    &lt;input type="text" /&gt;&lt;br /&gt;
+    &lt;input type="text" /&gt; 
+  &lt;/p&gt;
+  &lt;p&gt;
+    &lt;input type="password" /&gt;
+  &lt;/p&gt;
+&lt;/div&gt;
+&lt;div id="fo"&gt;focusout fire&lt;/div&gt;
+&lt;div id="b"&gt;blur fire&lt;/div&gt;
+
+&lt;script&gt;
+var fo = 0, b = 0;
+$("p").focusout(function() {
+  fo++;
+  $("#fo")
+    .text("focusout fired: " + fo + "x");
+}).blur(function() {
+  b++;
+  $("#b")
+    .text("blur fired: " + b + "x");
+  
+});
+&lt;/script&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+<h4>Demo:</h4>
+<div class="demo code-demo"></div>
+</div></div>
+</div>
+</div>
+
+        </div>
+
+</body></html>

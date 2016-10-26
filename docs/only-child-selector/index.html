@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang='en'><head><meta http-equiv='content-type' content='text/html; charset=UTF-8' /></head><body>
+<div class="entry-content">
+        <div class="entry-title roundTop">
+          
+          <h1 class="jq-clearfix">:only-child Selector</h1>
+          <div class="entry-meta jq-clearfix">
+                        Categories:
+            <span class="category"><a href="http://api.jquery.com/category/selectors/" title="View all posts in Selectors">Selectors</a> &gt; <a href="http://api.jquery.com/category/selectors/child-filter-selectors/" title="View all posts in Child Filter">Child Filter</a></span>
+  
+
+          </div>
+
+</div>
+<div id="only-child1" class="entry selector">
+<h2 class="jq-clearfix roundTop section-title">
+<span class="name">only-child</span>  selector</h2>
+<div class="jq-box roundBottom entry-details">
+<h4 class="name">
+<span class="versionAdded">version added: <a href="/category/version/1.1.4/">1.1.4</a></span>jQuery(':only-child')</h4>
+<p class="desc"><strong>Description: </strong>Selects all elements that are the only child of their parent.</p>
+<div class="longdesc"><p>If the parent has other child elements, nothing is matched.</p></div>
+<h3>Example:</h3>
+<div class="entry-examples" id="entry-examples"><div id="example-0">
+<h4><span class="desc">Change the text and add a border for each button that is the only child of its parent.</span></h4>
+<pre class="prettyprint"><code class="example demo-code">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;style&gt;
+  div { width:100px; height:80px; margin:5px; float:left; background:#b9e }
+&lt;/style&gt;
+  &lt;script src="http://code.jquery.com/jquery-1.7rc2.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;div&gt;
+  &lt;button&gt;Sibling!&lt;/button&gt;
+  &lt;button&gt;Sibling!&lt;/button&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;button&gt;Sibling!&lt;/button&gt;
+&lt;/div&gt;
+&lt;div&gt;
+  None
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;button&gt;Sibling!&lt;/button&gt;
+  &lt;button&gt;Sibling!&lt;/button&gt;
+  &lt;button&gt;Sibling!&lt;/button&gt;
+
+&lt;/div&gt;
+&lt;div&gt;
+  &lt;button&gt;Sibling!&lt;/button&gt;
+&lt;/div&gt;
+&lt;script&gt;
+  $("div button:only-child").text("Alone").css("border", "2px blue solid");
+&lt;/script&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+<h4>Demo:</h4>
+<div class="demo code-demo"></div>
+</div></div>
+</div>
+</div>
+
+        </div>
+
+</body></html>

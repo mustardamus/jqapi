@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang='en'><head><meta http-equiv='content-type' content='text/html; charset=UTF-8' /></head><body>
+<div class="entry-content">
+        <div class="entry-title roundTop">
+          
+          <h1 class="jq-clearfix">.is()</h1>
+          <div class="entry-meta jq-clearfix">
+                        Categories:
+            <span class="category"><a href="http://api.jquery.com/category/traversing/" title="View all posts in Traversing">Traversing</a> &gt; <a href="http://api.jquery.com/category/traversing/filtering/" title="View all posts in Filtering">Filtering</a></span>
+  
+
+          </div>
+
+</div>
+<div id="is1" class="entry method">
+<h2 class="jq-clearfix roundTop section-title">
+<span class="name">.is( selector )</span> <span class="returns">Returns: <a class="return" href="http://api.jquery.com/Types/#Boolean">Boolean</a></span>
+</h2>
+<div class="jq-box roundBottom entry-details">
+<p class="desc"><strong>Description: </strong>Check the current matched set of elements against a selector, element, or jQuery object and return true if at least one of these elements matches the given arguments.</p>
+<ul class="signatures">
+<li class="signature" id="is-selector">
+<h4 class="name">
+<span class="versionAdded">version added: <a href="/category/version/1.0/">1.0</a></span>.is( selector )</h4>
+<p class="arguement"><strong>selector</strong>A string containing a selector expression to match elements against.</p>
+</li>
+<li class="signature" id="is-functionindex">
+<h4 class="name">
+<span class="versionAdded">version added: <a href="/category/version/1.6/">1.6</a></span>.is( function(index) )</h4>
+<p class="arguement"><strong>function(index)</strong>A function used as a test for the set of elements. It accepts one argument, <code>index</code>, which is the element's index in the jQuery collection.Within the function, <code>this</code> refers to the current DOM element. </p>
+</li>
+<li class="signature" id="is-jQuery object">
+<h4 class="name">
+<span class="versionAdded">version added: <a href="/category/version/1.6/">1.6</a></span>.is( jQuery object )</h4>
+<p class="arguement"><strong>jQuery object</strong>An existing jQuery object to match the current set of elements against.</p>
+</li>
+<li class="signature" id="is-element">
+<h4 class="name">
+<span class="versionAdded">version added: <a href="/category/version/1.6/">1.6</a></span>.is( element )</h4>
+<p class="arguement"><strong>element</strong>An element to match the current set of elements against.</p>
+</li>
+</ul>
+<div class="longdesc">
+<p>Unlike other filtering methods, <code>.is()</code> does not create a new jQuery object. Instead, it allows you to test the contents of a jQuery object without modification. This is often useful inside callbacks, such as event handlers.</p>
+<p>Suppose you have a list, with two of its items containing a child element:</p>
+<pre>
+&lt;ul&gt;
+  &lt;li&gt;list &lt;strong&gt;item 1&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;span&gt;list item 2&lt;/span&gt;&lt;/li&gt;
+  &lt;li&gt;list item 3&lt;/li&gt;
+&lt;/ul&gt;
+</pre>
+<p>You can attach a click handler to the &lt;ul&gt; element, and then limit the code to be triggered only when a list item itself, not one of its children, is clicked:</p>
+<pre>$("ul").click(function(event) {
+  var $target = $(event.target);
+  if ( $target.is("li") ) {
+    $target.css("background-color", "red");
+  }
+});</pre>
+<p>Now, when the user clicks on the word "list" in the first item or anywhere in the third item, the clicked list item will be given a red background. However, when the user clicks on item 1 in the first item or anywhere in the second item, nothing will occur, because in those cases the target of the event would be <code>&lt;strong&gt;</code> or <code>&lt;span&gt;</code>, respectively.
+</p>
+<p>Prior to jQuery 1.7, in selector strings with positional selectors such as <code>:first</code>, <code>:gt()</code>, or <code>:even</code>, the positional filtering is done against the jQuery object passed to <code>.is()</code>, <em>not</em> against the containing document. So for the HTML shown above, an expression such as <code>$("li:first").is("li:last")</code> returns <code>true</code>, but <code>$("li:first-child").is("li:last-child")</code> returns <code>false</code>. In addition, a bug in Sizzle prevented many positional selectors from working properly. These two factors made positional selectors almost unusable in filters.</p>
+<p>Starting with jQuery 1.7, selector strings with positional selectors apply the selector against the document, and then determine whether the first element of the current jQuery set matches any of the resulting elements. So for the HTML shown above, an expression such as <code>$("li:first").is("li:last")</code> returns <code>false</code>. Note that since positional selectors are jQuery additions and not W3C standard, we recommend using the W3C selectors whenever feasible.</p>
+<h4>Using a Function</h4>
+<p>The second form of this method evaluates expressions related to elements based on a function rather than a selector. For each element, if the function returns <code>true</code>, <code>.is()</code> returns <code>true</code> as well. For example, given a somewhat more involved HTML snippet:</p>
+<pre>
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;list&lt;/strong&gt; item 1 - one strong tag&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;list&lt;/strong&gt; item &lt;strong&gt;2&lt;/strong&gt; -
+    two &lt;span&gt;strong tags&lt;/span&gt;&lt;/li&gt;
+  &lt;li&gt;list item 3&lt;/li&gt;
+  &lt;li&gt;list item 4&lt;/li&gt;
+  &lt;li&gt;list item 5&lt;/li&gt;
+&lt;/ul&gt;
+</pre>
+<p>You can attach a click handler to every <code>&lt;li&gt;</code> that evaluates the number of <code>&lt;strong&gt;</code> elements within the clicked <code>&lt;li&gt;</code> at that time like so:</p>
+<pre>
+$("li").click(function() {
+  var $li = $(this),
+    isWithTwo = $li.is(function() {
+      return $('strong', this).length === 2;
+    });
+  if ( isWithTwo ) {
+    $li.css("background-color", "green");
+  } else {
+    $li.css("background-color", "red");
+  }
+});
+</pre>
+</div>
+<h3>Examples:</h3>
+<div class="entry-examples" id="entry-examples">
+<div id="example-0">
+<h4>Example: <span class="desc">Shows a few ways is() can be used inside an event handler.</span>
+</h4>
+<pre class="prettyprint"><code class="example demo-code">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;style&gt;
+  div { width:60px; height:60px; margin:5px; float:left;
+      border:4px outset; background:green; text-align:center; 
+      font-weight:bolder; cursor:pointer; }
+  .blue { background:blue; }
+  .red { background:red; }
+  span { color:white; font-size:16px; }
+  p { color:red; font-weight:bolder; background:yellow; 
+      margin:3px; clear:left; display:none; }
+&lt;/style&gt;
+  &lt;script src="http://code.jquery.com/jquery-1.7rc2.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;div&gt;&lt;/div&gt;
+&lt;div class="blue"&gt;&lt;/div&gt;
+&lt;div&gt;&lt;/div&gt;
+&lt;div class="red"&gt;&lt;/div&gt;
+
+&lt;div&gt;&lt;br/&gt;&lt;span&gt;Peter&lt;/span&gt;&lt;/div&gt;
+&lt;div class="blue"&gt;&lt;/div&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;script&gt;
+  $("div").one('click', function () {
+    if ($(this).is(":first-child")) {
+      $("p").text("It's the first div.");
+    } else if ($(this).is(".blue,.red")) {
+      $("p").text("It's a blue or red div.");
+    } else if ($(this).is(":contains('Peter')")) {
+      $("p").text("It's Peter!");
+    } else {
+      $("p").html("It's nothing &lt;em&gt;special&lt;/em&gt;.");
+    }
+    $("p").hide().slideDown("slow");
+    $(this).css({"border-style": "inset", cursor:"default"});
+  });
+&lt;/script&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+<h4>Demo:</h4>
+<div class="demo code-demo"></div>
+</div>
+<div id="example-1">
+<h4>Example: <span class="desc">Returns true, because the parent of the input is a form element.</span>
+</h4>
+<pre class="prettyprint"><code class="example demo-code">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;style&gt;div { color:red; }&lt;/style&gt;
+  &lt;script src="http://code.jquery.com/jquery-1.7rc2.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;form&gt;&lt;input type="checkbox" /&gt;&lt;/form&gt;
+&lt;div&gt;&lt;/div&gt;
+&lt;script&gt;
+  var isFormParent = $("input[type='checkbox']").parent().is("form");
+  $("div").text("isFormParent = " + isFormParent);
+&lt;/script&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+<h4>Demo:</h4>
+<div class="demo code-demo"></div>
+</div>
+<div id="example-2">
+<h4>Example: <span class="desc">Returns false, because the parent of the input is a p element.</span>
+</h4>
+<pre class="prettyprint"><code class="example demo-code">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;style&gt;div { color:red; }&lt;/style&gt;
+  &lt;script src="http://code.jquery.com/jquery-1.7rc2.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;form&gt;&lt;p&gt;&lt;input type="checkbox" /&gt;&lt;/p&gt;&lt;/form&gt;
+  &lt;div&gt;&lt;/div&gt;
+&lt;script&gt;
+  var isFormParent = $("input[type='checkbox']").parent().is("form");
+  $("div").text("isFormParent = " + isFormParent);
+&lt;/script&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+<h4>Demo:</h4>
+<div class="demo code-demo"></div>
+</div>
+<div id="example-3">
+<h4>Example: <span class="desc">Checks against an existing collection of alternating list elements. Blue, alternating list elements slide up while others turn red.</span>
+</h4>
+<pre class="prettyprint"><code class="example demo-code">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;style&gt;li { cursor:pointer; }&lt;/style&gt;
+  &lt;script src="http://code.jquery.com/jquery-1.7rc2.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  
+&lt;ul id="browsers"&gt;
+  &lt;li&gt;Chrome&lt;/li&gt;
+  &lt;li&gt;Safari&lt;/li&gt;
+  &lt;li&gt;Firefox&lt;/li&gt;
+  &lt;li&gt;Opera&lt;/li&gt;
+&lt;/ul&gt;
+&lt;script&gt;
+  var $alt = $("#browsers li:nth-child(2n)").css("background", "#00FFFF");
+  $('li').click(function() {
+    var $li = $(this);
+    if ( $li.is( $alt ) ) {
+      $li.slideUp();
+    } else {
+      $li.css("background", "red");
+    }
+  });
+&lt;/script&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+<h4>Demo:</h4>
+<div class="demo code-demo"></div>
+</div>
+<div id="example-4">
+<h4>Example: <span class="desc">An alternate way to achieve the above example using an element rather than a jQuery object. Checks against an existing collection of alternating list elements. Blue, alternating list elements slide up while others turn red.</span>
+</h4>
+<pre class="prettyprint"><code class="example demo-code">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;style&gt;li { cursor:pointer; }&lt;/style&gt;
+  &lt;script src="http://code.jquery.com/jquery-1.7rc2.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  
+&lt;ul id="browsers"&gt;
+  &lt;li&gt;Chrome&lt;/li&gt;
+  &lt;li&gt;Safari&lt;/li&gt;
+  &lt;li&gt;Firefox&lt;/li&gt;
+  &lt;li&gt;Opera&lt;/li&gt;
+&lt;/ul&gt;
+&lt;script&gt;
+  var $alt = $("#browsers li:nth-child(2n)").css("background", "#00FFFF");
+  $('li').click(function() {
+    if ( $alt.is( this ) ) {
+      $(this).slideUp();
+    } else {
+      $(this).css("background", "red");
+    }
+  });
+&lt;/script&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+<h4>Demo:</h4>
+<div class="demo code-demo"></div>
+</div>
+</div>
+</div>
+</div>
+
+        </div>
+
+</body></html>

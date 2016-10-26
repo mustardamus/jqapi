@@ -1,0 +1,11 @@
+If you need the cert password, drop me a tweet @erikzaadi
+
+Install the Adobe Air SDK (http://www.adobe.com/products/air/tools/sdk/)
+
+Alter the run/build batch files, adding the Adobe SDK's bin folder before the command
+
+to run : build.[sh|bat] VERSION
+
+OR
+
+Check out the download section for a compiled air application

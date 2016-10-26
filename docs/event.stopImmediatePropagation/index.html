@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang='en'><head><meta http-equiv='content-type' content='text/html; charset=UTF-8' /></head><body>
+<div class="entry-content">
+        <div class="entry-title roundTop">
+          
+          <h1 class="jq-clearfix">event.stopImmediatePropagation()</h1>
+          <div class="entry-meta jq-clearfix">
+                        Categories:
+            <span class="category"><a href="http://api.jquery.com/category/events/" title="View all posts in Events">Events</a> &gt; <a href="http://api.jquery.com/category/events/event-object/" title="View all posts in Event Object">Event Object</a></span>
+  
+
+          </div>
+
+</div>
+<div id="event-stopImmediatePropagation1" class="entry method">
+<h2 class="jq-clearfix roundTop section-title">
+<span class="name">event.stopImmediatePropagation()</span> <span class="returns"></span>
+</h2>
+<div class="jq-box roundBottom entry-details">
+<p class="desc"><strong>Description: </strong> Keeps the rest of the handlers from being executed and prevents the event from bubbling up the DOM tree.
+  </p>
+<ul class="signatures"><li class="signature" id="event-stopImmediatePropagation"><h4 class="name">
+<span class="versionAdded">version added: <a href="/category/version/1.3/">1.3</a></span>event.stopImmediatePropagation()</h4></li></ul>
+<div class="longdesc">
+<p>In addition to keeping any additional handlers on an element from being executed, this method also stops the bubbling by implicitly calling <code>event.stopPropagation()</code>. To simply prevent the event from bubbling to ancestor elements but allow other event handlers to execute on the same element, we can use <code><a href="http://api.jquery.com/event.stopPropagation">event.stopPropagation()</a></code> instead.</p>
+<p>Use <code><a href="http://api.jquery.com/event.isImmediatePropagationStopped">event.isImmediatePropagationStopped()</a></code> to know whether this method was ever called (on that event object).</p>
+</div>
+<h3 id="notes-0">Additional Notes:</h3>
+<div class="longdesc"><ul><li>Since the <a href="http://api.jquery.com/live"><code>.live()</code></a> method handles events once they have propagated to the top of the document, it is not possible to stop propagation of live events. Similarly, events handled by <code><a href="http://api.jquery.com/delegate/">.delegate()</a></code> will propagate to the elements to which they are delegated; event handlers bound on any elements below it in the DOM tree will already have been executed by the time the delegated event handler is called. These handlers, therefore, may prevent the delegated handler from triggering by calling <code><a href="http://api.jquery.com/event.stopPropagation/">event.stopPropagation()</a></code> or returning <code>false</code>.</li></ul></div>
+<h3>Example:</h3>
+<div class="entry-examples" id="entry-examples"><div id="example-0">
+<h4><span class="desc">Prevents other event handlers from being called.</span></h4>
+<pre class="prettyprint"><code class="example demo-code">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;style&gt;
+p { height: 30px; width: 150px; background-color: #ccf; }
+div {height: 30px; width: 150px; background-color: #cfc; }
+&lt;/style&gt;
+  &lt;script src="http://code.jquery.com/jquery-1.7rc2.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;p&gt;paragraph&lt;/p&gt;
+&lt;div&gt;division&lt;/div&gt;
+&lt;script&gt;
+$("p").click(function(event){
+  event.stopImmediatePropagation();
+});
+$("p").click(function(event){
+  // This function won't be executed
+  $(this).css("background-color", "#f00");
+});  
+$("div").click(function(event) {
+  // This function will be executed
+    $(this).css("background-color", "#f00");
+});&lt;/script&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+<h4>Demo:</h4>
+<div class="demo code-demo"></div>
+</div></div>
+</div>
+</div>
+
+        </div>
+
+</body></html>

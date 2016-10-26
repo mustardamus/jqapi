@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang='en'><head><meta http-equiv='content-type' content='text/html; charset=UTF-8' /></head><body>
+<div class="entry-content">
+        <div class="entry-title roundTop">
+          
+          <h1 class="jq-clearfix">:input Selector</h1>
+          <div class="entry-meta jq-clearfix">
+                        Categories:
+            <span class="category"><a href="http://api.jquery.com/category/selectors/" title="View all posts in Selectors">Selectors</a> &gt; <a href="http://api.jquery.com/category/selectors/form-selectors/" title="View all posts in Form">Form</a></span> | <span class="category"><a href="http://api.jquery.com/category/selectors/" title="View all posts in Selectors">Selectors</a> &gt; <a href="http://api.jquery.com/category/selectors/jquery-selector-extensions/" title="View all posts in jQuery Extensions">jQuery Extensions</a></span>
+  
+
+          </div>
+
+</div>
+<div id="input1" class="entry selector">
+<h2 class="jq-clearfix roundTop section-title">
+<span class="name">input</span>  selector</h2>
+<div class="jq-box roundBottom entry-details">
+<h4 class="name">
+<span class="versionAdded">version added: <a href="/category/version/1.0/">1.0</a></span>jQuery(':input')</h4>
+<p class="desc"><strong>Description: </strong>Selects all input, textarea, select and button elements.</p>
+<div class="longdesc"><p>The <code>:input</code> selector basically selects all form controls.</p></div>
+<h3 id="notes-0">Additional Notes:</h3>
+<div class="longdesc"><ul><li>Because <code>:input</code> is a jQuery extension and not part of the CSS specification, queries using <code>:input</code> cannot take advantage of the performance boost provided by the native DOM <code>querySelectorAll()</code> method. To achieve the best performance when using <code>:input</code> to select elements, first select the elements using a pure CSS selector, then use <a href="http://api.jquery.com/filter/"><code>.filter(":input")</code></a>.</li></ul></div>
+<h3>Example:</h3>
+<div class="entry-examples" id="entry-examples"><div id="example-0">
+<h4><span class="desc">Finds all input elements.</span></h4>
+<pre class="prettyprint"><code class="example demo-code">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;style&gt;
+  textarea { height:25px; }
+  &lt;/style&gt;
+  &lt;script src="http://code.jquery.com/jquery-1.7rc2.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;form&gt;
+    &lt;input type="button" value="Input Button"/&gt;
+    &lt;input type="checkbox" /&gt;
+
+    &lt;input type="file" /&gt;
+    &lt;input type="hidden" /&gt;
+    &lt;input type="image" /&gt;
+
+    &lt;input type="password" /&gt;
+    &lt;input type="radio" /&gt;
+    &lt;input type="reset" /&gt;
+
+    &lt;input type="submit" /&gt;
+    &lt;input type="text" /&gt;
+    &lt;select&gt;&lt;option&gt;Option&lt;/option&gt;&lt;/select&gt;
+
+    &lt;textarea&gt;&lt;/textarea&gt;
+    &lt;button&gt;Button&lt;/button&gt;
+  &lt;/form&gt;
+  &lt;div id="messages"&gt;
+  &lt;/div&gt;
+&lt;script&gt;
+
+    var allInputs = $(":input");
+    var formChildren = $("form &gt; *");
+    $("#messages").text("Found " + allInputs.length + " inputs and the form has " +
+                             formChildren.length + " children.");
+            
+    // so it won't submit
+    $("form").submit(function () { return false; }); 
+
+&lt;/script&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+<h4>Demo:</h4>
+<div class="demo code-demo"></div>
+</div></div>
+</div>
+</div>
+
+        </div>
+
+</body></html>

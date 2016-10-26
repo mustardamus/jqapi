@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang='en'><head><meta http-equiv='content-type' content='text/html; charset=UTF-8' /></head><body>
+<div class="entry-content">
+        <div class="entry-title roundTop">
+          
+          <h1 class="jq-clearfix">:image Selector</h1>
+          <div class="entry-meta jq-clearfix">
+                        Categories:
+            <span class="category"><a href="http://api.jquery.com/category/selectors/" title="View all posts in Selectors">Selectors</a> &gt; <a href="http://api.jquery.com/category/selectors/form-selectors/" title="View all posts in Form">Form</a></span> | <span class="category"><a href="http://api.jquery.com/category/selectors/" title="View all posts in Selectors">Selectors</a> &gt; <a href="http://api.jquery.com/category/selectors/jquery-selector-extensions/" title="View all posts in jQuery Extensions">jQuery Extensions</a></span>
+  
+
+          </div>
+
+</div>
+<div id="image1" class="entry selector">
+<h2 class="jq-clearfix roundTop section-title">
+<span class="name">image</span>  selector</h2>
+<div class="jq-box roundBottom entry-details">
+<h4 class="name">
+<span class="versionAdded">version added: <a href="/category/version/1.0/">1.0</a></span>jQuery(':image')</h4>
+<p class="desc"><strong>Description: </strong>Selects all elements of type image.</p>
+<div class="longdesc"><p><code>:image</code> is equivalent to <code>[type="image"]</code></p></div>
+<h3 id="notes-0">Additional Notes:</h3>
+<div class="longdesc"><ul><li>Because <code>:image</code> is a jQuery extension and not part of the CSS specification, queries using <code>:image</code> cannot take advantage of the performance boost provided by the native DOM <code>querySelectorAll()</code> method. For better performance in modern browsers, use <code>[type="image"]</code> instead.</li></ul></div>
+<h3>Example:</h3>
+<div class="entry-examples" id="entry-examples"><div id="example-0">
+<h4><span class="desc">Finds all image inputs.</span></h4>
+<pre class="prettyprint"><code class="example demo-code">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;style&gt;
+  textarea { height:45px; }
+  &lt;/style&gt;
+  &lt;script src="http://code.jquery.com/jquery-1.7rc2.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;form&gt;
+    &lt;input type="button" value="Input Button"/&gt;
+    &lt;input type="checkbox" /&gt;
+
+    &lt;input type="file" /&gt;
+    &lt;input type="hidden" /&gt;
+    &lt;input type="image" /&gt;
+
+    &lt;input type="password" /&gt;
+    &lt;input type="radio" /&gt;
+    &lt;input type="reset" /&gt;
+
+    &lt;input type="submit" /&gt;
+    &lt;input type="text" /&gt;
+    &lt;select&gt;&lt;option&gt;Option&lt;option/&gt;&lt;/select&gt;
+
+    &lt;textarea&gt;&lt;/textarea&gt;
+    &lt;button&gt;Button&lt;/button&gt;
+  &lt;/form&gt;
+  &lt;div&gt;
+  &lt;/div&gt;
+&lt;script&gt;
+    var input = $("input:image").css({background:"yellow", border:"3px red solid"});
+    $("div").text("For this type jQuery found " + input.length + ".")
+            .css("color", "red");
+    $("form").submit(function () { return false; }); // so it won't submit
+
+&lt;/script&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+<h4>Demo:</h4>
+<div class="demo code-demo"></div>
+</div></div>
+</div>
+</div>
+
+        </div>
+
+</body></html>

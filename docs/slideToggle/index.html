@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang='en'><head><meta http-equiv='content-type' content='text/html; charset=UTF-8' /></head><body>
+<div class="entry-content">
+        <div class="entry-title roundTop">
+          
+          <h1 class="jq-clearfix">.slideToggle()</h1>
+          <div class="entry-meta jq-clearfix">
+                        Categories:
+            <span class="category"><a href="http://api.jquery.com/category/effects/" title="View all posts in Effects">Effects</a> &gt; <a href="http://api.jquery.com/category/effects/sliding/" title="View all posts in Sliding">Sliding</a></span>
+  
+
+          </div>
+
+</div>
+<div id="slideToggle1" class="entry method">
+<h2 class="jq-clearfix roundTop section-title">
+<span class="name">.slideToggle(  [duration]  [, callback]  )</span> <span class="returns">Returns: <a class="return" href="http://api.jquery.com/Types/#jQuery">jQuery</a></span>
+</h2>
+<div class="jq-box roundBottom entry-details">
+<p class="desc"><strong>Description: </strong>Display or hide the matched elements with a sliding motion.</p>
+<ul class="signatures">
+<li class="signature" id="slideToggle-duration-callback">
+<h4 class="name">
+<span class="versionAdded">version added: <a href="/category/version/1.0/">1.0</a></span>.slideToggle(  [duration] [, callback] )</h4>
+<p class="arguement"><strong>duration</strong>A string or number determining how long the animation will run.</p>
+<p class="arguement"><strong>callback</strong>A function to call once the animation is complete.</p>
+</li>
+<li class="signature" id="slideToggle-duration-easing-callback">
+<h4 class="name">
+<span class="versionAdded">version added: <a href="/category/version/1.4.3/">1.4.3</a></span>.slideToggle(  [duration] [, easing] [, callback] )</h4>
+<p class="arguement"><strong>duration</strong>A string or number determining how long the animation will run.</p>
+<p class="arguement"><strong>easing</strong>A string indicating which easing function to use for the transition.</p>
+<p class="arguement"><strong>callback</strong>A function to call once the animation is complete.</p>
+</li>
+</ul>
+<div class="longdesc">
+<p>The <code>.slideToggle()</code> method animates the height of the matched elements. This causes lower parts of the page to slide up or down, appearing to reveal or conceal the items. If the element is initially displayed, it will be hidden; if hidden, it will be shown. The <code>display</code> property is saved and restored as needed. If an element has a <code>display</code> value of <code>inline</code>, then is hidden and shown, it will once again be displayed <code>inline</code>. When the height reaches 0 after a hiding animation, the <code>display</code> style property is set to <code>none</code> to ensure that the element no longer affects the layout of the page.</p>
+<p>Durations are given in milliseconds; higher values indicate slower animations, not faster ones. The strings <code>'fast'</code> and <code>'slow'</code> can be supplied to indicate durations of <code>200</code> and <code>600</code> milliseconds, respectively.</p>
+<p>We can animate any element, such as a simple image:</p>
+<pre>&lt;div id="clickme"&gt;
+  Click here
+&lt;/div&gt;
+&lt;img id="book" src="book.png" alt="" width="100" height="123" /&gt;</pre>
+<p>We will cause <code>.slideToggle()</code> to be called when another element is clicked:</p>
+<pre>$('#clickme').click(function() {
+  $('#book').slideToggle('slow', function() {
+    // Animation complete.
+  });
+});
+</pre>
+<p>With the element initially shown, we can hide it slowly with the first click:</p>
+<p class="image four-across"> 
+    <img src="/images/0042_06_25.png" alt=""><img src="/images/0042_06_26.png" alt=""><img src="/images/0042_06_27.png" alt=""><img src="/images/0042_06_28.png" alt=""></p>
+<p>A second click will show the element once again:</p>
+<p class="image four-across"> 
+    <img src="/images/0042_06_29.png" alt=""><img src="/images/0042_06_30.png" alt=""><img src="/images/0042_06_31.png" alt=""><img src="/images/0042_06_32.png" alt=""></p>
+<h4 id="easing">Easing</h4>
+<p><strong>As of jQuery 1.4.3</strong>, an optional string naming an easing function may be used. Easing functions specify the speed at which the animation progresses at different points within the animation. The only easing implementations in the jQuery library are the default, called <code>swing</code>, and one that progresses at a constant pace, called <code>linear</code>. More easing functions are available with the use of plug-ins, most notably the <a href="http://jqueryui.com">jQuery UI suite</a>.</p>
+<h4 id="callback-function">Callback Function</h4>
+<p>If supplied, the callback is fired once the animation is complete. This can be useful for stringing different animations together in sequence. The callback is not sent any arguments, but <code>this</code> is set to the DOM element being animated. If multiple elements are animated, it is important to note that the callback is executed once per matched element, not once for the animation as a whole.</p>
+<p><strong>As of jQuery 1.6</strong>, the <code><a href="http://api.jquery.com/promise/">.promise()</a></code> method can be used in conjunction with the <code><a href="http://api.jquery.com/deferred.done/">deferred.done()</a></code> method to execute a single callback for the animation as a whole when <em>all</em> matching elements have completed their animations ( See the <a href="http://api.jquery.com/promise/#example-1">example for .promise()</a> ).  </p>
+</div>
+<h3 id="notes-0">Additional Notes:</h3>
+<div class="longdesc"><ul>
+<li>All jQuery effects, including <code>.slideToggle()</code>, can be turned off globally by setting  <code>jQuery.fx.off = true</code>, which effectively sets the duration to 0. For more information, see <a href="http://api.jquery.com/jquery.fx.off">jQuery.fx.off</a>.</li>
+<li>Because of the nature of <a href="https://developer.mozilla.org/en/DOM/window.mozRequestAnimationFrame"><code>requestAnimationFrame()</code></a>, you should never queue animations using a <code>setInterval</code> or <code>setTimeout</code> loop. In order to preserve CPU resources, browsers that support <code>requestAnimationFrame</code> will not update animations when the window/tab is not displayed. If you continue to queue animations via <code>setInterval</code> or <code>setTimeout</code> while animation is paused, all of the queued animations will begin playing when the window/tab regains focus. To avoid this potential problem, use the callback of your last animation in the loop, or append a function to the elements <a href="http://api.jquery.com/queue"><code>.queue()</code></a> to set the timeout to start the next animation.
+</li>
+</ul></div>
+<h3>Examples:</h3>
+<div class="entry-examples" id="entry-examples">
+<div id="example-0">
+<h4>Example: <span class="desc">Animates all paragraphs to slide up or down, completing the animation within 600 milliseconds.</span>
+</h4>
+<pre class="prettyprint"><code class="example demo-code">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;style&gt;
+  p { width:400px; }
+  &lt;/style&gt;
+  &lt;script src="http://code.jquery.com/jquery-1.7rc2.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;button&gt;Toggle&lt;/button&gt;
+
+  &lt;p&gt;
+    This is the paragraph to end all paragraphs.  You
+    should feel &lt;em&gt;lucky&lt;/em&gt; to have seen such a paragraph in
+    your life.  Congratulations!
+  &lt;/p&gt;
+&lt;script&gt;
+    $("button").click(function () {
+      $("p").slideToggle("slow");
+    });
+&lt;/script&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+<h4>Demo:</h4>
+<div class="demo code-demo"></div>
+</div>
+<div id="example-1">
+<h4>Example: <span class="desc">Animates divs between dividers with a toggle that makes some appear and some disappear.</span>
+</h4>
+<pre class="prettyprint"><code class="example demo-code">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;style&gt;
+  div { background:#b977d1; margin:3px; width:60px; 
+        height:60px; float:left; }
+  div.still { background:#345; width:5px; }
+  div.hider { display:none; }
+  span { color:red; }
+  p { clear: left; }&lt;/style&gt;
+  &lt;script src="http://code.jquery.com/jquery-1.7rc2.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;div&gt;&lt;/div&gt;
+&lt;div class="still"&gt;&lt;/div&gt;
+&lt;div style="display:none;"&gt;
+&lt;/div&gt;&lt;div class="still"&gt;&lt;/div&gt;
+&lt;div&gt;&lt;/div&gt;
+&lt;div class="still"&gt;&lt;/div&gt;
+&lt;div class="hider"&gt;&lt;/div&gt;
+&lt;div class="still"&gt;&lt;/div&gt;
+&lt;div class="hider"&gt;&lt;/div&gt;
+&lt;div class="still"&gt;&lt;/div&gt;
+&lt;div&gt;&lt;/div&gt;
+&lt;p&gt;&lt;button id="aa"&gt;Toggle&lt;/button&gt; There have been &lt;span&gt;0&lt;/span&gt; toggled divs.&lt;/p&gt;
+&lt;script&gt;
+  $("#aa").click(function () {
+    $("div:not(.still)").slideToggle("slow", function () {
+      var n = parseInt($("span").text(), 10);
+      $("span").text(n + 1);
+    });
+  });
+
+&lt;/script&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+<h4>Demo:</h4>
+<div class="demo code-demo"></div>
+</div>
+</div>
+</div>
+</div>
+
+        </div>
+
+</body></html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang='en'><head><meta http-equiv='content-type' content='text/html; charset=UTF-8' /></head><body>
+<div class="entry-content">
+        <div class="entry-title roundTop">
+          
+          <h1 class="jq-clearfix">.size()</h1>
+          <div class="entry-meta jq-clearfix">
+                        Categories:
+            <span class="category"><a href="http://api.jquery.com/category/miscellaneous/" title="View all posts in Miscellaneous">Miscellaneous</a> &gt; <a href="http://api.jquery.com/category/miscellaneous/dom-element-methods/" title="View all posts in DOM Element Methods">DOM Element Methods</a></span>
+  
+
+          </div>
+
+</div>
+<div id="size1" class="entry method">
+<h2 class="jq-clearfix roundTop section-title">
+<span class="name">.size()</span> <span class="returns">Returns: <a class="return" href="http://api.jquery.com/Types/#Number">Number</a></span>
+</h2>
+<div class="jq-box roundBottom entry-details">
+<p class="desc"><strong>Description: </strong>Return the number of elements in the jQuery object.</p>
+<ul class="signatures"><li class="signature" id="size"><h4 class="name">
+<span class="versionAdded">version added: <a href="/category/version/1.0/">1.0</a></span>.size()</h4></li></ul>
+<div class="longdesc">
+<p>The <code>.size()</code> method is functionally equivalent to the <code><a href="http://api.jquery.com/length/">.length</a></code> property; however, <strong>the <code>.length</code> property is preferred</strong> because it does not have the overhead of a function call.</p>
+<p>Given a simple unordered list on the page:</p>
+<pre>
+&lt;ul&gt;
+  &lt;li&gt;foo&lt;/li&gt;
+  &lt;li&gt;bar&lt;/li&gt;
+&lt;/ul&gt;
+</pre>
+<p>Both <code>.size()</code> and <code>.length</code> identify the number of items:</p>
+<pre>alert( "Size: " + $("li").size() );
+alert( "Size: " + $("li").length );</pre>
+<p>This results in two alerts:</p>
+<p><span class="output">Size: 2</span></p>
+<p><span class="output">Size: 2</span></p>
+</div>
+<h3>Example:</h3>
+<div class="entry-examples" id="entry-examples"><div id="example-0">
+<h4><span class="desc">Count the divs. Click to add more.</span></h4>
+<pre class="prettyprint"><code class="example demo-code">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;style&gt;
+  body { cursor:pointer; min-height: 100px; }
+  div { width:50px; height:30px; margin:5px; 
+        float:left; background:blue; }
+  span { color:red; }
+ &lt;/style&gt;
+  &lt;script src="http://code.jquery.com/jquery-1.7rc2.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  
+&lt;span&gt;&lt;/span&gt;
+ &lt;div&gt;&lt;/div&gt;
+
+&lt;script&gt;
+$(document.body)
+.click(function() { 
+  $(this).append( $("&lt;div&gt;") );
+  var n = $("div").size();
+  $("span").text("There are " + n + " divs. Click to add more.");
+})
+// trigger the click to start
+.click(); 
+&lt;/script&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+<h4>Demo:</h4>
+<div class="demo code-demo"></div>
+</div></div>
+</div>
+</div>
+
+        </div>
+
+</body></html>

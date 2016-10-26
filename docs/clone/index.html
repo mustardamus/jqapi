@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang='en'><head><meta http-equiv='content-type' content='text/html; charset=UTF-8' /></head><body>
+<div class="entry-content">
+        <div class="entry-title roundTop">
+          
+          <h1 class="jq-clearfix">.clone()</h1>
+          <div class="entry-meta jq-clearfix">
+                        Categories:
+            <span class="category"><a href="http://api.jquery.com/category/manipulation/" title="View all posts in Manipulation">Manipulation</a> &gt; <a href="http://api.jquery.com/category/manipulation/copying/" title="View all posts in Copying">Copying</a></span>
+  
+
+          </div>
+
+</div>
+<div id="clone1" class="entry method">
+<h2 class="jq-clearfix roundTop section-title">
+<span class="name">.clone(  [withDataAndEvents]  )</span> <span class="returns">Returns: <a class="return" href="http://api.jquery.com/Types/#jQuery">jQuery</a></span>
+</h2>
+<div class="jq-box roundBottom entry-details">
+<p class="desc"><strong>Description: </strong>Create a deep copy of the set of matched elements.</p>
+<ul class="signatures">
+<li class="signature" id="clone-withDataAndEvents">
+<h4 class="name">
+<span class="versionAdded">version added: <a href="/category/version/1.0/">1.0</a></span>.clone(  [withDataAndEvents] )</h4>
+<p class="arguement"><strong>withDataAndEvents</strong>A Boolean indicating whether event handlers should be copied along with the elements. As of jQuery 1.4, element data will be copied as well.</p>
+</li>
+<li class="signature" id="clone-withDataAndEvents-deepWithDataAndEvents">
+<h4 class="name">
+<span class="versionAdded">version added: <a href="/category/version/1.5/">1.5</a></span>.clone(  [withDataAndEvents] [, deepWithDataAndEvents] )</h4>
+<p class="arguement"><strong>withDataAndEvents</strong>A Boolean indicating whether event handlers and data should be copied along with the elements. The default value is <code>false</code>. <em>*In jQuery 1.5.0 the default value was incorrectly <code>true</code>; it was changed back to <code>false</code> in 1.5.1 and up.</em></p>
+<p class="arguement"><strong>deepWithDataAndEvents</strong>A Boolean indicating whether event handlers and data for all children of the cloned element should be copied. By default its value matches the first argument's value (which defaults to <code>false</code>).</p>
+</li>
+</ul>
+<div class="longdesc">
+<p>The <code>.clone()</code> method performs a <em>deep</em> copy of the set of matched elements, meaning that it copies the matched elements as well as all of their descendant elements and text nodes. When used in conjunction with one of the insertion methods, <code>.clone()</code> is a convenient way to duplicate elements on a page. Consider the following HTML:</p>
+<pre>&lt;div class="container"&gt;
+  &lt;div class="hello"&gt;Hello&lt;/div&gt;
+  &lt;div class="goodbye"&gt;Goodbye&lt;/div&gt;
+&lt;/div&gt;</pre>
+<p>As shown in the discussion for <code><a href="http://api.jquery.com/append/">.append()</a></code>,  normally when an element is inserted somewhere in the DOM, it is moved from its old location. So, given the code:</p>
+<pre>$('.hello').appendTo('.goodbye');</pre>
+<p>The resulting DOM structure would be:</p>
+<pre>&lt;div class="container"&gt;
+  &lt;div class="goodbye"&gt;
+    Goodbye
+    &lt;div class="hello"&gt;Hello&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</pre>
+<p>To prevent this and instead create a copy of the element, you could write the following:</p>
+<pre>$('.hello').clone().appendTo('.goodbye');</pre>
+<p>This would produce:</p>
+<pre>&lt;div class="container"&gt;
+  &lt;div class="hello"&gt;Hello&lt;/div&gt;
+  &lt;div class="goodbye"&gt;
+    Goodbye
+    &lt;div class="hello"&gt;Hello&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</pre>
+<blockquote><p>Note that when using the <code>.clone()</code> method, you can modify the cloned elements or their contents before (re-)inserting them into the document.</p></blockquote>
+<p>Normally, any event handlers bound to the original element are <em>not</em> copied to the clone. The optional <code>withDataAndEvents</code> parameter allows us to change this behavior, and to instead make copies of all of the event handlers as well, bound to the new copy of the element. As of jQuery 1.4, all element data (attached by the <code>.data()</code> method) is also copied to the new copy. </p>
+<p>However, objects and arrays within element data are not copied and will continue to be shared between the cloned element and the original element. To deep copy all data, copy each one manually:</p>
+<pre>var $elem = $('#elem').data( "arr": [ 1 ] ), // Original element with attached data
+    $clone = $elem.clone( true )
+    .data( "arr", $.extend( [], $elem.data("arr") ) ); // Deep copy to prevent data sharing
+</pre>
+<p>As of jQuery 1.5, <code>withDataAndEvents</code> can be optionally enhanced with <code>deepWithDataAndEvents </code> to copy the events and data for all children of the cloned element.</p>
+</div>
+<h3>Examples:</h3>
+<div class="entry-examples" id="entry-examples">
+<div id="example-0">
+<h4>Example: <span class="desc">Clones all b elements (and selects the clones) and prepends them to all paragraphs.</span>
+</h4>
+<pre class="prettyprint"><code class="example demo-code">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;script src="http://code.jquery.com/jquery-1.7rc2.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  
+  &lt;b&gt;Hello&lt;/b&gt;&lt;p&gt;, how are you?&lt;/p&gt;
+
+&lt;script&gt;
+  $("b").clone().prependTo("p");
+&lt;/script&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+<h4>Demo:</h4>
+<div class="demo code-demo"></div>
+</div>
+<div id="example-1">
+<h4>Example: <span class="desc">When using .clone() to clone a collection of elements that are not attached to the DOM, their order when inserted into the DOM is not guaranteed. However, it may be possible to preserve sort order with a workaround, as demonstrated:</span>
+</h4>
+<pre class="prettyprint"><code class="example demo-code">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;style&gt;
+  #orig, #copy, #copy-correct {
+    float: left;
+    width: 20%;
+  }
+&lt;/style&gt;
+  &lt;script src="http://code.jquery.com/jquery-1.7rc2.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  
+&lt;div id="orig"&gt;
+    &lt;div class="elem"&gt;&lt;a&gt;1&lt;/a&gt;&lt;/div&gt;
+    &lt;div class="elem"&gt;&lt;a&gt;2&lt;/a&gt;&lt;/div&gt;
+    &lt;div class="elem"&gt;&lt;a&gt;3&lt;/a&gt;&lt;/div&gt;
+    &lt;div class="elem"&gt;&lt;a&gt;4&lt;/a&gt;&lt;/div&gt;
+    &lt;div class="elem"&gt;&lt;a&gt;5&lt;/a&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id="copy"&gt;&lt;/div&gt;
+&lt;div id="copy-correct"&gt;&lt;/div&gt;
+
+&lt;script&gt;
+// sort order is not guaranteed here and may vary with browser  
+$('#copy').append($('#orig .elem')
+          .clone()
+          .children('a')
+          .prepend('foo - ')
+          .parent()
+          .clone()); 
+ 
+// correct way to approach where order is maintained
+$('#copy-correct')
+          .append($('#orig .elem')
+          .clone()
+          .children('a')
+          .prepend('bar - ')
+          .end()); 
+&lt;/script&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+<h4>Demo:</h4>
+<div class="demo code-demo"></div>
+</div>
+</div>
+</div>
+</div>
+
+        </div>
+
+</body></html>

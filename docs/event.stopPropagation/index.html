@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang='en'><head><meta http-equiv='content-type' content='text/html; charset=UTF-8' /></head><body>
+<div class="entry-content">
+        <div class="entry-title roundTop">
+          
+          <h1 class="jq-clearfix">event.stopPropagation()</h1>
+          <div class="entry-meta jq-clearfix">
+                        Categories:
+            <span class="category"><a href="http://api.jquery.com/category/events/" title="View all posts in Events">Events</a> &gt; <a href="http://api.jquery.com/category/events/event-object/" title="View all posts in Event Object">Event Object</a></span>
+  
+
+          </div>
+
+</div>
+<div id="event-stopPropagation1" class="entry method">
+<h2 class="jq-clearfix roundTop section-title">
+<span class="name">event.stopPropagation()</span> <span class="returns"></span>
+</h2>
+<div class="jq-box roundBottom entry-details">
+<p class="desc"><strong>Description: </strong>Prevents the event from bubbling up the DOM tree, preventing any parent handlers from being notified of the event.   </p>
+<ul class="signatures"><li class="signature" id="event-stopPropagation"><h4 class="name">
+<span class="versionAdded">version added: <a href="/category/version/1.0/">1.0</a></span>event.stopPropagation()</h4></li></ul>
+<div class="longdesc">
+<p>We can use <code><a href="/event.isPropagationStopped">event.isPropagationStopped()</a></code> to determine if this method was ever called (on that event object). </p>
+<p>This method works for custom events triggered with <a href="/trigger">trigger()</a>, as well.</p>
+<p>Note that this will not prevent other handlers <em>on the same element</em> from running. </p>
+</div>
+<h3 id="notes-0">Additional Notes:</h3>
+<div class="longdesc"><ul><li>Since the <a href="http://api.jquery.com/live"><code>.live()</code></a> method handles events once they have propagated to the top of the document, it is not possible to stop propagation of live events. Similarly, events handled by <code><a href="http://api.jquery.com/delegate/">.delegate()</a></code> will propagate to the elements to which they are delegated; event handlers bound on any elements below it in the DOM tree will already have been executed by the time the delegated event handler is called. These handlers, therefore, may prevent the delegated handler from triggering by calling <code><a href="http://api.jquery.com/event.stopPropagation/">event.stopPropagation()</a></code> or returning <code>false</code>.</li></ul></div>
+<h3>Example:</h3>
+<div class="entry-examples" id="entry-examples"><div id="example-0">
+<h4><span class="desc">Kill the bubbling on the click event.</span></h4>
+<pre class="prettyprint"><code class="example">$("p").click(function(event){
+  event.stopPropagation();
+  // do something
+});  </code></pre>
+</div></div>
+</div>
+</div>
+
+        </div>
+
+</body></html>

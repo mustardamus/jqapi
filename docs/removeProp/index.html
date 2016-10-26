@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang='en'><head><meta http-equiv='content-type' content='text/html; charset=UTF-8' /></head><body>
+<div class="entry-content">
+        <div class="entry-title roundTop">
+          
+          <h1 class="jq-clearfix">.removeProp()</h1>
+          <div class="entry-meta jq-clearfix">
+                        Categories:
+            <span class="category"><a href="http://api.jquery.com/category/attributes/" title="View all posts in Attributes">Attributes</a></span> | <span class="category"><a href="http://api.jquery.com/category/manipulation/" title="View all posts in Manipulation">Manipulation</a> &gt; <a href="http://api.jquery.com/category/manipulation/general-attributes/" title="View all posts in General Attributes">General Attributes</a></span>
+  
+
+          </div>
+
+</div>
+<div id="removeProp1" class="entry method">
+<h2 class="jq-clearfix roundTop section-title">
+<span class="name">.removeProp( propertyName )</span> <span class="returns">Returns: <a class="return" href="http://api.jquery.com/Types/#jQuery">jQuery</a></span>
+</h2>
+<div class="jq-box roundBottom entry-details">
+<p class="desc"><strong>Description: </strong>Remove a property for the set of matched elements.</p>
+<ul class="signatures"><li class="signature" id="removeProp-propertyName">
+<h4 class="name">
+<span class="versionAdded">version added: <a href="/category/version/1.6/">1.6</a></span>.removeProp( propertyName )</h4>
+<p class="arguement"><strong>propertyName</strong>The name of the property to set.</p>
+</li></ul>
+<div class="longdesc">
+<p>The <code>.removeProp()</code> method removes properties set by the <code><a href="http://api.jquery.com/prop">.prop()</a></code> method.</p>
+<p>With some built-in properties of a DOM element or <code>window</code> object, browsers may generate an error if an attempt is made to remove the property. jQuery first assigns the value <code>undefined</code> to the property and ignores any error the browser generates. In general, it is only necessary to remove custom properties that have been set on an object, and not built-in (native) properties.</p>
+<p><strong>Note:</strong> Do not use this method to remove native properties such as checked, disabled, or selected. This will remove the property completely and, once removed, cannot be added again to element. Use <code><a href="http://api.jquery.com/prop">.prop()</a></code> to set these properties to <code>false</code> instead.</p>
+</div>
+<h3 id="notes-0">Additional Notes:</h3>
+<div class="longdesc"><ul><li>In Internet Explorer prior to version 9, using <code><a href="http://api.jquery.com/prop/">.prop()</a></code> to set a DOM element property to anything other than a simple primitive value (number, string, or boolean) can cause memory leaks if the property is not removed (using <a href="http://api.jquery.com/removeProp/"><code>.removeProp()</code></a>) before the DOM element is removed from the document. To safely set values on DOM objects without memory leaks, use <a href="http://api.jquery.com/data/"><code>.data()</code></a>.</li></ul></div>
+<h3>Example:</h3>
+<div class="entry-examples" id="entry-examples"><div id="example-0">
+<h4><span class="desc">Set a numeric property on a paragraph and then remove it. </span></h4>
+<pre class="prettyprint"><code class="example demo-code">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;style&gt;
+  img { padding:10px; }
+  div { color:red; font-size:24px; }
+&lt;/style&gt;
+  &lt;script src="http://code.jquery.com/jquery-1.7rc2.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  
+  &lt;p&gt;&lt;/p&gt;
+
+
+&lt;script&gt;
+var $para = $("p");
+$para.prop("luggageCode", 1234);
+$para.append("The secret luggage code is: ", String($para.prop("luggageCode")), ". ");
+$para.removeProp("luggageCode");
+$para.append("Now the secret luggage code is: ", String($para.prop("luggageCode")), ". ");
+
+&lt;/script&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+<h4>Demo:</h4>
+<div class="demo code-demo"></div>
+</div></div>
+</div>
+</div>
+
+        </div>
+
+</body></html>

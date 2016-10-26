@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang='en'><head><meta http-equiv='content-type' content='text/html; charset=UTF-8' /></head><body>
+<div class="entry-content">
+        <div class="entry-title roundTop">
+          
+          <h1 class="jq-clearfix">jQuery.type()</h1>
+          <div class="entry-meta jq-clearfix">
+                        Categories:
+            <span class="category"><a href="http://api.jquery.com/category/utilities/" title="View all posts in Utilities">Utilities</a></span>
+  
+
+          </div>
+
+</div>
+<div id="jQuery-type1" class="entry method">
+<h2 class="jq-clearfix roundTop section-title">
+<span class="name">jQuery.type( obj )</span> <span class="returns">Returns: <a class="return" href="http://api.jquery.com/Types/#String">String</a></span>
+</h2>
+<div class="jq-box roundBottom entry-details">
+<p class="desc"><strong>Description: </strong>Determine the internal JavaScript [[Class]] of an object.</p>
+<ul class="signatures"><li class="signature" id="jQuery-type-obj">
+<h4 class="name">
+<span class="versionAdded">version added: <a href="/category/version/1.4.3/">1.4.3</a></span>jQuery.type( obj )</h4>
+<p class="arguement"><strong>obj</strong>Object to get the internal JavaScript [[Class]] of.</p>
+</li></ul>
+<div class="longdesc">
+<p>A number of techniques are used to determine the exact return value for an object. The [[Class]] is determined as follows:</p>
+<ul>
+<li>If the object is undefined or null, then "undefined" or "null" is returned accordingly.</li>
+<li>If the object has an internal [[Class]] equivalent to one of the browser's built-in objects, the associated name is returned. (<a href="http://perfectionkills.com/instanceof-considered-harmful-or-how-to-write-a-robust-isarray/">More details about this technique.</a>)<ul>
+<li>jQuery.type(true) === "boolean"</li>
+<li>jQuery.type(3) === "number"</li>
+<li>jQuery.type("test") === "string"</li>
+<li>jQuery.type(function(){}) === "function"</li>
+<li>jQuery.type([]) === "array"</li>
+<li>jQuery.type(new Date()) === "date"</li>
+<li>jQuery.type(/test/) === "regexp"</li>
+</ul>
+</li>
+<li>Everything else returns "object" as its type.</li>
+</ul>
+</div>
+<h3>Example:</h3>
+<div class="entry-examples" id="entry-examples"><div id="example-0">
+<h4><span class="desc">Find out if the parameter is a RegExp.</span></h4>
+<pre class="prettyprint"><code class="example demo-code">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;script src="http://code.jquery.com/jquery-1.7rc2.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  Is it a RegExp? &lt;b&gt;&lt;/b&gt;
+&lt;script&gt;$("b").append( "" + jQuery.type(/test/) );&lt;/script&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+<h4>Demo:</h4>
+<div class="demo code-demo"></div>
+</div></div>
+</div>
+</div>
+
+        </div>
+
+</body></html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang='en'><head><meta http-equiv='content-type' content='text/html; charset=UTF-8' /></head><body>
+<div class="entry-content">
+        <div class="entry-title roundTop">
+          
+          <h1 class="jq-clearfix">deferred.promise()</h1>
+          <div class="entry-meta jq-clearfix">
+                        Categories:
+            <span class="category"><a href="http://api.jquery.com/category/deferred-object/" title="View all posts in Deferred Object">Deferred Object</a></span>
+  
+
+          </div>
+
+</div>
+<div id="deferred-promise1" class="entry method">
+<h2 class="jq-clearfix roundTop section-title">
+<span class="name">deferred.promise(  [target]  )</span> <span class="returns">Returns: <a class="return" href="http://api.jquery.com/Types/#Promise">Promise</a></span>
+</h2>
+<div class="jq-box roundBottom entry-details">
+<p class="desc"><strong>Description: </strong> Return a Deferred's Promise object. </p>
+<ul class="signatures"><li class="signature" id="deferred-promise-target">
+<h4 class="name">
+<span class="versionAdded">version added: <a href="/category/version/1.5/">1.5</a></span>deferred.promise(  [target] )</h4>
+<p class="arguement"><strong>target</strong>Object onto which the promise methods have to be attached</p>
+</li></ul>
+<div class="longdesc">
+<p>The <code>deferred.promise()</code> method allows an asynchronous function to prevent other code from interfering with the progress or status of its internal request. The Promise exposes only the Deferred methods needed to attach additional handlers or determine the state (<code>then</code>, <code>done</code>, <code>fail</code>, <code>always</code>,<code>pipe</code>, <code>progress</code>, and <code>state</code>), but not ones that change the state (<code>resolve</code>, <code>reject</code>, <code>progress</code>, <code>resolveWith</code>, <code>rejectWith</code>, and <code>progressWith</code>).</p>
+<p>If <code>target</code> is provided, <code>deferred.promise()</code> will attach the methods onto it and then return this object rather than create a new one. This can be useful to attach the Promise behavior to an object that already exists.</p>
+<p>If you are creating a Deferred, keep a reference to the Deferred so that it can be resolved or rejected at some point. Return <em>only</em> the Promise object via <code>deferred.promise()</code> so other code can register callbacks or inspect the current state.</p>
+<p>For more information, see the documentation for <a href="/category/deferred-object/">Deferred object</a>.</p>
+</div>
+<h3>Examples:</h3>
+<div class="entry-examples" id="entry-examples">
+<div id="example-0">
+<h4>Example: <span class="desc">Create a Deferred and set two timer-based functions to either resolve or reject the Deferred after a random interval. Whichever one fires first "wins" and will call one of the callbacks. The second timeout has no effect since the Deferred is already complete (in a resolved or rejected state) from the first timeout action. Also set a timer-based progress notification function, and call a progress handler that adds "working..." to the document body.</span>
+</h4>
+<pre class="prettyprint"><code class="example">
+function asyncEvent(){
+    var dfd = new jQuery.Deferred();
+
+    // Resolve after a random interval
+    setTimeout(function(){
+        dfd.resolve("hurray");
+    }, Math.floor(400+Math.random()*2000));
+
+    // Reject after a random interval
+    setTimeout(function(){
+        dfd.reject("sorry");
+    }, Math.floor(400+Math.random()*2000));
+
+    // Show a "working..." message every half-second
+    setTimeout(function working(){
+        if ( dfd.state() === "pending" ) {
+            dfd.notify("working... ");
+            setTimeout(working, 500);
+        }
+    }, 1);
+
+    // Return the Promise so caller can't change the Deferred
+    return dfd.promise();
+}
+
+// Attach a done, fail, and progress handler for the asyncEvent
+$.when( asyncEvent() ).then(
+    function(status){
+        alert( status+', things are going well' );
+    },
+    function(status){
+        alert( status+', you fail this time' );
+    },
+    function(status){
+        $("body").append(status);
+    }
+);
+</code></pre>
+</div>
+<div id="example-1">
+<h4>Example: <span class="desc">Use the target argument to promote an existing object to a Promise:</span>
+</h4>
+<pre class="prettyprint"><code class="example">
+// Existing object
+var obj = {
+  hello: function( name ) {
+    alert( "Hello " + name );
+  }
+},
+// Create a Deferred
+defer = $.Deferred();
+
+// Set object as a promise
+defer.promise( obj );
+
+// Resolve the deferred
+defer.resolve( "John" );
+
+// Use the object as a Promise
+obj.done(function( name ) {
+  obj.hello( name ); // will alert "Hello John"
+}).hello( "Karl" ); // will alert "Hello Karl"
+</code></pre>
+</div>
+</div>
+</div>
+</div>
+
+        </div>
+
+</body></html>

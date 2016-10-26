@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang='en'><head><meta http-equiv='content-type' content='text/html; charset=UTF-8' /></head><body>
+<div class="entry-content">
+        <div class="entry-title roundTop">
+          
+          <h1 class="jq-clearfix">event.timeStamp</h1>
+          <div class="entry-meta jq-clearfix">
+                        Categories:
+            <span class="category"><a href="http://api.jquery.com/category/events/" title="View all posts in Events">Events</a> &gt; <a href="http://api.jquery.com/category/events/event-object/" title="View all posts in Event Object">Event Object</a></span>
+  
+
+          </div>
+
+</div>
+<div id="event-timeStamp1" class="entry property">
+<h2 class="jq-clearfix roundTop section-title">
+<span class="name">event.timeStamp</span> <span class="returns">Returns: <a class="return" href="http://api.jquery.com/Types/#Number">Number</a></span>
+</h2>
+<div class="jq-box roundBottom entry-details">
+<p class="desc"><strong>Description: </strong>The difference in milliseconds between the time an event is triggered and January 1, 1970.</p>
+<ul class="signatures"><li class="signature" id="event-timeStamp"><h4 class="name">
+<span class="versionAdded">version added: <a href="/category/version/1.2.6/">1.2.6</a></span>event.timeStamp</h4></li></ul>
+<div class="longdesc"><p>This property can be useful for profiling the performance of certain jQuery functions by getting the <code>event.timeStamp</code> value at two points in the code and noting the difference.</p></div>
+<h3>Example:</h3>
+<div class="entry-examples" id="entry-examples"><div id="example-0">
+<h4><span class="desc">Display the time since the click handler last executed.</span></h4>
+<pre class="prettyprint"><code class="example demo-code">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;style&gt;
+div { height: 100px; width: 300px; margin: 10px; 
+      background-color: #ffd; overflow: auto; }
+&lt;/style&gt;
+  &lt;script src="http://code.jquery.com/jquery-1.7rc2.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  
+&lt;div&gt;Click.&lt;/div&gt;
+&lt;script&gt;
+var last, diff;
+$('div').click(function(event) {
+  if ( last ) {
+    diff = event.timeStamp - last
+    $('div').append('time since last event: ' + diff + '&lt;br/&gt;');
+  } else {
+    $('div').append('Click again.&lt;br/&gt;');
+  }
+  last = event.timeStamp;
+});  
+&lt;/script&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+<h4>Demo:</h4>
+<div class="demo code-demo"></div>
+</div></div>
+</div>
+</div>
+
+        </div>
+
+</body></html>

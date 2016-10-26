@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang='en'><head><meta http-equiv='content-type' content='text/html; charset=UTF-8' /></head><body>
+<div class="entry-content">
+        <div class="entry-title roundTop">
+          
+          <h1 class="jq-clearfix">:has() Selector</h1>
+          <div class="entry-meta jq-clearfix">
+                        Categories:
+            <span class="category"><a href="http://api.jquery.com/category/selectors/" title="View all posts in Selectors">Selectors</a> &gt; <a href="http://api.jquery.com/category/selectors/content-filter-selector/" title="View all posts in Content Filter">Content Filter</a></span> | <span class="category"><a href="http://api.jquery.com/category/selectors/" title="View all posts in Selectors">Selectors</a> &gt; <a href="http://api.jquery.com/category/selectors/jquery-selector-extensions/" title="View all posts in jQuery Extensions">jQuery Extensions</a></span>
+  
+
+          </div>
+
+</div>
+<div id="has1" class="entry selector">
+<h2 class="jq-clearfix roundTop section-title">
+<span class="name">has</span>  selector</h2>
+<div class="jq-box roundBottom entry-details">
+<h4 class="name">
+<span class="versionAdded">version added: <a href="/category/version/1.1.4/">1.1.4</a></span>jQuery(':has(selector)')</h4>
+<ul class="signatures"><li><dl class="arguments">
+<dt>selector</dt>
+<dd>Any selector.</dd>
+</dl></li></ul>
+<p class="desc"><strong>Description: </strong>Selects elements which contain at least one element that matches the specified selector.</p>
+<div class="longdesc"><p>The expression <code>$('div:has(p)')</code> matches a <code>&lt;div&gt;</code> if a <code>&lt;p&gt;</code> exists anywhere among its descendants, not just as a direct child.</p></div>
+<h3 id="notes-0">Additional Notes:</h3>
+<div class="longdesc"><ul><li>Because <code>:has()</code> is a jQuery extension and not part of the CSS specification, queries using <code>:has()</code> cannot take advantage of the performance boost provided by the native DOM <code>querySelectorAll()</code> method. For better performance in modern browsers, use <code>$("your-pure-css-selector").has(selector/DOMElement)</code> instead.</li></ul></div>
+<h3>Example:</h3>
+<div class="entry-examples" id="entry-examples"><div id="example-0">
+<h4><span class="desc">Adds the class "test" to all divs that have a paragraph inside of them.</span></h4>
+<pre class="prettyprint"><code class="example demo-code">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;style&gt;
+  .test{ border: 3px inset red; }
+  &lt;/style&gt;
+  &lt;script src="http://code.jquery.com/jquery-1.7rc2.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;div&gt;&lt;p&gt;Hello in a paragraph&lt;/p&gt;&lt;/div&gt;
+
+  &lt;div&gt;Hello again! (with no paragraph)&lt;/div&gt;
+&lt;script&gt;$("div:has(p)").addClass("test");&lt;/script&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+<h4>Demo:</h4>
+<div class="demo code-demo"></div>
+</div></div>
+</div>
+</div>
+
+        </div>
+
+</body></html>

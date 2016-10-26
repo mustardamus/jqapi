@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang='en'><head><meta http-equiv='content-type' content='text/html; charset=UTF-8' /></head><body>
+<div class="entry-content">
+        <div class="entry-title roundTop">
+          
+          <h1 class="jq-clearfix">.one()</h1>
+          <div class="entry-meta jq-clearfix">
+                        Categories:
+            <span class="category"><a href="http://api.jquery.com/category/events/" title="View all posts in Events">Events</a> &gt; <a href="http://api.jquery.com/category/events/event-handler-attachment/" title="View all posts in Event Handler Attachment">Event Handler Attachment</a></span>
+  
+
+          </div>
+
+</div>
+<div id="one1" class="entry method">
+<h2 class="jq-clearfix roundTop section-title">
+<span class="name">.one( events [, data] , handler )</span> <span class="returns">Returns: <a class="return" href="http://api.jquery.com/Types/#jQuery">jQuery</a></span>
+</h2>
+<div class="jq-box roundBottom entry-details">
+<p class="desc"><strong>Description: </strong>Attach a handler to an event for the elements. The handler is executed at most once per element.</p>
+<ul class="signatures">
+<li class="signature" id="one-events-data-handler">
+<h4 class="name">
+<span class="versionAdded">version added: <a href="/category/version/1.1/">1.1</a></span>.one( events [, data], handler )</h4>
+<p class="arguement"><strong>events</strong>A string containing one or more JavaScript event types, such as "click" or "submit," or custom event names.</p>
+<p class="arguement"><strong>data</strong>A map of data that will be passed to the event handler.</p>
+<p class="arguement"><strong>handler</strong>A function to execute at the time the event is triggered.</p>
+</li>
+<li class="signature" id="one-events-selector-data-handler">
+<h4 class="name">
+<span class="versionAdded">version added: <a href="/category/version/1.7/">1.7</a></span>.one( events [, selector] [, data], handler )</h4>
+<p class="arguement"><strong>events</strong>One or more space-separated event types and optional namespaces, such as "click" or "keydown.myPlugin".</p>
+<p class="arguement"><strong>selector</strong>A selector string to filter the descendants of the selected elements that trigger the event. If the selector is <code>null</code> or omitted, the event is always triggered when it reaches the selected element.</p>
+<p class="arguement"><strong>data</strong>Data to be passed to the handler in <a href="/event.data"><code>event.data</code></a> when an event is triggered.</p>
+<p class="arguement"><strong>handler</strong>A function to execute when the event is triggered. The value <code>false</code> is also allowed as a shorthand for a function that simply does <code>return false</code>.</p>
+</li>
+<li class="signature" id="one-events-map-selector-data">
+<h4 class="name">
+<span class="versionAdded">version added: <a href="/category/version/1.7/">1.7</a></span>.one( events-map [, selector] [, data] )</h4>
+<p class="arguement"><strong>events-map</strong>A map in which the string keys represent one or more space-separated event types and optional namespaces, and the values represent a handler function to be called for the event(s).</p>
+<p class="arguement"><strong>selector</strong>A selector string to filter the descendants of the selected elements that will call the handler. If the selector is null or omitted, the handler is always called when it reaches the selected element.</p>
+<p class="arguement"><strong>data</strong>Data to be passed to the handler in <a href="http://api.jquery.com/event.data"><code>event.data</code></a> when an event occurs.</p>
+</li>
+</ul>
+<div class="longdesc">
+<p>The first form of this method is identical to <code>.bind()</code>, except that the handler is unbound after its first invocation. The second two forms, introduced in jQuery 1.7, are identical to <code>.on()</code> except that the handler is removed after its first invocation. For example:</p>
+<pre>$("#foo").one("click", function() {
+  alert("This will be displayed only once.");
+});
+</pre>
+<p>After the code is executed, a click on the element with ID <code>foo</code> will display the alert. Subsequent clicks will do nothing. This code is equivalent to:</p>
+<pre>$("#foo").bind("click", function( event ) {
+  alert("This will be displayed only once.");
+  $(this).unbind( event );
+});
+</pre>
+<p>In other words, explicitly calling <code>.unbind()</code> from within a regularly-bound handler has exactly the same effect.</p>
+<p>If the first argument contains more than one space-separated event types, the event handler is called <em>once for each event type</em>.</p>
+</div>
+<h3>Examples:</h3>
+<div class="entry-examples" id="entry-examples">
+<div id="example-0">
+<h4>Example: <span class="desc">Tie a one-time click to each div.</span>
+</h4>
+<pre class="prettyprint"><code class="example demo-code">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;style&gt;
+div { width:60px; height:60px; margin:5px; float:left;
+background:green; border:10px outset; 
+cursor:pointer; }
+p { color:red; margin:0; clear:left; }
+&lt;/style&gt;
+  &lt;script src="http://code.jquery.com/jquery-1.7rc2.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  
+&lt;div&gt;&lt;/div&gt;
+&lt;div&gt;&lt;/div&gt;
+&lt;div&gt;&lt;/div&gt;
+&lt;div&gt;&lt;/div&gt;
+&lt;div&gt;&lt;/div&gt;
+
+&lt;p&gt;Click a green square...&lt;/p&gt;
+
+&lt;script&gt;
+var n = 0;
+$("div").one("click", function() {
+  var index = $("div").index(this);
+  $(this).css({ 
+    borderStyle:"inset",
+    cursor:"auto"
+  });
+  $("p").text("Div at index #" + index + " clicked." +
+      "  That's " + ++n + " total clicks.");
+});
+
+&lt;/script&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+<h4>Demo:</h4>
+<div class="demo code-demo"></div>
+</div>
+<div id="example-1">
+<h4>Example: <span class="desc">To display the text of all paragraphs in an alert box the first time each of them is clicked:</span>
+</h4>
+<pre class="prettyprint"><code class="example">$("p").one("click", function(){
+alert( $(this).text() );
+});</code></pre>
+</div>
+</div>
+</div>
+</div>
+
+        </div>
+
+</body></html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang='en'><head><meta http-equiv='content-type' content='text/html; charset=UTF-8' /></head><body>
+<div class="entry-content">
+        <div class="entry-title roundTop">
+          
+          <h1 class="jq-clearfix">event.namespace</h1>
+          <div class="entry-meta jq-clearfix">
+                        Categories:
+            <span class="category"><a href="http://api.jquery.com/category/events/" title="View all posts in Events">Events</a> &gt; <a href="http://api.jquery.com/category/events/event-object/" title="View all posts in Event Object">Event Object</a></span>
+  
+
+          </div>
+
+</div>
+<div id="event-namespace1" class="entry property">
+<h2 class="jq-clearfix roundTop section-title">
+<span class="name">event.namespace</span> <span class="returns">Returns: <a class="return" href="http://api.jquery.com/Types/#String">String</a></span>
+</h2>
+<div class="jq-box roundBottom entry-details">
+<p class="desc"><strong>Description: </strong>The namespace specified when the event was triggered.</p>
+<ul class="signatures"><li class="signature" id="event-namespace"><h4 class="name">
+<span class="versionAdded">version added: <a href="/category/version/1.4.3/">1.4.3</a></span>event.namespace</h4></li></ul>
+<div class="longdesc"><p>This will likely be used primarily by plugin authors who wish to handle tasks differently depending on the event namespace used.</p></div>
+<h3>Example:</h3>
+<div class="entry-examples" id="entry-examples"><div id="example-0">
+<h4><span class="desc">Determine the event namespace used.</span></h4>
+<pre class="prettyprint"><code class="example demo-code">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;script src="http://code.jquery.com/jquery-1.7rc2.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  
+&lt;button&gt;display event.namespace&lt;/button&gt;
+&lt;p&gt;&lt;/p&gt;
+
+&lt;script&gt;
+$("p").bind("test.something", function(event) {
+  alert( event.namespace );
+});
+$("button").click(function(event) {
+  $("p").trigger("test.something");
+});  
+&lt;/script&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+<h4>Demo:</h4>
+<div class="demo code-demo"></div>
+</div></div>
+</div>
+</div>
+
+        </div>
+
+</body></html>

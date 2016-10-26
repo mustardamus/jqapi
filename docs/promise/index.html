@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang='en'><head><meta http-equiv='content-type' content='text/html; charset=UTF-8' /></head><body>
+<div class="entry-content">
+        <div class="entry-title roundTop">
+          
+          <h1 class="jq-clearfix">.promise()</h1>
+          <div class="entry-meta jq-clearfix">
+                        Categories:
+            <span class="category"><a href="http://api.jquery.com/category/deferred-object/" title="View all posts in Deferred Object">Deferred Object</a></span>
+  
+
+          </div>
+
+</div>
+<div id="promise1" class="entry method">
+<h2 class="jq-clearfix roundTop section-title">
+<span class="name">.promise(  [type]  [, target]  )</span> <span class="returns">Returns: <a class="return" href="http://api.jquery.com/Types/#Promise">Promise</a></span>
+</h2>
+<div class="jq-box roundBottom entry-details">
+<p class="desc"><strong>Description: </strong> Return a Promise object to observe when all actions of a certain type bound to the collection, queued or not, have finished. </p>
+<ul class="signatures"><li class="signature" id="promise-type-target">
+<h4 class="name">
+<span class="versionAdded">version added: <a href="/category/version/1.6/">1.6</a></span>.promise(  [type] [, target] )</h4>
+<p class="arguement"><strong>type</strong> The type of queue that needs to be observed. </p>
+<p class="arguement"><strong>target</strong>Object onto which the promise methods have to be attached</p>
+</li></ul>
+<div class="longdesc">
+<p>The <code>.promise()</code> method returns a dynamically generated Promise that is resolved once all actions of a certain type bound to the collection, queued or not, have ended.</p>
+<p> By default, <code>type</code> is <code>"fx"</code>, which means the returned Promise is resolved when all animations of the selected elements have completed.</p>
+<p> Resolve context and sole argument is the collection onto which <code>.promise()</code> has been called. </p>
+<p> If <code>target</code> is provided, <code>.promise()</code> will attach the methods onto it and then return this object rather than create a new one. This can be useful to attach the Promise behavior to an object that already exists.</p>
+<blockquote><p><strong>Note: </strong>The returned Promise is linked to a Deferred object stored on the <code>.data()</code> for an element. Since the <code>.remove()</code> method removes the element's data as well as the element itself, it will prevent any of the element's unresolved Promises from resolving. If it is necessary to remove an element from the DOM before its Promise is resolved, use <code>.detach()</code> instead and follow with <code>.removeData()</code> after resolution.</p></blockquote>
+</div>
+<h3>Examples:</h3>
+<div class="entry-examples" id="entry-examples">
+<div id="example-0">
+<h4>Example: <span class="desc">Using .promise() on a collection with no active animation returns a resolved Promise:</span>
+</h4>
+<pre class="prettyprint"><code class="example">
+var div = $( "&lt;div /&gt;" );
+
+div.promise().done(function( arg1 ) {
+  // will fire right away and alert "true"
+  alert( this === div &amp;&amp; arg1 === div );
+});
+</code></pre>
+</div>
+<div id="example-1">
+<h4>Example: <span class="desc">Resolve the returned Promise when all animations have ended (including those initiated in the animation callback or added later on):</span>
+</h4>
+<pre class="prettyprint"><code class="example demo-code">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;style&gt;
+div {
+  height: 50px; width: 50px;
+  float: left; margin-right: 10px;
+  display: none; background-color: #090;
+}
+&lt;/style&gt;
+  &lt;script src="http://code.jquery.com/jquery-1.7rc2.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  
+&lt;button&gt;Go&lt;/button&gt;
+&lt;p&gt;Ready...&lt;/p&gt;
+&lt;div&gt;&lt;/div&gt;
+&lt;div&gt;&lt;/div&gt;
+&lt;div&gt;&lt;/div&gt;
+&lt;div&gt;&lt;/div&gt;
+
+
+&lt;script&gt;
+$("button").bind( "click", function() {
+  $("p").append( "Started...");
+  
+  $("div").each(function( i ) {
+    $( this ).fadeIn().fadeOut( 1000 * (i+1) );
+  });
+
+  $( "div" ).promise().done(function() {
+    $( "p" ).append( " Finished! " );
+  });
+});
+&lt;/script&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+<h4>Demo:</h4>
+<div class="demo code-demo"></div>
+</div>
+<div id="example-2">
+<h4>Example: <span class="desc">Resolve the returned Promise using a $.when() statement (the .promise() method makes it possible to do this with jQuery collections):</span>
+</h4>
+<pre class="prettyprint"><code class="example demo-code">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;style&gt;
+div {
+  height: 50px; width: 50px;
+  float: left; margin-right: 10px;
+  display: none; background-color: #090;
+}
+&lt;/style&gt;
+  &lt;script src="http://code.jquery.com/jquery-1.7rc2.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  
+&lt;button&gt;Go&lt;/button&gt;
+&lt;p&gt;Ready...&lt;/p&gt;
+&lt;div&gt;&lt;/div&gt;
+&lt;div&gt;&lt;/div&gt;
+&lt;div&gt;&lt;/div&gt;
+&lt;div&gt;&lt;/div&gt;
+
+
+&lt;script&gt;
+var effect = function() {
+  return $("div").fadeIn(800).delay(1200).fadeOut();
+};
+
+$("button").bind( "click", function() {
+  $("p").append( " Started... ");
+
+  $.when( effect() ).done(function() {
+    $("p").append(" Finished! ");
+  });
+});
+
+&lt;/script&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+<h4>Demo:</h4>
+<div class="demo code-demo"></div>
+</div>
+</div>
+</div>
+</div>
+
+        </div>
+
+</body></html>

@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang='en'><head><meta http-equiv='content-type' content='text/html; charset=UTF-8' /></head><body>
+<div class="entry-content">
+        <div class="entry-title roundTop">
+          
+          <h1 class="jq-clearfix">.fadeOut()</h1>
+          <div class="entry-meta jq-clearfix">
+                        Categories:
+            <span class="category"><a href="http://api.jquery.com/category/effects/" title="View all posts in Effects">Effects</a> &gt; <a href="http://api.jquery.com/category/effects/fading/" title="View all posts in Fading">Fading</a></span>
+  
+
+          </div>
+
+</div>
+<div id="fadeOut1" class="entry method">
+<h2 class="jq-clearfix roundTop section-title">
+<span class="name">.fadeOut(  [duration]  [, callback]  )</span> <span class="returns">Returns: <a class="return" href="http://api.jquery.com/Types/#jQuery">jQuery</a></span>
+</h2>
+<div class="jq-box roundBottom entry-details">
+<p class="desc"><strong>Description: </strong>Hide the matched elements by fading them to transparent.</p>
+<ul class="signatures">
+<li class="signature" id="fadeOut-duration-callback">
+<h4 class="name">
+<span class="versionAdded">version added: <a href="/category/version/1.0/">1.0</a></span>.fadeOut(  [duration] [, callback] )</h4>
+<p class="arguement"><strong>duration</strong>A string or number determining how long the animation will run.</p>
+<p class="arguement"><strong>callback</strong>A function to call once the animation is complete.</p>
+</li>
+<li class="signature" id="fadeOut-duration-easing-callback">
+<h4 class="name">
+<span class="versionAdded">version added: <a href="/category/version/1.4.3/">1.4.3</a></span>.fadeOut(  [duration] [, easing] [, callback] )</h4>
+<p class="arguement"><strong>duration</strong>A string or number determining how long the animation will run.</p>
+<p class="arguement"><strong>easing</strong>A string indicating which easing function to use for the transition.</p>
+<p class="arguement"><strong>callback</strong>A function to call once the animation is complete.</p>
+</li>
+</ul>
+<div class="longdesc">
+<p>The <code>.fadeOut()</code> method animates the opacity of the matched elements. Once the opacity reaches 0, the <code>display</code> style property is set to <code>none</code>, so the element no longer affects the layout of the page.</p>
+<p>Durations are given in milliseconds; higher values indicate slower animations, not faster ones. The strings <code>'fast'</code> and <code>'slow'</code> can be supplied to indicate durations of <code>200</code> and <code>600</code> milliseconds, respectively. If any other string is supplied, or if the <code>duration</code> parameter is omitted, the default duration of  <code>400</code> milliseconds is used.</p>
+<p>We can animate any element, such as a simple image:</p>
+<pre>&lt;div id="clickme"&gt;
+  Click here
+&lt;/div&gt;
+&lt;img id="book" src="book.png" alt="" width="100" height="123" /&gt;</pre>
+<p>With the element initially shown, we can hide it slowly:</p>
+<pre>$('#clickme').click(function() {
+  $('#book').fadeOut('slow', function() {
+    // Animation complete.
+  });
+});</pre>
+<p class="image four-across">
+      <img src="/images/0042_06_37.png" alt=""><img src="/images/0042_06_38.png" alt=""><img src="/images/0042_06_39.png" alt=""><img src="/images/0042_06_40.png" alt=""></p>
+<blockquote>
+<p><strong>Note: </strong>To avoid unnecessary DOM manipulation, <code>.fadeOut()</code> will not hide an element that is already considered hidden. For information on which elements jQuery considers hidden, see <a href="http://api.jquery.com/hidden-selector"> :hidden Selector</a>.</p>
+</blockquote>
+<h4 id="easing">Easing</h4>
+<p><strong>As of jQuery 1.4.3</strong>, an optional string naming an easing function may be used. Easing functions specify the speed at which the animation progresses at different points within the animation. The only easing implementations in the jQuery library are the default, called <code>swing</code>, and one that progresses at a constant pace, called <code>linear</code>. More easing functions are available with the use of plug-ins, most notably the <a href="http://jqueryui.com">jQuery UI suite</a>.</p>
+<h4 id="callback-function">Callback Function</h4>
+<p>If supplied, the callback is fired once the animation is complete. This can be useful for stringing different animations together in sequence. The callback is not sent any arguments, but <code>this</code> is set to the DOM element being animated. If multiple elements are animated, it is important to note that the callback is executed once per matched element, not once for the animation as a whole.</p>
+<p><strong>As of jQuery 1.6</strong>, the <code><a href="http://api.jquery.com/promise/">.promise()</a></code> method can be used in conjunction with the <code><a href="http://api.jquery.com/deferred.done/">deferred.done()</a></code> method to execute a single callback for the animation as a whole when <em>all</em> matching elements have completed their animations ( See the <a href="http://api.jquery.com/promise/#example-1">example for .promise()</a> ).  </p>
+</div>
+<h3 id="notes-0">Additional Notes:</h3>
+<div class="longdesc"><ul>
+<li>All jQuery effects, including <code>.fadeOut()</code>, can be turned off globally by setting  <code>jQuery.fx.off = true</code>, which effectively sets the duration to 0. For more information, see <a href="http://api.jquery.com/jquery.fx.off">jQuery.fx.off</a>.</li>
+<li>Because of the nature of <a href="https://developer.mozilla.org/en/DOM/window.mozRequestAnimationFrame"><code>requestAnimationFrame()</code></a>, you should never queue animations using a <code>setInterval</code> or <code>setTimeout</code> loop. In order to preserve CPU resources, browsers that support <code>requestAnimationFrame</code> will not update animations when the window/tab is not displayed. If you continue to queue animations via <code>setInterval</code> or <code>setTimeout</code> while animation is paused, all of the queued animations will begin playing when the window/tab regains focus. To avoid this potential problem, use the callback of your last animation in the loop, or append a function to the elements <a href="http://api.jquery.com/queue"><code>.queue()</code></a> to set the timeout to start the next animation.
+</li>
+</ul></div>
+<h3>Examples:</h3>
+<div class="entry-examples" id="entry-examples">
+<div id="example-0">
+<h4>Example: <span class="desc">Animates all paragraphs to fade out, completing the animation within 600 milliseconds.</span>
+</h4>
+<pre class="prettyprint"><code class="example demo-code">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;style&gt;
+  p { font-size:150%; cursor:pointer; }
+  &lt;/style&gt;
+  &lt;script src="http://code.jquery.com/jquery-1.7rc2.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;p&gt;
+  If you click on this paragraph
+  you'll see it just fade away.
+  &lt;/p&gt;
+&lt;script&gt;
+  $("p").click(function () {
+  $("p").fadeOut("slow");
+  });
+  &lt;/script&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+<h4>Demo:</h4>
+<div class="demo code-demo"></div>
+</div>
+<div id="example-1">
+<h4>Example: <span class="desc">Fades out spans in one section that you click on.</span>
+</h4>
+<pre class="prettyprint"><code class="example demo-code">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;style&gt;
+  span { cursor:pointer; }
+  span.hilite { background:yellow; }
+  div { display:inline; color:red; }
+  &lt;/style&gt;
+  &lt;script src="http://code.jquery.com/jquery-1.7rc2.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;h3&gt;Find the modifiers - &lt;div&gt;&lt;/div&gt;&lt;/h3&gt;
+  &lt;p&gt;
+  If you &lt;span&gt;really&lt;/span&gt; want to go outside
+  &lt;span&gt;in the cold&lt;/span&gt; then make sure to wear
+  your &lt;span&gt;warm&lt;/span&gt; jacket given to you by
+  your &lt;span&gt;favorite&lt;/span&gt; teacher.
+  &lt;/p&gt;
+&lt;script&gt;
+
+  $("span").click(function () {
+  $(this).fadeOut(1000, function () {
+  $("div").text("'" + $(this).text() + "' has faded!");
+  $(this).remove();
+  });
+  });
+  $("span").hover(function () {
+  $(this).addClass("hilite");
+  }, function () {
+  $(this).removeClass("hilite");
+  });
+
+  &lt;/script&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+<h4>Demo:</h4>
+<div class="demo code-demo"></div>
+</div>
+<div id="example-2">
+<h4>Example: <span class="desc">Fades out two divs, one with a "linear" easing and one with the default, "swing," easing.</span>
+</h4>
+<pre class="prettyprint"><code class="example demo-code">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;style&gt;
+.box,
+button { float:left; margin:5px 10px 5px 0; }
+.box { height:80px; width:80px; background:#090; }
+#log { clear:left; }
+
+&lt;/style&gt;
+  &lt;script src="http://code.jquery.com/jquery-1.7rc2.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  
+&lt;button id="btn1"&gt;fade out&lt;/button&gt;
+&lt;button id="btn2"&gt;show&lt;/button&gt;
+
+&lt;div id="log"&gt;&lt;/div&gt;
+
+&lt;div id="box1" class="box"&gt;linear&lt;/div&gt;
+&lt;div id="box2" class="box"&gt;swing&lt;/div&gt;
+
+&lt;script&gt;
+$("#btn1").click(function() {
+  function complete() {
+    $("&lt;div/&gt;").text(this.id).appendTo("#log");
+  }
+  
+  $("#box1").fadeOut(1600, "linear", complete);
+  $("#box2").fadeOut(1600, complete);
+});
+
+$("#btn2").click(function() {
+  $("div").show();
+  $("#log").empty();
+});
+
+&lt;/script&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+<h4>Demo:</h4>
+<div class="demo code-demo"></div>
+</div>
+</div>
+</div>
+</div>
+
+        </div>
+
+</body></html>

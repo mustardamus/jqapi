@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang='en'><head><meta http-equiv='content-type' content='text/html; charset=UTF-8' /></head><body>
+<div class="entry-content">
+        <div class="entry-title roundTop">
+          
+          <h1 class="jq-clearfix">jQuery.isPlainObject()</h1>
+          <div class="entry-meta jq-clearfix">
+                        Categories:
+            <span class="category"><a href="http://api.jquery.com/category/utilities/" title="View all posts in Utilities">Utilities</a></span>
+  
+
+          </div>
+
+</div>
+<div id="jQuery-isPlainObject1" class="entry method">
+<h2 class="jq-clearfix roundTop section-title">
+<span class="name">jQuery.isPlainObject( object )</span> <span class="returns">Returns: <a class="return" href="http://api.jquery.com/Types/#Boolean">Boolean</a></span>
+</h2>
+<div class="jq-box roundBottom entry-details">
+<p class="desc"><strong>Description: </strong>Check to see if an object is a plain object (created using "{}" or "new Object").</p>
+<ul class="signatures"><li class="signature" id="jQuery-isPlainObject-object">
+<h4 class="name">
+<span class="versionAdded">version added: <a href="/category/version/1.4/">1.4</a></span>jQuery.isPlainObject( object )</h4>
+<p class="arguement"><strong>object</strong>The object that will be checked to see if it's a plain object.</p>
+</li></ul>
+<div class="longdesc">
+<p><strong>Note:</strong> Host objects (or objects used by browser host environments to complete the execution environment of ECMAScript) have a number of inconsistencies which are difficult to robustly feature detect cross-platform. As a result of this,  <code>$.isPlainObject()</code> may evaluate inconsistently across browsers in certain instances.</p>
+<p>An example of this is a test against <code>document.location</code> using <code>$.isPlainObject()</code> as follows:</p>
+<pre>
+console.log($.isPlainObject(document.location));
+</pre>
+<p>which throws an invalid pointer exception in IE8. With this in mind, it's important to be aware of any of the gotchas involved in using <code>$.isPlainObject()</code> against older browsers. Some basic example of use-cases that do function correctly cross-browser can be found below.</p>
+</div>
+<h3>Example:</h3>
+<div class="entry-examples" id="entry-examples"><div id="example-0">
+<h4><span class="desc">Check an object to see if it's a plain object.</span></h4>
+<pre class="prettyprint"><code class="example">jQuery.isPlainObject({}) // true
+jQuery.isPlainObject("test") // false</code></pre>
+</div></div>
+</div>
+</div>
+
+        </div>
+
+</body></html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang='en'><head><meta http-equiv='content-type' content='text/html; charset=UTF-8' /></head><body>
+<div class="entry-content">
+        <div class="entry-title roundTop">
+          
+          <h1 class="jq-clearfix">.parentsUntil()</h1>
+          <div class="entry-meta jq-clearfix">
+                        Categories:
+            <span class="category"><a href="http://api.jquery.com/category/traversing/" title="View all posts in Traversing">Traversing</a> &gt; <a href="http://api.jquery.com/category/traversing/tree-traversal/" title="View all posts in Tree Traversal">Tree Traversal</a></span>
+  
+
+          </div>
+
+</div>
+<div id="parentsUntil1" class="entry method">
+<h2 class="jq-clearfix roundTop section-title">
+<span class="name">.parentsUntil(  [selector]  [, filter]  )</span> <span class="returns">Returns: <a class="return" href="http://api.jquery.com/Types/#jQuery">jQuery</a></span>
+</h2>
+<div class="jq-box roundBottom entry-details">
+<p class="desc"><strong>Description: </strong>Get the ancestors of each element in the current set of matched elements, up to but not including the element matched by the selector, DOM node, or jQuery object.</p>
+<ul class="signatures">
+<li class="signature" id="parentsUntil-selector-filter">
+<h4 class="name">
+<span class="versionAdded">version added: <a href="/category/version/1.4/">1.4</a></span>.parentsUntil(  [selector] [, filter] )</h4>
+<p class="arguement"><strong>selector</strong>A string containing a selector expression to indicate where to stop matching ancestor elements.</p>
+<p class="arguement"><strong>filter</strong>A string containing a selector expression to match elements against.</p>
+</li>
+<li class="signature" id="parentsUntil-element-filter">
+<h4 class="name">
+<span class="versionAdded">version added: <a href="/category/version/1.6/">1.6</a></span>.parentsUntil(  [element] [, filter] )</h4>
+<p class="arguement"><strong>element</strong>A DOM node or jQuery object indicating where to stop matching ancestor elements.</p>
+<p class="arguement"><strong>filter</strong>A string containing a selector expression to match elements against.</p>
+</li>
+</ul>
+<div class="longdesc">
+<p>Given a selector expression that represents a set of DOM elements, the <code>.parentsUntil()</code> method traverses through the ancestors of these elements until it reaches an element matched by the selector passed in the method's argument. The resulting jQuery object contains all of the ancestors up to but not including the one matched by the <code>.parentsUntil()</code> selector.</p>
+<p>If the selector is not matched or is not supplied, all ancestors will be selected; in these cases it selects the same elements as the <code>.parents()</code> method does when no selector is provided.</p>
+<p><strong>As of jQuery 1.6</strong>, A DOM node or jQuery object, instead of a selector, may be used for the first <strong>.parentsUntil()</strong> argument.</p>
+<p>The method optionally accepts a selector expression for its second argument. If this argument is supplied, the elements will be filtered by testing whether they match it.</p>
+</div>
+<h3>Example:</h3>
+<div class="entry-examples" id="entry-examples"><div id="example-0">
+<h4><span class="desc">Find the ancestors of &lt;li class="item-a"&gt; up to &lt;ul class="level-1"&gt; and give them a red background color. Also, find ancestors of &lt;li class="item-2"&gt; that have a class of "yes" up to &lt;ul class="level-1"&gt; and give them a green border.</span></h4>
+<pre class="prettyprint"><code class="example demo-code">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;script src="http://code.jquery.com/jquery-1.7rc2.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  
+&lt;ul class="level-1 yes"&gt;
+  &lt;li class="item-i"&gt;I&lt;/li&gt;
+  &lt;li class="item-ii"&gt;II
+    &lt;ul class="level-2 yes"&gt;
+      &lt;li class="item-a"&gt;A&lt;/li&gt;
+      &lt;li class="item-b"&gt;B
+        &lt;ul class="level-3"&gt;
+          &lt;li class="item-1"&gt;1&lt;/li&gt;
+          &lt;li class="item-2"&gt;2&lt;/li&gt;
+          &lt;li class="item-3"&gt;3&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li class="item-c"&gt;C&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li class="item-iii"&gt;III&lt;/li&gt;
+&lt;/ul&gt;
+&lt;script&gt;
+$("li.item-a").parentsUntil(".level-1")
+  .css("background-color", "red");
+
+$("li.item-2").parentsUntil( $("ul.level-1"), ".yes" )
+  .css("border", "3px solid green");
+    
+&lt;/script&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+<h4>Demo:</h4>
+<div class="demo code-demo" rel="220px"></div>
+</div></div>
+</div>
+</div>
+
+        </div>
+
+</body></html>

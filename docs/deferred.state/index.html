@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang='en'><head><meta http-equiv='content-type' content='text/html; charset=UTF-8' /></head><body>
+<div class="entry-content">
+        <div class="entry-title roundTop">
+          
+          <h1 class="jq-clearfix">deferred.state()</h1>
+          <div class="entry-meta jq-clearfix">
+                        Categories:
+            <span class="category"><a href="http://api.jquery.com/category/deferred-object/" title="View all posts in Deferred Object">Deferred Object</a></span>
+  
+
+          </div>
+
+</div>
+<div id="deferred-state1" class="entry method">
+<h2 class="jq-clearfix roundTop section-title">
+<span class="name">deferred.state()</span> <span class="returns">Returns: <a class="return" href="http://api.jquery.com/Types/#String">String</a></span>
+</h2>
+<div class="jq-box roundBottom entry-details">
+<p class="desc"><strong>Description: </strong>Determine the current state of a Deferred object. </p>
+<ul class="signatures"><li class="signature" id="deferred-state"><h4 class="name">
+<span class="versionAdded">version added: <a href="/category/version/1.7/">1.7</a></span>deferred.state()</h4></li></ul>
+<div class="longdesc">
+<p>The deferred.state() method returns a string representing the current state of the Deferred object. The Deferred object can be in one of three states:</p>
+<ul>
+<li>
+<strong>"pending"</strong>: The Deferred object is not yet in a completed state (neither "rejected" nor "resolved").</li>
+      <li>
+<strong>"resolved"</strong>: The Deferred object is in the resolved state, meaning that either <a href="http://api.jquery.com/deferred.resolve/"><code>deferred.resolve()</code></a> or <a href="http://api.jquery.com/deferred.resolveWith/"><code>deferred.resolveWith()</code></a> has been called for the object and the doneCallbacks have been called (or are in the process of being called). </li>
+      <li>
+<strong>"rejected"</strong>: The Deferred object is in the rejected state, meaning that either <a href="http://api.jquery.com/deferred.reject/"><code>deferred.reject()</code></a> or <a href="http://api.jquery.com/deferred.rejectWith/"><code>deferred.rejectWith()</code></a> has been called for the object and the failCallbacks have been called (or are in the process of being called).</li>
+    </ul>
+<p>This method is primarily useful for debugging to determine, for example, whether a Deferred has already been resolved even though you are inside code that intended to reject it.</p>
+</div>
+</div>
+</div>
+
+        </div>
+
+</body></html>

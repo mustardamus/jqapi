@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang='en'><head><meta http-equiv='content-type' content='text/html; charset=UTF-8' /></head><body>
+<div class="entry-content">
+        <div class="entry-title roundTop">
+          
+          <h1 class="jq-clearfix">event.relatedTarget</h1>
+          <div class="entry-meta jq-clearfix">
+                        Categories:
+            <span class="category"><a href="http://api.jquery.com/category/events/" title="View all posts in Events">Events</a> &gt; <a href="http://api.jquery.com/category/events/event-object/" title="View all posts in Event Object">Event Object</a></span>
+  
+
+          </div>
+
+</div>
+<div id="event-relatedTarget1" class="entry property">
+<h2 class="jq-clearfix roundTop section-title">
+<span class="name">event.relatedTarget</span> <span class="returns">Returns: <a class="return" href="http://api.jquery.com/Types/#Element">Element</a></span>
+</h2>
+<div class="jq-box roundBottom entry-details">
+<p class="desc"><strong>Description: </strong>  The other DOM element involved in the event, if any. </p>
+<ul class="signatures"><li class="signature" id="event-relatedTarget"><h4 class="name">
+<span class="versionAdded">version added: <a href="/category/version/1.1.4/">1.1.4</a></span>event.relatedTarget</h4></li></ul>
+<div class="longdesc"><p>For <code>mouseout</code>, indicates the element being entered; for <code>mouseover</code>, indicates the element being exited. </p></div>
+<h3>Example:</h3>
+<div class="entry-examples" id="entry-examples"><div id="example-0">
+<h4><span class="desc">On mouseout of anchors, alert the element type being entered.</span></h4>
+<pre class="prettyprint"><code class="example">$("a").mouseout(function(event) {
+  alert(event.relatedTarget.nodeName); // "DIV"
+});  </code></pre>
+</div></div>
+</div>
+</div>
+
+        </div>
+
+</body></html>

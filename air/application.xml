@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<application xmlns="http://ns.adobe.com/air/application/2.5">
+    <id>com.erikzaadi.com.mustardamus.jQAPI</id>
+    <filename>jQAPI</filename>
+    <name>jQAPI</name>
+    <versionNumber>1.7</versionNumber>
+    <description>
+        jQAPI - Alternative jQuery Documentation
+        http://jqapi.com/
+    </description>
+    <copyright/>
+    <initialWindow>
+        <content>air/loader.html</content>
+        <title/>
+        <systemChrome>standard</systemChrome>
+        <transparent>false</transparent>
+        <visible>true</visible>
+        <minimizable>true</minimizable>
+        <maximizable>true</maximizable>
+        <resizable>true</resizable>
+        <width>1024</width>
+        <height>768</height>
+    </initialWindow>
+    <icon>
+        <image16x16>air/images/favicon16.png</image16x16>
+        <image32x32>air/images/favicon32.png</image32x32>
+        <image48x48>air/images/favicon48.png</image48x48>
+        <image128x128>air/images/favicon128.png</image128x128>
+    </icon>
+    <allowBrowserInvocation>true</allowBrowserInvocation>
+</application>
