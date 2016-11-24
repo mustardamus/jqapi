@@ -36,7 +36,7 @@ describe('Navigation Class', () => {
     let $li1 = $ul.children().eq(0)
     let $li1Ul = $li1.children('ul.categories')
     let $li1UlLi1 = $li1Ul.children().eq(0)
-    let $li1Entries = $li1UlLi1.children('.entries') 
+    let $li1Entries = $li1UlLi1.children('.entries')
     let slug = categories[0].categories[0].slug
 
     assert.equal($ul.children().length, categories.length)

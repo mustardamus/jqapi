@@ -4,7 +4,7 @@ require('babel-polyfill') // needed with PhantomJS+ES2015
 
 const $ = require('jquery')
 const assert = require('assert')
-const sinon = require('sinon')
+// const sinon = require('sinon')
 
 const actions = { loadEntry: function () {} }
 const $el = $('<div/>')

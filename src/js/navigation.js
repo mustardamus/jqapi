@@ -11,7 +11,7 @@ module.exports = class Navigation {
     this.categoriesClass = 'categories'
     this.categoryClass = 'category'
     this.entriesClass = 'entries'
-    this.entryClass = 'entry'    
+    this.entryClass = 'entry'
   }
 
   render (entries) {

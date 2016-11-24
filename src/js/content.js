@@ -64,7 +64,7 @@ module.exports = class Content {
       }
     }
 
-    return templates.signatureHeader(entry.type, entry.name, args, entry.return) 
+    return templates.signatureHeader(entry.type, entry.name, args, entry.return)
   }
 
   getArgumentTemplate (argument) {
