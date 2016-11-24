@@ -11,8 +11,11 @@
     "copy:assets": "cp -r src/assets www/assets",
     "copy": "npm run copy:html & npm run copy:assets",
     "build:js": "browserify -e src/index.js > www/build.js",
+    "build:js:prod": "browserify -e src/index.js | uglifyjs -c warnings=false -m > www/build.js",
     "build:css": "stylus -u autoprefixer-stylus --include-css --include src < src/index.styl > www/build.css",
+    "build:css:prod": "stylus -u autoprefixer-stylus --include-css --include src < src/index.styl | csso > www/build.css",
     "build": "npm run build:js & npm run build:css",
+    "build:prod": "npm run build:js:prod & npm run build:css:prod",
     "watch:js": "watchify src/index.js -v -o www/build.js",
     "watch:css": "chokidar src/**/*.styl -c 'npm run build:css'",
     "watch": "npm run watch:js & npm run watch:css",
@@ -22,6 +25,7 @@
     "test:frontend:once": "karma start karma.conf.js --single-run",
     "test": "npm run test:lib && npm run test:frontend:once",
     "start": "npm run copy & npm run serve & npm run watch",
+    "production": "npm run clean && npm run copy && npm run build:prod && npm run update",
     "lint": "standard"
   },
   "browserify": {
@@ -53,6 +57,7 @@
     "browser-sync": "^2.18.2",
     "browserify": "^13.1.1",
     "chokidar-cli": "^1.2.0",
+    "csso": "^2.3.0",
     "karma": "^1.3.0",
     "karma-browserify": "^5.1.0",
     "karma-mocha": "^1.3.0",
@@ -61,7 +66,8 @@
     "mocha": "^3.1.2",
     "sinon": "^1.17.6",
     "standard": "^8.6.0",
-    "stylus": "^0.54.5"
+    "stylus": "^0.54.5",
+    "uglifyjs": "^2.4.10"
   },
   "dependencies": {
     "cheerio": "^0.22.0",
