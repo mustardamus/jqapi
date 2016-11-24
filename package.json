@@ -4,8 +4,6 @@
   "description": "Alternative jQuery Documentaion Browser",
   "main": "index.js",
   "scripts": {
-    "update": "node tasks/update.js",
-    "update:daemon": "node tasks/update.js --daemon",
     "clean": "rm -rf www && mkdir www",
     "copy:html": "cp src/*.html www",
     "copy:assets": "cp -r src/assets www/assets",
@@ -20,6 +18,8 @@
     "watch:css": "chokidar src/**/*.styl -c 'npm run build:css'",
     "watch": "npm run watch:js & npm run watch:css",
     "serve": "browser-sync start --serveStatic www --files www/build.*",
+    "update": "node tasks/update.js",
+    "update:daemon": "node tasks/update.js --daemon",
     "test:lib": "mocha test/lib/**/*_spec.js",
     "test:frontend": "karma start karma.conf.js",
     "test:frontend:once": "karma start karma.conf.js --single-run",
