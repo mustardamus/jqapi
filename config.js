@@ -4,7 +4,7 @@ const path = require('path')
 
 const baseDir = __dirname
 const tempDir = path.join(baseDir, 'temp')
-const publicDir = path.join(baseDir, 'public')
+const publicDir = path.join(baseDir, 'www')
 const repoDir = path.join(tempDir, 'docs')
 const repoUrl = 'https://github.com/jquery/api.jquery.com.git'
 const entriesXmlGlob = path.join(repoDir, 'entries/*.xml')
