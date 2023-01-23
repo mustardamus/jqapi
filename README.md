@@ -1,5 +1,6 @@
 # jQAPI - Alternative jQuery Documentation Browser
 
+## All development and issue handling of jQAPI V3 is happening in the [jqapi/jqapi](https://github.com/jqapi/jqapi) repository. See you there! :)
 
 ## What is jQAPI? / Why was it born?
 
